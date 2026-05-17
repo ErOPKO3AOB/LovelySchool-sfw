@@ -401,7 +401,7 @@ namespace Game
             Transform[] fullObject = GetComponentsInChildren<Transform>();
             foreach (var item in fullObject)
             {
-                item.gameObject.layer = LayerMask.NameToLayer("Default");
+                item.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
             }
 
             if (inventory != null && inventory.Weapons.Count > 0)

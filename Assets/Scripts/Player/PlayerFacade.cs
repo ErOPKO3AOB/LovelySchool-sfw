@@ -90,6 +90,7 @@ namespace Player
             _collider.enabled = false;
             _ragdoll.SetActive(true);
             _canvas.SetActive(false);
+            _v1BodyAnimator.gameObject.SetActive(false);
 
             _ragdoll.transform.SetParent(null);
 
