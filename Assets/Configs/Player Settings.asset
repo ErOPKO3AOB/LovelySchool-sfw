@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4598bd31ca0035c489b0bf3955cddb49, type: 3}
+  m_Name: Player Settings
+  m_EditorClassIdentifier: Assembly-CSharp::Data.PlayerSettingsSO
+  soundPrefabs:
+  - {fileID: 6332960326804919281, guid: 015c4e31a5e746240a91ea9759aafb33, type: 3}
+  - {fileID: 3313950335228596758, guid: aa31a1bf765490c489ed1134c085a1db, type: 3}
+  - {fileID: 792598407131757554, guid: c1669df409a0df84ab3bfd8a3fae4d53, type: 3}
+  - {fileID: 2504964120342788952, guid: b28d4da27b753f64ea163c9a6ccfce07, type: 3}
+  - {fileID: 2504964120342788952, guid: d487b3149077c4b4e99aba58df70ab38, type: 3}
+  - {fileID: 2504964120342788952, guid: 46dcec46d326b0548af311e30c7f49c6, type: 3}
+  - {fileID: 2504964120342788952, guid: 62768dc4746d9534ba03565c030a929c, type: 3}
+  - {fileID: 2504964120342788952, guid: 64b2e651a420c404783cc944ec6637f5, type: 3}
+  - {fileID: 2504964120342788952, guid: 2f909382b8acd5048aff1098448afd20, type: 3}
+  playerPrefab: {fileID: 8482903674758022575, guid: 9289e2dbfdbccbe4f902b1b730ca4e62, type: 3}
+  cameraPrefab: {fileID: 7081240675906717068, guid: 2e8cda44b1ddef84ab6f52a01258a0be, type: 3}
+  walkSpeed: 16
+  acceleration: 500
+  airControl: 0.15
+  jumpForce: 70
+  groundCheckRadius: 0.25
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  dashSpeed: 30
+  dashDuration: 0.2
+  dashCooldown: 0.5
+  dashStaminaCost: 40
+  maxStamina: 120
+  staminaRegenRate: 30
+  staminaRegenDelay: 0.5
+  mouseSensitivity: 80
+  verticalClamp: 90
+  cameraOffset: {x: 0, y: 0.7, z: 0}
+  tiltAmount: 2
+  tiltSmoothTime: 0.1
+  enableArms: 1

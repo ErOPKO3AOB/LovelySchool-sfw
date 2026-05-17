@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b525a61ac69b894c8696ce264916bc7, type: 3}
+  m_Name: Weapon Settings
+  m_EditorClassIdentifier: Assembly-CSharp::Data.WeaponSettingsSO
+  ammoPrefab: {fileID: 6046049313259991346, guid: 0b3a0707469012045a1034f34cee69d9, type: 3}
+  weaponPrefabs:
+  - {fileID: 3555103015471596168, guid: 9fe983ca92df6a246a08e5cc747b1cfe, type: 3}
+  - {fileID: 864465195731430934, guid: ced9a3906aab9204387ea58d13ef4e35, type: 3}
+  - {fileID: 8877399273502581776, guid: 942001bfb1650fc45a6c2ddebde0bf0c, type: 3}
+  - {fileID: 8270044744565128922, guid: ded668c4a09abbb458ec394c38037631, type: 3}
+  projectiles:
+  - {fileID: 3420204110976787364, guid: 2d42fd8f3fdbfc44a848535951d90fa3, type: 3}
+  - {fileID: 2048716118800303284, guid: f72b0612b68f1cc4e8960bdc42ea6989, type: 3}
+  projectileLifetime: 2.5
