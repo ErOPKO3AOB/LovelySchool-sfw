@@ -18,6 +18,7 @@ namespace Player
         [SerializeField] private Rigidbody _ragdollRb;
         [SerializeField] private GameObject _canvas;
         [SerializeField] private LegController _legController;
+        [SerializeField] private Animator _v1BodyAnimator;
 
         // Компоненты
         private Rigidbody _rigidbody;
@@ -187,7 +188,11 @@ namespace Player
         {
             if (_health.IsDead) return;
 
-            _movement.Move(_input.Move, _jump.IsGrounded, _dash.IsDashing);
+            bool isGrounded = _jump.IsGrounded;
+
+            _movement.Move(_input.Move, isGrounded, _dash.IsDashing);
+            _v1BodyAnimator.SetBool("Walking", _input.Move != Vector2.zero && isGrounded);
+            _v1BodyAnimator.SetBool("Falling", !isGrounded);
         }
 
         private void HandleJump()
@@ -223,6 +228,7 @@ namespace Player
             _health.OnDead -= OnDead;
         }
 
+#if UNITY_EDITOR
         // Для отладки
         private void OnDrawGizmosSelected()
         {
@@ -231,4 +237,5 @@ namespace Player
             Gizmos.DrawWireSphere(_groundCheck.position, _settings.groundCheckRadius);
         }
     }
+#endif
 }

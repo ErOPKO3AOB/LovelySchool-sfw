@@ -100,7 +100,7 @@ namespace Game
             Array.Resize(ref armRenderers, arms.Length);
             for (int i = 0; i < armRenderers.Length; i++)
             {
-                armRenderers[i] = arms[i].GetComponent<MeshRenderer>();
+                armRenderers[i] = arms[i].GetComponentInChildren<MeshRenderer>();
             }
 
             reserve = currentAmmoCapacity > 0 ? currentAmmoCapacity : maxAmmo * 2;

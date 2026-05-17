@@ -161,7 +161,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: -0.4561448, y: -0.0670041, z: -1.3173747}
 --- !u!114 &6078567708348706418
 MonoBehaviour:
@@ -182,9 +182,9 @@ MonoBehaviour:
     m_Bits: 3136
   _damage: 45
   _force: 18
-  _cooldownTime: 0.9
-  _kickRange: 4
-  _kickBoxSize: {x: 0.6, y: 0.6, z: 0.1}
+  _cooldownTime: 0.34
+  _kickRange: 5
+  _kickBoxSize: {x: 0.8, y: 0.8, z: 0.2}
 --- !u!95 &8506338992289467891
 Animator:
   serializedVersion: 7

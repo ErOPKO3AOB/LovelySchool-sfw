@@ -6,6 +6,7 @@ public class LegController : MonoBehaviour
 {
     [SerializeField] private PlayerFacade _playerFacade;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Animator _v1BodyAnimator;
     [SerializeField] private LayerMask _kickLayerMask;
     [SerializeField] private int _damage = 15;
     [SerializeField] private float _force = 32f;
@@ -21,7 +22,8 @@ public class LegController : MonoBehaviour
     {
         if (_cooldownTimer > 0 || _playerFacade.Health.IsDead || IsKicking) return;
 
-        _animator.SetTrigger("Kick");
+        _animator.SetTrigger("KickPerform");
+        _v1BodyAnimator.SetTrigger("KickPerform");
     }
 
     public void KickPerform()
@@ -63,6 +65,7 @@ public class LegController : MonoBehaviour
     public void OnKickEnd()
     {
         IsKicking = false;
+        _v1BodyAnimator.ResetTrigger("KickPerform");
     }
 
     private void Update()
