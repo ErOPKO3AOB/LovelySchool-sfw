@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using VContainer;
+using YG;
 using Random = UnityEngine.Random;
 
 namespace Game
@@ -122,6 +123,8 @@ namespace Game
 
         private void OnPlayerDead(GameObject obj)
         {
+            YG2.InterstitialAdvShow();
+
             SetPaused(false);
             _playerDead = true;
 

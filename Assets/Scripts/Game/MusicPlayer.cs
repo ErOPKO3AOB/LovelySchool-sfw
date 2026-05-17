@@ -2,6 +2,7 @@ using Player;
 using System.Collections;
 using UnityEngine;
 using VContainer;
+using YG;
 
 namespace Game
 {
@@ -40,6 +41,9 @@ namespace Game
         private void OnPauseStateChanged(bool paused)
         {
             _isGamePaused = paused;
+
+            YG2.PauseGame(paused);
+
             if (paused)
                 _audioSource.Pause();
             else if (!_gameController.DisableMusicToggle.isOn)
@@ -61,6 +65,7 @@ namespace Game
             }
 
             _audioSource.clip = _audios[currentIndex];
+            if(_audioSource.enabled)
             _audioSource.Play();
             _lastAudioIndex = currentIndex;
         }
