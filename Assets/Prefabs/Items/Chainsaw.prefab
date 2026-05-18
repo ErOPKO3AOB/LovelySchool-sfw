@@ -2535,22 +2535,23 @@ MonoBehaviour:
   - {fileID: 1872846577742192060}
   - {fileID: 2164307001041080368}
   animator: {fileID: 9045734594465832760}
-  shootAnimNames: []
+  shootAnimNames:
+  - Shoot1
   reloadAnimName: Reload
   pickupAnimName: Pickup
   currentAmmoCapacity: 0
   maxAmmo: 0
   ammo: 0
-  damage: 24
-  range: 0
+  damage: 32
+  range: 5
   fireRate: 0
   canHold: 0
   reloadTime: 0
   _projectileSpawnPoint: {fileID: 0}
   isMelee: 1
-  meleeRange: 4
-  meleeCooldown: 0.2
-  meleeCanHold: 0
+  meleeRange: 5
+  meleeCooldown: 1
+  meleeCanHold: 1
   targetLayers:
     serializedVersion: 2
     m_Bits: 1089
@@ -2562,7 +2563,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5931217978779331564}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6cef5872c6129594d8241211a64dc29f, type: 2}
   m_CullingMode: 0
