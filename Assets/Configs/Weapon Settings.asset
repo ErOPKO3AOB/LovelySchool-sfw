@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 864465195731430934, guid: ced9a3906aab9204387ea58d13ef4e35, type: 3}
   - {fileID: 8877399273502581776, guid: 942001bfb1650fc45a6c2ddebde0bf0c, type: 3}
   - {fileID: 8270044744565128922, guid: ded668c4a09abbb458ec394c38037631, type: 3}
+  - {fileID: 5931217978779331564, guid: b64e5514ccbb957469cad39068099334, type: 3}
   projectiles:
   - {fileID: 3420204110976787364, guid: 2d42fd8f3fdbfc44a848535951d90fa3, type: 3}
   - {fileID: 2048716118800303284, guid: f72b0612b68f1cc4e8960bdc42ea6989, type: 3}
