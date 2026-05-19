@@ -1,11 +1,12 @@
 ﻿using Data;
+using Game;
 using Player;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using VContainer;
 
-namespace Game
+namespace Assets.Scripts.Game
 {
     public class Enemy : MonoBehaviour
     {

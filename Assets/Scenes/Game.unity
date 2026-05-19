@@ -236531,9 +236531,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.MusicPlayer
   _audios:
-  - {fileID: 8300000, guid: edf22696767090e4fa30c3b8f9b5c457, type: 3}
+  - {fileID: 8300000, guid: b1540a4859f1ba645acc55eab284550b, type: 3}
   - {fileID: 8300000, guid: dc8f21f67cb61824b80addaf5e3edf7a, type: 3}
   - {fileID: 8300000, guid: a28ee7f4594da8446b3309317dfa264a, type: 3}
+  - {fileID: 8300000, guid: a700238aaccb45c40baeca8843aaef19, type: 3}
   _volume: 0.7
   _fadeOutDuration: 7
 --- !u!4 &594673821
@@ -381170,14 +381171,14 @@ MonoBehaviour:
   _weaponSettings: {fileID: 11400000, guid: e34ee7ba54f99bb4f9c87f2e09511559, type: 2}
   _randomPointItemsSpawner: {fileID: 1191888747}
   _enemySpawnPoints:
-  - {fileID: 1197614925}
-  - {fileID: 299809439}
-  - {fileID: 425888681}
-  - {fileID: 237525410}
   - {fileID: 1345547699}
-  - {fileID: 1811078034}
-  - {fileID: 402253163}
+  - {fileID: 237525410}
   - {fileID: 1251973890}
+  - {fileID: 425888681}
+  - {fileID: 1197614925}
+  - {fileID: 402253163}
+  - {fileID: 1811078034}
+  - {fileID: 299809439}
   _gameController: {fileID: 1003872888}
   _enemyOutliner: {fileID: 1304632640}
   _musicPlayer: {fileID: 594673820}

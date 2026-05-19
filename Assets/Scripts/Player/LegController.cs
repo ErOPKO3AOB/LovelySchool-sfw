@@ -1,4 +1,4 @@
-﻿using Game;
+﻿using Assets.Scripts.Game;
 using Player;
 using UnityEngine;
 

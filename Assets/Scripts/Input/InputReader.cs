@@ -14,11 +14,10 @@ namespace Input
         public event Action OnDashPerformed;
         public event Action OnKickPerformed;
 
-        public event Action OnReloadPerformed;       // ПКМ (однократно)
-        public event Action<float> OnChangeWeaponPerformed; // Скролл
+        public event Action OnReloadPerformed;
+        public event Action<float> OnChangeWeaponPerformed;
         public event Action<int> OnSelectInventorySlotPerformed;
 
-        // Состояния кнопки Use (ЛКМ) – для автоматической стрельбы
         public event Action OnUseStarted;    // Зажали
         public event Action OnUseCanceled;   // Отпустили
         public bool IsUsePressed => _inputActions.Player.Use.IsPressed(); // Текущее состояние

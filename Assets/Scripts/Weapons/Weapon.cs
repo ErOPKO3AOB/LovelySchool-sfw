@@ -10,7 +10,10 @@ namespace Game
     public class Weapon : MonoBehaviour
     {
         [Inject]
-        public void Construct(PooledSpawnService pooledSpawnService, WeaponSettingsSO weaponSettings, PlayerFacade playerFacade, GameController gameController)
+        public void Construct(PooledSpawnService pooledSpawnService,
+            WeaponSettingsSO weaponSettings,
+            PlayerFacade playerFacade, 
+            GameController gameController)
         {
             _pooledSpawnService = pooledSpawnService;
             _weaponSettingsSO = weaponSettings;
