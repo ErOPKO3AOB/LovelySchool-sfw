@@ -1,5 +1,6 @@
+using Assets.Scripts.Data;
 using Assets.Scripts.Game;
-using Data;
+using Assets.Scripts.Weapons;
 using Game;
 using Input;
 using UnityEngine;
@@ -10,8 +11,7 @@ namespace Installers
 {
     public class GameLifetimeScope : LifetimeScope
     {
-        [SerializeField] private GameSettingsSO _playerSettings;
-        [SerializeField] private WeaponSettingsSO _weaponSettings;
+        [SerializeField] private GameSettingsSO _gameSettings;
         [SerializeField] private RandomPointItemsSpawner _randomPointItemsSpawner;
         [SerializeField] private EnemySpawnPoint[] _enemySpawnPoints;
         [SerializeField] private GameController _gameController;
@@ -25,31 +25,12 @@ namespace Installers
 
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.RegisterInstance(_gameSettings);
+
             builder.Register<SoundEmitterService>(Lifetime.Singleton).AsSelf();
-
-            builder.RegisterInstance(_playerSettings);
-            builder.RegisterInstance(_weaponSettings);
-
-            builder.Register<InputReader>(Lifetime.Singleton)
-                .AsSelf();
-
-            var player = Instantiate(_playerSettings.playerPrefab, new Vector3(-48.5f, 1, -18.5f), Quaternion.identity);
-            builder.RegisterComponent(player)
-                .AsSelf();
 
             builder.Register<PooledSpawnService>(Lifetime.Singleton)
                 .AsSelf();
-
-            builder.RegisterFactory<Transform, GameObject, Weapon>((resolver) =>
-            {
-                return (spawnPoint, prefab) =>
-                {
-                    Weapon weapon = resolver.Instantiate(prefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Weapon>();
-                    return weapon;
-                };
-            },
-            Lifetime.Singleton)
-            .AsSelf();
 
             builder.RegisterComponent(_randomPointItemsSpawner);
 
@@ -74,6 +55,40 @@ namespace Installers
             builder.RegisterComponent(_enemyOutliner);
 
             builder.RegisterComponent(_musicPlayer);
+
+
+            ConfigureWeapons(builder);
+            ConfigurePlayer(builder);
+
+            //builder.RegisterFactory<Transform, GameObject, Weapon>((resolver) =>
+            //{
+            //    return (spawnPoint, prefab) =>
+            //    {
+            //        Weapon weapon = resolver.Instantiate(prefab, spawnPoint.position, spawnPoint.rotation).GetComponent<Weapon>();
+            //        return weapon;
+            //    };
+            //},
+            //Lifetime.Singleton)
+            //.AsSelf();
+        }
+
+        private void ConfigureWeapons(IContainerBuilder builder)
+        {
+            builder.RegisterInstance(_gameSettings.WeaponConfigs);
+
+            builder.RegisterEntryPoint<WeaponFactory>(Lifetime.Singleton).AsSelf();
+        }
+
+        private void ConfigurePlayer(IContainerBuilder builder)
+        {
+            builder.RegisterInstance(_gameSettings.PlayerData);
+
+            builder.Register<InputReader>(Lifetime.Singleton)
+                .AsSelf();
+
+            var player = Instantiate(_gameSettings.PlayerData.playerPrefab, new Vector3(-48.5f, 1, -18.5f), Quaternion.identity);
+            builder.RegisterComponent(player)
+                .AsSelf();
         }
     }
 }

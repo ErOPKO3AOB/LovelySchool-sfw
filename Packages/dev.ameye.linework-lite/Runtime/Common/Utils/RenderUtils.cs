@@ -148,7 +148,7 @@ namespace LineworkLite.Common.Utils
         public static void ClearStencil(RenderGraph renderGraph, UniversalResourceData resourceData, Material clear)
         {
             using var builder = renderGraph.AddRasterRenderPass<PassData>("Clear Stencil (Free Outline)", out _);
-            builder.SetRenderAttachment(resourceData.activeColorTexture, 0); // TODO: SHOULD NOT BE NEEDED, UNITY BUG!
+            builder.SetRenderAttachment(resourceData.activeColorTexture, 0);
             builder.SetRenderAttachmentDepth(resourceData.activeDepthTexture);
             builder.AllowPassCulling(false);
             builder.SetRenderFunc((PassData _, RasterGraphContext context) => { context.cmd.DrawProcedural(Matrix4x4.identity, clear, 0, MeshTopology.Triangles, 3, 1); });

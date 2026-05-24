@@ -1,4 +1,4 @@
-using Data;
+using Assets.Scripts.Data;
 using Player;
 using System.Collections;
 using UnityEngine;
@@ -8,7 +8,7 @@ namespace Player
     public class PlayerDash
     {
         private readonly Rigidbody _rigidbody;
-        private readonly GameSettingsSO _settings;
+        private readonly PlayerData _playerData;
         private readonly PlayerStamina _stamina;
         private readonly Transform _cameraTransform;
 
@@ -18,10 +18,10 @@ namespace Player
 
         public bool IsDashing => _isDashing;
 
-        public PlayerDash(Rigidbody rigidbody, GameSettingsSO settings, PlayerStamina stamina, Transform cameraTransform)
+        public PlayerDash(Rigidbody rigidbody, PlayerData playerData, PlayerStamina stamina, Transform cameraTransform)
         {
             _rigidbody = rigidbody;
-            _settings = settings;
+            _playerData = playerData;
             _stamina = stamina;
             _cameraTransform = cameraTransform;
         }
@@ -42,14 +42,14 @@ namespace Player
         public bool TryStartDash(Vector2 moveInput)
         {
             if (_isDashing || _cooldownTimer > 0) return false;
-            if (!_stamina.TryConsume(_settings.dashStaminaCost)) return false;
+            if (!_stamina.TryConsume(_playerData.dashStaminaCost)) return false;
 
             Vector3 dashDir = GetDashDirection(moveInput);
-            _rigidbody.linearVelocity = dashDir * _settings.dashSpeed;
+            _rigidbody.linearVelocity = dashDir * _playerData.dashSpeed;
 
             _isDashing = true;
-            _dashTimer = _settings.dashDuration;
-            _cooldownTimer = _settings.dashCooldown;
+            _dashTimer = _playerData.dashDuration;
+            _cooldownTimer = _playerData.dashCooldown;
             return true;
         }
 

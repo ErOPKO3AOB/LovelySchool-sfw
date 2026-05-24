@@ -173,7 +173,7 @@ namespace Player
             weapon.Rigidbody.position = weapon.transform.position;
             weapon.Rigidbody.rotation = weapon.transform.rotation;
 
-            weapon.EnableArms(_playerFacade.GameSettings.enableArms);
+            weapon.EnableArms(_playerFacade.PlayerData.enableArms);
 
             if (!weapon.IsMelee) HasNotMelee = true;
 

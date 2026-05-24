@@ -1,4 +1,4 @@
-﻿using Data;
+﻿using Assets.Scripts.Data;
 using Input;
 using UnityEngine;
 
@@ -32,20 +32,20 @@ namespace Player
 
         public Camera Camera { get { return _camera; } }
 
-        private GameSettingsSO _gameSettingsSO;
+        private PlayerData _playerData;
 
-        public void Initialize(InputReader input, PlayerFacade player, GameSettingsSO settings)
+        public void Initialize(InputReader input, PlayerFacade player, PlayerData playerData)
         {
             _input = input;
             _player = player;
             _playerTransform = player.transform;
 
             // Применить настройки
-            _gameSettingsSO = settings;
-            verticalClamp = settings.verticalClamp;
-            offset = settings.cameraOffset;
-            tiltAmount = settings.tiltAmount;
-            tiltSmoothTime = settings.tiltSmoothTime;
+            _playerData = playerData;
+            verticalClamp = playerData.verticalClamp;
+            offset = playerData.cameraOffset;
+            tiltAmount = playerData.tiltAmount;
+            tiltSmoothTime = playerData.tiltSmoothTime;
 
             Cursor.lockState = CursorLockMode.Locked;
 
@@ -79,7 +79,7 @@ namespace Player
             }
 
             // Ввод мыши (теперь обрабатывается всегда)
-            Vector2 lookDelta = _gameSettingsSO.mouseSensitivity * Time.deltaTime * _input.Look;
+            Vector2 lookDelta = _playerData.mouseSensitivity * Time.deltaTime * _input.Look;
 
             // Вертикальный поворот
             xRotation -= lookDelta.y;

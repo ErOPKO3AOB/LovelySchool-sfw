@@ -1,4 +1,4 @@
-﻿using Data;
+﻿using Assets.Scripts.Data;
 using Game;
 using Input;
 using TMPro;
@@ -10,7 +10,6 @@ namespace Player
 {
     public class PlayerFacade : MonoBehaviour
     {
-        [SerializeField] private GameSettingsSO _settings;
         [SerializeField] private Inventory _inventory;
         [SerializeField] private Health _health;
         [SerializeField] private TextMeshProUGUI _healthText;
@@ -20,6 +19,9 @@ namespace Player
         [SerializeField] private LegController _legController;
         [SerializeField] private Animator _v1BodyAnimator;
 
+        private PlayerData _playerData;
+        public PlayerData PlayerData { get { return _playerData; }  }
+        
         // Компоненты
         private Rigidbody _rigidbody;
         private CapsuleCollider _collider;
@@ -38,6 +40,7 @@ namespace Player
         private CameraFacade _camera;
 
         private PooledSpawnService _pooledSpawnService;
+
         public LegController LegController => _legController;
 
         public PlayerJump Jump => _jump;
@@ -45,15 +48,14 @@ namespace Player
         public Health Health => _health;
         public Rigidbody RagdollRb => _ragdollRb;
         public PlayerDash Dash => _dash;
-
-        public GameSettingsSO GameSettings { get; private set; }
+        public CameraFacade CameraFacade => _camera;
 
         [Inject]
-        public void Construct(InputReader input, PooledSpawnService pooledSpawnService, GameSettingsSO gameSettings)
+        public void Construct(InputReader input, PooledSpawnService pooledSpawnService, PlayerData playerData)
         {
             _input = input;
             _pooledSpawnService = pooledSpawnService;
-            GameSettings = gameSettings;
+            _playerData = playerData;
         }
 
         private void OnValidate()
@@ -73,10 +75,10 @@ namespace Player
             CreateStaminaUI();
             SpawnCamera();
 
-            _stamina = new PlayerStamina(_settings);
-            _movement = new PlayerMovement(_rigidbody, _settings, transform); // больше не нужен _cameraTransform
-            _jump = new PlayerJump(_rigidbody, _settings, _groundCheck);
-            _dash = new PlayerDash(_rigidbody, _settings, _stamina, transform);
+            _stamina = new PlayerStamina(_playerData);
+            _movement = new PlayerMovement(_rigidbody, _playerData, transform);
+            _jump = new PlayerJump(_rigidbody, _playerData, _groundCheck);
+            _dash = new PlayerDash(_rigidbody, _playerData, _stamina, transform);
             _inventory.Initialize(_input, _camera.Camera);
 
             _stamina.OnStaminaChanged += UpdateStaminaUI;
@@ -148,10 +150,10 @@ namespace Player
 
         private void SpawnCamera()
         {
-            if (_settings.cameraPrefab != null)
+            if (_playerData.cameraPrefab != null)
             {
-                _camera = Instantiate(_settings.cameraPrefab, transform.position, Quaternion.identity, transform);
-                _camera.Initialize(_input, this, _settings);
+                _camera = Instantiate(_playerData.cameraPrefab, transform.position, Quaternion.identity, transform);
+                _camera.Initialize(_input, this, _playerData);
             }
         }
 
@@ -233,9 +235,9 @@ namespace Player
         // Для отладки
         private void OnDrawGizmosSelected()
         {
-            if (_groundCheck == null || _settings == null) return;
+            if (_groundCheck == null || _playerData == null) return;
             Gizmos.color = _jump != null && _jump.IsGrounded ? Color.green : Color.red;
-            Gizmos.DrawWireSphere(_groundCheck.position, _settings.groundCheckRadius);
+            Gizmos.DrawWireSphere(_groundCheck.position, _playerData.groundCheckRadius);
         }
     }
 #endif
