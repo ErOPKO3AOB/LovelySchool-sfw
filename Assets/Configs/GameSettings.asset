@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4598bd31ca0035c489b0bf3955cddb49, type: 3}
-  m_Name: Player Settings
+  m_Name: GameSettings
   m_EditorClassIdentifier: Assembly-CSharp::Data.PlayerSettingsSO
   soundPrefabs:
   - {fileID: 6332960326804919281, guid: 015c4e31a5e746240a91ea9759aafb33, type: 3}

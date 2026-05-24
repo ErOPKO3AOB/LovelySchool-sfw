@@ -65,7 +65,7 @@ MonoBehaviour:
   ammo: 20
   damage: 40
   range: 100
-  fireRate: 7
+  fireRate: 50
   canHold: 0
   reloadTime: 1.5
   _projectileSpawnPoint: {fileID: 604054142259744367}

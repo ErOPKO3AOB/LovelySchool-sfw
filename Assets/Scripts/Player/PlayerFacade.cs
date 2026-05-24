@@ -112,7 +112,7 @@ namespace Player
 
         private void HealthChanged(int health)
         {
-            _healthText.text = health.ToString();
+            _healthText.text = health.ToString() + "хп";
         }
 
         private void SetupComponents()

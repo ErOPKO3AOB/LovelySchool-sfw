@@ -30,22 +30,6 @@ namespace Player
             _playerFacade.Health.OnDead += OnDead;
         }
 
-        public void EnableArms(bool value)
-        {
-            _armsEnabled = value;
-
-            if (_weapons.Count == 0) return;
-
-            foreach (var item in Weapons)
-            {
-                item.gameObject.SetActive(true);
-                item.EnableArms(value);
-                item.gameObject.SetActive(false);
-            }
-
-            _weapons[_currentWeapon].gameObject.SetActive(true);
-        }
-
         private void OnDead(GameObject obj)
         {
             _hand.gameObject.SetActive(false);
@@ -172,8 +156,6 @@ namespace Player
 
             weapon.Rigidbody.position = weapon.transform.position;
             weapon.Rigidbody.rotation = weapon.transform.rotation;
-
-            weapon.EnableArms(_playerFacade.GameSettings.enableArms);
 
             if (!weapon.IsMelee) HasNotMelee = true;
 

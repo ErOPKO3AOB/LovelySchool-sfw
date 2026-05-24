@@ -66,8 +66,6 @@ namespace Game
         protected bool isReloading;
         protected bool isActionHeld;
 
-        private MeshRenderer[] armRenderers;
-
         public event Action<int, int, int> AmmoChanged; // текущие в магазине, максимум, резерв
 
         public Animator Animator => animator;
@@ -100,12 +98,6 @@ namespace Game
                 item.SetActive(false);
             }
 
-            Array.Resize(ref armRenderers, arms.Length);
-            for (int i = 0; i < armRenderers.Length; i++)
-            {
-                armRenderers[i] = arms[i].GetComponentInChildren<MeshRenderer>();
-            }
-
             reserve = currentAmmoCapacity > 0 ? currentAmmoCapacity : maxAmmo * 2;
 
             if (Rigidbody != null)
@@ -130,14 +122,6 @@ namespace Game
             foreach (var item in weaponChildren)
             {
                 item.gameObject.layer = LayerMask.NameToLayer("ItemOutline");
-            }
-        }
-
-        public void EnableArms(bool value)
-        {
-            foreach (var item in armRenderers)
-            {
-                item.enabled = value;
             }
         }
 

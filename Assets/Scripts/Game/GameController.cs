@@ -50,7 +50,6 @@ namespace Game
 
         [Header("Pause")]
         [SerializeField] private GameObject _pauseMenuUI;
-        [SerializeField] private Toggle _enableArmsToggle;
         [SerializeField] private Toggle _disableMusicToggle;
         [SerializeField] private Slider _sensitivitySlider;
 
@@ -78,12 +77,6 @@ namespace Game
 
             _pauseMenuUI.SetActive(true);
 
-            _enableArmsToggle.onValueChanged.AddListener((value) => 
-            { 
-                _gameSettings.enableArms = value;
-                _playerFacade.Inventory.EnableArms(value);
-            });
-
             _sensitivitySlider.onValueChanged.AddListener((value) =>
             {
                 _gameSettings.mouseSensitivity = value;
@@ -94,7 +87,7 @@ namespace Game
 
         private void SetPaused(bool paused)
         {
-            if (_playerDead || _isPaused == paused) return;
+            if (_playerDead) return;
             _isPaused = paused;
             Time.timeScale = paused ? 0f : 1f;
             OnPauseStateChanged?.Invoke(paused);
@@ -106,7 +99,6 @@ namespace Game
                 _pauseMenuUI.SetActive(true);
 
                 _sensitivitySlider.value = _gameSettings.mouseSensitivity;
-                _enableArmsToggle.isOn = _gameSettings.enableArms;
             }
             else
             {
@@ -223,7 +215,6 @@ namespace Game
             _restartButton.onClick.RemoveAllListeners();
             _inputReader.OnPausePerformed -= OnPausePerformed;
 
-            _enableArmsToggle.onValueChanged.RemoveAllListeners();
             _disableMusicToggle.onValueChanged.RemoveAllListeners();
             _sensitivitySlider.onValueChanged.RemoveAllListeners();
         }

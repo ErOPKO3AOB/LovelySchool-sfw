@@ -12,17 +12,21 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 614e16dc8a24b5946b801682be204874, type: 2}
+    - target: {fileID: 3746439431964041420, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.826
+      objectReference: {fileID: 0}
     - target: {fileID: 4409931750934851707, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4409931750934851707, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4409931750934851707, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4409931750934851707, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -84,6 +88,18 @@ PrefabInstance:
       propertyPath: _attackStartDelay
       value: 0.14
       objectReference: {fileID: 0}
+    - target: {fileID: 6960557042104696786, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960557042104696786, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960557042104696786, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7096102726151814738, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_Speed
       value: 4.1
@@ -96,13 +112,21 @@ PrefabInstance:
       propertyPath: m_AngularSpeed
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 7389399503347983645, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 4031
+      objectReference: {fileID: 0}
+    - target: {fileID: 7494295357500975661, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7494295357500975661, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7979764451314469428, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _health
       value: 666
-      objectReference: {fileID: 0}
-    - target: {fileID: 7979764451314469428, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
-      propertyPath: _healSpeed
-      value: 20.04
       objectReference: {fileID: 0}
     - target: {fileID: 7979764451314469428, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _maxHealth
