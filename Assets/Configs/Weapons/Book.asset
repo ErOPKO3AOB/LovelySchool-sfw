@@ -14,10 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Weapons.WeaponConfigSO
   weaponName: Book
   weaponPrefab: {fileID: 3555103015471596168, guid: 9fe983ca92df6a246a08e5cc747b1cfe, type: 3}
+  attackType: 2
+  hitType: 0
   damage: 50
   range: 4
   fireRate: 2
-  automatic: 0
+  maxAmmo: 0
+  startingReserveAmmo: 30
+  reloadTime: 0
+  projectilePrefab: {fileID: 0}
+  projectileLifetime: 0
+  meleeCooldown: 0.7
   attackAnimations:
   - Shoot1
   - Shoot1
@@ -25,8 +32,5 @@ MonoBehaviour:
   - Shoot3
   - Shoot1
   - Shoot3
-  maxAmmo: 0
-  reloadTime: 0
-  projectilePrefab: {fileID: 0}
-  projectileLifetime: 0
-  penetrateTargets: 0
+  reloadAnimation: Reload
+  pickupAnimation: Pickup

@@ -14,18 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Weapons.WeaponConfigSO
   weaponName: Chainsaw
   weaponPrefab: {fileID: 5931217978779331564, guid: b64e5514ccbb957469cad39068099334, type: 3}
+  attackType: 2
+  hitType: 0
   damage: 45
   range: 5
   fireRate: 1
-  automatic: 1
+  maxAmmo: 0
+  startingReserveAmmo: 30
+  reloadTime: 0
+  projectilePrefab: {fileID: 0}
+  projectileLifetime: 0
+  meleeCooldown: 0.7
   attackAnimations:
   - Shoot1
   - Shoot2
   - Shoot3
   - Shoot1
   - Shoot2
-  maxAmmo: 0
-  reloadTime: 0
-  projectilePrefab: {fileID: 0}
-  projectileLifetime: 0
-  penetrateTargets: 0
+  reloadAnimation: Reload
+  pickupAnimation: Pickup

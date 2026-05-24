@@ -1,10 +1,21 @@
-﻿using System;
+﻿using Assets.Scripts.Weapons.Core;
+using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Weapons
+namespace Assets.Scripts.Weapons.Ammo
 {
     public sealed class AmmoModule
     {
+        public AmmoModule(WeaponConfigSO config)
+        {
+            _config = config;
+
+            _ammo = config.maxAmmo;
+            _reserve = config.startingReserveAmmo;
+
+            Notify();
+        }
+
         private readonly WeaponConfigSO _config;
 
         private int _ammo;
@@ -15,16 +26,6 @@ namespace Assets.Scripts.Weapons
         public int MaxAmmo => _config.maxAmmo;
 
         public event Action<int, int, int> AmmoChanged;
-
-        public AmmoModule(WeaponConfigSO config)
-        {
-            _config = config;
-
-            _ammo = config.maxAmmo;
-            _reserve = config.startingReserveAmmo;
-
-            Notify();
-        }
 
         public bool TryConsume()
         {

@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Data;
-using Assets.Scripts.Weapons;
+﻿using Assets.Scripts.Weapons.Core;
 using Player;
 using System;
 using UnityEngine;
@@ -13,7 +12,7 @@ namespace Game
         [Inject]
         public void Construct(PooledSpawnService pooledSpawnService,
             WeaponConfigSO weaponData,
-            PlayerFacade playerFacade, 
+            PlayerFacade playerFacade,
             GameController gameController)
         {
             _pooledSpawnService = pooledSpawnService;

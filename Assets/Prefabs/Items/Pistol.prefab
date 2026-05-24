@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dbff7feb362cd4d8dcd83be6602d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Weapons.WeaponView
+  _config: {fileID: 11400000, guid: a620607bc96bf3a40bd2c31932c240e5, type: 2}
   _animator: {fileID: 1455668850641210622}
   _rigidbody: {fileID: 1102059187120329790}
   _attackPoint: {fileID: 604054142259744367}

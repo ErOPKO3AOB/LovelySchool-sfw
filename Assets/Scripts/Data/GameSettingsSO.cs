@@ -1,4 +1,4 @@
-using Assets.Scripts.Weapons;
+using Assets.Scripts.Weapons.Core;
 using Player;
 using System;
 using System.Collections.Generic;
@@ -19,10 +19,8 @@ namespace Assets.Scripts.Data
 
         [Header("Concrete data")]
         [SerializeField] private PlayerData _playerData;
-        [SerializeField] private WeaponConfigSO[] _weaponConfigs;
 
         public PlayerData PlayerData { get { return _playerData; } }
-        public WeaponConfigSO[] WeaponConfigs { get { return _weaponConfigs; } }
     }
 
     [Serializable]

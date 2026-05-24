@@ -1,19 +1,12 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Weapons.Core;
+using Assets.Scripts.Weapons.Visual;
+using UnityEngine;
 using VContainer.Unity;
 
-namespace Assets.Scripts.Weapons
+namespace Assets.Scripts.Weapons.Ammo
 {
     public sealed class ReloadModule : ITickable
     {
-        private readonly AmmoModule _ammo;
-        private readonly AnimationModule _animation;
-        private readonly WeaponConfigSO _config;
-
-        private bool _isReloading;
-        private float _timer;
-
-        public bool IsReloading => _isReloading;
-
         public ReloadModule(
             AmmoModule ammo,
             AnimationModule animation,
@@ -23,6 +16,15 @@ namespace Assets.Scripts.Weapons
             _animation = animation;
             _config = config;
         }
+
+        private readonly AmmoModule _ammo;
+        private readonly AnimationModule _animation;
+        private readonly WeaponConfigSO _config;
+
+        private bool _isReloading;
+        private float _timer;
+
+        public bool IsReloading => _isReloading;
 
         public void StartReload()
         {

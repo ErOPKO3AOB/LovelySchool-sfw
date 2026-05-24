@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Assets.Scripts.Weapons.Core;
 using UnityEngine;
 
 using Random = UnityEngine.Random;
 
-namespace Assets.Scripts.Weapons
+namespace Assets.Scripts.Weapons.Visual
 {
     public sealed class AnimationModule
     {
