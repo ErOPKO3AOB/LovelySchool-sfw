@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4598bd31ca0035c489b0bf3955cddb49, type: 3}
-  m_Name: GameSettings
+  m_Name: Player Settings
   m_EditorClassIdentifier: Assembly-CSharp::Data.PlayerSettingsSO
   soundPrefabs:
   - {fileID: 6332960326804919281, guid: 015c4e31a5e746240a91ea9759aafb33, type: 3}
@@ -29,11 +29,9 @@ MonoBehaviour:
   penetratableTargetsLayer:
     serializedVersion: 2
     m_Bits: 1088
-  reloadAnimName: Reload
-  pickupAnimName: Pickup
   _playerData:
-    playerPrefab: {fileID: 8482903674758022575, guid: 9289e2dbfdbccbe4f902b1b730ca4e62, type: 3}
-    cameraPrefab: {fileID: 7081240675906717068, guid: 2e8cda44b1ddef84ab6f52a01258a0be, type: 3}
+    playerPrefab: {fileID: 0}
+    cameraPrefab: {fileID: 0}
     walkSpeed: 18
     acceleration: 500
     airControl: 0.15
@@ -55,3 +53,4 @@ MonoBehaviour:
     tiltAmount: 2
     tiltSmoothTime: 0.1
     enableArms: 1
+  _weaponConfigs: []

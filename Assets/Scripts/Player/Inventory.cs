@@ -1,4 +1,3 @@
-using Assets.Scripts.Weapons.Core;
 using Game;
 using Input;
 using System.Collections.Generic;
@@ -31,6 +30,22 @@ namespace Player
             _playerFacade.Health.OnDead += OnDead;
         }
 
+        public void EnableArms(bool value)
+        {
+            _armsEnabled = value;
+
+            if (_weapons.Count == 0) return;
+
+            foreach (var item in Weapons)
+            {
+                item.gameObject.SetActive(true);
+                item.EnableArms(value);
+                item.gameObject.SetActive(false);
+            }
+
+            _weapons[_currentWeapon].gameObject.SetActive(true);
+        }
+
         private void OnDead(GameObject obj)
         {
             _hand.gameObject.SetActive(false);
@@ -56,7 +71,6 @@ namespace Player
             SwapWeapon(direction);
         }
 
-        // TODO: Глянуть, комменты
         private void HandleSelectSlot(int slotIndex)
         {
             if (_weapons.Count == 0)
@@ -70,14 +84,12 @@ namespace Player
 
             // Остановить текущее оружие и спрятать
             _weapons[_currentWeapon].StopShoot();
-
-            //_weapons[_currentWeapon]. AbortReload();
-            //_weapons[_currentWeapon].SetActive(false);
-
+            _weapons[_currentWeapon].AbortReload();
+            _weapons[_currentWeapon].gameObject.SetActive(false);
 
             // Переключить
             _currentWeapon = slotIndex;
-            //_weapons[_currentWeapon].gameObject.SetActive(true);
+            _weapons[_currentWeapon].gameObject.SetActive(true);
             RefreshAmmoDisplay();
         }
 

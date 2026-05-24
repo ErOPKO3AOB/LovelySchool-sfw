@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Data;
-using Assets.Scripts.Weapons.Core;
+using Assets.Scripts.Weapons;
 using Game;
 using Player;
 using System.Collections;
@@ -427,7 +427,7 @@ namespace Assets.Scripts.Game
         private IEnumerator DelayedRagdollForce()
         {
             yield return new WaitForSeconds(Random.Range(0.05f, 0.2f));
-
+            
             Destroy(_objectsToClean);
 
             _ragdoll.SetActive(true);

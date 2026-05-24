@@ -2,7 +2,7 @@
 using Player;
 using UnityEngine;
 
-namespace Assets.Scripts.Weapons.Core
+namespace Assets.Scripts.Weapons
 {
     public sealed class WeaponContext
     {

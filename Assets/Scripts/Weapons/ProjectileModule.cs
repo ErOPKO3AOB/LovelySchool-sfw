@@ -1,7 +1,6 @@
-﻿using Assets.Scripts.Weapons.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Weapons.Visual
+namespace Assets.Scripts.Weapons
 {
     public sealed class ProjectileModule
     {

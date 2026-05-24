@@ -14,18 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Weapons.WeaponConfigSO
   weaponName: MachineGun
   weaponPrefab: {fileID: 8877399273502581776, guid: 942001bfb1650fc45a6c2ddebde0bf0c, type: 3}
-  attackType: 1
-  hitType: 0
   damage: 60
   range: 250
   fireRate: 10
+  automatic: 1
+  attackAnimations:
+  - Shoot
   maxAmmo: 60
-  startingReserveAmmo: 30
   reloadTime: 3.5
   projectilePrefab: {fileID: 3420204110976787364, guid: 2d42fd8f3fdbfc44a848535951d90fa3, type: 3}
   projectileLifetime: 2
-  meleeCooldown: 0.7
-  attackAnimations:
-  - Shoot
-  reloadAnimation: Reload
-  pickupAnimation: Pickup
+  penetrateTargets: 0

@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Weapons.Core;
-using Assets.Scripts.Weapons.Hit;
-using Assets.Scripts.Weapons.Visual;
+﻿using Assets.Scripts.Weapons.Hit;
 using UnityEngine;
 
 namespace Assets.Scripts.Weapons.Attack

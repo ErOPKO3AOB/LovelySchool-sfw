@@ -1,8 +1,7 @@
-﻿using Assets.Scripts.Weapons.Ammo;
-using Assets.Scripts.Weapons.Attack;
+﻿using Assets.Scripts.Weapons.Attack;
 using VContainer.Unity;
 
-namespace Assets.Scripts.Weapons.Core
+namespace Assets.Scripts.Weapons
 {
     public sealed class WeaponRuntime : ITickable
     {

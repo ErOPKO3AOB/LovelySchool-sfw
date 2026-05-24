@@ -14,18 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Weapons.WeaponConfigSO
   weaponName: SniperRifle
   weaponPrefab: {fileID: 8270044744565128922, guid: ded668c4a09abbb458ec394c38037631, type: 3}
-  attackType: 0
-  hitType: 1
   damage: 80
   range: 450
-  fireRate: 1
   maxAmmo: 10
-  startingReserveAmmo: 30
+  fireRate: 1
+  automatic: 0
   reloadTime: 3
-  projectilePrefab: {fileID: 2048716118800303284, guid: f72b0612b68f1cc4e8960bdc42ea6989, type: 3}
-  projectileLifetime: 3
-  meleeCooldown: 0.7
   attackAnimations:
   - Shoot
-  reloadAnimation: Reload
-  pickupAnimation: Pickup
+  projectilePrefab: {fileID: 2048716118800303284, guid: f72b0612b68f1cc4e8960bdc42ea6989, type: 3}
+  projectileLifetime: 3
+  penetrateTargets: 1

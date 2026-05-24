@@ -322232,6 +322232,7 @@ MonoBehaviour:
   _sceneLoader: {fileID: 1003872889}
   _deathDelay: 6
   _pauseMenuUI: {fileID: 997010244}
+  _enableArmsToggle: {fileID: 432264157}
   _disableMusicToggle: {fileID: 623373468}
   _sensitivitySlider: {fileID: 1392321776}
 --- !u!114 &1003872889
@@ -525976,18 +525977,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.RandomPointItemsSpawner
   _settings:
-  - weapon: {fileID: 11400000, guid: 22ca5d45500d3b143bf49c92dcd6c197, type: 2}
-    objectIndex: 0
+  - objectIndex: 0
     spawnPoints:
     - {fileID: 2058610275}
-  - weapon: {fileID: 11400000, guid: a620607bc96bf3a40bd2c31932c240e5, type: 2}
-    objectIndex: 1
+  - objectIndex: 1
     spawnPoints:
     - {fileID: 571516187}
     - {fileID: 361178481}
     - {fileID: 1419839715}
-  - weapon: {fileID: 11400000, guid: 7ce7a334b10d00d418937cee3b9e9d45, type: 2}
-    objectIndex: 2
+  - objectIndex: 2
     spawnPoints:
     - {fileID: 973079786}
     - {fileID: 864419117}
@@ -525995,14 +525993,12 @@ MonoBehaviour:
     - {fileID: 477755974}
     - {fileID: 959206085}
     - {fileID: 1258101917}
-  - weapon: {fileID: 11400000, guid: 802a7c8d818049f4582ec173f39213fd, type: 2}
-    objectIndex: 3
+  - objectIndex: 3
     spawnPoints:
     - {fileID: 1699140769}
     - {fileID: 1688838328}
     - {fileID: 1575007996}
-  - weapon: {fileID: 11400000, guid: 867ae8fa0a9ac634bbf9a06a0a7170be, type: 2}
-    objectIndex: 4
+  - objectIndex: 4
     spawnPoints:
     - {fileID: 1506842629}
 --- !u!1001 &1193138633

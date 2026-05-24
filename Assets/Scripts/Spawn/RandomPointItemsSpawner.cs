@@ -1,7 +1,9 @@
-using Assets.Scripts.Weapons.Core;
+using Assets.Scripts.Data;
+using Assets.Scripts.Weapons;
 using System;
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 namespace Game
 {
@@ -18,7 +20,6 @@ namespace Game
         [Serializable]
         public class ObjectSettings
         {
-            public WeaponConfigSO weapon;
             public int objectIndex;
             public Transform[] spawnPoints;
         }
@@ -30,12 +31,10 @@ namespace Game
         {
             for (int i = 0; i < _settings.Length; i++)
             {
-                Transform spawnPoint = _settings[i].spawnPoints[UnityEngine.Random.Range(0, _settings[i].spawnPoints.Length)];
-                _weaponFactory.Create(
-                    _settings[i].weapon,
-                    spawnPoint.position,
-                    spawnPoint.rotation
-                );
+                //_weaponFactory.Invoke(_settings[i]
+                //    .spawnPoints[UnityEngine.Random.Range(0, _settings[i].spawnPoints.Length)],
+                //    _weaponSettings.weaponPrefabs[_settings[i].objectIndex]
+                //);
             }
         }
     }

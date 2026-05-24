@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Weapons.Core;
-using Game;
+﻿using Game;
 using UnityEngine;
 
 namespace Assets.Scripts.Weapons.Hit

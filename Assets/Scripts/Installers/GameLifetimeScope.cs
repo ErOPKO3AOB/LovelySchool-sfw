@@ -1,6 +1,6 @@
 using Assets.Scripts.Data;
 using Assets.Scripts.Game;
-using Assets.Scripts.Weapons.Core;
+using Assets.Scripts.Weapons;
 using Game;
 using Input;
 using UnityEngine;
@@ -74,6 +74,8 @@ namespace Installers
 
         private void ConfigureWeapons(IContainerBuilder builder)
         {
+            builder.RegisterInstance(_gameSettings.WeaponConfigs);
+
             builder.RegisterEntryPoint<WeaponFactory>(Lifetime.Singleton).AsSelf();
         }
 

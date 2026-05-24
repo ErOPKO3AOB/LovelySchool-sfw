@@ -1,47 +1,56 @@
 ﻿using Assets.Scripts.Data;
-using Assets.Scripts.Weapons.Ammo;
 using Assets.Scripts.Weapons.Attack;
 using Assets.Scripts.Weapons.Hit;
-using Assets.Scripts.Weapons.Visual;
 using Game;
 using Player;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Assets.Scripts.Weapons.Core
+namespace Assets.Scripts.Weapons
 {
-    public sealed class WeaponFactory : ITickable
+    public sealed class WeaponFactory
     {
         public WeaponFactory(
-            GameSettingsSO gameConfigs,
-            PlayerData playerData,
+            WeaponConfigSO weaponConfig,
+            //GameSettingsSO gameConfigs,
             PooledSpawnService pool,
+            PlayerFacade player,
+            Camera camera,
             IObjectResolver resolver)
         {
+            _weaponConfig = weaponConfig;
+            //_gameConfigs = gameConfigs;
             _pool = pool;
-            _playerData = playerData;
+            _player = player;
+            _camera = camera;
             _resolver = resolver;
         }
 
+        private readonly WeaponConfigSO _weaponConfig;
+        //private readonly GameSettingsSO _gameConfigs;
         private readonly PooledSpawnService _pool;
-        private readonly PlayerData _playerData;
+        private readonly PlayerFacade _player;
+        private readonly Camera _camera;
         private readonly LayerMask _targetMask;
         private readonly IObjectResolver _resolver;
 
-        #region INIT
         public WeaponRuntime Create(
-            WeaponConfigSO config,
+            WeaponView prefab,
             Vector3 position,
             Quaternion rotation)
         {
-            WeaponView view = _resolver.Instantiate(config.weaponPrefab, position, rotation).GetComponent<WeaponView>();
+            WeaponView view = _resolver.Instantiate(prefab, position, rotation);
+
+            view.InitializePhysics();
+
+            var config = _weaponConfig;
 
             WeaponContext context = new WeaponContext(
                 view,
                 config,
-                _playerData.playerPrefab,
-                _playerData.cameraPrefab.Camera,
+                _player,
+                _camera,
                 _targetMask,
                 _pool);
 
@@ -92,14 +101,6 @@ namespace Assets.Scripts.Weapons.Core
                     new SemiAutoAttackModule(ammo, animation, hit, projectile, config)
             };
         }
-        #endregion
-
-        #region CONTROL
-        public void Tick()
-        {
-
-        }
-        #endregion
     }
 
 }
