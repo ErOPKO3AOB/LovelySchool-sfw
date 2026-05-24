@@ -381167,17 +381167,18 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  _gameSettings: {fileID: 11400000, guid: d98ad76104ae6914b8f7bbe05e0a4b50, type: 2}
+  _playerSettings: {fileID: 11400000, guid: d98ad76104ae6914b8f7bbe05e0a4b50, type: 2}
+  _weaponSettings: {fileID: 11400000, guid: e34ee7ba54f99bb4f9c87f2e09511559, type: 2}
   _randomPointItemsSpawner: {fileID: 1191888747}
   _enemySpawnPoints:
-  - {fileID: 237525410}
-  - {fileID: 402253163}
-  - {fileID: 425888681}
-  - {fileID: 299809439}
-  - {fileID: 1197614925}
-  - {fileID: 1811078034}
-  - {fileID: 1251973890}
   - {fileID: 1345547699}
+  - {fileID: 237525410}
+  - {fileID: 1251973890}
+  - {fileID: 425888681}
+  - {fileID: 1197614925}
+  - {fileID: 402253163}
+  - {fileID: 1811078034}
+  - {fileID: 299809439}
   _gameController: {fileID: 1003872888}
   _enemyOutliner: {fileID: 1304632640}
   _musicPlayer: {fileID: 594673820}

@@ -2803,8 +2803,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dbff7feb362cd4d8dcd83be6602d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Weapons.WeaponView
-  _animator: {fileID: 9045734594465832760}
-  _rigidbody: {fileID: 725633392252094686}
+  _weaponConfig: {fileID: 11400000, guid: 867ae8fa0a9ac634bbf9a06a0a7170be, type: 2}
+  _rigidbody: {fileID: 4492303450099837183, guid: ded668c4a09abbb458ec394c38037631, type: 3}
+  _animator: {fileID: 70467418731772110, guid: ded668c4a09abbb458ec394c38037631, type: 3}
   _attackPoint: {fileID: 0}
   _armRenderers: []
 --- !u!1 &6333499092035782302

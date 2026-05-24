@@ -1,106 +1,41 @@
-﻿using Assets.Scripts.Data;
-using Assets.Scripts.Weapons.Attack;
-using Assets.Scripts.Weapons.Hit;
-using Game;
-using Player;
-using UnityEngine;
+﻿using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using System.Collections.Generic;
+using Assets.Scripts.Data;
+using Game;
 
 namespace Assets.Scripts.Weapons
 {
-    public sealed class WeaponFactory
+    public class WeaponFactory : ITickable
     {
-        public WeaponFactory(
-            WeaponConfigSO weaponConfig,
-            //GameSettingsSO gameConfigs,
-            PooledSpawnService pool,
-            PlayerFacade player,
-            Camera camera,
-            IObjectResolver resolver)
+        public WeaponFactory(IObjectResolver objectResolver)
         {
-            _weaponConfig = weaponConfig;
-            //_gameConfigs = gameConfigs;
-            _pool = pool;
-            _player = player;
-            _camera = camera;
-            _resolver = resolver;
+            _resolver = objectResolver;
         }
 
-        private readonly WeaponConfigSO _weaponConfig;
-        //private readonly GameSettingsSO _gameConfigs;
-        private readonly PooledSpawnService _pool;
-        private readonly PlayerFacade _player;
-        private readonly Camera _camera;
-        private readonly LayerMask _targetMask;
         private readonly IObjectResolver _resolver;
+        private readonly List<WeaponModel> _weapons = new();
 
-        public WeaponRuntime Create(
-            WeaponView prefab,
-            Vector3 position,
-            Quaternion rotation)
+        public WeaponModel Create(WeaponView weaponPrefab, bool firearm, Vector3 spawnPos, Quaternion spawnRot)
         {
-            WeaponView view = _resolver.Instantiate(prefab, position, rotation);
+            var view = _resolver.Instantiate(weaponPrefab, spawnPos, spawnRot);
 
-            view.InitializePhysics();
+            WeaponModel weaponModel = firearm ?
+                new Firearm(view, view.WeaponConfig, _resolver.Resolve<GameSettingsSO>(), _resolver.Resolve<PooledSpawnService>()) :
+                new Melee();
 
-            var config = _weaponConfig;
+            weaponModel.Initialize();
 
-            WeaponContext context = new WeaponContext(
-                view,
-                config,
-                _player,
-                _camera,
-                _targetMask,
-                _pool);
+            _weapons.Add(weaponModel);
 
-            AmmoModule ammo = new AmmoModule(config);
-            AnimationModule animation = new AnimationModule(context);
-            ProjectileModule projectile = new ProjectileModule(context);
-
-            IHitModule hit = CreateHitModule(config, context);
-            IAttackModule attack = CreateAttackModule(config, ammo, animation, hit, projectile);
-
-            ReloadModule reload = new ReloadModule(ammo, animation, config);
-
-            return new WeaponRuntime(attack, reload);
+            return weaponModel;
         }
 
-        private IHitModule CreateHitModule(
-            WeaponConfigSO config,
-            WeaponContext context)
+        public void Tick()
         {
-            return config.hitType switch
-            {
-                HitType.Single => new SingleHitModule(context),
-                HitType.Penetrating => new PenetratingHitModule(context),
-                HitType.Melee => new MeleeHitModule(context),
-                _ => new SingleHitModule(context)
-            };
-        }
-
-        private IAttackModule CreateAttackModule(
-            WeaponConfigSO config,
-            AmmoModule ammo,
-            AnimationModule animation,
-            IHitModule hit,
-            ProjectileModule projectile)
-        {
-            return config.attackType switch
-            {
-                WeaponAttackType.SemiAuto =>
-                    new SemiAutoAttackModule(ammo, animation, hit, projectile, config),
-
-                WeaponAttackType.FullAuto =>
-                    new FullAutoAttackModule(ammo, animation, hit, projectile, config),
-
-                WeaponAttackType.Melee =>
-                    new MeleeAttackModule(animation, hit, config),
-
-                _ =>
-                    new SemiAutoAttackModule(ammo, animation, hit, projectile, config)
-            };
+            if (_weapons != null)
+                _weapons.ForEach(w => w.Tick());
         }
     }
-
 }
