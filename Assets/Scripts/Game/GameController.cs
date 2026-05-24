@@ -1,5 +1,5 @@
-using Assets.Scripts.Data;
 using Assets.Scripts.Game;
+using Data;
 using Input;
 using Player;
 using System;
@@ -18,18 +18,18 @@ namespace Game
     public class GameController : MonoBehaviour
     {
         [Inject]
-        public void Construct(Func<Transform, GameObject, Enemy> enemyFactory, PlayerFacade playerFacade, InputReader inputReader, PlayerData playerData)
+        public void Construct(Func<Transform, GameObject, Enemy> enemyFactory, PlayerFacade playerFacade, InputReader inputReader, GameSettingsSO gameSettings)
         {
             _enemyFactory = enemyFactory;
             _playerFacade = playerFacade;
             _inputReader = inputReader;
-            _playerData = playerData;
+            _gameSettings = gameSettings;
         }
 
         private Func<Transform, GameObject, Enemy> _enemyFactory;
         private PlayerFacade _playerFacade;
         private InputReader _inputReader;
-        private PlayerData _playerData;
+        private GameSettingsSO _gameSettings;
 
         [Header("Enemies")]
         [SerializeField] private List<Enemy> _enemies = new();
@@ -80,13 +80,13 @@ namespace Game
 
             _enableArmsToggle.onValueChanged.AddListener((value) => 
             { 
-                _playerData.enableArms = value;
+                _gameSettings.enableArms = value;
                 _playerFacade.Inventory.EnableArms(value);
             });
 
             _sensitivitySlider.onValueChanged.AddListener((value) =>
             {
-                _playerData.mouseSensitivity = value;
+                _gameSettings.mouseSensitivity = value;
             });
 
             _pauseMenuUI.SetActive(false);
@@ -105,8 +105,8 @@ namespace Game
                 Cursor.visible = true;
                 _pauseMenuUI.SetActive(true);
 
-                _sensitivitySlider.value = _playerData.mouseSensitivity;
-                _enableArmsToggle.isOn = _playerData.enableArms;
+                _sensitivitySlider.value = _gameSettings.mouseSensitivity;
+                _enableArmsToggle.isOn = _gameSettings.enableArms;
             }
             else
             {

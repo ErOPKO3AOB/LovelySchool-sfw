@@ -22,35 +22,26 @@ MonoBehaviour:
   - {fileID: 2504964120342788952, guid: 62768dc4746d9534ba03565c030a929c, type: 3}
   - {fileID: 2504964120342788952, guid: 64b2e651a420c404783cc944ec6637f5, type: 3}
   - {fileID: 2504964120342788952, guid: 2f909382b8acd5048aff1098448afd20, type: 3}
-  ammoPrefab: {fileID: 6046049313259991346, guid: 0b3a0707469012045a1034f34cee69d9, type: 3}
-  targetsLayer:
+  playerPrefab: {fileID: 8482903674758022575, guid: 9289e2dbfdbccbe4f902b1b730ca4e62, type: 3}
+  cameraPrefab: {fileID: 7081240675906717068, guid: 2e8cda44b1ddef84ab6f52a01258a0be, type: 3}
+  walkSpeed: 16
+  acceleration: 500
+  airControl: 0.15
+  jumpForce: 70
+  groundCheckRadius: 0.25
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 1089
-  penetratableTargetsLayer:
-    serializedVersion: 2
-    m_Bits: 1088
-  _playerData:
-    playerPrefab: {fileID: 0}
-    cameraPrefab: {fileID: 0}
-    walkSpeed: 18
-    acceleration: 500
-    airControl: 0.15
-    jumpForce: 70
-    groundCheckRadius: 0.25
-    groundLayer:
-      serializedVersion: 2
-      m_Bits: 0
-    dashSpeed: 30
-    dashDuration: 0.2
-    dashCooldown: 0.5
-    dashStaminaCost: 40
-    maxStamina: 120
-    staminaRegenRate: 30
-    staminaRegenDelay: 0.5
-    mouseSensitivity: 80
-    verticalClamp: 90
-    cameraOffset: {x: 0, y: 0.7, z: 0}
-    tiltAmount: 2
-    tiltSmoothTime: 0.1
-    enableArms: 1
-  _weaponConfigs: []
+    m_Bits: 5
+  dashSpeed: 30
+  dashDuration: 0.2
+  dashCooldown: 0.5
+  dashStaminaCost: 40
+  maxStamina: 120
+  staminaRegenRate: 30
+  staminaRegenDelay: 0.5
+  mouseSensitivity: 80
+  verticalClamp: 90
+  cameraOffset: {x: 0, y: 0.7, z: 0}
+  tiltAmount: 2
+  tiltSmoothTime: 0.1
+  enableArms: 1

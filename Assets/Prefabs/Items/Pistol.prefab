@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2175322813329616523}
+  - component: {fileID: 4200158780763065705}
   - component: {fileID: 3597188079119298420}
   - component: {fileID: 1102059187120329790}
   - component: {fileID: 1455668850641210622}
-  - component: {fileID: -8685061507642949674}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -39,6 +39,43 @@ Transform:
   - {fileID: 604054142259744367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4200158780763065705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864465195731430934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934eeb7d79b2b394dad4382f4b390f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon.Weapon
+  weaponName: Pistol
+  arms:
+  - {fileID: 4484376126885084089}
+  - {fileID: 3349576618472685778}
+  animator: {fileID: 1455668850641210622}
+  shootAnimNames:
+  - Shoot
+  reloadAnimName: Reload
+  pickupAnimName: Pickup
+  currentAmmoCapacity: 0
+  maxAmmo: 20
+  ammo: 20
+  damage: 40
+  range: 100
+  fireRate: 7
+  canHold: 0
+  reloadTime: 1.5
+  _projectileSpawnPoint: {fileID: 604054142259744367}
+  isMelee: 0
+  meleeRange: 2
+  meleeCooldown: 0.8
+  meleeCanHold: 0
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 1089
 --- !u!65 &3597188079119298420
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -109,23 +146,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-8685061507642949674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 864465195731430934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8dbff7feb362cd4d8dcd83be6602d95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Weapons.WeaponView
-  _weaponConfig: {fileID: 11400000, guid: a620607bc96bf3a40bd2c31932c240e5, type: 2}
-  _rigidbody: {fileID: 4492303450099837183, guid: ded668c4a09abbb458ec394c38037631, type: 3}
-  _animator: {fileID: 70467418731772110, guid: ded668c4a09abbb458ec394c38037631, type: 3}
-  _attackPoint: {fileID: 604054142259744367}
-  _armRenderers: []
 --- !u!1 &6726540661586253213
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +286,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}
+--- !u!1 &3349576618472685778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7643732743218433082, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}
+  m_PrefabInstance: {fileID: 4931415609726094568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5837702476582613937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1543687007737593689, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}
@@ -332,6 +357,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}
+--- !u!1 &4484376126885084089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7643732743218433082, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}
+  m_PrefabInstance: {fileID: 6064178513499699075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4702898329542002906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1543687007737593689, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}

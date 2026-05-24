@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Data;
-using Assets.Scripts.Weapons;
+﻿using Data;
 using Game;
 using Player;
 using System.Collections;
@@ -12,15 +11,15 @@ namespace Assets.Scripts.Game
     public class Enemy : MonoBehaviour
     {
         [Inject]
-        public void Construct(GameSettingsSO gameSettings, PlayerFacade playerFacade, PooledSpawnService pooledSpawnService, SoundEmitterService soundEmitterService)
+        public void Construct(WeaponSettingsSO weaponSettings, PlayerFacade playerFacade, PooledSpawnService pooledSpawnService, SoundEmitterService soundEmitterService)
         {
-            _gameSettings = gameSettings;
+            _weaponSettings = weaponSettings;
             _playerFacade = playerFacade;
             _pooledSpawnService = pooledSpawnService;
             _soundEmitterService = soundEmitterService;
         }
 
-        private GameSettingsSO _gameSettings;
+        private WeaponSettingsSO _weaponSettings;
         private PooledSpawnService _pooledSpawnService;
         private SoundEmitterService _soundEmitterService;
 
@@ -415,7 +414,7 @@ namespace Assets.Scripts.Game
                     int random = Random.Range(0, 100);
                     if (random <= _ammoSpawnChance)
                     {
-                        var ammoRigidbody = _pooledSpawnService.SpawnObject(_gameSettings.ammoPrefab, "Ammo", transform.position, transform.eulerAngles).GetComponent<Rigidbody>();
+                        var ammoRigidbody = _pooledSpawnService.SpawnObject(_weaponSettings.ammoPrefab, "Ammo", transform.position, transform.eulerAngles).GetComponent<Rigidbody>();
                         ammoRigidbody.MovePosition(transform.position);
                     }
                 }

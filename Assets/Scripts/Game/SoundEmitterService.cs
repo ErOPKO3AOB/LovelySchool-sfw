@@ -1,4 +1,4 @@
-using Assets.Scripts.Data;
+using Data;
 using UnityEngine;
 
 namespace Game

@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Data;
-using Assets.Scripts.Weapons;
+﻿using Data;
 using Player;
 using System;
 using UnityEngine;
@@ -12,18 +11,18 @@ namespace Game
     {
         [Inject]
         public void Construct(PooledSpawnService pooledSpawnService,
-            WeaponConfigSO weaponData,
+            WeaponSettingsSO weaponSettings,
             PlayerFacade playerFacade, 
             GameController gameController)
         {
             _pooledSpawnService = pooledSpawnService;
-            _weaponConfig = weaponData;
+            _weaponSettingsSO = weaponSettings;
             _playerFacade = playerFacade;
             _gameController = gameController;
         }
 
         private PooledSpawnService _pooledSpawnService;
-        private WeaponConfigSO _weaponConfig;
+        private WeaponSettingsSO _weaponSettingsSO;
         private PlayerFacade _playerFacade;
         private GameController _gameController;
 
@@ -196,15 +195,15 @@ namespace Game
                 Quaternion spawnRotation = _projectileSpawnPoint.rotation;
                 Vector3 spawnPosition = _projectileSpawnPoint.position;
 
-                GameObject projectile = _weaponConfig.projectilePrefab;
-                if (weaponName == "SniperRifle") projectile = _weaponConfig.projectilePrefab;
+                GameObject projectile = _weaponSettingsSO.projectiles[0];
+                if (weaponName == "SniperRifle") projectile = _weaponSettingsSO.projectiles[1];
 
                 _pooledSpawnService.SpawnObject(
                     projectile,
                     projectile.name,
                     spawnPosition,
                     spawnRotation.eulerAngles,
-                    _weaponConfig.projectileLifetime);
+                    _weaponSettingsSO.projectileLifetime);
             }
         }
 

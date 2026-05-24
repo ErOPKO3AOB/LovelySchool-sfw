@@ -2482,10 +2482,10 @@ GameObject:
   - component: {fileID: 593676187450118863}
   - component: {fileID: 7350187278020867176}
   - component: {fileID: 725633392252094686}
+  - component: {fileID: 2906508942934895405}
   - component: {fileID: 9045734594465832760}
   - component: {fileID: 8410614237871994031}
   - component: {fileID: 6840963586287359931}
-  - component: {fileID: -8366534266660614350}
   m_Layer: 0
   m_Name: Chainsaw
   m_TagString: Untagged
@@ -2651,6 +2651,47 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2906508942934895405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931217978779331564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934eeb7d79b2b394dad4382f4b390f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Weapon
+  weaponName: Chainsaw
+  arms:
+  - {fileID: 1872846577742192060}
+  - {fileID: 2164307001041080368}
+  animator: {fileID: 9045734594465832760}
+  shootAnimNames:
+  - Shoot1
+  - Shoot2
+  - Shoot3
+  - Shoot1
+  - Shoot2
+  reloadAnimName: Reload
+  pickupAnimName: Pickup
+  currentAmmoCapacity: 0
+  maxAmmo: 0
+  ammo: 0
+  damage: 45
+  range: 5
+  fireRate: 0
+  canHold: 0
+  reloadTime: 0
+  _projectileSpawnPoint: {fileID: 0}
+  isMelee: 1
+  meleeRange: 5
+  meleeCooldown: 1
+  meleeCanHold: 1
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 1089
 --- !u!95 &9045734594465832760
 Animator:
   serializedVersion: 7
@@ -2791,23 +2832,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-8366534266660614350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5931217978779331564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8dbff7feb362cd4d8dcd83be6602d95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Weapons.WeaponView
-  _weaponConfig: {fileID: 11400000, guid: 867ae8fa0a9ac634bbf9a06a0a7170be, type: 2}
-  _rigidbody: {fileID: 4492303450099837183, guid: ded668c4a09abbb458ec394c38037631, type: 3}
-  _animator: {fileID: 70467418731772110, guid: ded668c4a09abbb458ec394c38037631, type: 3}
-  _attackPoint: {fileID: 0}
-  _armRenderers: []
 --- !u!1 &6333499092035782302
 GameObject:
   m_ObjectHideFlags: 0
@@ -4426,6 +4450,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}
+--- !u!1 &1872846577742192060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7643732743218433082, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}
+  m_PrefabInstance: {fileID: 8353700553119732102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7386476523017613023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1543687007737593689, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}
@@ -4504,6 +4533,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}
+--- !u!1 &2164307001041080368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7643732743218433082, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}
+  m_PrefabInstance: {fileID: 8366236402676882442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7022959587098288979 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1543687007737593689, guid: c0e2cddd63ca61144a759269951eaf79, type: 3}

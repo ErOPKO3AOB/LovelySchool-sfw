@@ -1,4 +1,4 @@
-using Assets.Scripts.Data;
+using Data;
 using UnityEngine;
 
 namespace Player
@@ -6,13 +6,13 @@ namespace Player
     public class PlayerJump
     {
         private readonly Rigidbody _rigidbody;
-        private readonly PlayerData _playerData;
+        private readonly GameSettingsSO _settings;
         private readonly Transform _groundCheck;
 
-        public PlayerJump(Rigidbody rigidbody, PlayerData playerData, Transform groundCheck)
+        public PlayerJump(Rigidbody rigidbody, GameSettingsSO settings, Transform groundCheck)
         {
             _rigidbody = rigidbody;
-            _playerData = playerData;
+            _settings = settings;
             _groundCheck = groundCheck;
         }
 
@@ -20,7 +20,7 @@ namespace Player
         {
             get
             {
-                Collider[] hits = Physics.OverlapSphere(_groundCheck.position, _playerData.groundCheckRadius, _playerData.groundLayer);
+                Collider[] hits = Physics.OverlapSphere(_groundCheck.position, _settings.groundCheckRadius, _settings.groundLayer);
                 foreach (var hit in hits)
                 {
                     // Игнорируем коллайдер, который принадлежит самому игроку (или его детям)
@@ -35,7 +35,7 @@ namespace Player
         {
             if (!IsGrounded) return;
             _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, 0, _rigidbody.linearVelocity.z);
-            _rigidbody.AddForce(Vector3.up * _playerData.jumpForce, ForceMode.Impulse);
+            _rigidbody.AddForce(Vector3.up * _settings.jumpForce, ForceMode.Impulse);
         }
     }
 }
