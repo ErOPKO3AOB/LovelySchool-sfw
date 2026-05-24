@@ -2,41 +2,55 @@
 
 namespace Assets.Scripts.Weapons
 {
-    [CreateAssetMenu(menuName = "Weapons/Weapon")]
+    public enum WeaponAttackType
+    {
+        SemiAuto,
+        FullAuto,
+        Melee
+    }
+
+    public enum HitType
+    {
+        Single,
+        Penetrating,
+        Melee
+    }
+
+    [CreateAssetMenu(menuName = "Weapons/Weapon Config")]
     public class WeaponConfigSO : ScriptableObject
     {
+        [Header("Info")]
         public string weaponName;
         public GameObject weaponPrefab;
 
+        [Header("Types")]
+        public WeaponAttackType attackType;
+        public HitType hitType;
+
         [Header("Damage")]
-        public int damage;
-        public float range;
+        public int damage = 10;
+        public float range = 100f;
 
         [Header("Fire")]
-        public float fireRate;
-        public bool automatic;
-
-        [Header("Animations")]
-        public string[] attackAnimations;
-
-        [Space(20)]
+        public float fireRate = 5f;
 
         [Header("Ammo")]
-        public int maxAmmo;
+        public int maxAmmo = 10;
+        public int startingReserveAmmo = 30;
 
         [Header("Reload")]
-        public float reloadTime;
+        public float reloadTime = 1.5f;
 
         [Header("Projectile")]
         public GameObject projectilePrefab;
-        public float projectileLifetime;
+        public float projectileLifetime = 5f;
 
-        [Header("Sniper")]
-        public bool penetrateTargets;
+        [Header("Melee")]
+        public float meleeCooldown = 0.7f;
 
-        private void OnValidate()
-        {
-            weaponName = weaponPrefab != null ? weaponPrefab.name : "???";
-        }
+        [Header("Animations")]
+        public string[] attackAnimations;
+        public string reloadAnimation = "Reload";
+        public string pickupAnimation = "Pickup";
     }
 }
