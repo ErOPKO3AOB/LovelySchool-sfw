@@ -926,7 +926,10 @@ namespace Assets.Scripts.Game
                 .SpawnObject(
                     _weaponSettings.ammoPrefab,
                     "Ammo",
-                    transform.position,
+                    new Vector3(transform.position.x,
+                        transform.position.y + 0.25f,
+                        transform.position.z
+                        ),
                     transform.eulerAngles)
                 .GetComponent<Rigidbody>();
 

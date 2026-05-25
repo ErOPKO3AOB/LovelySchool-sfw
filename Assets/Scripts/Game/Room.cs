@@ -17,7 +17,7 @@ public class Room : MonoBehaviour
     private Collider _trigger;
     public Collider Trigger => _trigger;
 
-    public UnityAction<string> OnCleaned;
+    public UnityAction<string, string> OnCleaned;
 
 #if UNITY_EDITOR
     [ContextMenu(nameof(KillAllEnemies))]
@@ -74,7 +74,7 @@ public class Room : MonoBehaviour
                 if (_miscObjectsToActivate.Count > 0)
                     _miscObjectsToActivate.ForEach(obj => { obj.SetActive(true); });
 
-                OnCleaned?.Invoke(_cleanedMessage);
+                OnCleaned?.Invoke(_cleanedMessage, gameObject.name);
 
                 CancelInvoke(nameof(DisbaleTrigger));
                 DisbaleTrigger();

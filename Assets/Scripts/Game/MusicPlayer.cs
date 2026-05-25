@@ -1,6 +1,7 @@
 using Player;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using VContainer;
 using YG;
 
@@ -21,6 +22,7 @@ namespace Game
         [SerializeField] private AudioClip[] _audios;
         [SerializeField, Range(0, 1)] private float _volume = 0.5f;
         [SerializeField] private float _fadeOutDuration = 3f;
+        [SerializeField] private AudioMixer _audioMixer;
 
         private int _lastAudioIndex = -1;
         private AudioSource _audioSource;
@@ -29,6 +31,7 @@ namespace Game
         private void Start()
         {
             _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource.outputAudioMixerGroup = _audioMixer.FindMatchingGroups("Master")[0];
             _audioSource.loop = false;
             _audioSource.spatialBlend = 0;
             _audioSource.volume = _volume;

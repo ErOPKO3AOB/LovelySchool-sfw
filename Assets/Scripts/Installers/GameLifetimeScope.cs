@@ -25,6 +25,9 @@ namespace Installers
 
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.RegisterEntryPoint<CounterService>(Lifetime.Singleton).AsSelf();
+
+
             builder.Register<SoundEmitterService>(Lifetime.Singleton).AsSelf();
 
             builder.RegisterInstance(_playerSettings);

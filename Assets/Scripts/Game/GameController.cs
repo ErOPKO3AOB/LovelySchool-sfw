@@ -18,18 +18,25 @@ namespace Game
     public class GameController : MonoBehaviour
     {
         [Inject]
-        public void Construct(Func<Transform, GameObject, Enemy> enemyFactory, PlayerFacade playerFacade, InputReader inputReader, GameSettingsSO gameSettings)
+        public void Construct(
+            Func<Transform, GameObject, Enemy> enemyFactory, 
+            PlayerFacade playerFacade, 
+            InputReader inputReader, 
+            GameSettingsSO gameSettings, 
+            CounterService ñounterService)
         {
             _enemyFactory = enemyFactory;
             _playerFacade = playerFacade;
             _inputReader = inputReader;
             _gameSettings = gameSettings;
+            _ñounterService = ñounterService;
         }
 
         private Func<Transform, GameObject, Enemy> _enemyFactory;
         private PlayerFacade _playerFacade;
         private InputReader _inputReader;
         private GameSettingsSO _gameSettings;
+        private CounterService _ñounterService;
 
         [Header("Enemies")]
         [SerializeField] private List<Enemy> _enemies = new();
@@ -53,7 +60,7 @@ namespace Game
         [SerializeField] private Toggle _disableMusicToggle;
         [SerializeField] private Slider _sensitivitySlider;
 
-        private const string _monkeysText = "Îáåçüÿí îñòàëîñü:";
+        private const string _monkeysText = "Îñòàëîñü âðàãîâ:";
 
         public UnityAction<bool> OnPauseStateChanged;
 
@@ -68,7 +75,11 @@ namespace Game
         {
             for (int i = 0; i < _rooms.Length; i++)
             {
-                _rooms[i].OnCleaned += (message) => { StartCoroutine(MessageRoutine(message)); };
+                _rooms[i].OnCleaned += (message, roomName) => 
+                {
+                    StartCoroutine(MessageRoutine(message));
+                    _ñounterService.SetLastCompletedRoom(roomName);
+                };
             }
 
             _playerFacade.Health.OnDead += OnPlayerDead;
@@ -92,8 +103,6 @@ namespace Game
             _isPaused = paused;
 
             OnPauseStateChanged?.Invoke(paused);
-
-            Debug.Log($"Paused {paused}");
 
             if (paused)
             {
@@ -121,7 +130,7 @@ namespace Game
 
         private void OnPlayerDead(GameObject obj)
         {
-            YG2.InterstitialAdvShow();
+            //YG2.InterstitialAdvShow();
 
             SetPaused(false);
             _playerDead = true;
@@ -163,6 +172,8 @@ namespace Game
         {
             _enemies.Remove(obj.GetComponent<Enemy>());
             _enemyCountText.text = $"{_monkeysText} {_enemies.Count}";
+
+            _ñounterService.IncrementEnemyKillCount();
 
             if (_enemies.Count <= 0)
             {
