@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VContainer.Unity;
 using YG;
 
 namespace Assets.Scripts.Game
@@ -15,12 +15,13 @@ namespace Assets.Scripts.Game
         public void Initialize()
         {
             KillCount = 0;
-
+         
             SceneManager.sceneUnloaded += SceneUnloaded;
         }
 
         private void SceneUnloaded(Scene scene)
         {
+#if !UNITY_EDITOR
             YG2.MetricaSend("enemy_kills", new Dictionary<string, object>
             {
                 { "count", KillCount }
@@ -35,9 +36,8 @@ namespace Assets.Scripts.Game
             {
                 { "seconds", Time.timeSinceLevelLoad }
             });
-
-#if UNITY_EDITOR
-            Debug.Log($"Scene unloaded. KillCount: {KillCount}, LastCompletedRoom: {LastCompletedRoom}");
+#else
+            Debug.Log($"Scene unloaded. KillCount: {KillCount}, LastCompletedRoom: {LastCompletedRoom}, time spent: {Time.timeSinceLevelLoad} seconds");
 #endif
         }
 

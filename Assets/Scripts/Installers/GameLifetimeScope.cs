@@ -36,7 +36,7 @@ namespace Installers
             builder.Register<InputReader>(Lifetime.Singleton)
                 .AsSelf();
 
-            var player = Instantiate(_playerSettings.playerPrefab, new Vector3(-48.5f, 1, -18.5f), Quaternion.identity);
+            var player = Instantiate(_playerSettings.playerPrefab, new Vector3(-60.5f, 1.25f, -11), Quaternion.identity);
             builder.RegisterComponent(player)
                 .AsSelf();
 

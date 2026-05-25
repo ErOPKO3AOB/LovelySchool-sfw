@@ -85,10 +85,6 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
-      propertyPath: _fieldOfView
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _attackDamage
       value: 5
       objectReference: {fileID: 0}

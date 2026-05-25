@@ -3102,7 +3102,7 @@ MonoBehaviour:
   _patrolPointsCount: 5
   _patrolRadius: 10
   _detectionRange: 15
-  _fieldOfView: 100
+  _fieldOfView: 340
   _rearDetectionRange: 2
   _visionCheckInterval: 0.5
   _visionMask:
