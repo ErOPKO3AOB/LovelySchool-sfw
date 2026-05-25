@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 713238241933297334, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 614e16dc8a24b5946b801682be204874, type: 2}
     - target: {fileID: 2356920259781634191, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -72,6 +76,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4567400811632271969, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _attackDamage
       value: 28
@@ -132,6 +140,10 @@ PrefabInstance:
       propertyPath: _maxHealth
       value: 666
       objectReference: {fileID: 0}
+    - target: {fileID: 9170597117549242630, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 614e16dc8a24b5946b801682be204874, type: 2}
     - target: {fileID: 9198542458646141974, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_Name
       value: AngryEnemy

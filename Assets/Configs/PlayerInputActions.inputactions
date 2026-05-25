@@ -320,6 +320,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9c2641bd-fb7a-478f-8850-4263ae91199c",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectInventorySlot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "bf33b41c-8f08-48da-8ba4-aee3a33f098a",
                     "path": "<Keyboard>/f",
                     "interactions": "",

@@ -43,6 +43,8 @@ namespace Game
                 enemy.patrolPoints[i] = _patrolPoints[i].position;
             }
 
+            enemy.RefreshPatrol();
+
             Destroy(gameObject);
         }
     }

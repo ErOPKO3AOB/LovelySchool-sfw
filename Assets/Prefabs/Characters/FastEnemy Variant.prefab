@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 713238241933297334, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a0c6938d89b073442a049c7c28a71fd6, type: 2}
     - target: {fileID: 2356920259781634191, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -68,6 +72,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4567400811632271969, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _memoryTime
       value: 3
@@ -78,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _fieldOfView
-      value: 358
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _attackDamage
@@ -104,6 +112,18 @@ PrefabInstance:
       propertyPath: _attackStartDelay
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6960557042104696786, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960557042104696786, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6960557042104696786, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7096102726151814738, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_Speed
       value: 10.4
@@ -116,6 +136,14 @@ PrefabInstance:
       propertyPath: m_AngularSpeed
       value: 550.72
       objectReference: {fileID: 0}
+    - target: {fileID: 7494295357500975661, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7494295357500975661, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7979764451314469428, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _health
       value: 50
@@ -124,6 +152,10 @@ PrefabInstance:
       propertyPath: _maxHealth
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 9170597117549242630, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a0c6938d89b073442a049c7c28a71fd6, type: 2}
     - target: {fileID: 9198542458646141974, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_Name
       value: FastEnemy Variant

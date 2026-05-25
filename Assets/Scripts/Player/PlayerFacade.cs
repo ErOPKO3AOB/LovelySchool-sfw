@@ -237,6 +237,6 @@ namespace Player
             Gizmos.color = _jump != null && _jump.IsGrounded ? Color.green : Color.red;
             Gizmos.DrawWireSphere(_groundCheck.position, _settings.groundCheckRadius);
         }
-    }
 #endif
+    }
 }
