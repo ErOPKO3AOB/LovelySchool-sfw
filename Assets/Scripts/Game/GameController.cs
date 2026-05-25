@@ -88,12 +88,16 @@ namespace Game
         private void SetPaused(bool paused)
         {
             if (_playerDead) return;
+
             _isPaused = paused;
-            Time.timeScale = paused ? 0f : 1f;
+
             OnPauseStateChanged?.Invoke(paused);
+
+            Debug.Log($"Paused {paused}");
 
             if (paused)
             {
+                Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 _pauseMenuUI.SetActive(true);
@@ -102,6 +106,7 @@ namespace Game
             }
             else
             {
+                Time.timeScale = 1f;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 _pauseMenuUI.SetActive(false);

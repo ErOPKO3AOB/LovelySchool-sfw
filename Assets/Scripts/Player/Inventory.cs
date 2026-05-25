@@ -141,6 +141,8 @@ namespace Player
                 _weapons[_currentWeapon].gameObject.SetActive(false);
             }
 
+            if (weapon.Light != null) Destroy(weapon.Light.gameObject);
+
             List<Collider> colliders = weapon.GetComponents<Collider>().ToList();
             colliders.ForEach(c => c.enabled = false);
 

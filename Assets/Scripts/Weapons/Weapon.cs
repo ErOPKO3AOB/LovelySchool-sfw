@@ -34,6 +34,7 @@ namespace Game
         [SerializeField] protected string[] shootAnimNames;
         [SerializeField] protected string reloadAnimName = "Reload";
         [SerializeField] protected string pickupAnimName = "Pickup";  // анимация подбора
+        [SerializeField] private Light _light;
 
         [Header("Боезапас")]
         [SerializeField] private int currentAmmoCapacity; // стартовый резерв
@@ -85,6 +86,9 @@ namespace Game
                 return _rigidbody;
             }
         }
+        
+        public Light Light => _light;
+
 
         private void OnValidate()
         {

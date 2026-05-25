@@ -1568,13 +1568,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5287668590336012134}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.79388434, y: 0, z: 0, w: 0.6080689}
-  m_LocalPosition: {x: -0.017, y: -0.209, z: -0.012}
+  m_LocalRotation: {x: -0.7966537, y: 9.0085406e-10, z: 0.0000000027939664, w: 0.60443604}
+  m_LocalPosition: {x: -0.017, y: -0.212, z: -0}
   m_LocalScale: {x: 1.1468927, y: 1.0676, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8399485058767989535}
-  m_LocalEulerAnglesHint: {x: -105.1, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -105.623, y: 0, z: 0}
 --- !u!33 &8468343623527217785
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2107,8 +2107,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.89}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0.844}
+  m_SizeDelta: {x: 200, y: 31.9758}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &562768902830273875
 Canvas:
@@ -3070,6 +3070,7 @@ MonoBehaviour:
   _objectsToClean: {fileID: 5591758698196565784}
   _ragdollRenderer: {fileID: 713238241933297334}
   _agent: {fileID: 7096102726151814738}
+  _rotationSpeed: 10
   _destroyDelay: 1.91
   _shrinkDuration: 1.25
   _shrinkCurve:
@@ -3207,7 +3208,7 @@ RectTransform:
   m_GameObject: {fileID: 9202242831493936186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1328112, y: 0.5290486, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6403128587174404827}
