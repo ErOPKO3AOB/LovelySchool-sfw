@@ -88,6 +88,9 @@ namespace Assets.Scripts.Game
         [SerializeField] private float _rearDetectionRange = 3f;
         [SerializeField] private float _visionCheckInterval = 0.25f;
         [SerializeField] private LayerMask _visionMask;
+        [SerializeField] private float _lookAtPlayerDistance = 4f;
+
+        private float _lookAtPlayerDistanceSqr;
 
         [Header("Attack")]
         [SerializeField] private float _attackRange = 2f;
@@ -236,6 +239,9 @@ namespace Assets.Scripts.Game
 
         private void Awake()
         {
+            _lookAtPlayerDistanceSqr =
+                _lookAtPlayerDistance * _lookAtPlayerDistance;
+
             _defaultMaterial =
                 _renderer.material;
 
@@ -562,24 +568,37 @@ namespace Assets.Scripts.Game
                     _rotationSpeed * Time.deltaTime);
         }
 
-        private void UpdateChase(
-    Vector3 playerPos)
+        private void UpdateChase(Vector3 playerPos)
         {
-            Vector3 lookDir =
+            Vector3 toPlayer =
                 playerPos - transform.position;
 
-            lookDir.y = 0f;
+            toPlayer.y = 0f;
 
-            if (lookDir.sqrMagnitude > 0.001f)
+            float sqrDistance =
+                toPlayer.sqrMagnitude;
+
+            // Смотрим на игрока
+            // только если он очень близко
+            if (sqrDistance <= _lookAtPlayerDistanceSqr)
             {
-                Quaternion targetRotation =
-                    Quaternion.LookRotation(lookDir);
+                if (toPlayer.sqrMagnitude > 0.001f)
+                {
+                    Quaternion targetRotation =
+                        Quaternion.LookRotation(
+                            toPlayer.normalized);
 
-                transform.rotation =
-                    Quaternion.Slerp(
-                        transform.rotation,
-                        targetRotation,
-                        _rotationSpeed * Time.deltaTime);
+                    transform.rotation =
+                        Quaternion.Slerp(
+                            transform.rotation,
+                            targetRotation,
+                            _rotationSpeed * Time.deltaTime);
+                }
+            }
+            // Иначе смотрим по направлению движения
+            else
+            {
+                RotateTowardsMovement();
             }
 
             if (_destinationTimer > 0f)
