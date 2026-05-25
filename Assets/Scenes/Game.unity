@@ -381456,12 +381456,12 @@ MonoBehaviour:
   _weaponSettings: {fileID: 11400000, guid: e34ee7ba54f99bb4f9c87f2e09511559, type: 2}
   _randomPointItemsSpawner: {fileID: 1191888747}
   _enemySpawnPoints:
-  - {fileID: 1123239627}
-  - {fileID: 654127384}
-  - {fileID: 425888681}
+  - {fileID: 1926177072}
   - {fileID: 2060417447}
   - {fileID: 1691635341}
-  - {fileID: 1926177072}
+  - {fileID: 425888681}
+  - {fileID: 1123239627}
+  - {fileID: 654127384}
   _gameController: {fileID: 1003872888}
   _enemyOutliner: {fileID: 1304632640}
   _musicPlayer: {fileID: 594673820}
@@ -526016,7 +526016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: feff93c1978bc224c93e4d892462632f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42488875407509c449e14ccc2b42b223, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
