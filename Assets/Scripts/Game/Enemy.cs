@@ -61,6 +61,7 @@ namespace Assets.Scripts.Game
 
         [Header("Movement")]
         [SerializeField] private NavMeshAgent _agent;
+        [SerializeField] private float _rotationSpeed = 10f;
         public NavMeshAgent Agent => _agent;
 
         [Header("Death FX")]
@@ -351,6 +352,7 @@ namespace Assets.Scripts.Game
             switch (_state)
             {
                 case State.Patrol:
+                    RotateTowardsMovement();
                     UpdatePatrol();
                     break;
 
@@ -387,10 +389,13 @@ namespace Assets.Scripts.Game
             _agent.autoBraking = false;
             _agent.autoRepath = false;
 
+            // ВАЖНО
+            _agent.updateRotation = false;
+
             // HUGE WebGL optimization
             _agent.obstacleAvoidanceType =
                 ObstacleAvoidanceType.LowQualityObstacleAvoidance;
-            _agent.updateRotation = true;
+
             _agent.updateUpAxis = false;
         }
 
@@ -536,9 +541,47 @@ namespace Assets.Scripts.Game
 
         #region Chase
 
-        private void UpdateChase(
-            Vector3 playerPos)
+        private void RotateTowardsMovement()
         {
+            Vector3 velocity =
+                _agent.velocity;
+
+            velocity.y = 0f;
+
+            if (velocity.sqrMagnitude < 0.01f)
+                return;
+
+            Quaternion targetRotation =
+                Quaternion.LookRotation(
+                    velocity.normalized);
+
+            transform.rotation =
+                Quaternion.Slerp(
+                    transform.rotation,
+                    targetRotation,
+                    _rotationSpeed * Time.deltaTime);
+        }
+
+        private void UpdateChase(
+    Vector3 playerPos)
+        {
+            Vector3 lookDir =
+                playerPos - transform.position;
+
+            lookDir.y = 0f;
+
+            if (lookDir.sqrMagnitude > 0.001f)
+            {
+                Quaternion targetRotation =
+                    Quaternion.LookRotation(lookDir);
+
+                transform.rotation =
+                    Quaternion.Slerp(
+                        transform.rotation,
+                        targetRotation,
+                        _rotationSpeed * Time.deltaTime);
+            }
+
             if (_destinationTimer > 0f)
                 return;
 
