@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using VContainer;
-using YG;
 using Random = UnityEngine.Random;
 
 namespace Game
@@ -19,10 +19,11 @@ namespace Game
     {
         [Inject]
         public void Construct(
-            Func<Transform, GameObject, Enemy> enemyFactory, 
-            PlayerFacade playerFacade, 
-            InputReader inputReader, 
-            GameSettingsSO gameSettings, 
+            Func<Transform, GameObject, Enemy> enemyFactory,
+            Func<Transform, EnemyOutliner> enemyOutlinerFactory,
+            PlayerFacade playerFacade,
+            InputReader inputReader,
+            GameSettingsSO gameSettings,
             CounterService ñounterService)
         {
             _enemyFactory = enemyFactory;
@@ -30,6 +31,7 @@ namespace Game
             _inputReader = inputReader;
             _gameSettings = gameSettings;
             _ñounterService = ñounterService;
+            _enemyOutlinerFactory = enemyOutlinerFactory;
         }
 
         private Func<Transform, GameObject, Enemy> _enemyFactory;
@@ -37,11 +39,15 @@ namespace Game
         private InputReader _inputReader;
         private GameSettingsSO _gameSettings;
         private CounterService _ñounterService;
+        private Func<Transform, EnemyOutliner> _enemyOutlinerFactory;
+
+        public Volume globalVolume;
 
         [Header("Enemies")]
         [SerializeField] private List<Enemy> _enemies = new();
         [SerializeField] private TMP_Text _enemyCountText;
         [SerializeField] private float _outlineTime = 15f;
+        [SerializeField] private Transform[] _enemyOutlinerTransforms;
 
         [Header("Rooms")]
         [SerializeField] private Room[] _rooms;
@@ -75,11 +81,16 @@ namespace Game
         {
             for (int i = 0; i < _rooms.Length; i++)
             {
-                _rooms[i].OnCleaned += (message, roomName) => 
+                _rooms[i].OnCleaned += (message, roomName) =>
                 {
                     StartCoroutine(MessageRoutine(message));
                     _ñounterService.SetLastCompletedRoom(roomName);
                 };
+            }
+
+            for (int i = 0; i < _enemyOutlinerTransforms.Length; i++)
+            {
+                _enemyOutlinerFactory.Invoke(_enemyOutlinerTransforms[i]);
             }
 
             _playerFacade.Health.OnDead += OnPlayerDead;

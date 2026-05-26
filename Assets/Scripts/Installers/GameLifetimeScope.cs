@@ -15,7 +15,6 @@ namespace Installers
         [SerializeField] private RandomPointItemsSpawner _randomPointItemsSpawner;
         [SerializeField] private EnemySpawnPoint[] _enemySpawnPoints;
         [SerializeField] private GameController _gameController;
-        [SerializeField] private EnemyOutliner _enemyOutliner;
         [SerializeField] private MusicPlayer _musicPlayer;
 
         private void OnValidate()
@@ -25,6 +24,16 @@ namespace Installers
 
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.RegisterFactory<Transform, EnemyOutliner>(resolver =>
+            {
+                return (spawnPoint) =>
+                {
+                    EnemyOutliner instance = resolver.Instantiate(_playerSettings.enemyOutlinerPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint).GetComponent<EnemyOutliner>();
+                    return instance;
+                };
+            }, Lifetime.Singleton)
+            .AsSelf();
+
             builder.RegisterEntryPoint<CounterService>(Lifetime.Singleton).AsSelf();
 
 
@@ -73,8 +82,6 @@ namespace Installers
             {
                 _enemySpawnPoints[i].Construct(_gameController);
             }
-
-            builder.RegisterComponent(_enemyOutliner);
 
             builder.RegisterComponent(_musicPlayer);
         }

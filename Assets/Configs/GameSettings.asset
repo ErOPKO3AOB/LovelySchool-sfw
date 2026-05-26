@@ -22,6 +22,7 @@ MonoBehaviour:
   - {fileID: 2504964120342788952, guid: 62768dc4746d9534ba03565c030a929c, type: 3}
   - {fileID: 2504964120342788952, guid: 64b2e651a420c404783cc944ec6637f5, type: 3}
   - {fileID: 2504964120342788952, guid: 2f909382b8acd5048aff1098448afd20, type: 3}
+  enemyOutlinerPrefab: {fileID: 8157673479232349124, guid: 936a84d8e1f2ac54fb0d48b66469672b, type: 3}
   playerPrefab: {fileID: 8482903674758022575, guid: 9289e2dbfdbccbe4f902b1b730ca4e62, type: 3}
   cameraPrefab: {fileID: 7081240675906717068, guid: 2e8cda44b1ddef84ab6f52a01258a0be, type: 3}
   walkSpeed: 16

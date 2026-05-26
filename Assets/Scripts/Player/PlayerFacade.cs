@@ -3,8 +3,11 @@ using Game;
 using Input;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using VContainer;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Player
 {
@@ -19,6 +22,14 @@ namespace Player
         [SerializeField] private GameObject _canvas;
         [SerializeField] private LegController _legController;
         [SerializeField] private Animator _v1BodyAnimator;
+
+        [Header("Effects")]
+        [SerializeField] private AudioMixer _audioMixer;
+        [SerializeField, Range(0, 1)] private float _hpPercent = 1f;
+        [SerializeField] private int _lowHpAudioHerz;
+        [SerializeField] private int _defaultAudioHerz;
+        private float _currentCutoff;
+        private float _cutoffVelocity;
 
         // Компоненты
         private Rigidbody _rigidbody;
@@ -47,6 +58,11 @@ namespace Player
         public PlayerDash Dash => _dash;
 
         public GameSettingsSO GameSettings { get; private set; }
+        private GameController _gameController;
+        private Vignette _vignette;
+        private float _vignetteVelocity;
+        private ColorAdjustments _colorAdjustments;
+        private float _colorAdjustmentsVelocity;
 
         [Inject]
         public void Construct(InputReader input, PooledSpawnService pooledSpawnService, GameSettingsSO gameSettings)
@@ -63,6 +79,10 @@ namespace Player
 
         private void Start()
         {
+            _gameController = FindFirstObjectByType<GameController>();
+            _gameController.globalVolume.profile.TryGet(out _vignette);
+            _gameController.globalVolume.profile.TryGet(out _colorAdjustments);
+
             _health.ConstructManually(_pooledSpawnService);
             _health.HealthChanged += HealthChanged;
 
@@ -179,6 +199,8 @@ namespace Player
 
         private void Update()
         {
+            UpdateLowHpVisuals();
+
             if (_health.IsDead) return;
 
             _stamina.Update(Time.deltaTime);
@@ -227,6 +249,28 @@ namespace Player
             _health.HealthChanged -= HealthChanged;
 
             _health.OnDead -= OnDead;
+        }
+
+        private void UpdateLowHpVisuals()
+        {
+            float time = Time.deltaTime * 20;
+            float soundTarget = _defaultAudioHerz;
+            float colorTarget = 0;
+            float vigneteTarget = 0.2f;
+            if (!_health.IsDead)
+            {
+                bool lowHp = (float)_health.CurrentHealth / 100 <= _hpPercent;
+                soundTarget =  lowHp ? _lowHpAudioHerz : _defaultAudioHerz;
+                colorTarget = lowHp ? -65f : colorTarget;
+                vigneteTarget = lowHp ? 0.4f : vigneteTarget;
+            }
+
+            _currentCutoff = Mathf.SmoothDamp(_currentCutoff, soundTarget, ref _cutoffVelocity, time);
+
+            _audioMixer.SetFloat("LowHpFilter", _currentCutoff);
+
+            _colorAdjustments.saturation.value = Mathf.SmoothDamp(_colorAdjustments.saturation.value, colorTarget, ref _colorAdjustmentsVelocity, time);
+            _vignette.intensity.value = Mathf.SmoothDamp(_vignette.intensity.value, vigneteTarget, ref _vignetteVelocity, time);
         }
 
 #if UNITY_EDITOR

@@ -6,9 +6,8 @@ namespace Game
     public class EnemyOutliner : MonoBehaviour
     {
         [Inject]
-        public void Construct(GameController gameController, SoundEmitterService soundEmitterService)
+        public void Construct(SoundEmitterService soundEmitterService)
         {
-            _gameController = gameController;
             _soundEmitterService = soundEmitterService;
         }
 
@@ -16,6 +15,11 @@ namespace Game
         private SoundEmitterService _soundEmitterService;
 
         [SerializeField] private Animator _animator;
+
+        private void Start()
+        {
+            _gameController = FindFirstObjectByType<GameController>();
+        }
 
         public void SetOutlined()
         {

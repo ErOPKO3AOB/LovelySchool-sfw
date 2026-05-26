@@ -3108,11 +3108,12 @@ MonoBehaviour:
   _visionMask:
     serializedVersion: 2
     m_Bits: 2057
+  _lookAtPlayerDistance: 4
   _attackRange: 2
   _attackCooldown: 1
   _attackDamage: 6
   _attackDelayTime: 0.4
-  _aiDistance: 40
+  _aiDistance: 80
   _animDistance: 30
   _destinationUpdateInterval: 0.5
   _memoryTime: 5

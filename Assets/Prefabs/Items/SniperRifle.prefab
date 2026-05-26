@@ -460,7 +460,7 @@ MonoBehaviour:
   range: 1000
   fireRate: 1
   canHold: 0
-  reloadTime: 4
+  reloadTime: 2.5
   _projectileSpawnPoint: {fileID: 2106795776251046058}
   isMelee: 0
   meleeRange: 2

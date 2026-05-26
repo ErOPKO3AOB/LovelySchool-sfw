@@ -100,7 +100,7 @@ MonoBehaviour:
   range: 400
   fireRate: 10
   canHold: 1
-  reloadTime: 6
+  reloadTime: 3
   _projectileSpawnPoint: {fileID: 1402313728921170446}
   isMelee: 0
   meleeRange: 2

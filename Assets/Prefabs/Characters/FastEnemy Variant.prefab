@@ -86,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _attackDamage
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _attackCooldown
@@ -122,11 +122,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7096102726151814738, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_Speed
-      value: 10.4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7096102726151814738, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_Acceleration
-      value: 128.7
+      value: 100.2
       objectReference: {fileID: 0}
     - target: {fileID: 7096102726151814738, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_AngularSpeed

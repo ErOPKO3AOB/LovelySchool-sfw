@@ -1,6 +1,7 @@
 using Player;
 using UnityEngine;
 using System.Collections.Generic;
+using Game;
 
 namespace Data
 {
@@ -8,6 +9,7 @@ namespace Data
     public class GameSettingsSO : ScriptableObject
     {
         public List<GameObject> soundPrefabs;
+        public EnemyOutliner enemyOutlinerPrefab;
 
         public PlayerFacade playerPrefab;
         public CameraFacade cameraPrefab;  // <- добавил префаб камеры
