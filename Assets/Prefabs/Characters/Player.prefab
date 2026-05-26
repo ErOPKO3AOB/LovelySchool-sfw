@@ -446,7 +446,7 @@ MonoBehaviour:
   _v1BodyAnimator: {fileID: 906110403268647122}
   _audioMixer: {fileID: 24100000, guid: 4b3a293a7b5a8bd49898ff912e38c984, type: 2}
   _hpPercent: 0.35
-  _lowHpAudioHerz: 600
+  _lowHpAudioHerz: 800
   _defaultAudioHerz: 22000
   _staminaSlider: {fileID: 4691472538078497344}
 --- !u!114 &2372279868893849636
