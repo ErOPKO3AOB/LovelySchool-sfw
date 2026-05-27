@@ -7,7 +7,6 @@ using UnityEngine.Audio;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using VContainer;
-using static UnityEngine.GraphicsBuffer;
 
 namespace Player
 {
@@ -26,8 +25,9 @@ namespace Player
         [Header("Effects")]
         [SerializeField] private AudioMixer _audioMixer;
         [SerializeField, Range(0, 1)] private float _hpPercent = 1f;
-        [SerializeField] private int _lowHpAudioHerz;
-        [SerializeField] private int _defaultAudioHerz;
+        //[SerializeField] private int _lowHpAudioHerz;
+        //[SerializeField] private int _defaultAudioHerz;
+        //private AudioLowPassFilter _audioLowPassFilter;
         private float _currentCutoff;
         private float _cutoffVelocity;
 
@@ -254,20 +254,20 @@ namespace Player
         private void UpdateLowHpVisuals()
         {
             float time = Time.deltaTime * 20;
-            float soundTarget = _defaultAudioHerz;
+            float soundTarget = 1;
             float colorTarget = 0;
             float vigneteTarget = 0.2f;
             if (!_health.IsDead)
             {
                 bool lowHp = (float)_health.CurrentHealth / 100 <= _hpPercent;
-                soundTarget =  lowHp ? _lowHpAudioHerz : _defaultAudioHerz;
+                soundTarget = lowHp ? 0.45f : soundTarget;
                 colorTarget = lowHp ? -65f : colorTarget;
                 vigneteTarget = lowHp ? 0.4f : vigneteTarget;
             }
 
             _currentCutoff = Mathf.SmoothDamp(_currentCutoff, soundTarget, ref _cutoffVelocity, time);
-
-            _audioMixer.SetFloat("LowHpFilter", _currentCutoff);
+            AudioListener.volume = _currentCutoff;
+            //_audioMixer.SetFloat("LowHpFilter", _currentCutoff);
 
             _colorAdjustments.saturation.value = Mathf.SmoothDamp(_colorAdjustments.saturation.value, colorTarget, ref _colorAdjustmentsVelocity, time);
             _vignette.intensity.value = Mathf.SmoothDamp(_vignette.intensity.value, vigneteTarget, ref _vignetteVelocity, time);

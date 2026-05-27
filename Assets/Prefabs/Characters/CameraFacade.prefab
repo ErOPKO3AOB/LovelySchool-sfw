@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5847173156814236610}
   - component: {fileID: 846077486360572849}
   - component: {fileID: 7081240675906717068}
+  - component: {fileID: -7790335720064110120}
   m_Layer: 0
   m_Name: CameraFacade
   m_TagString: MainCamera
@@ -160,6 +161,31 @@ MonoBehaviour:
   verticalSmoothTime: 0.05
   kickTiltAmount: 15
   kickTiltSmoothTime: 0.07
+--- !u!169 &-7790335720064110120
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3568344329163316425}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4100609022121728989
 GameObject:
   m_ObjectHideFlags: 0
