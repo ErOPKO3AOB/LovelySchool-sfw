@@ -2,6 +2,7 @@ using Player;
 using UnityEngine;
 using System.Collections.Generic;
 using Game;
+using Assets.Scripts.Input.UI;
 
 namespace Data
 {
@@ -42,5 +43,9 @@ namespace Data
         public float tiltAmount = 2f;                          // сила наклона при повороте
         public float tiltSmoothTime = 0.1f;
         public bool enableArms = true;
+
+        [Header("Mobile input")]
+        public MobileCanvasController mobileCanvasPrefab;
+        public GameObject inventorySlotPrefab;
     }
 }

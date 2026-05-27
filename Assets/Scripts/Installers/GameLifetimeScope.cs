@@ -1,16 +1,17 @@
 using Assets.Scripts.Game;
+using Assets.Scripts.Input;
 using Data;
 using Game;
-using Input;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using YG;
 
 namespace Installers
 {
     public class GameLifetimeScope : LifetimeScope
     {
-        [SerializeField] private GameSettingsSO _playerSettings;
+        [SerializeField] private GameSettingsSO _gameSettings;
         [SerializeField] private WeaponSettingsSO _weaponSettings;
         [SerializeField] private RandomPointItemsSpawner _randomPointItemsSpawner;
         [SerializeField] private EnemySpawnPoint[] _enemySpawnPoints;
@@ -28,7 +29,7 @@ namespace Installers
             {
                 return (spawnPoint) =>
                 {
-                    EnemyOutliner instance = resolver.Instantiate(_playerSettings.enemyOutlinerPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint).GetComponent<EnemyOutliner>();
+                    EnemyOutliner instance = resolver.Instantiate(_gameSettings.enemyOutlinerPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint).GetComponent<EnemyOutliner>();
                     return instance;
                 };
             }, Lifetime.Singleton)
@@ -36,16 +37,27 @@ namespace Installers
 
             builder.RegisterEntryPoint<CounterService>(Lifetime.Singleton).AsSelf();
 
-
             builder.Register<SoundEmitterService>(Lifetime.Singleton).AsSelf();
 
-            builder.RegisterInstance(_playerSettings);
+            builder.RegisterInstance(_gameSettings);
             builder.RegisterInstance(_weaponSettings);
 
-            builder.Register<InputReader>(Lifetime.Singleton)
-                .AsSelf();
+            // INPUT
+            // TODO: Restore checks
+            if (true/*YG2.envir.isMobile || YG2.envir.isTablet*/)
+            {
+                builder.Register<MobileInputReader>(Lifetime.Singleton)
+                    .As<IInputReader>();
+                var instance = Instantiate(_gameSettings.mobileCanvasPrefab);
+                builder.RegisterComponent(instance);
+            }
+            else
+            {
+                builder.Register<StandaloneInputReader>(Lifetime.Singleton)
+                    .As<IInputReader>();
+            }
 
-            var player = Instantiate(_playerSettings.playerPrefab, new Vector3(-60.5f, 1.25f, -11), Quaternion.identity);
+            var player = Instantiate(_gameSettings.playerPrefab, new Vector3(-60.5f, 1.25f, -11), Quaternion.identity);
             builder.RegisterComponent(player)
                 .AsSelf();
 

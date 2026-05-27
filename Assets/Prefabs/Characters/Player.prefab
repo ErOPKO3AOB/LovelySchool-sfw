@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6900908736895306300}
   - component: {fileID: 8256906145093739264}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PlayerCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -303,8 +303,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2772249379496457096}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.5, y: 1, z: -61.5}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -315,7 +315,7 @@ Transform:
   - {fileID: 2396226245149595999}
   - {fileID: 8270257175788266334}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!33 &2041644274553319959
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -446,8 +446,6 @@ MonoBehaviour:
   _v1BodyAnimator: {fileID: 906110403268647122}
   _audioMixer: {fileID: 24100000, guid: 4b3a293a7b5a8bd49898ff912e38c984, type: 2}
   _hpPercent: 0.35
-  _lowHpAudioHerz: 800
-  _defaultAudioHerz: 22000
   _staminaSlider: {fileID: 4691472538078497344}
 --- !u!114 &2372279868893849636
 MonoBehaviour:
@@ -875,14 +873,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.397, g: 0.397, b: 0.397, a: 0.7019608}
+  m_Color: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 0.7019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 752515513, guid: fe75871bdf7ea774e81f1f5ebafc12ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

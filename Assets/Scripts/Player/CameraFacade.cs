@@ -1,6 +1,7 @@
-﻿using Data;
-using Input;
+﻿using Assets.Scripts.Input;
+using Data;
 using UnityEngine;
+using YG;
 
 namespace Player
 {
@@ -20,7 +21,7 @@ namespace Player
         private float _kickTiltCurrent = 0f;
         private float _kickTiltVelocity = 0f;
 
-        private InputReader _input;
+        private IInputReader _input;
         private PlayerFacade _player;
         private Transform _playerTransform;
 
@@ -34,7 +35,7 @@ namespace Player
 
         private GameSettingsSO _gameSettingsSO;
 
-        public void Initialize(InputReader input, PlayerFacade player, GameSettingsSO settings)
+        public void Initialize(IInputReader input, PlayerFacade player, GameSettingsSO settings)
         {
             _input = input;
             _player = player;
@@ -47,7 +48,15 @@ namespace Player
             tiltAmount = settings.tiltAmount;
             tiltSmoothTime = settings.tiltSmoothTime;
 
-            Cursor.lockState = CursorLockMode.Locked;
+            if (YG2.envir.device == YG2.Device.Mobile || YG2.envir.device == YG2.Device.Tablet)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
 
             targetOffset = offset;
         }

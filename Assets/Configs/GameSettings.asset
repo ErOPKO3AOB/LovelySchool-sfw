@@ -46,3 +46,5 @@ MonoBehaviour:
   tiltAmount: 2
   tiltSmoothTime: 0.1
   enableArms: 1
+  mobileCanvasPrefab: {fileID: 4663778548874854839, guid: d2eafff8a5de5ad4fb882d4834827f7f, type: 3}
+  inventorySlotPrefab: {fileID: 5350994879069897302, guid: eb5aba7b0a3e7f0449aeb94542f0b436, type: 3}

@@ -1,6 +1,6 @@
 using Assets.Scripts.Game;
+using Assets.Scripts.Input;
 using Data;
-using Input;
 using Player;
 using System;
 using System.Collections;
@@ -11,6 +11,7 @@ using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 using VContainer;
+using YG;
 using Random = UnityEngine.Random;
 
 namespace Game
@@ -22,7 +23,7 @@ namespace Game
             Func<Transform, GameObject, Enemy> enemyFactory,
             Func<Transform, EnemyOutliner> enemyOutlinerFactory,
             PlayerFacade playerFacade,
-            InputReader inputReader,
+            IInputReader inputReader,
             GameSettingsSO gameSettings,
             CounterService ñounterService)
         {
@@ -36,7 +37,7 @@ namespace Game
 
         private Func<Transform, GameObject, Enemy> _enemyFactory;
         private PlayerFacade _playerFacade;
-        private InputReader _inputReader;
+        private IInputReader _inputReader;
         private GameSettingsSO _gameSettings;
         private CounterService _ñounterService;
         private Func<Transform, EnemyOutliner> _enemyOutlinerFactory;
@@ -107,7 +108,7 @@ namespace Game
             _pauseMenuUI.SetActive(false);
         }
 
-        private void SetPaused(bool paused)
+        public void SetPaused(bool paused)
         {
             if (_playerDead) return;
 
@@ -127,8 +128,12 @@ namespace Game
             else
             {
                 Time.timeScale = 1f;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                if (YG2.envir.device == YG2.Device.Desktop)
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
+
                 _pauseMenuUI.SetActive(false);
             }
         }

@@ -1,9 +1,10 @@
+using Assets.Scripts.Input;
 using Game;
-using Input;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player
 {
@@ -13,7 +14,7 @@ namespace Player
         [SerializeField] private TMP_Text _ammoText;
         [SerializeField] private PlayerFacade _playerFacade;
 
-        private InputReader _input;
+        private IInputReader _inputReader;
         private readonly List<Weapon> _weapons = new();
         private int _currentWeapon = 0;
         private Camera _camera;
@@ -21,9 +22,9 @@ namespace Player
         public List<Weapon> Weapons => _weapons;
         public int CurrentWeapon => _currentWeapon;
 
-        private bool _armsEnabled;
-
         public bool HasNotMelee { get; private set; }
+
+        public UnityAction<Weapon> OnWeaponPickUp;
 
         private void Start()
         {
@@ -35,14 +36,14 @@ namespace Player
             _hand.gameObject.SetActive(false);
         }
 
-        public void Initialize(InputReader input, Camera camera)
+        public void Initialize(IInputReader inputReader, Camera camera)
         {
-            _input = input;
-            _input.OnUseStarted += HandleUseStarted;
-            _input.OnUseCanceled += HandleUseCanceled;
-            _input.OnReloadPerformed += HandleReload;
-            _input.OnChangeWeaponPerformed += HandleScroll;
-            _input.OnSelectInventorySlotPerformed += HandleSelectSlot;
+            _inputReader = inputReader;
+            _inputReader.OnUseStarted += HandleUseStarted;
+            _inputReader.OnUseCanceled += HandleUseCanceled;
+            _inputReader.OnReloadPerformed += HandleReload;
+            _inputReader.OnChangeWeaponPerformed += HandleScroll;
+            _inputReader.OnSelectInventorySlotPerformed += HandleSelectSlot;
 
             _camera = camera;
             _hand.SetParent(_camera.transform);
@@ -180,6 +181,8 @@ namespace Player
             _weapons.Add(weapon);
             _currentWeapon = _weapons.Count - 1;
             RefreshAmmoDisplay();
+
+            OnWeaponPickUp?.Invoke(weapon);
         }
 
         private void PickupAmmo(GameObject ammoPickup)
@@ -219,13 +222,13 @@ namespace Player
 
         private void OnDestroy()
         {
-            if (_input != null)
+            if (_inputReader != null)
             {
-                _input.OnUseStarted -= HandleUseStarted;
-                _input.OnUseCanceled -= HandleUseCanceled;
-                _input.OnReloadPerformed -= HandleReload;
-                _input.OnChangeWeaponPerformed -= HandleScroll;
-                _input.OnSelectInventorySlotPerformed -= HandleSelectSlot;
+                _inputReader.OnUseStarted -= HandleUseStarted;
+                _inputReader.OnUseCanceled -= HandleUseCanceled;
+                _inputReader.OnReloadPerformed -= HandleReload;
+                _inputReader.OnChangeWeaponPerformed -= HandleScroll;
+                _inputReader.OnSelectInventorySlotPerformed -= HandleSelectSlot;
             }
 
             _playerFacade.Health.OnDead -= OnDead;

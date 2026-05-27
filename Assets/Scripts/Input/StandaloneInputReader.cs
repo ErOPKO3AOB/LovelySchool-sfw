@@ -3,31 +3,27 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-namespace Input
+namespace Assets.Scripts.Input
 {
-    public class InputReader : IDisposable
+    public class StandaloneInputReader : IInputReader
     {
         private readonly PlayerInputActions _inputActions;
 
-        // Одноразовые действия
         public event Action OnJumpPerformed;
         public event Action OnDashPerformed;
         public event Action OnKickPerformed;
-
         public event Action OnReloadPerformed;
         public event Action<float> OnChangeWeaponPerformed;
         public event Action<int> OnSelectInventorySlotPerformed;
-
-        public event Action OnUseStarted;    // Зажали
-        public event Action OnUseCanceled;   // Отпустили
-        public bool IsUsePressed => _inputActions.Player.Use.IsPressed(); // Текущее состояние
-
+        public event Action OnUseStarted;
+        public event Action OnUseCanceled;
+        public event Action OnPausePerformed;
+        public bool IsUsePressed => _inputActions.Player.Use.IsPressed();
         public Vector2 Move => _inputActions.Player.Move.ReadValue<Vector2>();
         public Vector2 Look => _inputActions.Player.Look.ReadValue<Vector2>();
 
-        public event Action OnPausePerformed;
 
-        public InputReader()
+        public StandaloneInputReader()
         {
             _inputActions = new PlayerInputActions();
 

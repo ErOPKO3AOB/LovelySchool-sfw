@@ -1,6 +1,6 @@
-﻿using Data;
+﻿using Assets.Scripts.Input;
+using Data;
 using Game;
-using Input;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -45,7 +45,7 @@ namespace Player
         // УЖЕ ЕСТЬ ДОЧЕРНИЙ ОБЪЕКТ В ИГРОКЕ 
         [SerializeField] private Slider _staminaSlider;
 
-        private InputReader _input;
+        private IInputReader _inputReader;
         private CameraFacade _camera;
 
         private PooledSpawnService _pooledSpawnService;
@@ -65,9 +65,9 @@ namespace Player
         private float _colorAdjustmentsVelocity;
 
         [Inject]
-        public void Construct(InputReader input, PooledSpawnService pooledSpawnService, GameSettingsSO gameSettings)
+        public void Construct(IInputReader inputReader, PooledSpawnService pooledSpawnService, GameSettingsSO gameSettings)
         {
-            _input = input;
+            _inputReader = inputReader;
             _pooledSpawnService = pooledSpawnService;
             GameSettings = gameSettings;
         }
@@ -97,7 +97,7 @@ namespace Player
             _movement = new PlayerMovement(_rigidbody, _settings, transform); // больше не нужен _cameraTransform
             _jump = new PlayerJump(_rigidbody, _settings, _groundCheck);
             _dash = new PlayerDash(_rigidbody, _settings, _stamina, transform);
-            _inventory.Initialize(_input, _camera.Camera);
+            _inventory.Initialize(_inputReader, _camera.Camera);
 
             _stamina.OnStaminaChanged += UpdateStaminaUI;
 
@@ -171,30 +171,30 @@ namespace Player
             if (_settings.cameraPrefab != null)
             {
                 _camera = Instantiate(_settings.cameraPrefab, transform.position, Quaternion.identity, transform);
-                _camera.Initialize(_input, this, _settings);
+                _camera.Initialize(_inputReader, this, _settings);
             }
         }
 
         private void SubscribeInput()
         {
-            _input.OnJumpPerformed += HandleJump;
-            _input.OnDashPerformed += HandleDash;
-            _input.OnKickPerformed += () => _legController.StartKick();
+            _inputReader.OnJumpPerformed += HandleJump;
+            _inputReader.OnDashPerformed += HandleDash;
+            _inputReader.OnKickPerformed += () => _legController.StartKick();
         }
 
         private void OnEnable()
         {
-            if (_input != null)
+            if (_inputReader != null)
                 SubscribeInput();
         }
 
         private void OnDisable()
         {
-            _input.OnJumpPerformed -= HandleJump;
-            _input.OnDashPerformed -= HandleDash;
+            _inputReader.OnJumpPerformed -= HandleJump;
+            _inputReader.OnDashPerformed -= HandleDash;
 
             _stamina.OnStaminaChanged -= UpdateStaminaUI;
-            _input.OnKickPerformed -= () => _legController.StartKick();
+            _inputReader.OnKickPerformed -= () => _legController.StartKick();
         }
 
         private void Update()
@@ -213,8 +213,8 @@ namespace Player
 
             bool isGrounded = _jump.IsGrounded;
 
-            _movement.Move(_input.Move, isGrounded, _dash.IsDashing);
-            _v1BodyAnimator.SetBool("Walking", _input.Move != Vector2.zero && isGrounded);
+            _movement.Move(_inputReader.Move, isGrounded, _dash.IsDashing);
+            _v1BodyAnimator.SetBool("Walking", _inputReader.Move != Vector2.zero && isGrounded);
             _v1BodyAnimator.SetBool("Falling", !isGrounded);
         }
 
@@ -228,7 +228,7 @@ namespace Player
         private void HandleDash()
         {
             if (_health.IsDead) return;
-            _dash.TryStartDash(_input.Move);
+            _dash.TryStartDash(_inputReader.Move);
         }
 
         // Добавьте в класс PlayerFacade
