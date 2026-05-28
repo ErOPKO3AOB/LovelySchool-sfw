@@ -148,7 +148,6 @@ namespace Game
         {
             //YG2.InterstitialAdvShow();
 
-            SetPaused(false);
             _playerDead = true;
 
             _enemyCountText.gameObject.SetActive(false);

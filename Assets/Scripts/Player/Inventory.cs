@@ -16,11 +16,11 @@ namespace Player
 
         private IInputReader _inputReader;
         private readonly List<Weapon> _weapons = new();
-        private int _currentWeapon = 0;
+        private int _currentWeaponIndex = 0;
         private Camera _camera;
 
         public List<Weapon> Weapons => _weapons;
-        public int CurrentWeapon => _currentWeapon;
+        public int CurrentWeaponIndex => _currentWeaponIndex;
 
         public bool HasNotMelee { get; private set; }
 
@@ -64,17 +64,17 @@ namespace Player
             if (slotIndex < 0 || slotIndex >= _weapons.Count)
                 return;
 
-            if (slotIndex == _currentWeapon)
+            if (slotIndex == _currentWeaponIndex)
                 return;
 
             // Остановить текущее оружие и спрятать
-            _weapons[_currentWeapon].StopShoot();
-            _weapons[_currentWeapon].AbortReload();
-            _weapons[_currentWeapon].gameObject.SetActive(false);
+            _weapons[_currentWeaponIndex].StopShoot();
+            _weapons[_currentWeaponIndex].AbortReload();
+            _weapons[_currentWeaponIndex].gameObject.SetActive(false);
 
             // Переключить
-            _currentWeapon = slotIndex;
-            _weapons[_currentWeapon].gameObject.SetActive(true);
+            _currentWeaponIndex = slotIndex;
+            _weapons[_currentWeaponIndex].gameObject.SetActive(true);
             RefreshAmmoDisplay();
         }
 
@@ -83,17 +83,17 @@ namespace Player
             if (_weapons.Count < 2) return;
 
             // Прерываем перезарядку и стрельбу у текущего оружия
-            _weapons[_currentWeapon].StopShoot();
-            _weapons[_currentWeapon].AbortReload();
-            _weapons[_currentWeapon].gameObject.SetActive(false);
+            _weapons[_currentWeaponIndex].StopShoot();
+            _weapons[_currentWeaponIndex].AbortReload();
+            _weapons[_currentWeaponIndex].gameObject.SetActive(false);
 
-            _currentWeapon += direction;
-            if (_currentWeapon >= _weapons.Count)
-                _currentWeapon = 0;
-            else if (_currentWeapon < 0)
-                _currentWeapon = _weapons.Count - 1;
+            _currentWeaponIndex += direction;
+            if (_currentWeaponIndex >= _weapons.Count)
+                _currentWeaponIndex = 0;
+            else if (_currentWeaponIndex < 0)
+                _currentWeaponIndex = _weapons.Count - 1;
 
-            _weapons[_currentWeapon].gameObject.SetActive(true);
+            _weapons[_currentWeaponIndex].gameObject.SetActive(true);
             RefreshAmmoDisplay();
         }
 
@@ -117,7 +117,7 @@ namespace Player
                     return;
                 }
 
-                if (_weapons.Count != 0 && _weapons[_currentWeapon].IsReloading) return;
+                if (_weapons.Count != 0 && _weapons[_currentWeaponIndex].IsReloading) return;
 
                 if (hitObject.TryGetComponent<Weapon>(out var weapon))
                 {
@@ -128,7 +128,7 @@ namespace Player
 
             if (_weapons.Count > 0)
             {
-                _weapons[_currentWeapon].StartShoot();
+                _weapons[_currentWeaponIndex].StartShoot();
             }
         }
 
@@ -137,9 +137,9 @@ namespace Player
             if (_weapons.Count > 0)
             {
                 // Прерываем перезарядку и стрельбу у текущего оружия
-                _weapons[_currentWeapon].StopShoot();
-                _weapons[_currentWeapon].AbortReload();
-                _weapons[_currentWeapon].gameObject.SetActive(false);
+                _weapons[_currentWeaponIndex].StopShoot();
+                _weapons[_currentWeaponIndex].AbortReload();
+                _weapons[_currentWeaponIndex].gameObject.SetActive(false);
             }
 
             if (weapon.Light != null) Destroy(weapon.Light.gameObject);
@@ -179,7 +179,7 @@ namespace Player
             weapon.AmmoChanged += (_, _, _) => RefreshAmmoDisplay();
 
             _weapons.Add(weapon);
-            _currentWeapon = _weapons.Count - 1;
+            _currentWeaponIndex = _weapons.Count - 1;
             RefreshAmmoDisplay();
 
             OnWeaponPickUp?.Invoke(weapon);
@@ -189,7 +189,7 @@ namespace Player
         {
             if (_weapons.Count == 0) return;
 
-            Weapon current = _weapons[_currentWeapon];
+            Weapon current = _weapons[_currentWeaponIndex];
             if (current.IsMelee) return;
 
             current.AddReserve(current.MaxAmmo / 2);
@@ -199,13 +199,13 @@ namespace Player
         private void HandleUseCanceled()
         {
             if (_weapons.Count > 0)
-                _weapons[_currentWeapon].StopShoot();
+                _weapons[_currentWeaponIndex].StopShoot();
         }
 
         private void HandleReload()
         {
             if (_weapons.Count > 0)
-                _weapons[_currentWeapon].Reload();
+                _weapons[_currentWeaponIndex].Reload();
         }
 
         private void RefreshAmmoDisplay()
@@ -216,7 +216,7 @@ namespace Player
                 return;
             }
 
-            Weapon w = _weapons[_currentWeapon];
+            Weapon w = _weapons[_currentWeaponIndex];
             _ammoText.text = $"{w.CurrentAmmo}/{w.Reserve}";
         }
 

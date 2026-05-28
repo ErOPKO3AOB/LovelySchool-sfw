@@ -813,11 +813,20 @@ namespace Assets.Scripts.Game
             StartCoroutine(
                 DelayedRagdoll());
 
+            if (!_playerFacade.Jump.IsGrounded &&
+                !_playerFacade.LegController.IsKicking &&
+                _playerFacade.Inventory.Weapons[_playerFacade.Inventory.CurrentWeaponIndex].weaponName == "SniperRifle")
+            {
+                _soundEmitterService?.PlaySound(
+                    "GotSnipedInAir",
+                    transform,
+                    5);
+            }
+
             _soundEmitterService?.PlaySound(
                 "Death",
                 transform,
                 5);
-
             TrySpawnAmmo();
         }
 
@@ -917,7 +926,7 @@ namespace Assets.Scripts.Game
 
             Weapon weapon =
                 inventory.Weapons[
-                    inventory.CurrentWeapon];
+                    inventory.CurrentWeaponIndex];
 
             if (weapon == null)
                 return;

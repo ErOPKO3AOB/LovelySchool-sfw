@@ -1,25 +1,25 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Extensions
+namespace Assets.Scripts.Extensions
 {
     public class ObjectCounter : MonoBehaviour
     {
-        [ContextMenu("Count all objects")]
-        private void CountAll()
+        [ContextMenu("Count static objects")]
+        private void CountStatic()
         {
             int count = FindObjectsByType<GameObject>(FindObjectsSortMode.None).Length;
 
-            Debug.Log($"There are {count} gameobjects on this scene");
+            Debug.Log($"There are {count} dynamic gameobjects on this scene");
         }
 
-        [ContextMenu("Count active objects")]
-        private void CountActive()
+        
+        [ContextMenu("Count dynamic objects")]
+        private void CountDynamic()
         {
-            int count = 0;
-            FindObjectsByType<GameObject>(FindObjectsSortMode.None).ToList().ForEach(g => { if (g.activeSelf) count++; });
+            int count = FindObjectsByType<Rigidbody>(FindObjectsSortMode.None).Length;
 
-            Debug.Log($"There are {count} active gameobjects on this scene");
+            Debug.Log($"There are {count} dynamic gameobjects on this scene");
         }
     }
 }
