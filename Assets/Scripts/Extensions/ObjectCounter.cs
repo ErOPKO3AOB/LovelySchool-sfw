@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Extensions
@@ -8,12 +7,19 @@ namespace Assets.Scripts.Extensions
         [ContextMenu("Count static objects")]
         private void CountStatic()
         {
-            int count = FindObjectsByType<GameObject>(FindObjectsSortMode.None).Length;
+            GameObject[] gameObjects = FindObjectsByType<GameObject>(FindObjectsSortMode.None);
 
-            Debug.Log($"There are {count} dynamic gameobjects on this scene");
+            int count = 0;
+            for (int i = 0; i < gameObjects.Length; i++)
+            {
+                if (gameObjects[i].GetComponent<Rigidbody>() == null)
+                    count++;
+            }
+
+            Debug.Log($"There are {count} static gameobjects on this scene");
         }
 
-        
+
         [ContextMenu("Count dynamic objects")]
         private void CountDynamic()
         {
