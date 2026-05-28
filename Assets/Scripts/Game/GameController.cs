@@ -51,7 +51,7 @@ namespace Game
         [SerializeField] private Transform[] _enemyOutlinerTransforms;
 
         [Header("Rooms")]
-        [SerializeField] private Room[] _rooms;
+        [SerializeField] private EnemySpawnZone[] _rooms;
         [SerializeField] private float _messageHoldTime = 6;
         [SerializeField] private TMP_Text _messageText;
 

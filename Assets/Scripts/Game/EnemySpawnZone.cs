@@ -6,13 +6,15 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider))]
-public class Room : MonoBehaviour
+public class EnemySpawnZone : MonoBehaviour
 {
     [SerializeField] private string _cleanedMessage;
     [SerializeField] private List<Enemy> _enemiesToKill = new();
     [SerializeField] private List<Door> _doorsToOpen = new();
     [SerializeField] private List<GameObject> _miscObjectsToActivate;
-    [SerializeField] private Room _nextRoom;
+    [SerializeField] private EnemySpawnZone _nextRoom;
+
+    //[SerializeField] private 
 
     private Collider _trigger;
     public Collider Trigger => _trigger;
@@ -35,6 +37,15 @@ public class Room : MonoBehaviour
         _enemiesToKill.Clear();
     }
 #endif
+
+    private void OnValidate()
+    {
+        for (int i = 0; i < _doorsToOpen.Count; i++)
+        {
+            if (_doorsToOpen[i] == null)
+                _doorsToOpen.RemoveAt(i);
+        }
+    }
 
     private void Start()
     {
