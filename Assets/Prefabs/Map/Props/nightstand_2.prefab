@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1810984980512202867}
   - component: {fileID: 2403364974858438262}
   - component: {fileID: 2230397067381760261}
+  - component: {fileID: -884806040365201904}
   m_Layer: 2
   m_Name: nightstand_2
   m_TagString: Untagged
@@ -112,3 +113,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32356974, y: 0.6839206, z: 0.6915323}
   m_Center: {x: -6.223829e-15, y: 0.0000003049933, z: 0.34576577}
+--- !u!205 &-884806040365201904
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6577782133904348444}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0598
+    fadeTransitionWidth: 0.1
+    renderers:
+    - renderer: {fileID: 2403364974858438262}
+  - screenRelativeHeight: 0.0588
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.057800002
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1

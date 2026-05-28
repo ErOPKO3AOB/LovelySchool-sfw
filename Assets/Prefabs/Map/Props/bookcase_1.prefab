@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1379966557388547920}
   - component: {fileID: 4409261119325920373}
   - component: {fileID: 6187522385234815391}
+  - component: {fileID: -2082538627487406820}
   m_Layer: 2
   m_Name: bookcase_1
   m_TagString: Untagged
@@ -113,3 +114,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: cf1cc0a2cef724b42946e766ea108fad, type: 2}
+--- !u!205 &-2082538627487406820
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4060120651642357638}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0598
+    fadeTransitionWidth: 0.1
+    renderers:
+    - renderer: {fileID: 4409261119325920373}
+  - screenRelativeHeight: 0.0588
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.057800002
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1

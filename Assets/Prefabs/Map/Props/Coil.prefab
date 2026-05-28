@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8534948952615551851}
   - component: {fileID: 5244555653574757262}
   - component: {fileID: 7481699147577407350}
+  - component: {fileID: -8350311938241781819}
   m_Layer: 2
   m_Name: Coil
   m_TagString: Untagged
@@ -113,3 +114,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: a15ee4324feace441be66003171d1bca, type: 2}
+--- !u!205 &-8350311938241781819
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673705100524698962}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0598
+    fadeTransitionWidth: 0.1
+    renderers:
+    - renderer: {fileID: 5244555653574757262}
+  - screenRelativeHeight: 0.0588
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.057800002
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 943186505320884714}
   - component: {fileID: 1469057467279025385}
   - component: {fileID: 1195997512719165990}
+  - component: {fileID: -7377676386959300882}
   m_Layer: 0
   m_Name: Lamp
   m_TagString: Untagged
@@ -91,6 +92,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2505434557725103130}
   m_Mesh: {fileID: 4300000, guid: 9892f8f4f0ec26e44b1965708029c77a, type: 2}
+--- !u!205 &-7377676386959300882
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2505434557725103130}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0598
+    fadeTransitionWidth: 0.1
+    renderers:
+    - renderer: {fileID: 1469057467279025385}
+  - screenRelativeHeight: 0.0588
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.057800002
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &6025115480830851751
 GameObject:
   m_ObjectHideFlags: 0

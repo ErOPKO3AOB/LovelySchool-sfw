@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6154057271178352999}
   - component: {fileID: 8673186591711776967}
   - component: {fileID: 4968793424501174099}
+  - component: {fileID: 118139033297943387}
   m_Layer: 2
   m_Name: rack
   m_TagString: Untagged
@@ -113,3 +114,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: fcc64cd47abbf094a87628e2a256c9b2, type: 2}
+--- !u!205 &118139033297943387
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836896238628143650}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0598
+    fadeTransitionWidth: 0.1
+    renderers:
+    - renderer: {fileID: 8673186591711776967}
+  - screenRelativeHeight: 0.0588
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.057800002
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1

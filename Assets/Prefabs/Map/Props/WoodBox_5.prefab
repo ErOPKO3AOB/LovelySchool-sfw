@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5508122354131586512}
   - component: {fileID: 2488512165000205586}
   - component: {fileID: 6118534586191198665}
+  - component: {fileID: -8464360121160867398}
   m_Layer: 0
   m_Name: WoodBox_5
   m_TagString: Untagged
@@ -113,3 +114,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 1e98bb5a6d8213b459cc633594476795, type: 2}
+--- !u!205 &-8464360121160867398
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6818919177410813720}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.0598
+    fadeTransitionWidth: 0.1
+    renderers:
+    - renderer: {fileID: 2488512165000205586}
+  - screenRelativeHeight: 0.0588
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.057800002
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
