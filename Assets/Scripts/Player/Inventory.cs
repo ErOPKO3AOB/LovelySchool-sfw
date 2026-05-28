@@ -25,6 +25,8 @@ namespace Player
         public bool HasNotMelee { get; private set; }
 
         public UnityAction<Weapon> OnWeaponPickUp;
+        public UnityAction<Weapon> OnWeaponSwap;
+
 
         private void Start()
         {
@@ -76,6 +78,8 @@ namespace Player
             _currentWeaponIndex = slotIndex;
             _weapons[_currentWeaponIndex].gameObject.SetActive(true);
             RefreshAmmoDisplay();
+
+            OnWeaponSwap?.Invoke(Weapons[_currentWeaponIndex]);
         }
 
         private void SwapWeapon(int direction)
@@ -95,6 +99,7 @@ namespace Player
 
             _weapons[_currentWeaponIndex].gameObject.SetActive(true);
             RefreshAmmoDisplay();
+            OnWeaponSwap?.Invoke(Weapons[_currentWeaponIndex]);
         }
 
         private void HandleUseStarted()
@@ -183,6 +188,7 @@ namespace Player
             RefreshAmmoDisplay();
 
             OnWeaponPickUp?.Invoke(weapon);
+            OnWeaponSwap?.Invoke(Weapons[_currentWeaponIndex]);
         }
 
         private void PickupAmmo(GameObject ammoPickup)

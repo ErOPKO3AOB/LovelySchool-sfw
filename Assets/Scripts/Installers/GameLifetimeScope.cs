@@ -44,7 +44,7 @@ namespace Installers
 
             // INPUT
             // TODO: Restore checks
-            if (true/*YG2.envir.isMobile || YG2.envir.isTablet*/)
+            if (false/*YG2.envir.isMobile || YG2.envir.isTablet*/)
             {
                 builder.Register<MobileInputReader>(Lifetime.Singleton)
                     .As<IInputReader>();

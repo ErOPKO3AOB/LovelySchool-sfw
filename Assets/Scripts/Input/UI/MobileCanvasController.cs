@@ -43,6 +43,7 @@ namespace Assets.Scripts.Input.UI
         {
             _inventory = FindAnyObjectByType<PlayerFacade>().Inventory;
             _inventory.OnWeaponPickUp += OnWeaponPickUp;
+            _inventory.OnWeaponSwap += OnWeaponSwap;
             reloadButton.gameObject.SetActive(false);
         }
 
@@ -57,8 +58,12 @@ namespace Assets.Scripts.Input.UI
             _inventorySlots[currIndex].onClick.AddListener(() => 
             {
                 OnSlotChoose?.Invoke(currIndex);
-                reloadButton.gameObject.SetActive(!weapon.IsMelee);
             });
+        }
+
+        private void OnWeaponSwap(Weapon weapon)
+        {
+            reloadButton.gameObject.SetActive(!weapon.IsMelee);
         }
 
         public void Dispose()
@@ -71,6 +76,7 @@ namespace Assets.Scripts.Input.UI
             dashButton.onClick.RemoveAllListeners();
             pauseButton.onClick.RemoveAllListeners();
             _inventory.OnWeaponPickUp -= OnWeaponPickUp;
+            _inventory.OnWeaponSwap -= OnWeaponSwap;
             OnSlotChoose = null;
         }
     }

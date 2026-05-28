@@ -43,17 +43,19 @@ namespace Assets.Scripts.Input
                 if (Mathf.Abs(delta) > 0.25f)
                     OnChangeWeaponPerformed?.Invoke(delta);
             };
-            _inputActions.Player.SelectInventorySlot.performed += ctx =>
+            _inputActions.Player.SelectInventorySlot.started += ctx =>
             {
                 var keyControl = ctx.control as KeyControl;
-                if (keyControl == null) return;
 
-                // 1 -> индекс 0, 2 -> 1, ..., 0 -> 9 (если нужна клавиша 0)
+                if (keyControl == null)
+                    return;
+
                 int slotIndex;
+
                 if (keyControl.keyCode == Key.Digit0)
-                    slotIndex = 9;   // подстрой под свой размер инвентаря
+                    slotIndex = 9;
                 else
-                    slotIndex = keyControl.keyCode - Key.Digit1;   // 0..8
+                    slotIndex = keyControl.keyCode - Key.Digit1;
 
                 OnSelectInventorySlotPerformed?.Invoke(slotIndex);
             };
