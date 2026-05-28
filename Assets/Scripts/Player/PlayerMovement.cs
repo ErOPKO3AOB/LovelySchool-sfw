@@ -1,5 +1,6 @@
 using Data;
 using UnityEngine;
+using YG;
 
 namespace Player
 {
@@ -22,10 +23,10 @@ namespace Player
 
             Vector3 moveDir;
 
-            // Обычное движение относительно направления игрока (не камеры, чтобы не ломать управление)
             moveDir = _playerTransform.forward * input.y + _playerTransform.right * input.x;
             moveDir.y = 0;
-            moveDir.Normalize();
+            if (YG2.envir.isDesktop)
+                moveDir.Normalize();
 
             float currentSpeed = _settings.walkSpeed;
 

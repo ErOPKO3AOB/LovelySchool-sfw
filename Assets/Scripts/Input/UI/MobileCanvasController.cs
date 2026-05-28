@@ -22,7 +22,6 @@ namespace Assets.Scripts.Input.UI
         private Inventory _inventory;
 
         public Transform inventoryHandler;
-        public TouchControl lookControl;
         public VariableJoystick joystick;
         public HoldControl attackHoldButton;
         public Button reloadButton;
@@ -68,8 +67,9 @@ namespace Assets.Scripts.Input.UI
 
         public void Dispose()
         {
-            lookControl.Input = null;
-            attackHoldButton.holding = null;
+            attackHoldButton.Holding = null;
+            attackHoldButton.Dragging = null;
+
             reloadButton.onClick.RemoveAllListeners();
             jumpButton.onClick.RemoveAllListeners();
             kickButton.onClick.RemoveAllListeners();

@@ -17,15 +17,19 @@ namespace Assets.Scripts.Input
         public event Action OnPausePerformed;
         public bool IsUsePressed => _isUsePressed;
         public bool _isUsePressed;
-        public Vector2 Move => _mobileCanvasController.joystick.Direction;
-        public Vector2 Look => _look;
-        private Vector2 _look;
+        public Vector2 Move => new(_mobileCanvasController.joystick.Horizontal, _mobileCanvasController.joystick.Vertical);
+        public Vector2 Look => _mobileLookService.LookDelta;
 
         private readonly MobileCanvasController _mobileCanvasController;
+        private readonly MobileLookService _mobileLookService;
 
-        public MobileInputReader(MobileCanvasController mobileCanvasController)
+        public MobileInputReader(
+            MobileCanvasController mobileCanvasController, 
+            MobileLookService mobileLookService
+            )
         {
             _mobileCanvasController = mobileCanvasController;
+            _mobileLookService = mobileLookService;
 
             // Jump
             _mobileCanvasController.jumpButton.onClick.AddListener(() => OnJumpPerformed?.Invoke());
@@ -41,7 +45,7 @@ namespace Assets.Scripts.Input
                 OnSelectInventorySlotPerformed?.Invoke(slotIndex);
             };
             
-            _mobileCanvasController.attackHoldButton.holding += (holding) =>
+            _mobileCanvasController.attackHoldButton.Holding += (holding) =>
             {
                 _isUsePressed = holding;
                 if (_isUsePressed)
@@ -52,7 +56,7 @@ namespace Assets.Scripts.Input
 
             _mobileCanvasController.pauseButton.onClick.AddListener(() => OnPausePerformed?.Invoke());
 
-            _mobileCanvasController.lookControl.Input += (delta) => _look = delta;
+            //_mobileCanvasController.attackHoldButton.Dragging += (delta) => _look = delta;
         }
 
         public void Dispose()

@@ -1,8 +1,10 @@
 using Assets.Scripts.Game;
 using Assets.Scripts.Input;
+using Assets.Scripts.Input.UI;
 using Data;
 using Game;
 using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
 using VContainer;
 using VContainer.Unity;
 using YG;
@@ -25,6 +27,8 @@ namespace Installers
 
         protected override void Configure(IContainerBuilder builder)
         {
+            QualitySettings.lodBias = 2f;
+
             builder.RegisterFactory<Transform, EnemyOutliner>(resolver =>
             {
                 return (spawnPoint) =>
@@ -44,12 +48,15 @@ namespace Installers
 
             // INPUT
             // TODO: Restore checks
-            if (false/*YG2.envir.isMobile || YG2.envir.isTablet*/)
+            if (true /*YG2.envir.isMobile || YG2.envir.isTablet*/)
             {
+                builder.RegisterEntryPoint<MobileLookService>().AsSelf();
                 builder.Register<MobileInputReader>(Lifetime.Singleton)
                     .As<IInputReader>();
                 var instance = Instantiate(_gameSettings.mobileCanvasPrefab);
                 builder.RegisterComponent(instance);
+
+                EnhancedTouchSupport.Enable();
             }
             else
             {

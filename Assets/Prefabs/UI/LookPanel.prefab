@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5251889649747685451}
   - component: {fileID: 4141752699063151380}
   - component: {fileID: 7761321970105677484}
-  - component: {fileID: 6076729652695557485}
+  - component: {fileID: 1440816278915939822}
+  - component: {fileID: 3175839357093478633}
   m_Layer: 5
   m_Name: LookPanel
   m_TagString: Untagged
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6076729652695557485
+--- !u!114 &1440816278915939822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,9 +86,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7869451182285128921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b77ba96ca2a1e23448b72b4514edde91, type: 3}
+  m_Script: {fileID: 11500000, guid: 71bd1aa1f7c9fd342abf353a544dbadd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Input.UI.TouchControl
-  Input:
-    m_PersistentCalls:
-      m_Calls: []
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Input.UI.HoldControl
+--- !u!225 &3175839357093478633
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869451182285128921}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
