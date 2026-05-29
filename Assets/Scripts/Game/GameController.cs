@@ -1,5 +1,6 @@
 using Assets.Scripts.Game;
 using Assets.Scripts.Input;
+using Assets.Scripts.Input.UI;
 using Data;
 using Player;
 using System;
@@ -25,6 +26,7 @@ namespace Game
             PlayerFacade playerFacade,
             IInputReader inputReader,
             GameSettingsSO gameSettings,
+            ButtonsCanvasController buttonsCanvasController,
             CounterService ñounterService)
         {
             _enemyFactory = enemyFactory;
@@ -32,6 +34,7 @@ namespace Game
             _inputReader = inputReader;
             _gameSettings = gameSettings;
             _ñounterService = ñounterService;
+            _buttonsCanvasController = buttonsCanvasController;
             _enemyOutlinerFactory = enemyOutlinerFactory;
         }
 
@@ -40,6 +43,7 @@ namespace Game
         private IInputReader _inputReader;
         private GameSettingsSO _gameSettings;
         private CounterService _ñounterService;
+        private ButtonsCanvasController _buttonsCanvasController;
         private Func<Transform, EnemyOutliner> _enemyOutlinerFactory;
 
         public Volume globalVolume;
@@ -66,6 +70,7 @@ namespace Game
         [SerializeField] private GameObject _pauseMenuUI;
         [SerializeField] private Toggle _disableMusicToggle;
         [SerializeField] private Slider _sensitivitySlider;
+        [SerializeField] private Toggle _disableHintsToggle;
 
         private const string _monkeysText = "Îñòàëîñü âðàãîâ:";
 
@@ -80,6 +85,15 @@ namespace Game
 
         private void Start()
         {
+            if (!YG2.envir.isDesktop) _disableHintsToggle.gameObject.SetActive(false);
+            else
+            {
+                _disableHintsToggle.onValueChanged.AddListener((value) =>
+                {
+                    ActivateHintTexts(!value);
+                });
+            }
+
             for (int i = 0; i < _rooms.Length; i++)
             {
                 _rooms[i].OnCleaned += (message, roomName) =>
@@ -136,6 +150,13 @@ namespace Game
 
                 _pauseMenuUI.SetActive(false);
             }
+        }
+
+        private void ActivateHintTexts(bool value)
+        {
+            if (!YG2.envir.isDesktop) return;
+
+            _buttonsCanvasController.SetHints(value);
         }
 
         // Îáðàáîò÷èê ñîáûòèÿ èç InputReader
@@ -248,6 +269,7 @@ namespace Game
 
             _disableMusicToggle.onValueChanged.RemoveAllListeners();
             _sensitivitySlider.onValueChanged.RemoveAllListeners();
+            _disableHintsToggle.onValueChanged.RemoveAllListeners();
         }
     }
 }

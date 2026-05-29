@@ -45,7 +45,7 @@ namespace Data
         public bool enableArms = true;
 
         [Header("Mobile input")]
-        public MobileCanvasController mobileCanvasPrefab;
+        public ButtonsCanvasController buttonsCanvasPrefab;
         public GameObject inventorySlotPrefab;
     }
 }

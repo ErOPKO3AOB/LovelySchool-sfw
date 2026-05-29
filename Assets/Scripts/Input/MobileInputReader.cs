@@ -20,11 +20,11 @@ namespace Assets.Scripts.Input
         public Vector2 Move => new(_mobileCanvasController.joystick.Horizontal, _mobileCanvasController.joystick.Vertical);
         public Vector2 Look => _mobileLookService.LookDelta;
 
-        private readonly MobileCanvasController _mobileCanvasController;
+        private readonly ButtonsCanvasController _mobileCanvasController;
         private readonly MobileLookService _mobileLookService;
 
         public MobileInputReader(
-            MobileCanvasController mobileCanvasController, 
+            ButtonsCanvasController mobileCanvasController, 
             MobileLookService mobileLookService
             )
         {

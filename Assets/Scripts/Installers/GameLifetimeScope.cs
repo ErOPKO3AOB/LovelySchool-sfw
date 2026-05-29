@@ -47,14 +47,12 @@ namespace Installers
             builder.RegisterInstance(_weaponSettings);
 
             // INPUT
-            // TODO: Restore checks
+            builder.RegisterComponent(Instantiate(_gameSettings.buttonsCanvasPrefab));
             if (YG2.envir.isMobile || YG2.envir.isTablet)
             {
                 builder.RegisterEntryPoint<MobileLookService>().AsSelf();
                 builder.Register<MobileInputReader>(Lifetime.Singleton)
                     .As<IInputReader>();
-                var instance = Instantiate(_gameSettings.mobileCanvasPrefab);
-                builder.RegisterComponent(instance);
 
                 EnhancedTouchSupport.Enable();
             }
