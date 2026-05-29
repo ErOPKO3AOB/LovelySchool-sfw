@@ -3987,7 +3987,7 @@ PrefabInstance:
       objectReference: {fileID: 143307674}
     - target: {fileID: 7927027377861340188, guid: 3434ad1353485b64ca171cf64731c1ec, type: 3}
       propertyPath: m_VersionIndex
-      value: 4349
+      value: 4352
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 3434ad1353485b64ca171cf64731c1ec, type: 3}
       propertyPath: m_IsActive
@@ -49742,7 +49742,7 @@ PrefabInstance:
       objectReference: {fileID: 1340532812}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -79182,7 +79182,7 @@ PrefabInstance:
       objectReference: {fileID: 1982955958}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -80053,7 +80053,7 @@ PrefabInstance:
       objectReference: {fileID: 1658772112}
     - target: {fileID: 7927027377861340188, guid: b94a179904bdb2344956b5ad75c36040, type: 3}
       propertyPath: m_VersionIndex
-      value: 4346
+      value: 4349
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: b94a179904bdb2344956b5ad75c36040, type: 3}
       propertyPath: m_IsActive
@@ -131146,7 +131146,7 @@ PrefabInstance:
       objectReference: {fileID: 1579995183}
     - target: {fileID: 7927027377861340188, guid: b94a179904bdb2344956b5ad75c36040, type: 3}
       propertyPath: m_VersionIndex
-      value: 4346
+      value: 4349
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: b94a179904bdb2344956b5ad75c36040, type: 3}
       propertyPath: m_IsActive
@@ -133684,12 +133684,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.MusicPlayer
   _audios:
-  - {fileID: 8300000, guid: b1540a4859f1ba645acc55eab284550b, type: 3}
-  - {fileID: 8300000, guid: dc8f21f67cb61824b80addaf5e3edf7a, type: 3}
-  - {fileID: 8300000, guid: a28ee7f4594da8446b3309317dfa264a, type: 3}
-  - {fileID: 8300000, guid: a700238aaccb45c40baeca8843aaef19, type: 3}
-  - {fileID: 8300000, guid: caee34dd81154764c82e482d3321803e, type: 3}
-  _volume: 0.7
+  - audio: {fileID: 8300000, guid: 407063891b570414bbd36223fa4d4ef0, type: 3}
+    volume: 0.4
+  - audio: {fileID: 8300000, guid: d615881863f4ac747b4c2e9c5aeed6ad, type: 3}
+    volume: 0.7
+  - audio: {fileID: 8300000, guid: a4439f00fd784384bbd1e6a5da856e57, type: 3}
+    volume: 0.5
   _fadeOutDuration: 7
   _audioMixerGroup: {fileID: -5451511176341404552, guid: 4b3a293a7b5a8bd49898ff912e38c984, type: 2}
 --- !u!4 &594673821
@@ -155386,7 +155386,7 @@ PrefabInstance:
       objectReference: {fileID: 1483664996}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -165018,7 +165018,7 @@ PrefabInstance:
       objectReference: {fileID: 102780150}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -166007,7 +166007,7 @@ PrefabInstance:
       objectReference: {fileID: 1865111866}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -166352,7 +166352,7 @@ PrefabInstance:
       objectReference: {fileID: 1823692120}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -166502,7 +166502,7 @@ PrefabInstance:
       objectReference: {fileID: 591761770}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -168798,7 +168798,7 @@ PrefabInstance:
       objectReference: {fileID: 872717379}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -170757,7 +170757,7 @@ PrefabInstance:
       objectReference: {fileID: 1560371172}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -261176,12 +261176,12 @@ MonoBehaviour:
   _weaponSettings: {fileID: 11400000, guid: e34ee7ba54f99bb4f9c87f2e09511559, type: 2}
   _randomPointItemsSpawner: {fileID: 1191888747}
   _enemySpawnPoints:
+  - {fileID: 425888681}
+  - {fileID: 1691635341}
+  - {fileID: 654127384}
   - {fileID: 2060417447}
   - {fileID: 1926177072}
   - {fileID: 1123239627}
-  - {fileID: 654127384}
-  - {fileID: 425888681}
-  - {fileID: 1691635341}
   _gameController: {fileID: 1003872888}
   _musicPlayer: {fileID: 594673820}
 --- !u!4 &1102652517
@@ -392392,7 +392392,7 @@ PrefabInstance:
       objectReference: {fileID: 978725721}
     - target: {fileID: 7927027377861340188, guid: 3434ad1353485b64ca171cf64731c1ec, type: 3}
       propertyPath: m_VersionIndex
-      value: 4349
+      value: 4352
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 3434ad1353485b64ca171cf64731c1ec, type: 3}
       propertyPath: m_IsActive
@@ -401174,7 +401174,7 @@ PrefabInstance:
       objectReference: {fileID: 856493839}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -407488,7 +407488,7 @@ PrefabInstance:
       objectReference: {fileID: 623185192}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -440291,7 +440291,7 @@ PrefabInstance:
       objectReference: {fileID: 1153768069}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -455462,7 +455462,7 @@ PrefabInstance:
       objectReference: {fileID: 244074104}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -498393,7 +498393,7 @@ PrefabInstance:
       objectReference: {fileID: 658402694}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -498754,7 +498754,7 @@ PrefabInstance:
       objectReference: {fileID: 24188463}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -506033,7 +506033,7 @@ PrefabInstance:
       objectReference: {fileID: 222914870}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -533058,7 +533058,7 @@ PrefabInstance:
       objectReference: {fileID: 713325612}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -546210,7 +546210,7 @@ PrefabInstance:
       objectReference: {fileID: 203295066}
     - target: {fileID: 7927027377861340188, guid: 3434ad1353485b64ca171cf64731c1ec, type: 3}
       propertyPath: m_VersionIndex
-      value: 4349
+      value: 4352
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 3434ad1353485b64ca171cf64731c1ec, type: 3}
       propertyPath: m_IsActive
@@ -546961,7 +546961,7 @@ PrefabInstance:
       objectReference: {fileID: 817592986}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive
@@ -547335,7 +547335,7 @@ PrefabInstance:
       objectReference: {fileID: 1506621012}
     - target: {fileID: 7927027377861340188, guid: b94a179904bdb2344956b5ad75c36040, type: 3}
       propertyPath: m_VersionIndex
-      value: 4346
+      value: 4349
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: b94a179904bdb2344956b5ad75c36040, type: 3}
       propertyPath: m_IsActive
@@ -581202,7 +581202,7 @@ PrefabInstance:
       objectReference: {fileID: 1526425814}
     - target: {fileID: 7927027377861340188, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_VersionIndex
-      value: 4436
+      value: 4439
       objectReference: {fileID: 0}
     - target: {fileID: 8438544976227072205, guid: 2ce8afee6a3c37a4ab1f575a78e6d354, type: 3}
       propertyPath: m_IsActive

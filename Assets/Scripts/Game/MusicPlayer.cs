@@ -1,14 +1,23 @@
 using Player;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using VContainer;
 using YG;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
     public class MusicPlayer : MonoBehaviour
     {
+        [Serializable]
+        public class AudioData
+        {
+            public AudioClip audio;
+            [Range(0, 1)] public float volume;
+        }
+
         [Inject]
         public void Construct(PlayerFacade playerFacade, GameController gameController)
         {
@@ -19,8 +28,7 @@ namespace Game
         private PlayerFacade _playerFacade;
         private GameController _gameController;
 
-        [SerializeField] private AudioClip[] _audios;
-        [SerializeField, Range(0, 1)] private float _volume = 0.5f;
+        [SerializeField] private AudioData[] _audios;
         [SerializeField] private float _fadeOutDuration = 3f;
         [SerializeField] private AudioMixerGroup _audioMixerGroup;
 
@@ -34,7 +42,6 @@ namespace Game
             _audioSource.outputAudioMixerGroup = _audioMixerGroup;
             _audioSource.loop = false;
             _audioSource.spatialBlend = 0;
-            _audioSource.volume = _volume;
             _audioSource.pitch = 1f;
             _playerFacade.Health.OnDead += OnDead;
 
@@ -67,9 +74,11 @@ namespace Game
                 currentIndex = Random.Range(0, _audios.Length);
             }
 
-            _audioSource.clip = _audios[currentIndex];
-            if(_audioSource.enabled)
-            _audioSource.Play();
+            _audioSource.clip = _audios[currentIndex].audio;
+            _audioSource.volume = _audios[currentIndex].volume;
+
+            if (_audioSource.enabled)
+                _audioSource.Play();
             _lastAudioIndex = currentIndex;
         }
 

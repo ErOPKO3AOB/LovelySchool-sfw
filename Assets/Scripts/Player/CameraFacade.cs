@@ -90,7 +90,7 @@ namespace Player
             // Ввод мыши (теперь обрабатывается всегда)
             Vector2 lookDelta = YG2.envir.isDesktop ?
             _input.Look * _gameSettingsSO.mouseSensitivity * Time.deltaTime :
-            _input.Look * _gameSettingsSO.mouseSensitivity * -0.05f;
+            _input.Look * _gameSettingsSO.mouseSensitivity * 0.005f;
 
             // Вертикальный поворот
             xRotation -= lookDelta.y;

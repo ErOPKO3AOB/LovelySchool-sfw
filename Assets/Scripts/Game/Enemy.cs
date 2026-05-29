@@ -400,7 +400,7 @@ namespace Assets.Scripts.Game
 
             // HUGE WebGL optimization
             _agent.obstacleAvoidanceType =
-                ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+                ObstacleAvoidanceType.GoodQualityObstacleAvoidance;
 
             _agent.updateUpAxis = false;
         }
