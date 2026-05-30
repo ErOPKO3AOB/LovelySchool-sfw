@@ -127,6 +127,7 @@ namespace Game
             if (_playerDead) return;
 
             _isPaused = paused;
+            YG2.PauseGame(paused);
 
             OnPauseStateChanged?.Invoke(paused);
 

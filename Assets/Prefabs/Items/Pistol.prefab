@@ -67,14 +67,14 @@ MonoBehaviour:
   ammo: 20
   damage: 40
   range: 100
-  fireRate: 50
-  canHold: 0
+  fireRate: 4
+  canHold: 1
   reloadTime: 1.5
   _projectileSpawnPoint: {fileID: 604054142259744367}
   isMelee: 0
   meleeRange: 2
   meleeCooldown: 0.8
-  meleeCanHold: 0
+  meleeCanHold: 1
   targetLayers:
     serializedVersion: 2
     m_Bits: 1089

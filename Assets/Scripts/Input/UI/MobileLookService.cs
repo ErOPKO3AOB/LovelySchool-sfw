@@ -5,7 +5,7 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 namespace Assets.Scripts.Input.UI
 {
-    public class MobileLookService : IInitializable, ITickable
+    public class MobileLookService : ITickable
     {
         public Vector2 LookDelta { get; private set; }
 
@@ -15,11 +15,6 @@ namespace Assets.Scripts.Input.UI
 
         private Vector2 _currentDelta;
         private Vector2 _deltaVelocity;
-
-        public void Initialize()
-        {
-            EnhancedTouchSupport.Enable();
-        }
 
         public void Tick()
         {

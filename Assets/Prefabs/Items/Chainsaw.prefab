@@ -2684,7 +2684,7 @@ MonoBehaviour:
   damage: 45
   range: 5
   fireRate: 0
-  canHold: 0
+  canHold: 1
   reloadTime: 0
   _projectileSpawnPoint: {fileID: 0}
   isMelee: 1
