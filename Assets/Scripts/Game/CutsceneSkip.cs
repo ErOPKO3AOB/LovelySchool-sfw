@@ -16,23 +16,23 @@ namespace Game
         {
             _canSkip = PlayerPrefs.GetInt(_animation.name, 0) == 1;
 
-            _skipButton.onClick.AddListener(async () =>
+            _skipButton.onClick.AddListener(() =>
             {
                 if (_canSkip)
                 {
                     _skipButton.enabled = false;
                     CancelInvoke(nameof(AnimationEnd));
-                    await AnimationEnd();
+                    AnimationEnd();
                 }
             });
 
             Invoke(nameof(AnimationEnd), _animation.length);
         }
 
-        private async Task AnimationEnd()
+        private void AnimationEnd()
         {
             PlayerPrefs.SetInt(_animation.name, 1);
-            await _sceneLoader.LoadScene();
+            _sceneLoader.LoadScene();
         }
     }
 }

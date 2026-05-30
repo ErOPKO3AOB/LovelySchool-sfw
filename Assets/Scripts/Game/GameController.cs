@@ -180,10 +180,10 @@ namespace Game
         private void DelayedDeath()
         {
             _restartButton.gameObject.SetActive(true);
-            _restartButton.onClick.AddListener(async () =>
+            _restartButton.onClick.AddListener(() =>
             {
                 _restartButton.enabled = false;
-                await _sceneLoader.LoadScene();
+                _sceneLoader.LoadScene();
                 _looseText.text = "Загрузка";
             });
 

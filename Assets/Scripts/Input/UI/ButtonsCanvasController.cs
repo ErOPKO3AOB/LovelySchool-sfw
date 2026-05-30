@@ -41,6 +41,7 @@ namespace Assets.Scripts.Input.UI
         public UnityAction<int> OnSlotChoose;
 
         private const string HintTag = "HintText";
+        private bool _hintsActive;
 
         private void OnValidate()
         {
@@ -117,12 +118,15 @@ namespace Assets.Scripts.Input.UI
 
         private void OnWeaponSwap(Weapon weapon)
         {
-            reloadButton.gameObject.SetActive(!weapon.IsMelee);
+            if (_hintsActive)
+                reloadButton.gameObject.SetActive(!weapon.IsMelee);
         }
 
         public void SetHints(bool value)
         {
             if (!YG2.envir.isDesktop) return;
+
+            _hintsActive = value;
 
             foreach (var hints in _hintTexts)
                 hints.SetActive(value);

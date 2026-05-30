@@ -27,7 +27,7 @@ namespace Game
 
         private void Start()
         {
-            Invoke(nameof(SpawnRequest), 0.2f);
+            Invoke(nameof(SpawnRequest), UnityEngine.Random.Range(0.25f, 1.5f));
         }
 
         private void SpawnRequest()

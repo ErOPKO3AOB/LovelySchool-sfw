@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
   sceneName: StartCutscene
   _invokeFromStart: 1
-  _startInvokeDelay: 0
+  _startInvokeDelay: 1
 --- !u!4 &26139378
 Transform:
   m_ObjectHideFlags: 0

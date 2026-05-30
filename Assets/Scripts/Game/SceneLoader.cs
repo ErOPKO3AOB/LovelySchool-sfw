@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,19 +8,24 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private bool _invokeFromStart;
     [SerializeField] private int _startInvokeDelay;
 
-    private async void Start()
+    private void Start()
     {
         if (_invokeFromStart)
         {
-            await LoadScene();
+            StartCoroutine(LoadSceneCoroutine());
         }
     }
 
-    public async Task LoadScene()
+    public void LoadScene()
+    {
+        StartCoroutine(LoadSceneCoroutine());
+    }
+
+    private IEnumerator LoadSceneCoroutine()
     {
         if (_startInvokeDelay > 0)
-            await Task.Delay(_startInvokeDelay * 1000);
+            yield return new WaitForSeconds(_startInvokeDelay);
 
-        await SceneManager.LoadSceneAsync(sceneName);
+        yield return SceneManager.LoadSceneAsync(sceneName);
     }
 }
