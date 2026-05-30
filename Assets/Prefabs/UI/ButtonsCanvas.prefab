@@ -123,14 +123,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Input.MobileCanvasController
   inventoryHandler: {fileID: 8007711133142858378}
-  joystick: {fileID: 1108843883161577547}
+  joystick: {fileID: 2307372145785098266}
   attackHoldButton: {fileID: 2013400829370563238}
   reloadButton: {fileID: 1401261521792522801}
   jumpButton: {fileID: 5651479001093037186}
   kickButton: {fileID: 7087983262623365715}
   dashButton: {fileID: 2523741802883280721}
   pauseButton: {fileID: 1629034900054714693}
-  _hintTexts: []
+  _hintTexts:
+  - {fileID: 8281873513374768672}
+  - {fileID: 2721921464890888558}
+  - {fileID: 6562849903506424890}
+  - {fileID: 7584329971934582770}
+  - {fileID: 3773626372834247926}
+  - {fileID: 1766927645440016206}
 --- !u!1 &1766927645440016206
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,9 +2087,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 147956bea7338aa45a4c1864142b2b3c, type: 3}
---- !u!114 &1108843883161577547 stripped
+--- !u!114 &2307372145785098266 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 493062660081280365, guid: 147956bea7338aa45a4c1864142b2b3c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3004390227137813820, guid: 147956bea7338aa45a4c1864142b2b3c, type: 3}
   m_PrefabInstance: {fileID: 699415029586496806}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -2091,7 +2097,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::VariableJoystick
 --- !u!224 &4295573698923977462 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3614178037157681104, guid: 147956bea7338aa45a4c1864142b2b3c, type: 3}

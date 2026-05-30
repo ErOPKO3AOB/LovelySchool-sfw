@@ -10,5 +10,6 @@ namespace Data
         public GameObject[] weaponPrefabs;
         public GameObject[] projectiles;
         public float projectileLifetime = 4f;
+        public Sprite[] weaponSprites;
     }
 }

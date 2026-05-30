@@ -54,7 +54,7 @@ public class LegController : MonoBehaviour
             }
             else if (hit.collider.TryGetComponent(out Rigidbody rb))
             {
-                rb.AddForceAtPosition(pushDir * (finalForce * 0.8f), hit.point, ForceMode.Impulse);
+                rb.AddForceAtPosition(pushDir * finalForce, hit.point, ForceMode.Impulse);
             }
         }
 

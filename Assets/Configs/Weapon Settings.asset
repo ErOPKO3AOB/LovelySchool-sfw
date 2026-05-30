@@ -23,3 +23,9 @@ MonoBehaviour:
   - {fileID: 3420204110976787364, guid: 2d42fd8f3fdbfc44a848535951d90fa3, type: 3}
   - {fileID: 2048716118800303284, guid: f72b0612b68f1cc4e8960bdc42ea6989, type: 3}
   projectileLifetime: 2.5
+  weaponSprites:
+  - {fileID: 21300000, guid: 68ec6595b37cd0444829462861b5a313, type: 3}
+  - {fileID: 21300000, guid: 24d026a41ffc27c4eacaf7a0cd99a4cf, type: 3}
+  - {fileID: 21300000, guid: 2c98fc29aeba42948bf2a4b6bac3babc, type: 3}
+  - {fileID: 21300000, guid: dee0ac0c23b5fec4e94da27c53d6e56c, type: 3}
+  - {fileID: 21300000, guid: 74df0fb7319302342a19de2ba3f04129, type: 3}

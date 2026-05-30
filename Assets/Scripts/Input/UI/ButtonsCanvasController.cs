@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using VContainer;
 using YG;
 using Button = UnityEngine.UI.Button;
@@ -15,12 +16,15 @@ namespace Assets.Scripts.Input.UI
     public class ButtonsCanvasController : MonoBehaviour, IDisposable
     {
         [Inject]
-        public void Construct(GameSettingsSO gameSettings)
+        public void Construct(GameSettingsSO gameSettings, WeaponSettingsSO weaponSettings)
         {
             _gameSettings = gameSettings;
+            _weaponSettings = weaponSettings;
         }
 
         private GameSettingsSO _gameSettings;
+        private WeaponSettingsSO _weaponSettings;
+
         private Inventory _inventory;
 
         public Transform inventoryHandler;
@@ -52,6 +56,8 @@ namespace Assets.Scripts.Input.UI
         private void Start()
         {
             bool isDesktop = YG2.envir.isDesktop;
+            if (!isDesktop) dashButton.gameObject.SetActive(false);
+
             joystick.gameObject.SetActive(!isDesktop);
             foreach (var hint in _hintTexts)
                 hint.SetActive(isDesktop);
@@ -83,12 +89,23 @@ namespace Assets.Scripts.Input.UI
                     hintText = child;
                     hintText.gameObject.SetActive(YG2.envir.isDesktop);
                 }
+            // Костыль кончлся
 
             _inventorySlots.Add(
                 instance
             );
             int currIndex = _inventorySlots.Count - 1;
             hintText.text = (currIndex + 1).ToString();
+            Sprite weaponSprite = null;
+            for (int i = 0; i < _weaponSettings.weaponSprites.Length; i++)
+            {
+                if (_weaponSettings.weaponSprites[i].name == weapon.weaponName)
+                {
+                    weaponSprite = _weaponSettings.weaponSprites[i];
+                    break;
+                }
+            }
+            instance.gameObject.GetComponentsInChildren<Image>()[1].sprite = weaponSprite;
 
             _inventorySlots[currIndex].onClick.AddListener(() =>
             {
@@ -131,6 +148,7 @@ namespace Assets.Scripts.Input.UI
             _inventory.OnWeaponPickUp -= OnWeaponPickUp;
             _inventory.OnWeaponSwap -= OnWeaponSwap;
             OnSlotChoose = null;
+            joystick.OnDash.RemoveAllListeners();
         }
     }
 }

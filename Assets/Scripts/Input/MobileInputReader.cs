@@ -34,7 +34,7 @@ namespace Assets.Scripts.Input
             // Jump
             _mobileCanvasController.jumpButton.onClick.AddListener(() => OnJumpPerformed?.Invoke());
             // Dash
-            _mobileCanvasController.dashButton.onClick.AddListener(() => OnDashPerformed?.Invoke());
+            _mobileCanvasController.joystick.OnDash.AddListener(() => OnDashPerformed?.Invoke());
             _mobileCanvasController.kickButton.onClick.AddListener(() => OnKickPerformed?.Invoke());
 
             // Reload (однократно)

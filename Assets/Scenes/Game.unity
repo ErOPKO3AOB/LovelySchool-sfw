@@ -261402,12 +261402,12 @@ MonoBehaviour:
   _weaponSettings: {fileID: 11400000, guid: e34ee7ba54f99bb4f9c87f2e09511559, type: 2}
   _randomPointItemsSpawner: {fileID: 1191888747}
   _enemySpawnPoints:
-  - {fileID: 654127384}
-  - {fileID: 425888681}
-  - {fileID: 1691635341}
-  - {fileID: 2060417447}
   - {fileID: 1123239627}
   - {fileID: 1926177072}
+  - {fileID: 2060417447}
+  - {fileID: 654127384}
+  - {fileID: 1691635341}
+  - {fileID: 425888681}
   _gameController: {fileID: 1003872888}
   _musicPlayer: {fileID: 594673820}
 --- !u!4 &1102652517
@@ -594952,28 +594952,6 @@ Transform:
   - {fileID: 9163269288959898671}
   m_Father: {fileID: 5395309764675778993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4918719871453114435
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8347105685839277494}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3087f47ab3cc78a4abe3e3655ac19f8d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4982548087680298733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -614028,7 +614006,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8691156499527350028}
-  - component: {fileID: 4918719871453114435}
   m_Layer: 0
   m_Name: Shkila-sfw
   m_TagString: Untagged
