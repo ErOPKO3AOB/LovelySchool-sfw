@@ -1,7 +1,7 @@
 using Assets.Scripts.Game;
 using Game;
+using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,18 +23,9 @@ public class EnemySpawnZone : MonoBehaviour
 
 #if UNITY_EDITOR
     [ContextMenu(nameof(KillAllEnemies))]
-    private async Task KillAllEnemies()
+    private void KillAllEnemies()
     {
-        var enemiesCopy = new List<Enemy>(_enemiesToKill);
-        for (int i = 0; i < enemiesCopy.Count; i++)
-        {
-            if (enemiesCopy[i] != null)
-                enemiesCopy[i].Health.Kill();
-
-            await Task.Delay(100);
-        }
-
-        _enemiesToKill.Clear();
+        StartCoroutine(ClearEnemiesManualy());
     }
 #endif
 
@@ -81,8 +72,6 @@ public class EnemySpawnZone : MonoBehaviour
 
     public void CleanZone()
     {
-        Debug.Log($"{gameObject.name} SUCCESFULLY CLEANED!");
-
         if (_nextRoom != null && _nextRoom.Trigger != null)
             _nextRoom.Trigger.enabled = true;
 
@@ -97,7 +86,30 @@ public class EnemySpawnZone : MonoBehaviour
         CancelInvoke(nameof(DisbaleTrigger));
         DisbaleTrigger();
 
+        StartCoroutine(ClearEnemiesManualy());
+    }
+
+    private IEnumerator ClearEnemiesManualy()
+    {
+        yield return new WaitForSeconds(2);
+
+        if (_enemiesToKill != null || _enemiesToKill.Count <= 0)
+        {
+            _enemiesToKill.ForEach(e => e.gameObject.SetActive(false));
+        }
+
+        for (int i = 0; i < _enemiesToKill.Count; i++)
+        {
+            if (_enemiesToKill[i] == null)
+                continue;
+
+            Destroy(_enemiesToKill[i]);
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        _enemiesToKill.Clear();
         Destroy(this);
+        Debug.Log($"{gameObject.name} SUCCESFULLY CLEANED!");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -113,6 +125,7 @@ public class EnemySpawnZone : MonoBehaviour
 
     private void DisbaleTrigger()
     {
-        _trigger.enabled = false;
+        if (_trigger != null)
+            _trigger.enabled = false;
     }
 }

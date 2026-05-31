@@ -310,8 +310,9 @@ namespace Game
 
         private void TryLoadCheckpoint()
         {
-            CurrCheckPointIndex = PlayerPrefs.GetInt(CHECKPOINT_PREFS_NAME, 0);
-            Debug.Log(CurrCheckPointIndex);
+            CurrCheckPointIndex = 5;
+                //PlayerPrefs.GetInt(CHECKPOINT_PREFS_NAME, 0);
+            Debug.Log("Loaded checkpoint index: " + CurrCheckPointIndex);
 
             if (CurrCheckPointIndex == 0)
             {
@@ -326,9 +327,13 @@ namespace Game
                     _rooms[i].CleanZone();
                 }
             }
-
             var chkpntTransform = Checkpoints[CurrCheckPointIndex].transform;
-            _playerFacade.transform.SetPositionAndRotation(chkpntTransform.position, chkpntTransform.rotation);
+            _playerFacade.Teleport(chkpntTransform.position, chkpntTransform.rotation);
+
+            foreach (var checkpoints in Checkpoints)
+            {
+                checkpoints.initialized = true;
+            }
         }
 
         private void OnDestroy()

@@ -51,6 +51,7 @@ namespace Player
         private PooledSpawnService _pooledSpawnService;
         public LegController LegController => _legController;
 
+        public Rigidbody PlayerRigidbody => _rigidbody != null ? _rigidbody : _rigidbody = GetComponent<Rigidbody>();
         public PlayerJump Jump => _jump;
         public Inventory Inventory => _inventory;
         public Health Health => _health;
@@ -170,7 +171,7 @@ namespace Player
         {
             if (_settings.cameraPrefab != null)
             {
-                _camera = Instantiate(_settings.cameraPrefab, transform.position, Quaternion.identity, transform);
+                _camera = Instantiate(_settings.cameraPrefab, transform.position, transform.rotation, transform);
                 _camera.Initialize(_inputReader, this, _settings);
             }
         }
@@ -242,6 +243,18 @@ namespace Player
             Quaternion deltaRot = Quaternion.Euler(0f, angleDelta, 0f);
             Quaternion targetRot = _rigidbody.rotation * deltaRot;
             _rigidbody.MoveRotation(targetRot);
+        }
+
+        public void Teleport(Vector3 position, Quaternion rotation)
+        {
+            PlayerRigidbody.isKinematic = true;
+            transform.SetPositionAndRotation(position, rotation);
+            Invoke(nameof(TeleportEnd), 0.2f);
+        }
+
+        private void TeleportEnd()
+        {
+            _rigidbody.isKinematic = false;
         }
 
         private void OnDestroy()

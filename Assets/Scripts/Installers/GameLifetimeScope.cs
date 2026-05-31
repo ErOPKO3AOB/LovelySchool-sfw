@@ -3,6 +3,7 @@ using Assets.Scripts.Input;
 using Assets.Scripts.Input.UI;
 using Data;
 using Game;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using VContainer;
@@ -72,9 +73,11 @@ namespace Installers
                     .As<IInputReader>();
             }
 
-            var player = Instantiate(_gameSettings.playerPrefab, new Vector3(-60.5f, 1.25f, -11), Quaternion.identity);
+            // PLAYER
+            var player = Instantiate(_gameSettings.playerPrefab, new Vector3(-12.5f, -5, -39), Quaternion.identity);
             builder.RegisterComponent(player)
                 .AsSelf();
+
 
             builder.Register<PooledSpawnService>(Lifetime.Singleton)
                 .AsSelf();

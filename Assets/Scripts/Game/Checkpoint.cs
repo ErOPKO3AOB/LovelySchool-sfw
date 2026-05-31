@@ -34,6 +34,7 @@ namespace Assets.Scripts.Game
 
         public bool reached;
         [HideInInspector] public bool firstCheckpoint;
+        public bool initialized;
 
         private void Start()
         {
@@ -54,6 +55,8 @@ namespace Assets.Scripts.Game
 
         public void Tick()
         {
+            if (reached || !initialized) return;
+
             _checkpointTimer -= Time.deltaTime;
             if (_checkpointTimer <= 0)
             {
@@ -71,12 +74,13 @@ namespace Assets.Scripts.Game
             {
                 if (_gameController.Checkpoints[i] == this)
                 {
-                    PlayerPrefs.SetInt(_gameController.CHECKPOINT_PREFS_NAME, i);
                     reached = true;
                     _light.SetActive(false);
                     if (!firstCheckpoint)
                     {
+                        PlayerPrefs.SetInt(_gameController.CHECKPOINT_PREFS_NAME, i);
                         _text.SetText("ЧЕКПОИНТ ДОСТИГНУТ!");
+                        Debug.Log($"Checkpoint reached! index: {i}");
                         _text.color = Color.green;
                     }
                     break;
