@@ -127240,8 +127240,8 @@ MonoBehaviour:
   - {fileID: 2001747020}
   - {fileID: 177554502}
   - {fileID: 291256432}
-  - {fileID: 364651027}
   - {fileID: 1679312378}
+  - {fileID: 364651027}
   _messageHoldTime: 4
   _messageText: {fileID: 330128565}
   _startEnemies: {fileID: 1163194301}
@@ -319988,7 +319988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
   _cleanedMessage: "\u0418\u0429\u0418 \u041F\u0423\u041B\u0415\u041C\u0415\u0422
-    \u0412 \u0422\u0423\u0410\u041B\u0415\u0422\u0415 \u0422\u0420\u0415\u0422\u042C\u0415\u0413\u041E
+    \u0412 \u0422\u0423\u0410\u041B\u0415\u0422\u0410\u0425 \u0422\u0420\u0415\u0422\u042C\u0415\u0413\u041E
     \u042D\u0422\u0410\u0416\u0410!! "
   _enemiesToKill: []
   _doorsToOpen:

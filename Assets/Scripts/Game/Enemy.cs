@@ -135,6 +135,8 @@ namespace Assets.Scripts.Game
 
         #endregion
 
+        public EnemySpawnZone SpawnZone { get; set; }
+
         #region State
 
         private enum State

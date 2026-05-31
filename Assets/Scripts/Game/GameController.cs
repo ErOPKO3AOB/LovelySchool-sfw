@@ -99,8 +99,23 @@ namespace Game
         public int CurrCheckPointIndex { get; private set; }
         public Checkpoint[] Checkpoints { get; private set; }
 
+        // GameController.cs
 
+        private void Awake()
+        {
+            CurrCheckPointIndex = PlayerPrefs.GetInt(CHECKPOINT_PREFS_NAME, 0);
+            CurrCheckPointIndex = Mathf.Clamp(CurrCheckPointIndex, 0, _rooms.Length - 1);
+            Debug.Log("Checkpoint index: " + CurrCheckPointIndex);
 
+            for (int i = 0; i < _rooms.Length; i++)
+            {
+                if (_rooms[i] != null)
+                {
+                    _rooms[i].SetRoomIndex(i, this);   // сначала запоминаем индекс и флаг
+                    _rooms[i].Initialize();            // только потом инициализируем
+                }
+            }
+        }
         private void Start()
         {
             // Checkpoints
@@ -253,15 +268,27 @@ namespace Game
 
         private void OnEnemyDead(GameObject obj)
         {
-            _enemies.Remove(obj.GetComponent<Enemy>());
-            _enemyCountText.text = $"{_monkeysText} {_enemies.Count}";
-
-            _сounterService.IncrementEnemyKillCount();
-
-            if (_enemies.Count <= 0)
+            Enemy enemy = obj.GetComponent<Enemy>();
+            if (enemy != null)
             {
-                _enemyCountText.text = $"ЗАЧИЩЕНО!";
+                _enemies.Remove(enemy);
+                UpdateEnemyCounter();
+                _сounterService.IncrementEnemyKillCount();
             }
+        }
+
+        public void RemoveEnemyFromList(Enemy enemy)
+        {
+            if (_enemies.Remove(enemy))
+                UpdateEnemyCounter();
+        }
+
+        private void UpdateEnemyCounter()
+        {
+            if (_enemies.Count <= 0)
+                _enemyCountText.text = "ЗАЧИЩЕНО!";
+            else
+                _enemyCountText.text = $"{_monkeysText} {_enemies.Count}";
         }
 
         public IEnumerator MessageRoutine(string message)
@@ -310,30 +337,37 @@ namespace Game
 
         private void TryLoadCheckpoint()
         {
-            CurrCheckPointIndex = 5;
-                //PlayerPrefs.GetInt(CHECKPOINT_PREFS_NAME, 0);
-            Debug.Log("Loaded checkpoint index: " + CurrCheckPointIndex);
-
             if (CurrCheckPointIndex == 0)
             {
                 _startEnemies.SetActive(true);
             }
-
             else
             {
+                // Активируем чекпоинты (визуал и сохранение)
                 for (int i = 0; i < CurrCheckPointIndex; i++)
                 {
                     Checkpoints[i].ActivateCheckPoint();
-                    _rooms[i].CleanZone();
+                    // DeactivateForCheckpoint для этих комнат уже вызван в их Start
                 }
             }
+
             var chkpntTransform = Checkpoints[CurrCheckPointIndex].transform;
             _playerFacade.Teleport(chkpntTransform.position, chkpntTransform.rotation);
 
             foreach (var checkpoints in Checkpoints)
-            {
                 checkpoints.initialized = true;
+
+        }
+
+        public List<Enemy> GetEnemiesOfZone(EnemySpawnZone zone)
+        {
+            List<Enemy> result = new List<Enemy>();
+            foreach (var enemy in _enemies)
+            {
+                if (enemy != null && enemy.SpawnZone == zone)
+                    result.Add(enemy);
             }
+            return result;
         }
 
         private void OnDestroy()

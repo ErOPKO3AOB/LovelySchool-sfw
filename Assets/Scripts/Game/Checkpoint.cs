@@ -80,7 +80,7 @@ namespace Assets.Scripts.Game
                     {
                         PlayerPrefs.SetInt(_gameController.CHECKPOINT_PREFS_NAME, i);
                         _text.SetText("ЧЕКПОИНТ ДОСТИГНУТ!");
-                        Debug.Log($"Checkpoint reached! index: {i}");
+                        //Debug.Log($"Checkpoint reached! index: {i}");
                         _text.color = Color.green;
                     }
                     break;

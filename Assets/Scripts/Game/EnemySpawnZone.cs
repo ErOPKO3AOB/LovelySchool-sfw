@@ -29,6 +29,21 @@ public class EnemySpawnZone : MonoBehaviour
     }
 #endif
 
+    // EnemySpawnZone.cs
+
+    private int _roomIndex = -1;
+    private GameController _gameController;
+    private bool _isClearedOnStart;
+    private bool _deactivated;
+
+    public void SetRoomIndex(int index, GameController gc)
+    {
+        _roomIndex = index;
+        _gameController = gc;
+        // Если индекс комнаты меньше индекса текущего чекпоинта, она уже пройдена
+        _isClearedOnStart = index < gc.CurrCheckPointIndex;
+    }
+
     private void OnValidate()
     {
         for (int i = 0; i < _doorsToOpen.Count; i++)
@@ -38,17 +53,28 @@ public class EnemySpawnZone : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        _trigger = GetComponent<Collider>();
+    private bool _initialized;
 
+    public void Initialize()
+    {
+        if (_initialized) return;
+        _initialized = true;
+
+        _trigger = GetComponent<Collider>();
         _trigger.isTrigger = true;
 
+        if (_isClearedOnStart)
+        {
+            DeactivateForCheckpoint(_gameController);
+            return;
+        }
+
+        // Обычная инициализация новой комнаты
         if (_doorsToOpen.Count > 0)
-            _doorsToOpen.ForEach(door => { door.Close(); });
+            _doorsToOpen.ForEach(door => door.Close());
 
         if (_miscObjectsToActivate.Count > 0)
-            _miscObjectsToActivate.ForEach(obj => { obj.SetActive(false); });
+            _miscObjectsToActivate.ForEach(obj => obj.SetActive(false));
 
         if (_nextRoom != null && _nextRoom.Trigger != null)
             _nextRoom.Trigger.enabled = false;
@@ -98,6 +124,8 @@ public class EnemySpawnZone : MonoBehaviour
             _enemiesToKill.ForEach(e => e.gameObject.SetActive(false));
         }
 
+        else StopCoroutine(ClearEnemiesManualy());
+
         for (int i = 0; i < _enemiesToKill.Count; i++)
         {
             if (_enemiesToKill[i] == null)
@@ -109,7 +137,57 @@ public class EnemySpawnZone : MonoBehaviour
 
         _enemiesToKill.Clear();
         Destroy(this);
-        Debug.Log($"{gameObject.name} SUCCESFULLY CLEANED!");
+    }
+
+    public void DeactivateForCheckpoint(GameController gameController)
+    {
+        if (_deactivated) return;
+        _deactivated = true;
+
+        // 1. Останавливаем и отключаем спавн-точки
+        var spawnPoints = GetComponentsInChildren<EnemySpawnPoint>();
+        foreach (var sp in spawnPoints)
+        {
+            sp.CancelInvoke();
+            sp.gameObject.SetActive(false);
+        }
+
+        // 2. Ищем врагов через GameController (а не через иерархию)
+        var enemies = gameController.GetEnemiesOfZone(this);
+        foreach (var enemy in enemies)
+        {
+            if (enemy == null) continue;
+            enemy.gameObject.SetActive(false);            // скрыть мгновенно
+            gameController.RemoveEnemyFromList(enemy);    // убрать из счётчика
+        }
+
+        // 3. Открываем двери, активируем объекты (уже не спавн-точки)
+        foreach (var door in _doorsToOpen)
+            if (door != null) door.Open();
+        foreach (var obj in _miscObjectsToActivate)
+            if (obj != null) obj.SetActive(true);
+
+        if (_nextRoom != null && _nextRoom.Trigger != null)
+            _nextRoom.Trigger.enabled = true;
+
+        if (_trigger != null) _trigger.enabled = false;
+
+        // 4. Удаляем с задержкой
+        if (enemies.Count > 0)
+            StartCoroutine(DelayedDestroyEnemies(enemies));
+    }
+
+    private IEnumerator DelayedDestroyEnemies(List<Enemy> enemies)
+    {
+        foreach (var enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                Destroy(enemy.gameObject);
+                yield return new WaitForSeconds(0.2f);
+            }
+        }
+        Debug.Log($"{gameObject.name} enemies destroyed with delay.");
     }
 
     private void OnTriggerEnter(Collider other)

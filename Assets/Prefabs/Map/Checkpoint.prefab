@@ -249,11 +249,12 @@ MonoBehaviour:
   _light: {fileID: 7723981436224651578}
   _lookAt: {fileID: 1016650846102097084}
   _text: {fileID: 3012840966775063050}
-  _checkpointActivationDistance: 2
+  _checkpointActivationDistance: 0.5
   _checkpointMinTick: 0.2
   _checkpointMaxTick: 0.5
   reached: 0
   firstCheckpoint: 0
+  initialized: 0
 --- !u!1 &7723981436224651578
 GameObject:
   m_ObjectHideFlags: 0
