@@ -27,13 +27,12 @@ namespace Game
 
         private void Start()
         {
-            Invoke(nameof(SpawnRequest), UnityEngine.Random.Range(0.25f, 1.5f));
+            if (_gameController == null) _gameController = FindAnyObjectByType<GameController>();
+            Invoke(nameof(SpawnRequest), UnityEngine.Random.Range(0.25f, 1f));
         }
 
         private void SpawnRequest()
         {
-            if (_gameController == null) _gameController = FindAnyObjectByType<GameController>();
-
             var enemy = _gameController.SpawnRequest(this);
 
             Array.Resize(ref enemy.patrolPoints, _patrolPoints.Length);

@@ -13,6 +13,7 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 using VContainer;
 using YG;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 using Random = UnityEngine.Random;
 
 namespace Game
@@ -27,7 +28,9 @@ namespace Game
             IInputReader inputReader,
             GameSettingsSO gameSettings,
             ButtonsCanvasController buttonsCanvasController,
-            CounterService ñounterService)
+            CounterService ñounterService,
+            Func<Transform, Checkpoint> checkpointFactory
+            )
         {
             _enemyFactory = enemyFactory;
             _playerFacade = playerFacade;
@@ -36,6 +39,7 @@ namespace Game
             _ñounterService = ñounterService;
             _buttonsCanvasController = buttonsCanvasController;
             _enemyOutlinerFactory = enemyOutlinerFactory;
+            _checkpointFactory = checkpointFactory;
         }
 
         private Func<Transform, GameObject, Enemy> _enemyFactory;
@@ -45,6 +49,9 @@ namespace Game
         private CounterService _ñounterService;
         private ButtonsCanvasController _buttonsCanvasController;
         private Func<Transform, EnemyOutliner> _enemyOutlinerFactory;
+        Func<Transform, Checkpoint> _checkpointFactory;
+
+
 
         public Volume globalVolume;
 
@@ -58,6 +65,7 @@ namespace Game
         [SerializeField] private EnemySpawnZone[] _rooms;
         [SerializeField] private float _messageHoldTime = 6;
         [SerializeField] private TMP_Text _messageText;
+        [SerializeField] private GameObject _startEnemies;
 
         [Header("Death")]
         [SerializeField] private string[] _looseMessages;
@@ -72,6 +80,9 @@ namespace Game
         [SerializeField] private Slider _sensitivitySlider;
         [SerializeField] private Toggle _disableHintsToggle;
 
+        [Header("CheckPoints")]
+        [SerializeField] private Transform[] _checkPointPositions;
+
         private const string _monkeysText = "Îñòàëîñü âðàãîâ:";
 
         public UnityAction<bool> OnPauseStateChanged;
@@ -79,12 +90,38 @@ namespace Game
         private bool _isPaused = false;
 
         private bool _playerDead = false;
+        public EnemySpawnZone[] Rooms => _rooms;
 
         public bool IsPaused => _isPaused;
         public Toggle DisableMusicToggle => _disableMusicToggle;
 
+        public string CHECKPOINT_PREFS_NAME { get; private set; } = "CHECKPOINT";
+        public int CurrCheckPointIndex { get; private set; }
+        public Checkpoint[] Checkpoints { get; private set; }
+
+
+
         private void Start()
         {
+            // Checkpoints
+            Checkpoints = new Checkpoint[_checkPointPositions.Length];
+            for (int i = 0; i < _checkPointPositions.Length; i++)
+            {
+                Checkpoints[i] = _checkpointFactory.Invoke(_checkPointPositions[i]);
+                if (i == 0)
+                {
+                    Checkpoints[i].firstCheckpoint = true;
+                }
+
+                else if (i == _checkPointPositions.Length - 1)
+                {
+                    Checkpoints[i]._text.text = "ÏÎÑËÅÄÍÈÉ ×ÅÊÏÎÈÍÒ! ÄÀËÜØÅ ÕÀÐÄÊÎÐ!!!!";
+                }
+            }
+
+            TryLoadCheckpoint();
+
+            // Other
             if (!YG2.envir.isDesktop) _disableHintsToggle.gameObject.SetActive(false);
             else
             {
@@ -108,6 +145,7 @@ namespace Game
                 _enemyOutlinerFactory.Invoke(_enemyOutlinerTransforms[i]);
             }
 
+            // Player
             _playerFacade.Health.OnDead += OnPlayerDead;
 
             _inputReader.OnPausePerformed += OnPausePerformed;
@@ -120,6 +158,14 @@ namespace Game
             });
 
             _pauseMenuUI.SetActive(false);
+        }
+
+        private void Update()
+        {
+            foreach (var checkPoints in Checkpoints)
+            {
+                checkPoints.Tick();
+            }
         }
 
         public void SetPaused(bool paused)
@@ -260,6 +306,29 @@ namespace Game
             _enemies.ForEach(e => e.SetOutlined(true));
             yield return new WaitForSeconds(_outlineTime);
             _enemies.ForEach(e => e.SetOutlined(false));
+        }
+
+        private void TryLoadCheckpoint()
+        {
+            CurrCheckPointIndex = PlayerPrefs.GetInt(CHECKPOINT_PREFS_NAME, 0);
+            Debug.Log(CurrCheckPointIndex);
+
+            if (CurrCheckPointIndex == 0)
+            {
+                _startEnemies.SetActive(true);
+            }
+
+            else
+            {
+                for (int i = 0; i < CurrCheckPointIndex; i++)
+                {
+                    Checkpoints[i].ActivateCheckPoint();
+                    _rooms[i].CleanZone();
+                }
+            }
+
+            var chkpntTransform = Checkpoints[CurrCheckPointIndex].transform;
+            _playerFacade.transform.SetPositionAndRotation(chkpntTransform.position, chkpntTransform.rotation);
         }
 
         private void OnDestroy()

@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Game;
 using Assets.Scripts.Input.UI;
+using Assets.Scripts.Game;
 
 namespace Data
 {
@@ -14,6 +15,8 @@ namespace Data
 
         public PlayerFacade playerPrefab;
         public CameraFacade cameraPrefab;  // <- добавил префаб камеры
+
+        public Checkpoint checkPointPrefab;
 
         [Header("Movement")]
         public float walkSpeed = 18f;

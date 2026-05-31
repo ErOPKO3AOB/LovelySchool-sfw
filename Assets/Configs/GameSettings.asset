@@ -24,6 +24,7 @@ MonoBehaviour:
   enemyOutlinerPrefab: {fileID: 8157673479232349124, guid: 936a84d8e1f2ac54fb0d48b66469672b, type: 3}
   playerPrefab: {fileID: 8482903674758022575, guid: 9289e2dbfdbccbe4f902b1b730ca4e62, type: 3}
   cameraPrefab: {fileID: 7081240675906717068, guid: 2e8cda44b1ddef84ab6f52a01258a0be, type: 3}
+  checkPointPrefab: {fileID: 1818950606918891245, guid: 40222cc2265eb4743809af6166762680, type: 3}
   walkSpeed: 16
   acceleration: 500
   airControl: 0.15

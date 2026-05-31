@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 
 namespace Assets.Scripts.Extensions
@@ -29,3 +30,4 @@ namespace Assets.Scripts.Extensions
         }
     }
 }
+#endif

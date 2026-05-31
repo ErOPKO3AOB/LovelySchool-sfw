@@ -33,7 +33,17 @@ namespace Installers
             {
                 return (spawnPoint) =>
                 {
-                    EnemyOutliner instance = resolver.Instantiate(_gameSettings.enemyOutlinerPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint).GetComponent<EnemyOutliner>();
+                    EnemyOutliner instance = resolver.Instantiate(_gameSettings.enemyOutlinerPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint);
+                    return instance;
+                };
+            }, Lifetime.Singleton)
+            .AsSelf();
+
+            builder.RegisterFactory<Transform, Checkpoint>(resolver =>
+            {
+                return (spawnPoint) =>
+                {
+                    Checkpoint instance = resolver.Instantiate(_gameSettings.checkPointPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint);
                     return instance;
                 };
             }, Lifetime.Singleton)

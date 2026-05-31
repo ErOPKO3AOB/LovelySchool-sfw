@@ -74,25 +74,30 @@ public class EnemySpawnZone : MonoBehaviour
 
             if (_enemiesToKill.Count == 0)
             {
-                Debug.Log($"SUCCESFULLY KILLED!");
-
-                if (_nextRoom != null && _nextRoom.Trigger != null)
-                    _nextRoom.Trigger.enabled = true;
-
-                if (_doorsToOpen.Count > 0)
-                    _doorsToOpen.ForEach(door => { door.Open(); });
-
-                if (_miscObjectsToActivate.Count > 0)
-                    _miscObjectsToActivate.ForEach(obj => { obj.SetActive(true); });
-
-                OnCleaned?.Invoke(_cleanedMessage, gameObject.name);
-
-                CancelInvoke(nameof(DisbaleTrigger));
-                DisbaleTrigger();
-
-                Destroy(this);
+                CleanZone();
             }
         }
+    }
+
+    public void CleanZone()
+    {
+        Debug.Log($"{gameObject.name} SUCCESFULLY CLEANED!");
+
+        if (_nextRoom != null && _nextRoom.Trigger != null)
+            _nextRoom.Trigger.enabled = true;
+
+        if (_doorsToOpen.Count > 0)
+            _doorsToOpen.ForEach(door => { door.Open(); });
+
+        if (_miscObjectsToActivate.Count > 0)
+            _miscObjectsToActivate.ForEach(obj => { obj.SetActive(true); });
+
+        OnCleaned?.Invoke(_cleanedMessage, gameObject.name);
+
+        CancelInvoke(nameof(DisbaleTrigger));
+        DisbaleTrigger();
+
+        Destroy(this);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -102,7 +107,7 @@ public class EnemySpawnZone : MonoBehaviour
             _enemiesToKill.Add(enemy);
             enemy.Health.OnDead += OnEnemyDead;
             CancelInvoke(nameof(DisbaleTrigger));
-            Invoke(nameof(DisbaleTrigger), 1);
+            Invoke(nameof(DisbaleTrigger), 2);
         }
     }
 
