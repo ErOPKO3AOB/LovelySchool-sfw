@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -180, y: -180}
+  m_SizeDelta: {x: -140, y: -140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7151299257426078745
 CanvasRenderer:
@@ -110,8 +110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -48}
-  m_SizeDelta: {x: 70, y: 256.8732}
+  m_AnchoredPosition: {x: 0, y: -143}
+  m_SizeDelta: {x: 70, y: 692.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4465358204580948501
 CanvasRenderer:
@@ -399,13 +399,13 @@ MonoBehaviour:
   snapY: 0
   background: {fileID: 7920899540488137975}
   handle: {fileID: 6238004013623850673}
-  dashThresholdRadius: 2
-  dashResetThresholdRadius: 1.9
-  dashAngleThreshold: 30
+  dashThresholdRadius: 3.3
+  dashResetThresholdRadius: 3
+  dashAngleThreshold: 90
   OnDash:
     m_PersistentCalls:
       m_Calls: []
   dashIndicator: {fileID: 6687891519366997680}
-  indicatorDistance: 2.2
+  indicatorDistance: 3.5
   moveThreshold: 1
   joystickType: 1

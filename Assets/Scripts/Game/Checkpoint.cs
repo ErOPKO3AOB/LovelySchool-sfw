@@ -27,6 +27,7 @@ namespace Assets.Scripts.Game
         public TMP_Text _text;
 
         [Header("Other")]
+        [SerializeField] private LayerMask _obstacleLayerMask;
         [SerializeField] private float _checkpointActivationDistance = 2f;
         [SerializeField] private float _checkpointMinTick = 0.2f;
         [SerializeField] private float _checkpointMaxTick = 0.5f;
@@ -61,8 +62,20 @@ namespace Assets.Scripts.Game
             if (_checkpointTimer <= 0)
             {
                 _checkpointTimer = Random.Range(_checkpointMinTick, _checkpointMaxTick);
-                if (Vector3.Distance(_playerFacade.transform.position, transform.position) <= _checkpointActivationDistance)
-                    ActivateCheckPoint();
+
+                Vector3 playerPos = _playerFacade.transform.position;
+                Vector3 checkpointPos = transform.position;
+                Vector3 direction = playerPos - checkpointPos;
+                float sqrDistance = direction.sqrMagnitude; // оптимизированная проверка расстояния
+
+                if (sqrDistance <= _checkpointActivationDistance * _checkpointActivationDistance)
+                {
+                    // Луч от чекпоинта к игроку на точное расстояние
+                    if (!Physics.Raycast(checkpointPos, direction.normalized, Mathf.Sqrt(sqrDistance), _obstacleLayerMask, QueryTriggerInteraction.Ignore))
+                    {
+                        ActivateCheckPoint();
+                    }
+                }
             }
         }
 

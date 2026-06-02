@@ -179,6 +179,10 @@ MonoBehaviour:
     metricaCounterID: 0
     log: 1
     useYandexMetrica: 1
+  Storage:
+    saveLocal: 0
+    saveCloud: 1
+    flush: 0
   Basic:
     platform: {fileID: 11400000, guid: fabe82a4ab034324eb452cc7109f6d19, type: 2}
     autoApplySettings: 1
@@ -238,6 +242,8 @@ MonoBehaviour:
   platformToggles:
     useYandexMetrica: 0
     metricaCounterID: 0
+    saveLocal: 0
+    saveCloud: 0
     autoPauseGame: 0
     selectWebGLTemplate: 1
     runInBackground: 1
