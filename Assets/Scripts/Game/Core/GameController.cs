@@ -103,9 +103,10 @@ namespace Game
 
         private void Awake()
         {
-            CurrCheckPointIndex = PlayerPrefs.GetInt(CHECKPOINT_PREFS_NAME, 0);
+            //CurrCheckPointIndex = PlayerPrefs.GetInt(CHECKPOINT_PREFS_NAME, 0);
+            CurrCheckPointIndex = 0;
             CurrCheckPointIndex = Mathf.Clamp(CurrCheckPointIndex, 0, _rooms.Length - 1);
-            Debug.Log("Checkpoint index: " + CurrCheckPointIndex);
+            //Debug.Log("Checkpoint index: " + CurrCheckPointIndex);
 
             for (int i = 0; i < _rooms.Length; i++)
             {
@@ -119,18 +120,21 @@ namespace Game
         private void Start()
         {
             // Checkpoints
-            Checkpoints = new Checkpoint[_checkPointPositions.Length];
-            for (int i = 0; i < _checkPointPositions.Length; i++)
+            if (_checkPointPositions != null && _checkPointPositions.Length > 0)
             {
-                Checkpoints[i] = _checkpointFactory.Invoke(_checkPointPositions[i]);
-                if (i == 0)
+                Checkpoints = new Checkpoint[_checkPointPositions.Length];
+                for (int i = 0; i < _checkPointPositions.Length; i++)
                 {
-                    Checkpoints[i].firstCheckpoint = true;
-                }
+                    Checkpoints[i] = _checkpointFactory.Invoke(_checkPointPositions[i]);
+                    if (i == 0)
+                    {
+                        Checkpoints[i].firstCheckpoint = true;
+                    }
 
-                else if (i == _checkPointPositions.Length - 1)
-                {
-                    Checkpoints[i]._text.text = "ÏÎÑËÅÄÍÈÉ ×ÅÊÏÎÈÍÒ! ÄÀËÜØÅ ÕÀÐÄÊÎÐ!!!!";
+                    //else if (i == _checkPointPositions.Length - 1)
+                    //{
+                    //    Checkpoints[i]._text.text = "ÏÎÑËÅÄÍÈÉ ×ÅÊÏÎÈÍÒ! ÄÀËÜØÅ ÕÀÐÄÊÎÐ!!!!";
+                    //}
                 }
             }
 

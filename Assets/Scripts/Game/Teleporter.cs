@@ -21,7 +21,10 @@ public class Teleporter : MonoBehaviour
 
     private void ResetKinematics()
     {
-        _rb.isKinematic = false;
-        _rb = null;
+        if (_rb != null)
+        {
+            _rb.isKinematic = false;
+            _rb = null;
+        }
     }
 }

@@ -1,7 +1,8 @@
+using Game;
+using Player;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using VContainer.Unity;
 using YG;
 
@@ -9,19 +10,25 @@ namespace Assets.Scripts.Game
 {
     public class CounterService : IInitializable, IDisposable
     {
+        public CounterService(PlayerFacade playerFacade)
+        {
+            _playerHealth = playerFacade.Health;
+        }
+
+        private readonly Health _playerHealth;
+
         public int KillCount { get; private set; } = 0;
         public string LastCompletedRoom { get; private set; } = "NONE";
 
         public void Initialize()
         {
             KillCount = 0;
-         
-            SceneManager.sceneUnloaded += SceneUnloaded;
+
+            _playerHealth.OnDead += OnPlayerDead;
         }
 
-        private void SceneUnloaded(Scene scene)
+        private void OnPlayerDead(GameObject obj)
         {
-#if !UNITY_EDITOR
             YG2.MetricaSend("enemy_kills", new Dictionary<string, object>
             {
                 { "count", KillCount }
@@ -36,9 +43,8 @@ namespace Assets.Scripts.Game
             {
                 { "seconds", Time.timeSinceLevelLoad }
             });
-#else
-            Debug.Log($"Scene unloaded. KillCount: {KillCount}, LastCompletedRoom: {LastCompletedRoom}, time spent: {Time.timeSinceLevelLoad} seconds");
-#endif
+
+            Debug.Log($"Player dead. KillCount: {KillCount}, LastCompletedRoom: {LastCompletedRoom}, time spent: {Time.timeSinceLevelLoad} seconds");
         }
 
         public void IncrementEnemyKillCount()
@@ -53,7 +59,7 @@ namespace Assets.Scripts.Game
 
         public void Dispose()
         {
-            SceneManager.sceneUnloaded -= SceneUnloaded;
+            _playerHealth.OnDead -= OnPlayerDead;
         }
     }
 }
