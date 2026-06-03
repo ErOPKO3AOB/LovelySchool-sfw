@@ -29,6 +29,11 @@ namespace Assets.Scripts.Game
 
         private void OnPlayerDead(GameObject obj)
         {
+            SendMetrics();
+        }
+
+        public void SendMetrics()
+        {
             YG2.MetricaSend("enemy_kills", new Dictionary<string, object>
             {
                 { "count", KillCount }

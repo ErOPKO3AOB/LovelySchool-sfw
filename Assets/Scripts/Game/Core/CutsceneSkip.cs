@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 namespace Game
@@ -17,14 +18,28 @@ namespace Game
             _canSkip = PlayerPrefs.GetInt(_animation.name, 0) == 1;
 
             if (!_canSkip)
+            {
                 _skipButton.gameObject.SetActive(false);
+            }
             else
+            {
                 _skipButton.onClick.AddListener(() =>
                 {
                     _skipButton.enabled = false;
                     CancelInvoke(nameof(AnimationEnd));
                     AnimationEnd();
                 });
+
+                if (YG2.envir.device == YG2.Device.Mobile || YG2.envir.device == YG2.Device.Tablet)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                }
+
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+            }
 
             Invoke(nameof(AnimationEnd), _animation.length);
         }

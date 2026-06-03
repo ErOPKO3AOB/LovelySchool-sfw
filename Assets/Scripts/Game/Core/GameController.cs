@@ -66,6 +66,7 @@ namespace Game
         [SerializeField] private float _messageHoldTime = 6;
         [SerializeField] private TMP_Text _messageText;
         [SerializeField] private GameObject _startEnemies;
+        public SceneLoader _winningSceneLoader;
 
         [Header("Death")]
         [SerializeField] private string[] _looseMessages;
@@ -116,7 +117,10 @@ namespace Game
                     _rooms[i].Initialize();            // òîëüêî ïîòîì èíèöèàëèçèðóåì
                 }
             }
+
+            _winningSceneLoader.OnSceneStartedLoading += () => _ñounterService.SendMetrics();
         }
+
         private void Start()
         {
             // Checkpoints

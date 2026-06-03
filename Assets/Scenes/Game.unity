@@ -133922,6 +133922,7 @@ MonoBehaviour:
   _messageHoldTime: 4
   _messageText: {fileID: 330128565}
   _startEnemies: {fileID: 1163194301}
+  _winningSceneLoader: {fileID: 1912890893}
   _looseMessages:
   - "\u0422\u0435\u0431\u044F \u043F\u043E\u0439\u043C\u0430\u043B\u0438.."
   - "\u0414\u0430\u0432\u0430\u0439 \u043F\u043E \u043D\u043E\u0432\u043E\u0439.."

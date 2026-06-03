@@ -176,7 +176,7 @@ MonoBehaviour:
         extraData: 
   Metrica:
     enable: 1
-    metricaCounterID: 0
+    metricaCounterID: 109615319
     log: 1
     useYandexMetrica: 1
   Storage:
@@ -199,7 +199,7 @@ MonoBehaviour:
     initDelaySimulation: 0
     buildNumber: 51
   Simulation:
-    device: 1
+    device: 0
     language: ru
     enableInterAdv: 0
     advIntervalSimulation: 300
