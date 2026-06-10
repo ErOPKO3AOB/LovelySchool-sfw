@@ -24,8 +24,12 @@ MonoBehaviour:
     metricaCounterID: 109615319
     log: 1
     useYandexMetrica: 1
+  QuitGameEvent:
+    enable: 1
+    objectName: PlayerPrefsSaver
+    methodName: OnQuitGame
   Storage:
-    saveLocal: 1
+    saveLocal: 0
     saveCloud: 1
     flush: 0
   Basic:
