@@ -34,7 +34,7 @@ namespace Assets.Scripts.Game
         private float _checkpointTimer = 0;
 
         public bool reached;
-        [HideInInspector] public bool firstCheckpoint;
+        public bool firstCheckpoint;
         public bool initialized;
 
         private void Start()
@@ -89,12 +89,11 @@ namespace Assets.Scripts.Game
                 {
                     if (!firstCheckpoint)
                     {
+                        _gameController.CurrCheckPointIndex = i;
                         _playerFacade.Inventory.SaveWeaponsState();
                         YG2.saves.currentCheckPoint = i;
 
                         YG2.SaveProgress();
-
-                        Debug.Log($"Checkpoint reached! index: {i} weaponCount: {YG2.saves.weaponDatas.Count}");
                     }
 
                     DisableCheckpoint();
@@ -108,8 +107,11 @@ namespace Assets.Scripts.Game
             reached = true;
             _light.SetActive(false);
 
-            _text.SetText("ЧЕКПОИНТ ДОСТИГНУТ!");
-            _text.color = Color.green;
+            if (!firstCheckpoint)
+            {
+                _text.SetText("ЧЕКПОИНТ ДОСТИГНУТ!");
+                _text.color = Color.green;
+            }
         }
     }
 }

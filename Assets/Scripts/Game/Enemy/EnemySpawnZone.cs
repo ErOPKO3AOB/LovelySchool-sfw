@@ -25,7 +25,8 @@ public class EnemySpawnZone : MonoBehaviour
     [ContextMenu(nameof(KillAllEnemies))]
     private void KillAllEnemies()
     {
-        StartCoroutine(ClearEnemiesManualy());
+        var enemies = _gameController.GetEnemiesOfZone(this);
+        StartCoroutine(DelayedDestroyEnemies(enemies));
     }
 #endif
 
@@ -122,6 +123,14 @@ public class EnemySpawnZone : MonoBehaviour
         DisbaleTrigger();
 
         StartCoroutine(ClearEnemiesManualy());
+
+        for (int i = 0; i < _gameController.Checkpoints.Length; i++)
+        {
+            if (_gameController.Checkpoints[_gameController.CurrCheckPointIndex + 1] != null)
+            {
+                _gameController.Checkpoints[_gameController.CurrCheckPointIndex + 1].gameObject.SetActive(true);
+            }
+        }
     }
 
     private IEnumerator ClearEnemiesManualy()

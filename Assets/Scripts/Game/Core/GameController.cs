@@ -96,7 +96,7 @@ namespace Game
         public bool IsPaused => _isPaused;
         public Toggle DisableMusicToggle => _disableMusicToggle;
 
-        public int CurrCheckPointIndex { get; private set; }
+        public int CurrCheckPointIndex { get; set; }
         public Checkpoint[] Checkpoints { get; private set; }
 
         // GameController.cs
@@ -369,6 +369,10 @@ namespace Game
             foreach (var checkpoints in Checkpoints)
                 checkpoints.initialized = true;
 
+            for (int i = CurrCheckPointIndex + 1; i < Checkpoints.Length; i++)
+            {
+                Checkpoints[i].gameObject.SetActive(false);
+            }
         }
 
         public List<Enemy> GetEnemiesOfZone(EnemySpawnZone zone)
