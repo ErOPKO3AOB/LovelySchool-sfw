@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _attackCooldown
-      value: 1.875
+      value: 0.875
       objectReference: {fileID: 0}
     - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _detectionRange

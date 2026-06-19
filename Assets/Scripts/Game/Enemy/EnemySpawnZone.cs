@@ -80,6 +80,15 @@ public class EnemySpawnZone : MonoBehaviour
             _nextRoom.Trigger.enabled = false;
     }
 
+    public void RegisterEnemy(Enemy enemy)
+    {
+        if (enemy == null || _enemiesToKill.Contains(enemy))
+            return;
+
+        _enemiesToKill.Add(enemy);
+        enemy.Health.OnDead += OnEnemyDead;
+    }
+
     private void OnEnemyDead(GameObject obj)
     {
         if (obj.TryGetComponent<Enemy>(out var enemy))
@@ -192,12 +201,11 @@ public class EnemySpawnZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Enemy>(out var enemy) && !enemy.Health.IsDead && !_enemiesToKill.Contains(enemy))
+        if (other.gameObject.TryGetComponent<Enemy>(out var enemy) && !enemy.Health.IsDead)
         {
-            _enemiesToKill.Add(enemy);
-            enemy.Health.OnDead += OnEnemyDead;
+            RegisterEnemy(enemy);
             CancelInvoke(nameof(DisbaleTrigger));
-            Invoke(nameof(DisbaleTrigger), 2);
+            Invoke(nameof(DisbaleTrigger), 3);
         }
     }
 

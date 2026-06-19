@@ -1,7 +1,7 @@
-using PlayerPrefs = RedefineYG.PlayerPrefs;
 using UnityEngine;
 using YG;
 
+// Скрипт находится на сцене уровня, его метод вызывает Plugin YG
 public class PlayerPrefsSaver : MonoBehaviour
 {
     private void OnValidate()
@@ -11,7 +11,6 @@ public class PlayerPrefsSaver : MonoBehaviour
     
     public void OnQuitGame()
     {
-        PlayerPrefs.Save();
         YG2.SaveProgress();
     }
 }

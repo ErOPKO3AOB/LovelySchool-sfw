@@ -12,7 +12,7 @@ namespace Game
         [Inject]
         public void Construct(PooledSpawnService pooledSpawnService,
             WeaponSettingsSO weaponSettings,
-            PlayerFacade playerFacade, 
+            PlayerFacade playerFacade,
             GameController gameController)
         {
             _pooledSpawnService = pooledSpawnService;
@@ -70,9 +70,9 @@ namespace Game
         public event Action<int, int, int> AmmoChanged; // текущие в магазине, максимум, резерв
 
         public Animator Animator => animator;
-        public int CurrentAmmo => ammo;
+        public int CurrentAmmo { get { return ammo; } set { ammo = value; } }
         public int MaxAmmo => maxAmmo;
-        public int Reserve => reserve;
+        public int Reserve { get { return reserve; } set { reserve = value; } }
         public bool IsMelee => isMelee;
         public bool IsReloading => isReloading;
         public Camera Camera { get; set; }
@@ -86,7 +86,7 @@ namespace Game
                 return _rigidbody;
             }
         }
-        
+
         public Light Light => _light;
 
 
@@ -95,12 +95,16 @@ namespace Game
             weaponName = gameObject.name;
         }
 
-        private void Start()
+        private void Awake()
         {
             foreach (var item in arms)
             {
                 item.SetActive(false);
             }
+        }
+
+        private void Start()
+        {
 
             reserve = currentAmmoCapacity > 0 ? currentAmmoCapacity : maxAmmo * 2;
 
@@ -352,5 +356,13 @@ namespace Game
                 }
             }
         }
+    }
+
+    [System.Serializable]
+    public class WeaponData
+    {
+        public string weaponName;
+        public int ammo;
+        public int reserve;
     }
 }

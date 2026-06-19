@@ -37,6 +37,7 @@ namespace Game
         {
             var enemy = _gameController.SpawnRequest(this);
             enemy.SpawnZone = _parentZone;   // <--- запоминаем, из какой зоны враг
+            _parentZone?.RegisterEnemy(enemy);
 
             Array.Resize(ref enemy.patrolPoints, _patrolPoints.Length);
             for (int i = 0; i < _patrolPoints.Length; i++)

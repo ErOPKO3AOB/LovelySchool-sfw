@@ -2,6 +2,7 @@ using Data;
 using Game;
 using Player;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -16,14 +17,18 @@ namespace Assets.Scripts.Input.UI
     public class ButtonsCanvasController : MonoBehaviour, IDisposable
     {
         [Inject]
-        public void Construct(GameSettingsSO gameSettings, WeaponSettingsSO weaponSettings)
+        public void Construct(GameSettingsSO gameSettings, WeaponSettingsSO weaponSettings, PlayerFacade playerFacade, RandomPointItemsSpawner itemsSpawner)
         {
             _gameSettings = gameSettings;
             _weaponSettings = weaponSettings;
+            _playerFacade = playerFacade;
+            _itemsSpawner = itemsSpawner;
         }
 
         private GameSettingsSO _gameSettings;
         private WeaponSettingsSO _weaponSettings;
+        private PlayerFacade _playerFacade;
+        private RandomPointItemsSpawner _itemsSpawner;
 
         private Inventory _inventory;
 
@@ -35,6 +40,9 @@ namespace Assets.Scripts.Input.UI
         public Button kickButton;
         public Button dashButton;
         public Button pauseButton;
+        [SerializeField] private Image _attackButtonImageTarget;
+        [SerializeField] private Sprite _handSprite;
+        [SerializeField] private Sprite _shootSprite;
         [SerializeField] private List<GameObject> _hintTexts = new();
 
         private readonly List<Button> _inventorySlots = new();
@@ -67,8 +75,10 @@ namespace Assets.Scripts.Input.UI
             foreach (var hint in _hintTexts)
                 hint.SetActive(isDesktop);
 
-            Invoke(nameof(DelayedStart), 0.25f);
+            _itemsSpawner.OnWeaponsSpawned += () => DelayedStart();
             reloadButton.gameObject.SetActive(false);
+
+            StartCoroutine(CheckForCanGrabRoutine());
         }
 
         private void DelayedStart()
@@ -77,6 +87,17 @@ namespace Assets.Scripts.Input.UI
             _inventory.OnWeaponPickUp += OnWeaponPickUp;
             _inventory.OnWeaponSwap += OnWeaponSwap;
             reloadButton.gameObject.SetActive(false);
+        }
+
+        private IEnumerator CheckForCanGrabRoutine()
+        {
+            var seconds = new WaitForSeconds(0.2f);
+            while (_hintsActive)
+            {
+                yield return seconds;
+                _attackButtonImageTarget.sprite = _playerFacade.Inventory.CheckForHitTarget()
+                ? _handSprite : _shootSprite;
+            }
         }
 
         private void OnWeaponPickUp(Weapon weapon)
@@ -142,6 +163,12 @@ namespace Assets.Scripts.Input.UI
             kickButton.gameObject.SetActive(value);
             dashButton.gameObject.SetActive(value);
             pauseButton.gameObject.SetActive(value);
+
+            if (_hintsActive)
+            {
+                StopCoroutine(CheckForCanGrabRoutine());
+                StartCoroutine(CheckForCanGrabRoutine());
+            }
         }
 
         public void Dispose()

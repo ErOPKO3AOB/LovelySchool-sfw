@@ -130,6 +130,9 @@ MonoBehaviour:
   kickButton: {fileID: 7087983262623365715}
   dashButton: {fileID: 2523741802883280721}
   pauseButton: {fileID: 1629034900054714693}
+  _attackButtonImageTarget: {fileID: 3852544404654738348}
+  _handSprite: {fileID: 68131108, guid: fe75871bdf7ea774e81f1f5ebafc12ce, type: 3}
+  _shootSprite: {fileID: -2034015474, guid: fe75871bdf7ea774e81f1f5ebafc12ce, type: 3}
   _hintTexts:
   - {fileID: 8281873513374768672}
   - {fileID: 2721921464890888558}

@@ -65,12 +65,15 @@ namespace Player
         private ColorAdjustments _colorAdjustments;
         private float _colorAdjustmentsVelocity;
 
+        private RandomPointItemsSpawner _itemsSpawner;
+
         [Inject]
-        public void Construct(IInputReader inputReader, PooledSpawnService pooledSpawnService, GameSettingsSO gameSettings)
+        public void Construct(IInputReader inputReader, PooledSpawnService pooledSpawnService, GameSettingsSO gameSettings, RandomPointItemsSpawner itemsSpawner)
         {
             _inputReader = inputReader;
             _pooledSpawnService = pooledSpawnService;
             GameSettings = gameSettings;
+            _itemsSpawner = itemsSpawner;
         }
 
         private void OnValidate()
@@ -98,7 +101,7 @@ namespace Player
             _movement = new PlayerMovement(_rigidbody, _settings, transform); // больше не нужен _cameraTransform
             _jump = new PlayerJump(_rigidbody, _settings, _groundCheck);
             _dash = new PlayerDash(_rigidbody, _settings, _stamina, transform);
-            _inventory.Initialize(_inputReader, _camera.Camera);
+            _inventory.Initialize(_inputReader, _camera.Camera, _itemsSpawner);
 
             _stamina.OnStaminaChanged += UpdateStaminaUI;
 

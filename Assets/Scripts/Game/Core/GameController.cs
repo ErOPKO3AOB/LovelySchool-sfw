@@ -96,7 +96,6 @@ namespace Game
         public bool IsPaused => _isPaused;
         public Toggle DisableMusicToggle => _disableMusicToggle;
 
-        public string CHECKPOINT_PREFS_NAME { get; private set; } = "CHECKPOINT";
         public int CurrCheckPointIndex { get; private set; }
         public Checkpoint[] Checkpoints { get; private set; }
 
@@ -104,10 +103,9 @@ namespace Game
 
         private void Awake()
         {
-            //CurrCheckPointIndex = PlayerPrefs.GetInt(CHECKPOINT_PREFS_NAME, 0);
-            CurrCheckPointIndex = 0;
+            CurrCheckPointIndex = YG2.saves.currentCheckPoint;
             CurrCheckPointIndex = Mathf.Clamp(CurrCheckPointIndex, 0, _rooms.Length - 1);
-            //Debug.Log("Checkpoint index: " + CurrCheckPointIndex);
+            Debug.Log("Checkpoint index: " + CurrCheckPointIndex);
 
             for (int i = 0; i < _rooms.Length; i++)
             {
@@ -360,7 +358,7 @@ namespace Game
                 // Активируем чекпоинты (визуал и сохранение)
                 for (int i = 0; i < CurrCheckPointIndex; i++)
                 {
-                    Checkpoints[i].ActivateCheckPoint();
+                    Checkpoints[i].DisableCheckpoint();
                     // DeactivateForCheckpoint для этих комнат уже вызван в их Start
                 }
             }

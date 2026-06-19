@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using YG;
 
 namespace Player
 {
@@ -15,6 +16,7 @@ namespace Player
         [SerializeField] private PlayerFacade _playerFacade;
 
         private IInputReader _inputReader;
+        private RandomPointItemsSpawner _itemsSpawner;
         private readonly List<Weapon> _weapons = new();
         private int _currentWeaponIndex = 0;
         private Camera _camera;
@@ -38,9 +40,10 @@ namespace Player
             _hand.gameObject.SetActive(false);
         }
 
-        public void Initialize(IInputReader inputReader, Camera camera)
+        public void Initialize(IInputReader inputReader, Camera camera, RandomPointItemsSpawner itemsSpawner)
         {
             _inputReader = inputReader;
+            _itemsSpawner = itemsSpawner;
             _inputReader.OnUseStarted += HandleUseStarted;
             _inputReader.OnUseCanceled += HandleUseCanceled;
             _inputReader.OnReloadPerformed += HandleReload;
@@ -49,6 +52,11 @@ namespace Player
 
             _camera = camera;
             _hand.SetParent(_camera.transform);
+
+            _itemsSpawner.OnWeaponsSpawned += () =>
+            {
+                LoadWeaponsState();
+            };
         }
 
         private void HandleScroll(float delta)
@@ -104,7 +112,6 @@ namespace Player
 
         private void HandleUseStarted()
         {
-
             Ray ray = new(_camera.transform.position, _camera.transform.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, 5f) && hit.collider != null)
             {
@@ -116,15 +123,15 @@ namespace Player
                     return;
                 }
 
-                if (hitObject.TryGetComponent<EnemyOutliner>(out var enemyOutliner))
+                else if (hitObject.TryGetComponent<EnemyOutliner>(out var enemyOutliner))
                 {
                     enemyOutliner.SetOutlined();
                     return;
                 }
 
-                if (_weapons.Count != 0 && _weapons[_currentWeaponIndex].IsReloading) return;
+                else if (_weapons.Count != 0 && _weapons[_currentWeaponIndex].IsReloading) return;
 
-                if (hitObject.TryGetComponent<Weapon>(out var weapon))
+                else if (hitObject.TryGetComponent<Weapon>(out var weapon))
                 {
                     PickupWeapon(weapon);
                     return;
@@ -135,6 +142,16 @@ namespace Player
             {
                 _weapons[_currentWeaponIndex].StartShoot();
             }
+        }
+
+        // Bullshit method bro
+        public bool CheckForHitTarget()
+        {
+            Ray ray = new(_camera.transform.position, _camera.transform.forward);
+            return Physics.Raycast(ray, out RaycastHit hit, 5f) && hit.collider != null &&
+                (_weapons.Count != 0 && hit.collider.gameObject.layer == LayerMask.NameToLayer("AmmoOutline")
+                || hit.collider.gameObject.TryGetComponent<EnemyOutliner>(out var outliner)
+                || hit.collider.gameObject.TryGetComponent<Weapon>(out var weapon));
         }
 
         private void PickupWeapon(Weapon weapon)
@@ -156,9 +173,7 @@ namespace Player
             weapon.Rigidbody.useGravity = false;
 
             weapon.transform.SetParent(_hand);
-            weapon.transform.position = _hand.position;
-            weapon.transform.rotation = _hand.rotation;
-
+            weapon.transform.SetPositionAndRotation(_hand.position, _hand.rotation);
             weapon.gameObject.SetActive(true);
             weapon.Camera = _camera;
 
@@ -167,9 +182,9 @@ namespace Player
 
             if (!weapon.IsMelee) HasNotMelee = true;
 
-            foreach (var item in weapon.arms)
+            for (int i = 0; i < weapon.arms.Length; i++)
             {
-                item.SetActive(true);
+                weapon.arms[i].SetActive(true);
             }
 
             Transform[] weaponChildren = weapon.GetComponentsInChildren<Transform>();
@@ -224,6 +239,50 @@ namespace Player
 
             Weapon w = _weapons[_currentWeaponIndex];
             _ammoText.text = $"{w.CurrentAmmo}/{w.Reserve}";
+        }
+
+        public void SaveWeaponsState()
+        {
+            var weaponDatas = new List<WeaponData>();
+
+            for (int i = 0; i < Weapons.Count; i++)
+            {
+                var data = new WeaponData
+                {
+                    weaponName = Weapons[i].weaponName,
+                    ammo = Weapons[i].CurrentAmmo,
+                    reserve = Weapons[i].Reserve
+                };
+
+                weaponDatas.Add(data);
+            }
+
+            YG2.saves.weaponDatas = weaponDatas;
+        }
+
+        public void LoadWeaponsState()
+        {
+            var weaponDatas = YG2.saves.weaponDatas;
+
+            //Debug.Log("Weapon Datas count: " + weaponDatas.Count);
+            //Debug.Log("item spawner weapons count: " + _itemsSpawner.Weapons.Count);
+
+
+            if (weaponDatas == null || weaponDatas.Count <= 0) return;
+
+            for (int i = 0; i < weaponDatas.Count; i++)
+            {
+                for (int j = 0; j < _itemsSpawner.Weapons.Count; j++)
+                {
+                    if (_itemsSpawner.Weapons[j].weaponName == weaponDatas[i].weaponName)
+                    {
+                        Weapon weapon = _itemsSpawner.Weapons[j];
+                        PickupWeapon(weapon);
+                        weapon.CurrentAmmo = weaponDatas[i].ammo;
+                        weapon.Reserve = weaponDatas[i].reserve;
+                    }
+                }
+            }
         }
 
         private void OnDestroy()

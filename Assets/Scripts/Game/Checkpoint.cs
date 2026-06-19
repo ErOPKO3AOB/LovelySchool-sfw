@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using VContainer;
 using VContainer.Unity;
-using PlayerPrefs = RedefineYG.PlayerPrefs;
+using YG;
 
 namespace Assets.Scripts.Game
 {
@@ -79,7 +79,7 @@ namespace Assets.Scripts.Game
             }
         }
 
-        public void ActivateCheckPoint()
+        private void ActivateCheckPoint()
         {
             if (reached) return;
 
@@ -87,18 +87,29 @@ namespace Assets.Scripts.Game
             {
                 if (_gameController.Checkpoints[i] == this)
                 {
-                    reached = true;
-                    _light.SetActive(false);
                     if (!firstCheckpoint)
                     {
-                        PlayerPrefs.SetInt(_gameController.CHECKPOINT_PREFS_NAME, i);
-                        _text.SetText("ЧЕКПОИНТ ДОСТИГНУТ!");
-                        //Debug.Log($"Checkpoint reached! index: {i}");
-                        _text.color = Color.green;
+                        _playerFacade.Inventory.SaveWeaponsState();
+                        YG2.saves.currentCheckPoint = i;
+
+                        YG2.SaveProgress();
+
+                        Debug.Log($"Checkpoint reached! index: {i} weaponCount: {YG2.saves.weaponDatas.Count}");
                     }
+
+                    DisableCheckpoint();
                     break;
                 }
             }
+        }
+
+        public void DisableCheckpoint()
+        {
+            reached = true;
+            _light.SetActive(false);
+
+            _text.SetText("ЧЕКПОИНТ ДОСТИГНУТ!");
+            _text.color = Color.green;
         }
     }
 }

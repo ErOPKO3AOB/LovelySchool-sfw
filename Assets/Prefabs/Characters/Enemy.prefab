@@ -3110,7 +3110,7 @@ MonoBehaviour:
     m_Bits: 2057
   _lookAtPlayerDistance: 4
   _attackRange: 2
-  _attackCooldown: 2.5
+  _attackCooldown: 1.5
   _attackDamage: 5
   _attackDelayTime: 6
   _aiDistance: 80

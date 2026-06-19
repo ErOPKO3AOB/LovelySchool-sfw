@@ -45,7 +45,6 @@ namespace Data
         public Vector3 cameraOffset = new Vector3(0, 0.7f, 0); // позиция камеры относительно игрока
         public float tiltAmount = 2f;                          // сила наклона при повороте
         public float tiltSmoothTime = 0.1f;
-        public bool enableArms = true;
 
         [Header("Mobile input")]
         public ButtonsCanvasController buttonsCanvasPrefab;

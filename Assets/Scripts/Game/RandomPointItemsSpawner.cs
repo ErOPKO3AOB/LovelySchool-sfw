@@ -1,7 +1,8 @@
 using Data;
-using Player;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using VContainer;
 
 namespace Game
@@ -9,16 +10,18 @@ namespace Game
     public class RandomPointItemsSpawner : MonoBehaviour
     {
         [Inject]
-        public void Construct(Func<Transform, GameObject, Weapon> weaponFactory, WeaponSettingsSO weaponSettings, PlayerFacade playerFacade)
+        public void Construct(Func<Transform, GameObject, Weapon> weaponFactory, WeaponSettingsSO weaponSettings)
         {
             _weaponFactory = weaponFactory;
             _weaponSettings = weaponSettings;
-            _playerFacade = playerFacade;
         }
 
         private Func<Transform, GameObject, Weapon> _weaponFactory;
         private WeaponSettingsSO _weaponSettings;
-        private PlayerFacade _playerFacade;
+
+        public List<Weapon> Weapons;
+
+        public UnityAction OnWeaponsSpawned;
 
         [Serializable]
         public class ObjectSettings
@@ -32,17 +35,22 @@ namespace Game
 
         private void Start()
         {
+            Weapons = new();
             for (int i = 0; i < _settings.Length; i++)
             {
-                //for (int j = 0; j < _playerFacade.Inventory.Weapons.Count; j++)
-                //{
-                //if (_playerFacade.Inventory.Weapons[j].weaponName != _weaponSettings.weaponPrefabs[_settings[i].objectIndex].weaponName)
-                _weaponFactory.Invoke(_settings[i]
+                Weapons.Add(_weaponFactory.Invoke(_settings[i]
                     .spawnPoints[UnityEngine.Random.Range(0, _settings[i].spawnPoints.Length)],
                     _weaponSettings.weaponPrefabs[_settings[i].objectIndex]
+                    )
                 );
-                //}
+
             }
+            OnWeaponsSpawned?.Invoke();
+        }
+
+        private void OnDestroy()
+        {
+            OnWeaponsSpawned = null;
         }
     }
 }

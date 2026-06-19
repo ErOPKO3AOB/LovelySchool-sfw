@@ -252,7 +252,7 @@ MonoBehaviour:
   _obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 2049
-  _checkpointActivationDistance: 0.5
+  _checkpointActivationDistance: 2
   _checkpointMinTick: 0.05
   _checkpointMaxTick: 0.15
   reached: 0

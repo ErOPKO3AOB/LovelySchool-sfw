@@ -93,7 +93,7 @@ namespace Installers
             Lifetime.Singleton)
             .AsSelf();
 
-            builder.RegisterComponent(_randomPointItemsSpawner);
+            builder.RegisterComponent(_randomPointItemsSpawner).AsSelf();
 
             builder.RegisterFactory<Transform, GameObject, Enemy>((resolver) =>
             {

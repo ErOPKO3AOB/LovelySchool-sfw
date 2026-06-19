@@ -13290,7 +13290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &141571183
 Transform:
   m_ObjectHideFlags: 0
@@ -13995,7 +13995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &146121439
 Transform:
   m_ObjectHideFlags: 0
@@ -35854,7 +35854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &316522740
 Transform:
   m_ObjectHideFlags: 0
@@ -74147,7 +74147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &533879027
 Transform:
   m_ObjectHideFlags: 0
@@ -134145,6 +134145,13 @@ MonoBehaviour:
   _disableHintsToggle: {fileID: 292749815}
   _checkPointPositions:
   - {fileID: 1638468462982600657}
+  - {fileID: 316522740}
+  - {fileID: 533879027}
+  - {fileID: 1373608468}
+  - {fileID: 1406257523}
+  - {fileID: 146121439}
+  - {fileID: 141571183}
+  - {fileID: 1261185256}
 --- !u!114 &1003872889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272071,7 +272078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1261185256
 Transform:
   m_ObjectHideFlags: 0
@@ -282324,7 +282331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1373608468
 Transform:
   m_ObjectHideFlags: 0
@@ -285069,7 +285076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1406257523
 Transform:
   m_ObjectHideFlags: 0
