@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using Assets.Scripts.Game;
 using Assets.Scripts.Input;
 using Assets.Scripts.Input.UI;
@@ -28,6 +29,8 @@ namespace Installers
 
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.RegisterEntryPoint<AdvService>().AsSelf();
+
             QualitySettings.lodBias = 2f;
 
             builder.RegisterFactory<Transform, EnemyOutliner>(resolver =>

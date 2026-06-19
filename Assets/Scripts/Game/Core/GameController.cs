@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using Assets.Scripts.Game;
 using Assets.Scripts.Input;
 using Assets.Scripts.Input.UI;
@@ -22,6 +23,7 @@ namespace Game
     {
         [Inject]
         public void Construct(
+            AdvService advService,
             Func<Transform, GameObject, Enemy> enemyFactory,
             Func<Transform, EnemyOutliner> enemyOutlinerFactory,
             PlayerFacade playerFacade,
@@ -32,6 +34,7 @@ namespace Game
             Func<Transform, Checkpoint> checkpointFactory
             )
         {
+            _advService = advService;
             _enemyFactory = enemyFactory;
             _playerFacade = playerFacade;
             _inputReader = inputReader;
@@ -42,6 +45,7 @@ namespace Game
             _checkpointFactory = checkpointFactory;
         }
 
+        private AdvService _advService;
         private Func<Transform, GameObject, Enemy> _enemyFactory;
         private PlayerFacade _playerFacade;
         private IInputReader _inputReader;
@@ -137,10 +141,10 @@ namespace Game
                         Checkpoints[i].firstCheckpoint = true;
                     }
 
-                    //else if (i == _checkPointPositions.Length - 1)
-                    //{
-                    //    Checkpoints[i]._text.text = "œŒ—À≈ƒÕ»… ◊≈ œŒ»Õ“! ƒ¿À‹ÿ≈ ’¿–ƒ Œ–!!!!";
-                    //}
+                    else if (i == _checkPointPositions.Length - 1)
+                    {
+                        Checkpoints[i].last = true;
+                    }
                 }
             }
 
@@ -189,7 +193,8 @@ namespace Game
         {
             foreach (var checkPoints in Checkpoints)
             {
-                checkPoints.Tick();
+                if (checkPoints.gameObject.activeSelf)
+                    checkPoints.Tick();
             }
         }
 
@@ -241,7 +246,7 @@ namespace Game
 
         private void OnPlayerDead(GameObject obj)
         {
-            //YG2.InterstitialAdvShow();
+            _advService.ShowInterstitial();
 
             _playerDead = true;
 

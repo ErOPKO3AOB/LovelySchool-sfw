@@ -126,7 +126,7 @@ public class EnemySpawnZone : MonoBehaviour
 
         for (int i = 0; i < _gameController.Checkpoints.Length; i++)
         {
-            if (_gameController.Checkpoints[_gameController.CurrCheckPointIndex + 1] != null)
+            if (_gameController.CurrCheckPointIndex + 1 <= _gameController.Checkpoints.Length - 1)
             {
                 _gameController.Checkpoints[_gameController.CurrCheckPointIndex + 1].gameObject.SetActive(true);
             }

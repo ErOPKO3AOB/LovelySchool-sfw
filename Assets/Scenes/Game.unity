@@ -14005,7 +14005,7 @@ Transform:
   m_GameObject: {fileID: 146121438}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 7, y: -3.5, z: -26}
+  m_LocalPosition: {x: 10, y: -4, z: -21.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -282443,7 +282443,7 @@ Transform:
   m_GameObject: {fileID: 1373608467}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: 114, y: -2, z: -21.50003}
+  m_LocalPosition: {x: 107.527, y: -4, z: -21.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -285188,7 +285188,7 @@ Transform:
   m_GameObject: {fileID: 1406257522}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: 114, y: 1.5, z: -21.50003}
+  m_LocalPosition: {x: 107.527, y: -0.5, z: -21.059998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -345907,7 +345907,7 @@ MonoBehaviour:
   _playerLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  OnTriggerEntered:
+  OnBusGet:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1912890893}
@@ -345937,12 +345937,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.65822566, y: 0.84528553, z: 0.8238682}
+  m_Center: {x: 0, y: -0.0813735, z: 0}
 --- !u!1001 &1913104454
 PrefabInstance:
   m_ObjectHideFlags: 0

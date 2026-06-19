@@ -1,7 +1,9 @@
 Authorization v1.023
 EnvirData v1.0031
+InterstitialAdv v1.02
 Metrica v1.02
 PlayerStats v1.01
 QuitGameEvent v1.001
 RedefinePlayerPrefs v1.001
+StickyAdv v1.0
 Storage v1.021

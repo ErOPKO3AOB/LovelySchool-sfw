@@ -36,6 +36,7 @@ namespace Assets.Scripts.Game
         public bool reached;
         public bool firstCheckpoint;
         public bool initialized;
+        public bool last;
 
         private void Start()
         {

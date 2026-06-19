@@ -17,36 +17,36 @@ namespace Game
         {
             _canSkip = PlayerPrefs.GetInt(_animation.name, 0) == 1;
 
-            if (!_canSkip)
+            _skipButton.gameObject.SetActive(false);
+            if (_canSkip)
             {
-                _skipButton.gameObject.SetActive(false);
-            }
-            else
-            {
-                _skipButton.onClick.AddListener(() =>
-                {
-                    _skipButton.enabled = false;
-                    CancelInvoke(nameof(AnimationEnd));
-                    AnimationEnd();
-                });
-
-                if (YG2.envir.device == YG2.Device.Mobile || YG2.envir.device == YG2.Device.Tablet)
-                {
-                    Cursor.lockState = CursorLockMode.None;
-                }
-
-                else
-                {
-                    Cursor.lockState = CursorLockMode.Locked;
-                }
+                Invoke(nameof(AllowSkip), 1.5f);
             }
 
             Invoke(nameof(AnimationEnd), _animation.length);
         }
 
+        private void AllowSkip()
+        {
+            _skipButton.gameObject.SetActive(true);
+
+            _skipButton.onClick.AddListener(() =>
+            {
+                _skipButton.enabled = false;
+                CancelInvoke(nameof(AnimationEnd));
+                AnimationEnd();
+            });
+
+            if (YG2.envir.device == YG2.Device.Desktop)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+        }
+
         private void AnimationEnd()
         {
             PlayerPrefs.SetInt(_animation.name, 1);
+            YG2.SaveProgress();
             _sceneLoader.LoadScene();
         }
     }

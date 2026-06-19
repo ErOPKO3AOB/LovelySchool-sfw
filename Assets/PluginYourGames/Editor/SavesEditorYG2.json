@@ -1,0 +1,34 @@
+{
+  "stringKeys": [],
+  "stringValues": [],
+  "floatKeys": [
+    "Sensitivity"
+  ],
+  "floatValues": [
+    45.0
+  ],
+  "intKeys": [
+    "EndCutscene",
+    "StartCutscene",
+    "HintsOff",
+    "MusicOff"
+  ],
+  "intValues": [
+    1,
+    1,
+    0,
+    0
+  ],
+  "intExample": 5,
+  "strExample": "Hello!",
+  "boolExample": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "idSave": 37,
+  "currentCheckPoint": 0,
+  "weaponDatas": [],
+  "gameCompletedTimes": 2
+}

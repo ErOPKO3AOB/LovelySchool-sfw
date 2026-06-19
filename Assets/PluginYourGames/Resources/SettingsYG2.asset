@@ -19,6 +19,12 @@ MonoBehaviour:
     uniqueID: 000
     playerPhoto: demo image
     payingStatus: 0
+  InterstitialAdv:
+    showFirstAdv: 0
+    interAdvInterval: 10
+    postponeCallByFail: 0
+    postponeCallTimer: 10
+    labelAdvSimLabel: 0
   Metrica:
     enable: 1
     metricaCounterID: 109615319
@@ -35,8 +41,8 @@ MonoBehaviour:
   Basic:
     platform: {fileID: 11400000, guid: fabe82a4ab034324eb452cc7109f6d19, type: 2}
     autoApplySettings: 1
-    autoPauseGame: 0
-    editTimeScale: 0
+    autoPauseGame: 1
+    editTimeScale: 1
     editEventSystem: 0
     autoGRA: 1
     logInEditor: 1
@@ -50,9 +56,9 @@ MonoBehaviour:
   Simulation:
     device: 0
     language: ru
-    enableInterAdv: 0
-    advIntervalSimulation: 300
-    durationAdv: 5
+    enableInterAdv: 1
+    advIntervalSimulation: 10
+    durationAdv: 3
     loadAdv: 2
     testFailAds: 0
     pauseOnFocusGame: 0
@@ -89,6 +95,9 @@ MonoBehaviour:
   platformInfo:
     ownHost: 0
   platformToggles:
+    showFirstAdv: 0
+    interAdvInterval: 0
+    postponeCallByFail: 0
     useYandexMetrica: 0
     metricaCounterID: 0
     saveLocal: 0

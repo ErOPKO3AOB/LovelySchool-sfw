@@ -136,6 +136,11 @@ namespace Player
                     PickupWeapon(weapon);
                     return;
                 }
+
+                else if (hitObject.TryGetComponent<BusLoader>(out var busLoader))
+                {
+                    busLoader.GetInBus();
+                }
             }
 
             if (_weapons.Count > 0)
@@ -150,8 +155,9 @@ namespace Player
             Ray ray = new(_camera.transform.position, _camera.transform.forward);
             return Physics.Raycast(ray, out RaycastHit hit, 5f) && hit.collider != null &&
                 (_weapons.Count != 0 && hit.collider.gameObject.layer == LayerMask.NameToLayer("AmmoOutline")
-                || hit.collider.gameObject.TryGetComponent<EnemyOutliner>(out var outliner)
-                || hit.collider.gameObject.TryGetComponent<Weapon>(out var weapon));
+                || hit.collider.gameObject.TryGetComponent<EnemyOutliner>(out _)
+                || hit.collider.gameObject.TryGetComponent<Weapon>(out _)
+                || hit.collider.gameObject.TryGetComponent<BusLoader>(out _));
         }
 
         private void PickupWeapon(Weapon weapon)

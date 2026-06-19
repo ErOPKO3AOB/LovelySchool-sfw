@@ -10,5 +10,7 @@ namespace YG
         public int currentCheckPoint;
 
         public List<WeaponData> weaponDatas = new();
+
+        public int gameCompletedTimes = 0;
     }
 }
