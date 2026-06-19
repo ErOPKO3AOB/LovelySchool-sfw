@@ -41,7 +41,7 @@ namespace Assets.Scripts.Input.UI
         public UnityAction<int> OnSlotChoose;
 
         private const string HintTag = "HintText";
-        private bool _hintsActive;
+        private bool _hintsActive = true;
 
         private void OnValidate()
         {
@@ -57,7 +57,11 @@ namespace Assets.Scripts.Input.UI
         private void Start()
         {
             bool isDesktop = YG2.envir.isDesktop;
-            if (!isDesktop) dashButton.gameObject.SetActive(false);
+            if (!isDesktop)
+            {
+                dashButton.gameObject.SetActive(false);
+                _hintsActive = true;
+            }
 
             joystick.gameObject.SetActive(!isDesktop);
             foreach (var hint in _hintTexts)
@@ -118,8 +122,9 @@ namespace Assets.Scripts.Input.UI
 
         private void OnWeaponSwap(Weapon weapon)
         {
-            if (_hintsActive)
-                reloadButton.gameObject.SetActive(!weapon.IsMelee);
+            bool activationValue = !weapon.IsMelee && _hintsActive;
+
+            reloadButton.gameObject.SetActive(activationValue);
         }
 
         public void SetHints(bool value)

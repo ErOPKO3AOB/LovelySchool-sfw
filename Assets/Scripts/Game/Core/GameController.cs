@@ -123,6 +123,10 @@ namespace Game
 
         private void Start()
         {
+            _sensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity", _gameSettings.mouseSensitivity);
+            _disableMusicToggle.isOn = PlayerPrefs.GetInt("MusicOff", 0) == 1;
+            _disableHintsToggle.isOn = PlayerPrefs.GetInt("HintsOff", 0) == 1;
+
             // Checkpoints
             if (_checkPointPositions != null && _checkPointPositions.Length > 0)
             {
@@ -206,11 +210,13 @@ namespace Game
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 _pauseMenuUI.SetActive(true);
-
-                _sensitivitySlider.value = _gameSettings.mouseSensitivity;
             }
             else
             {
+                PlayerPrefs.SetInt("HintsOff", _disableHintsToggle.isOn ? 1 : 0);
+                PlayerPrefs.SetInt("MusicOff", _disableMusicToggle.isOn ? 1 : 0);
+                PlayerPrefs.SetFloat("Sensitivity", _sensitivitySlider.value);
+
                 Time.timeScale = 1f;
                 if (YG2.envir.device == YG2.Device.Desktop)
                 {

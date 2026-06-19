@@ -1,5 +1,6 @@
 using PlayerPrefs = RedefineYG.PlayerPrefs;
 using UnityEngine;
+using YG;
 
 public class PlayerPrefsSaver : MonoBehaviour
 {
@@ -11,5 +12,6 @@ public class PlayerPrefsSaver : MonoBehaviour
     public void OnQuitGame()
     {
         PlayerPrefs.Save();
+        YG2.SaveProgress();
     }
 }

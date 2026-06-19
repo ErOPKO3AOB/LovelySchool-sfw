@@ -40,7 +40,7 @@ MonoBehaviour:
   maxStamina: 120
   staminaRegenRate: 30
   staminaRegenDelay: 0.5
-  mouseSensitivity: 80
+  mouseSensitivity: 45
   verticalClamp: 90
   cameraOffset: {x: 0, y: 0.7, z: 0}
   tiltAmount: 2
