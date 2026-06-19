@@ -17,17 +17,15 @@ namespace Assets.Scripts.Input.UI
     public class ButtonsCanvasController : MonoBehaviour, IDisposable
     {
         [Inject]
-        public void Construct(GameSettingsSO gameSettings, WeaponSettingsSO weaponSettings, PlayerFacade playerFacade, RandomPointItemsSpawner itemsSpawner)
+        public void Construct(GameSettingsSO gameSettings, WeaponSettingsSO weaponSettings, RandomPointItemsSpawner itemsSpawner)
         {
             _gameSettings = gameSettings;
             _weaponSettings = weaponSettings;
-            _playerFacade = playerFacade;
             _itemsSpawner = itemsSpawner;
         }
 
         private GameSettingsSO _gameSettings;
         private WeaponSettingsSO _weaponSettings;
-        private PlayerFacade _playerFacade;
         private RandomPointItemsSpawner _itemsSpawner;
 
         private Inventory _inventory;
@@ -95,7 +93,7 @@ namespace Assets.Scripts.Input.UI
             while (_hintsActive)
             {
                 yield return seconds;
-                _attackButtonImageTarget.sprite = _playerFacade.Inventory.CheckForHitTarget()
+                _attackButtonImageTarget.sprite = _inventory.CheckForHitTarget()
                 ? _handSprite : _shootSprite;
             }
         }
