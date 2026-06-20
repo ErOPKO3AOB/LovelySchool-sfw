@@ -27,8 +27,19 @@
     false,
     false
   ],
-  "idSave": 28,
-  "currentCheckPoint": 0,
-  "weaponDatas": [],
+  "idSave": 31,
+  "currentCheckPoint": 3,
+  "weaponDatas": [
+    {
+      "weaponName": "Book",
+      "ammo": 0,
+      "reserve": 0
+    },
+    {
+      "weaponName": "Pistol",
+      "ammo": 20,
+      "reserve": 9
+    }
+  ],
   "gameCompletedTimes": 1
 }

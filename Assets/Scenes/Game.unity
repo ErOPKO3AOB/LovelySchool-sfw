@@ -134912,7 +134912,7 @@ MonoBehaviour:
   - {fileID: 291256432}
   - {fileID: 1679312378}
   - {fileID: 364651027}
-  _messageHoldTime: 4
+  _messageHoldTime: 7
   _messageText: {fileID: 330128565}
   _startEnemies: {fileID: 1163194301}
   _winningSceneLoader: {fileID: 1912890893}
@@ -151091,135 +151091,7 @@ MonoBehaviour:
   _gameSettings: {fileID: 11400000, guid: d98ad76104ae6914b8f7bbe05e0a4b50, type: 2}
   _weaponSettings: {fileID: 11400000, guid: e34ee7ba54f99bb4f9c87f2e09511559, type: 2}
   _randomPointItemsSpawner: {fileID: 1191888747}
-  _enemySpawnPoints:
-  - {fileID: 802190621}
-  - {fileID: 318778222}
-  - {fileID: 1320803189}
-  - {fileID: 160667108}
-  - {fileID: 486672632}
-  - {fileID: 1448537998}
-  - {fileID: 733050824}
-  - {fileID: 1831503267}
-  - {fileID: 776242156}
-  - {fileID: 886121296}
-  - {fileID: 1928660304}
-  - {fileID: 1933936455}
-  - {fileID: 492394998}
-  - {fileID: 717215694}
-  - {fileID: 402935668}
-  - {fileID: 400200533}
-  - {fileID: 1091137738}
-  - {fileID: 1906312268}
-  - {fileID: 0}
-  - {fileID: 1069402386}
-  - {fileID: 1660563827}
-  - {fileID: 1045190494}
-  - {fileID: 1283938256}
-  - {fileID: 49577917}
-  - {fileID: 150514833}
-  - {fileID: 2133296541}
-  - {fileID: 1022598103}
-  - {fileID: 1835160048}
-  - {fileID: 2096091477}
-  - {fileID: 185013763}
-  - {fileID: 975237375}
-  - {fileID: 755386728}
-  - {fileID: 144259052}
-  - {fileID: 1025799109}
-  - {fileID: 1841998858}
-  - {fileID: 399753649}
-  - {fileID: 1563840821}
-  - {fileID: 128473917}
-  - {fileID: 1625981645}
-  - {fileID: 484886101}
-  - {fileID: 1572421376}
-  - {fileID: 745606930}
-  - {fileID: 1200377138}
-  - {fileID: 1926177072}
-  - {fileID: 370581111}
-  - {fileID: 2060417447}
-  - {fileID: 1737118636}
-  - {fileID: 750100659}
-  - {fileID: 1143271175}
-  - {fileID: 1501632889}
-  - {fileID: 705683243}
-  - {fileID: 1909947621}
-  - {fileID: 1448255700}
-  - {fileID: 1461593206}
-  - {fileID: 0}
-  - {fileID: 956399257}
-  - {fileID: 1202255690}
-  - {fileID: 771418550}
-  - {fileID: 1952630891}
-  - {fileID: 1593879136}
-  - {fileID: 1411287674}
-  - {fileID: 1388152762}
-  - {fileID: 1010828655}
-  - {fileID: 366158054}
-  - {fileID: 1730221927}
-  - {fileID: 1650419931}
-  - {fileID: 1533564804}
-  - {fileID: 822374750}
-  - {fileID: 1426187753}
-  - {fileID: 584142304}
-  - {fileID: 0}
-  - {fileID: 1066191333}
-  - {fileID: 123872972}
-  - {fileID: 1741065961}
-  - {fileID: 1041617385}
-  - {fileID: 1403426258}
-  - {fileID: 790329965}
-  - {fileID: 1250384454}
-  - {fileID: 1508061766}
-  - {fileID: 184283067}
-  - {fileID: 1759458655}
-  - {fileID: 130045590}
-  - {fileID: 1038764719}
-  - {fileID: 1703733930}
-  - {fileID: 1062616150}
-  - {fileID: 1699443798}
-  - {fileID: 63738665}
-  - {fileID: 1054418029}
-  - {fileID: 1691635341}
-  - {fileID: 81732508}
-  - {fileID: 225803377}
-  - {fileID: 2115276767}
-  - {fileID: 47644521}
-  - {fileID: 1977812171}
-  - {fileID: 548100342}
-  - {fileID: 1104330941}
-  - {fileID: 2044763829}
-  - {fileID: 522020043}
-  - {fileID: 2136496247}
-  - {fileID: 1301884390}
-  - {fileID: 1761766254}
-  - {fileID: 1758053408}
-  - {fileID: 23661166}
-  - {fileID: 18378703}
-  - {fileID: 189875198}
-  - {fileID: 471983954}
-  - {fileID: 2049030529}
-  - {fileID: 914717134}
-  - {fileID: 1412422550}
-  - {fileID: 361323732}
-  - {fileID: 1785759561}
-  - {fileID: 416661348}
-  - {fileID: 638988932}
-  - {fileID: 274917373}
-  - {fileID: 1077321323}
-  - {fileID: 1362696141}
-  - {fileID: 1817487033}
-  - {fileID: 1368649315}
-  - {fileID: 425888681}
-  - {fileID: 625568161}
-  - {fileID: 987997593}
-  - {fileID: 1201811335}
-  - {fileID: 2071049739}
-  - {fileID: 1351914829}
-  - {fileID: 1445390444}
-  - {fileID: 860660455}
-  - {fileID: 51054572}
-  - {fileID: 1979992302}
+  _enemySpawnPoints: []
   _gameController: {fileID: 1003872888}
   _musicPlayer: {fileID: 594673820}
 --- !u!4 &1102652517
@@ -283011,8 +282883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.EnemySpawnPoint
   enemyTypePrefab: {fileID: 9198542458646141974, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
-  _patrolPoints:
-  - {fileID: 0}
+  _patrolPoints: []
 --- !u!1001 &1369141861
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-using Assets.Scripts;
+Ôªøusing Assets.Scripts;
 using Assets.Scripts.Game;
 using Assets.Scripts.Input;
 using Assets.Scripts.Input.UI;
@@ -30,7 +30,7 @@ namespace Game
             IInputReader inputReader,
             GameSettingsSO gameSettings,
             ButtonsCanvasController buttonsCanvasController,
-            CounterService ÒounterService,
+            CounterService —ÅounterService,
             Func<Transform, Checkpoint> checkpointFactory
             )
         {
@@ -39,7 +39,7 @@ namespace Game
             _playerFacade = playerFacade;
             _inputReader = inputReader;
             _gameSettings = gameSettings;
-            _ÒounterService = ÒounterService;
+            _—ÅounterService = —ÅounterService;
             _buttonsCanvasController = buttonsCanvasController;
             _enemyOutlinerFactory = enemyOutlinerFactory;
             _checkpointFactory = checkpointFactory;
@@ -50,7 +50,7 @@ namespace Game
         private PlayerFacade _playerFacade;
         private IInputReader _inputReader;
         private GameSettingsSO _gameSettings;
-        private CounterService _ÒounterService;
+        private CounterService _—ÅounterService;
         private ButtonsCanvasController _buttonsCanvasController;
         private Func<Transform, EnemyOutliner> _enemyOutlinerFactory;
         Func<Transform, Checkpoint> _checkpointFactory;
@@ -88,7 +88,7 @@ namespace Game
         [Header("CheckPoints")]
         [SerializeField] private Transform[] _checkPointPositions;
 
-        private const string _monkeysText = "ŒÒÚ‡ÎÓÒ¸ ‚‡„Ó‚:";
+        private const string _monkeysText = "–û—Å—Ç–∞–ª–æ—Å—å –≤—Ä–∞–≥–æ–≤:";
 
         public UnityAction<bool> OnPauseStateChanged;
 
@@ -115,12 +115,12 @@ namespace Game
             {
                 if (_rooms[i] != null)
                 {
-                    _rooms[i].SetRoomIndex(i, this);   // ÒÌ‡˜‡Î‡ Á‡ÔÓÏËÌ‡ÂÏ ËÌ‰ÂÍÒ Ë ÙÎ‡„
-                    _rooms[i].Initialize();            // ÚÓÎ¸ÍÓ ÔÓÚÓÏ ËÌËˆË‡ÎËÁËÛÂÏ
+                    _rooms[i].SetRoomIndex(i, this);   // —Å–Ω–∞—á–∞–ª–∞ –∑–∞–ø–æ–º–∏–Ω–∞–µ–º –∏–Ω–¥–µ–∫—Å –∏ —Ñ–ª–∞–≥
+                    _rooms[i].Initialize();            // —Ç–æ–ª—å–∫–æ –ø–æ—Ç–æ–º –∏–Ω–∏—Ü–∏–∞–ª–∏–∑–∏—Ä—É–µ–º
                 }
             }
 
-            _winningSceneLoader.OnSceneStartedLoading += () => _ÒounterService.SendMetrics();
+            _winningSceneLoader.OnSceneStartedLoading += () => _—ÅounterService.SendMetrics();
         }
 
         private void Start()
@@ -165,7 +165,7 @@ namespace Game
                 _rooms[i].OnCleaned += (message, roomName) =>
                 {
                     StartCoroutine(MessageRoutine(message));
-                    _ÒounterService.SetLastCompletedRoom(roomName);
+                    _—ÅounterService.SetLastCompletedRoom(roomName);
                 };
             }
 
@@ -238,7 +238,7 @@ namespace Game
             _buttonsCanvasController.SetHints(value);
         }
 
-        // Œ·‡·ÓÚ˜ËÍ ÒÓ·˚ÚËˇ ËÁ InputReader
+        // –û–±—Ä–∞–±–æ—Ç—á–∏–∫ —Å–æ–±—ã—Ç–∏—è –∏–∑ InputReader
         private void OnPausePerformed()
         {
             SetPaused(!_isPaused);
@@ -262,7 +262,7 @@ namespace Game
             {
                 _restartButton.enabled = false;
                 _sceneLoader.LoadScene();
-                _looseText.text = "«‡„ÛÁÍ‡";
+                _looseText.text = "–ó–∞–≥—Ä—É–∑–∫–∞";
             });
 
             _looseText.gameObject.SetActive(true);
@@ -290,7 +290,7 @@ namespace Game
             {
                 _enemies.Remove(enemy);
                 UpdateEnemyCounter();
-                _ÒounterService.IncrementEnemyKillCount();
+                _—ÅounterService.IncrementEnemyKillCount();
             }
         }
 
@@ -303,7 +303,7 @@ namespace Game
         private void UpdateEnemyCounter()
         {
             if (_enemies.Count <= 0)
-                _enemyCountText.text = "«¿◊»Ÿ≈ÕŒ!";
+                _enemyCountText.text = "–ó–ê–ß–ò–©–ï–ù–û!";
             else
                 _enemyCountText.text = $"{_monkeysText} {_enemies.Count}";
         }
@@ -312,37 +312,36 @@ namespace Game
         {
             _messageText.text = message;
 
-            float timer = 0;
-            while (timer < 0.5f)
+            // –°–æ—Ö—Ä–∞–Ω—è–µ–º –∏—Å—Ö–æ–¥–Ω—ã–π —Ü–≤–µ—Ç (–±–µ–∑ –∞–ª—å—Ñ—ã)
+            Color baseColor = _messageText.color;
+            float duration = 0.5f;
+            float timer = 0f;
+
+            // --- –ü–æ—è–≤–ª–µ–Ω–∏–µ (0 ‚Üí 1) ---
+            while (timer < duration)
             {
-                _messageText.color = new Color(
-                    _messageText.color.r,
-                    _messageText.color.g,
-                    _messageText.color.b,
-                    _messageText.color.a + Time.deltaTime);
                 timer += Time.deltaTime;
+                float progress = timer / duration;          // –æ—Ç 0 –¥–æ 1
+                float alpha = Mathf.Lerp(0f, 1f, progress); // –ø–ª–∞–≤–Ω–æ –æ—Ç 0 –∫ 1
+                _messageText.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
                 yield return null;
             }
-            timer = 0;
+            _messageText.color = new Color(baseColor.r, baseColor.g, baseColor.b, 1f); // —Ñ–∏–∫—Å–∏—Ä—É–µ–º 1
 
+            // --- –ü–∞—É–∑–∞ ---
             yield return new WaitForSeconds(_messageHoldTime);
 
-            while (timer < 0.5f)
+            // --- –ò—Å—á–µ–∑–Ω–æ–≤–µ–Ω–∏–µ (1 ‚Üí 0) ---
+            timer = 0f;
+            while (timer < duration)
             {
-                _messageText.color = new Color(
-                    _messageText.color.r,
-                    _messageText.color.g,
-                    _messageText.color.b,
-                    _messageText.color.a - Time.deltaTime);
                 timer += Time.deltaTime;
+                float progress = timer / duration;
+                float alpha = Mathf.Lerp(1f, 0f, progress); // –ø–ª–∞–≤–Ω–æ –æ—Ç 1 –∫ 0
+                _messageText.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
                 yield return null;
             }
-
-            _messageText.color = new Color(
-                 _messageText.color.r,
-                 _messageText.color.g,
-                 _messageText.color.b,
-                0);
+            _messageText.color = new Color(baseColor.r, baseColor.g, baseColor.b, 0f); // –≥–∞—Ä–∞–Ω—Ç–∏—Ä—É–µ–º 0
         }
 
         public IEnumerator SetAllEnemiesOutlined()
@@ -360,11 +359,11 @@ namespace Game
             }
             else
             {
-                // ¿ÍÚË‚ËÛÂÏ ˜ÂÍÔÓËÌÚ˚ (‚ËÁÛ‡Î Ë ÒÓı‡ÌÂÌËÂ)
+                // –ê–∫—Ç–∏–≤–∏—Ä—É–µ–º —á–µ–∫–ø–æ–∏–Ω—Ç—ã (–≤–∏–∑—É–∞–ª –∏ —Å–æ—Ö—Ä–∞–Ω–µ–Ω–∏–µ)
                 for (int i = 0; i < CurrCheckPointIndex; i++)
                 {
                     Checkpoints[i].DisableCheckpoint();
-                    // DeactivateForCheckpoint ‰Îˇ ˝ÚËı ÍÓÏÌ‡Ú ÛÊÂ ‚˚Á‚‡Ì ‚ Ëı Start
+                    // DeactivateForCheckpoint –¥–ª—è —ç—Ç–∏—Ö –∫–æ–º–Ω–∞—Ç —É–∂–µ –≤—ã–∑–≤–∞–Ω –≤ –∏—Ö Start
                 }
             }
 
