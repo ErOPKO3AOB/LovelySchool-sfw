@@ -132,6 +132,7 @@ namespace Assets.Scripts.Game
         [Header("Loot")]
         [SerializeField, Range(0, 100)]
         private int _ammoSpawnChance = 30;
+        [SerializeField] private int _playerHealAmountOnDeath = 2;
 
         #endregion
 
@@ -830,6 +831,8 @@ namespace Assets.Scripts.Game
                 transform,
                 5);
             TrySpawnAmmo();
+
+            _playerFacade.Health.Heal(_playerHealAmountOnDeath);
         }
 
         private IEnumerator DelayedRagdoll()

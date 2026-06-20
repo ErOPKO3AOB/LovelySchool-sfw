@@ -476,8 +476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Health
   _health: 0
   _maxHealth: 100
-  _healSpeed: 10
-  _healDelayTime: 6
+  _healSpeed: 1
+  _healDelayTime: 8
   _bloodPrefab: {fileID: 8558213734742997428, guid: 8d89f8481944ccc4ba52b9a263ff6140, type: 3}
 --- !u!1 &2784135908843315175
 GameObject:

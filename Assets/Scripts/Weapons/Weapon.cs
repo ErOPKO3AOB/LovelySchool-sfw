@@ -101,10 +101,6 @@ namespace Game
             {
                 item.SetActive(false);
             }
-        }
-
-        private void Start()
-        {
 
             reserve = currentAmmoCapacity > 0 ? currentAmmoCapacity : maxAmmo * 2;
 
@@ -124,13 +120,16 @@ namespace Game
             shootCooldownTimer = 0f;
             meleeCooldownTimer = 0f;
 
-            AmmoChanged?.Invoke(ammo, maxAmmo, reserve);
-
             Transform[] weaponChildren = GetComponentsInChildren<Transform>();
             foreach (var item in weaponChildren)
             {
                 item.gameObject.layer = LayerMask.NameToLayer("ItemOutline");
             }
+        }
+
+        private void Start()
+        {
+            AmmoChanged?.Invoke(ammo, maxAmmo, reserve);
         }
 
         public void StartShoot()

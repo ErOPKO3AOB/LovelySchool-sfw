@@ -8,14 +8,10 @@
     45.0
   ],
   "intKeys": [
-    "EndCutscene",
-    "StartCutscene",
     "HintsOff",
     "MusicOff"
   ],
   "intValues": [
-    1,
-    1,
     0,
     0
   ],
@@ -27,8 +23,29 @@
     false,
     false
   ],
-  "idSave": 37,
-  "currentCheckPoint": 0,
-  "weaponDatas": [],
-  "gameCompletedTimes": 2
+  "idSave": 12,
+  "currentCheckPoint": 7,
+  "weaponDatas": [
+    {
+      "weaponName": "Book",
+      "ammo": 0,
+      "reserve": 0
+    },
+    {
+      "weaponName": "Pistol",
+      "ammo": 0,
+      "reserve": 0
+    },
+    {
+      "weaponName": "MachineGun",
+      "ammo": 60,
+      "reserve": 99
+    },
+    {
+      "weaponName": "SniperRifle",
+      "ammo": 8,
+      "reserve": 8
+    }
+  ],
+  "gameCompletedTimes": 0
 }
