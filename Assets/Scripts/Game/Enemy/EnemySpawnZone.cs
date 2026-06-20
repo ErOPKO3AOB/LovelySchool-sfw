@@ -124,11 +124,17 @@ public class EnemySpawnZone : MonoBehaviour
 
         StartCoroutine(ClearEnemiesManualy());
 
+        if (!_gameController.Checkpoints[_roomIndex].reached)
+        {
+            _gameController.Checkpoints[_roomIndex].ActivateCheckPoint();
+        }
+
         for (int i = 0; i < _gameController.Checkpoints.Length; i++)
         {
             if (_gameController.CurrCheckPointIndex + 1 <= _gameController.Checkpoints.Length - 1)
             {
                 _gameController.Checkpoints[_gameController.CurrCheckPointIndex + 1].gameObject.SetActive(true);
+                break;
             }
         }
     }

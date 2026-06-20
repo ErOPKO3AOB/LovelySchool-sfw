@@ -3098,7 +3098,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _randomTorque: 8.8
-  _upForce: 1
+  _upForce: 1.32
   _patrolPointsCount: 5
   _patrolRadius: 10
   _detectionRange: 15
@@ -3110,9 +3110,9 @@ MonoBehaviour:
     m_Bits: 2057
   _lookAtPlayerDistance: 4
   _attackRange: 2
-  _attackCooldown: 0.8
+  _attackCooldown: 0.6
   _attackDamage: 8
-  _attackDelayTime: 1
+  _attackDelayTime: 1.8
   _aiDistance: 80
   _animDistance: 30
   _destinationUpdateInterval: 0.5
@@ -3120,7 +3120,7 @@ MonoBehaviour:
   _roarMin: 5
   _roarMax: 10
   _ammoSpawnChance: 30
-  _playerHealAmountOnDeath: 3
+  _playerHealAmountOnDeath: 5
   patrolPoints: []
 --- !u!136 &1540938415965936041
 CapsuleCollider:

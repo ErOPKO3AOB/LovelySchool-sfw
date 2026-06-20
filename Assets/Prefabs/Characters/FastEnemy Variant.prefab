@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5017086901155260687, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: _playerHealAmountOnDeath
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6960557042104696786, guid: 77ec0855745d7f5449460593dad56dee, type: 3}
       propertyPath: m_AnchorMax.x

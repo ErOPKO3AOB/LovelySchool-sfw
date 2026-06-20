@@ -80,7 +80,7 @@ namespace Assets.Scripts.Game
             }
         }
 
-        private void ActivateCheckPoint()
+        public void ActivateCheckPoint()
         {
             if (reached) return;
 
