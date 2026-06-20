@@ -246,8 +246,6 @@ namespace Game
 
         private void OnPlayerDead(GameObject obj)
         {
-            _advService.ShowInterstitial();
-
             _playerDead = true;
 
             _enemyCountText.gameObject.SetActive(false);
@@ -257,6 +255,7 @@ namespace Game
 
         private void DelayedDeath()
         {
+            _advService.ShowInterstitial();
             _restartButton.gameObject.SetActive(true);
             _restartButton.onClick.AddListener(() =>
             {

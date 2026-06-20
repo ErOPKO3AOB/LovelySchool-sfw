@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6687891519366997680
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29,14 +29,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 715355154272539023}
-  m_Father: {fileID: 7920899540488137975}
+  m_Children: []
+  m_Father: {fileID: 6238004013623850673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -140, y: -140}
+  m_SizeDelta: {x: -4, y: -4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7151299257426078745
 CanvasRenderer:
@@ -106,13 +105,13 @@ RectTransform:
   m_LocalScale: {x: 0.7311418, y: 0.42869645, z: 0.42869645}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6687891519366997680}
+  m_Father: {fileID: 7920899540488137975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -143}
-  m_SizeDelta: {x: 70, y: 692.8}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00012207031, y: 5}
+  m_SizeDelta: {x: 70, y: 281.0469}
+  m_Pivot: {x: 0.5, y: 0.95}
 --- !u!222 &4465358204580948501
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -181,8 +180,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 715355154272539023}
   - {fileID: 6238004013623850673}
-  - {fileID: 6687891519366997680}
   m_Father: {fileID: 3614178037157681104}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -257,7 +256,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6687891519366997680}
   m_Father: {fileID: 7920899540488137975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -399,13 +399,15 @@ MonoBehaviour:
   snapY: 0
   background: {fileID: 7920899540488137975}
   handle: {fileID: 6238004013623850673}
-  dashThresholdRadius: 3.3
-  dashResetThresholdRadius: 3
-  dashAngleThreshold: 90
+  dashThresholdRadius: 1.87
+  dashResetThresholdRadius: 1.72
+  dashAngleThreshold: 50
   OnDash:
     m_PersistentCalls:
       m_Calls: []
   dashIndicator: {fileID: 6687891519366997680}
-  indicatorDistance: 3.5
-  moveThreshold: 1
+  arrowPointer: {fileID: 715355154272539023}
+  indicatorDistance: 0.93
+  arrowAngleOffset: 90
+  moveThreshold: 0.75
   joystickType: 1
