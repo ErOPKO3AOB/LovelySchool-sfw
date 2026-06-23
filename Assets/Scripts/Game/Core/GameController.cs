@@ -103,6 +103,8 @@ namespace Game
         public int CurrCheckPointIndex { get; set; }
         public Checkpoint[] Checkpoints { get; private set; }
 
+        public PlayerFacade PlayerFacade => _playerFacade;
+
         // GameController.cs
 
         private void Awake()
@@ -289,7 +291,6 @@ namespace Game
             {
                 _enemies.Remove(enemy);
                 UpdateEnemyCounter();
-                _сounterService.IncrementEnemyKillCount();
             }
         }
 

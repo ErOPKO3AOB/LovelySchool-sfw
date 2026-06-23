@@ -4,7 +4,6 @@ using Assets.Scripts.Input;
 using Assets.Scripts.Input.UI;
 using Data;
 using Game;
-using Player;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using VContainer;
@@ -24,7 +23,7 @@ namespace Installers
 
         private void OnValidate()
         {
-            _enemySpawnPoints = FindObjectsByType<EnemySpawnPoint>(FindObjectsSortMode.None);
+            //_enemySpawnPoints = FindObjectsByType<EnemySpawnPoint>(FindObjectsSortMode.None);
         }
 
         protected override void Configure(IContainerBuilder builder)
@@ -117,6 +116,13 @@ namespace Installers
             }
 
             builder.RegisterComponent(_musicPlayer);
+
+            Invoke(nameof(DelayedSetup), 2f);
+        }
+
+        private void DelayedSetup()
+        {
+            Parent.Container.Resolve<CounterService>().Setup(_gameController);
         }
     }
 }

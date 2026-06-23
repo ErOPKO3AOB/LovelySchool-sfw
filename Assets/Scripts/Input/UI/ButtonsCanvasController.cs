@@ -92,6 +92,12 @@ namespace Assets.Scripts.Input.UI
             var seconds = new WaitForSeconds(0.2f);
             while (_hintsActive)
             {
+                if (_inventory == null)
+                {
+                    yield return seconds;
+                    continue;
+                }
+
                 yield return seconds;
                 _attackButtonImageTarget.sprite = _inventory.CheckForHitTarget()
                 ? _handSprite : _shootSprite;

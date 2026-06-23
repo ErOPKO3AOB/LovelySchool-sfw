@@ -32,7 +32,7 @@ MonoBehaviour:
     useYandexMetrica: 1
   QuitGameEvent:
     enable: 1
-    objectName: PlayerPrefsSaver
+    objectName: QuitSessionEventHandler
     methodName: OnQuitGame
   Storage:
     saveLocal: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
     loadSceneIfSDKLate: 0
     loadSceneIndex: 0
     initDelaySimulation: 0
-    buildNumber: 64
+    buildNumber: 65
   Simulation:
     device: 1
     language: ru
@@ -73,7 +73,7 @@ MonoBehaviour:
     customProgressBar: 1
     progressBarSettigs:
       round: 1
-      roundAngle: 10
+      roundAngle: 12
       width: 30
       height: 24
       color1: {r: 0.6698113, g: 0.43630183, b: 0.21168563, a: 1}

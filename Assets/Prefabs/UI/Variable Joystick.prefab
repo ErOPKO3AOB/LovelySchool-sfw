@@ -30,12 +30,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6238004013623850673}
+  m_Father: {fileID: 7920899540488137975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -4, y: -4}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7151299257426078745
 CanvasRenderer:
@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00012207031, y: 5}
-  m_SizeDelta: {x: 70, y: 281.0469}
+  m_AnchoredPosition: {x: 0.00012207031, y: 14.600006}
+  m_SizeDelta: {x: 70, y: 728.9161}
   m_Pivot: {x: 0.5, y: 0.95}
 --- !u!222 &4465358204580948501
 CanvasRenderer:
@@ -181,6 +181,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 715355154272539023}
+  - {fileID: 6687891519366997680}
   - {fileID: 6238004013623850673}
   m_Father: {fileID: 3614178037157681104}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -256,8 +257,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6687891519366997680}
+  m_Children: []
   m_Father: {fileID: 7920899540488137975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -399,15 +399,15 @@ MonoBehaviour:
   snapY: 0
   background: {fileID: 7920899540488137975}
   handle: {fileID: 6238004013623850673}
-  dashThresholdRadius: 1.87
-  dashResetThresholdRadius: 1.72
+  dashThresholdRadius: 2.5
+  dashResetThresholdRadius: 2.45
   dashAngleThreshold: 50
   OnDash:
     m_PersistentCalls:
       m_Calls: []
   dashIndicator: {fileID: 6687891519366997680}
   arrowPointer: {fileID: 715355154272539023}
-  indicatorDistance: 0.93
+  indicatorDistance: 2.5
   arrowAngleOffset: 90
-  moveThreshold: 0.75
+  moveThreshold: 1
   joystickType: 1

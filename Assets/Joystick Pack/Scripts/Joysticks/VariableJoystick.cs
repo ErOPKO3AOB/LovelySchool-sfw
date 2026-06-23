@@ -125,7 +125,7 @@ public class VariableJoystick : Joystick
         }
 
         // --- Визуалы: показываем ТОЛЬКО при выполнении условий ---
-        bool showVisuals = isDragging && isUp && currentDistance >= dashThresholdRadius * backgroundRadius;
+        bool showVisuals = isDragging && isUp && currentDistance >= backgroundRadius;
 
         if (showVisuals)
         {

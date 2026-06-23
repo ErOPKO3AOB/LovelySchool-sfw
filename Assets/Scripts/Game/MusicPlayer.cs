@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace Game
 {
+    [RequireComponent(typeof(AudioSource))]
     public class MusicPlayer : MonoBehaviour
     {
         [Serializable]
@@ -31,14 +32,13 @@ namespace Game
         [SerializeField] private AudioData[] _audios;
         [SerializeField] private float _fadeOutDuration = 3f;
         [SerializeField] private AudioMixerGroup _audioMixerGroup;
+        [SerializeField] private AudioSource _audioSource;
 
         private int _lastAudioIndex = -1;
-        private AudioSource _audioSource;
         private bool _isGamePaused; // флаг паузы
 
         private void Start()
         {
-            _audioSource = gameObject.AddComponent<AudioSource>();
             _audioSource.outputAudioMixerGroup = _audioMixerGroup;
             _audioSource.loop = false;
             _audioSource.spatialBlend = 0;
@@ -46,6 +46,17 @@ namespace Game
             _playerFacade.Health.OnDead += OnDead;
 
             _gameController.OnPauseStateChanged += OnPauseStateChanged;
+        }
+
+        private void OnEnable()
+        {
+            // Подписка на изменение фокуса приложения (работает в WebGL)
+            Application.focusChanged += OnApplicationFocusChanged;
+        }
+
+        private void OnDisable()
+        {
+            Application.focusChanged -= OnApplicationFocusChanged;
         }
 
         private void OnPauseStateChanged(bool paused)
@@ -105,6 +116,27 @@ namespace Game
             _audioSource.volume = 0f;
             _audioSource.pitch = 0f;
             _audioSource.enabled = false;
+        }
+
+        private void OnApplicationFocusChanged(bool hasFocus)
+        {
+            if (hasFocus)
+            {
+                // Возврат фокуса — возобновляем музыку
+                if (!_isGamePaused && !_gameController.DisableMusicToggle.isOn)
+                {
+                    if (!_audioSource.isPlaying && _audioSource.clip != null)
+                        _audioSource.Play();
+                    else if (_audioSource.clip == null)
+                        PlayNext();
+                }
+            }
+            else
+            {
+                // Потеря фокуса — ставим на паузу
+                if (!_isGamePaused && _audioSource.isPlaying)
+                    _audioSource.Pause();
+            }
         }
 
         private void Update()

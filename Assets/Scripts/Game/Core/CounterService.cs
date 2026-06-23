@@ -1,8 +1,10 @@
 using Game;
+using Newtonsoft.Json;
 using Player;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VContainer.Unity;
 using YG;
 
@@ -10,61 +12,97 @@ namespace Assets.Scripts.Game
 {
     public class CounterService : IInitializable, IDisposable
     {
-        public CounterService(PlayerFacade playerFacade)
+        public CounterService(QuitSessionEventHandler quitSessionEventHandler)
         {
-            _playerHealth = playerFacade.Health;
+            _quitSessionEventHandler = quitSessionEventHandler;
         }
 
-        private readonly Health _playerHealth;
+        private readonly QuitSessionEventHandler _quitSessionEventHandler;
+        private Health _playerHealth;
+        private PlayerFacade _playerFacade;
 
-        public int KillCount { get; private set; } = 0;
-        public string LastCompletedRoom { get; private set; } = "NONE";
+        private readonly List<SessionData> _sessionDatas = new(1);
+        private int _sessionIndex = 0;
 
+        #region Init
         public void Initialize()
         {
-            KillCount = 0;
+            _quitSessionEventHandler.OnQuit += OnQuit;
 
+            SceneManager.sceneUnloaded += SceneManager_sceneUnloaded;
+        }
+
+        public void Setup(GameController gameController)
+        {
+            _playerHealth = gameController.PlayerFacade.Health;
+            _playerFacade = gameController.PlayerFacade;
             _playerHealth.OnDead += OnPlayerDead;
+        }
+
+        private void SceneManager_sceneUnloaded(Scene scene)
+        {
+            if (scene.name == "Game")
+            {
+                _playerHealth.OnDead -= OnPlayerDead;
+                _playerFacade = null;
+                _playerHealth = null;
+            }
         }
 
         private void OnPlayerDead(GameObject obj)
         {
+            _sessionDatas[_sessionIndex].time_spent = Time.timeSinceLevelLoad;
+
+            for (int i = 0; i < _playerFacade.Inventory.Weapons.Count; i++)
+            {
+                _sessionDatas[_sessionIndex].weapons.Add(_playerFacade.Inventory.Weapons[i].weaponName);
+            }
+
+            _sessionIndex++;
+            _sessionDatas.Add(new());
+        }
+
+        private void OnQuit()
+        {
             SendMetrics();
+        }
+        #endregion
+
+        public void SetLastCompletedRoom(string name)
+        {
+            if (_sessionIndex < _sessionDatas.Count - 1)
+                _sessionDatas[_sessionIndex].room_completed = name;
         }
 
         public void SendMetrics()
         {
-            YG2.MetricaSend("enemy_kills", new Dictionary<string, object>
+            string sessionsJson = JsonConvert.SerializeObject(_sessionDatas);
+
+            YG2.MetricaSend("last_session", new Dictionary<string, object>
             {
-                { "count", KillCount }
+                { "sessions", sessionsJson }
             });
 
-            YG2.MetricaSend("room_completed", new Dictionary<string, object>
-            {
-                { "completed", LastCompletedRoom }
-            });
 
-            YG2.MetricaSend("time_spent", new Dictionary<string, object>
-            {
-                { "seconds", Time.timeSinceLevelLoad }
-            });
-
-            Debug.Log($"Player dead. KillCount: {KillCount}, LastCompletedRoom: {LastCompletedRoom}, time spent: {Time.timeSinceLevelLoad} seconds");
-        }
-
-        public void IncrementEnemyKillCount()
-        {
-            KillCount++;
-        }
-
-        public void SetLastCompletedRoom(string name)
-        {
-            LastCompletedRoom = name;
+            Debug.Log($"{sessionsJson}");
         }
 
         public void Dispose()
         {
-            _playerHealth.OnDead -= OnPlayerDead;
+            _quitSessionEventHandler.OnQuit -= OnQuit;
+            SceneManager.sceneUnloaded -= SceneManager_sceneUnloaded;
+
+#if UNITY_EDITOR
+            SendMetrics();
+#endif
         }
+    }
+
+    [System.Serializable]
+    public class SessionData
+    {
+        public string room_completed;           // последняя зачищенная комната
+        public List<string> weapons;  // все названия оружия в руках
+        public float time_spent;            // длительность сессии в секундах
     }
 }
