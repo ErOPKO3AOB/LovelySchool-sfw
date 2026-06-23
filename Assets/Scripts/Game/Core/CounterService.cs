@@ -21,7 +21,7 @@ namespace Assets.Scripts.Game
         private Health _playerHealth;
         private PlayerFacade _playerFacade;
 
-        private readonly List<SessionData> _sessionDatas = new(1);
+        private readonly List<SessionData> _sessionDatas = new();
         private int _sessionIndex = 0;
 
         #region Init
@@ -37,6 +37,7 @@ namespace Assets.Scripts.Game
             _playerHealth = gameController.PlayerFacade.Health;
             _playerFacade = gameController.PlayerFacade;
             _playerHealth.OnDead += OnPlayerDead;
+            _sessionDatas.Add(new());
         }
 
         private void SceneManager_sceneUnloaded(Scene scene)
@@ -51,15 +52,15 @@ namespace Assets.Scripts.Game
 
         private void OnPlayerDead(GameObject obj)
         {
-            _sessionDatas[_sessionIndex].time_spent = Time.timeSinceLevelLoad;
+            _sessionDatas[_sessionIndex].time_spent_minutes = Time.timeSinceLevelLoad / 60;
 
             for (int i = 0; i < _playerFacade.Inventory.Weapons.Count; i++)
             {
                 _sessionDatas[_sessionIndex].weapons.Add(_playerFacade.Inventory.Weapons[i].weaponName);
             }
 
-            _sessionIndex++;
             _sessionDatas.Add(new());
+            _sessionIndex++;
         }
 
         private void OnQuit()
@@ -76,6 +77,8 @@ namespace Assets.Scripts.Game
 
         public void SendMetrics()
         {
+            if (_sessionDatas == null || _sessionDatas.Count <= 0) return;
+
             string sessionsJson = JsonConvert.SerializeObject(_sessionDatas);
 
             YG2.MetricaSend("last_session", new Dictionary<string, object>
@@ -84,7 +87,9 @@ namespace Assets.Scripts.Game
             });
 
 
-            Debug.Log($"{sessionsJson}");
+            //Debug.Log($"{sessionsJson}");
+
+            _sessionDatas.Clear();
         }
 
         public void Dispose()
@@ -102,7 +107,7 @@ namespace Assets.Scripts.Game
     public class SessionData
     {
         public string room_completed;           // последняя зачищенная комната
-        public List<string> weapons;  // все названия оружия в руках
-        public float time_spent;            // длительность сессии в секундах
+        public List<string> weapons = new();  // все названия оружия в руках
+        public float time_spent_minutes;            // длительность сессии в секундах
     }
 }

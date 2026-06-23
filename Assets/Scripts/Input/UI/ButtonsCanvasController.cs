@@ -185,8 +185,11 @@ namespace Assets.Scripts.Input.UI
             kickButton.onClick.RemoveAllListeners();
             dashButton.onClick.RemoveAllListeners();
             pauseButton.onClick.RemoveAllListeners();
-            _inventory.OnWeaponPickUp -= OnWeaponPickUp;
-            _inventory.OnWeaponSwap -= OnWeaponSwap;
+            if (_inventory != null)
+            {
+                _inventory.OnWeaponPickUp -= OnWeaponPickUp;
+                _inventory.OnWeaponSwap -= OnWeaponSwap;
+            }
             OnSlotChoose = null;
             joystick.OnDash.RemoveAllListeners();
         }

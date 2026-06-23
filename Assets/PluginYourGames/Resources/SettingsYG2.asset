@@ -54,7 +54,7 @@ MonoBehaviour:
     initDelaySimulation: 0
     buildNumber: 65
   Simulation:
-    device: 1
+    device: 0
     language: ru
     enableInterAdv: 1
     advIntervalSimulation: 10
