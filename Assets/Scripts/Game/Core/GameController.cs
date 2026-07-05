@@ -257,10 +257,10 @@ namespace Game
 
         private void DelayedDeath()
         {
-            _advService.ShowInterstitial();
             _restartButton.gameObject.SetActive(true);
             _restartButton.onClick.AddListener(() =>
             {
+                _advService.ShowInterstitial();
                 _restartButton.enabled = false;
                 _sceneLoader.LoadScene();
                 _looseText.text = "Загрузка";
