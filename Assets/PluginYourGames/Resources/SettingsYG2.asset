@@ -20,7 +20,7 @@ MonoBehaviour:
     playerPhoto: demo image
     payingStatus: 0
   InterstitialAdv:
-    showFirstAdv: 0
+    showFirstAdv: 1
     interAdvInterval: 10
     postponeCallByFail: 0
     postponeCallTimer: 10
@@ -44,7 +44,7 @@ MonoBehaviour:
     autoPauseGame: 1
     editTimeScale: 1
     editEventSystem: 0
-    autoGRA: 1
+    autoGRA: 0
     logInEditor: 1
     archivingBuild: 1
     autoDefineSymbols: 1

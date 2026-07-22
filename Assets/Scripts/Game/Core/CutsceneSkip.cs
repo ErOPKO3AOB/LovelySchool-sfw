@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
@@ -15,6 +16,8 @@ namespace Game
 
         private void Start()
         {
+            YG2.GameplayStop();
+
             _canSkip = PlayerPrefs.GetInt(_animation.name, 0) == 1;
 
             _skipButton.gameObject.SetActive(false);
@@ -28,6 +31,8 @@ namespace Game
 
         private void AllowSkip()
         {
+            GameReadyAPI.SafeStartGame();
+
             _skipButton.gameObject.SetActive(true);
 
             _skipButton.onClick.AddListener(() =>

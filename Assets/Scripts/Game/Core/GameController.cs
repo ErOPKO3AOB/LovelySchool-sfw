@@ -2,6 +2,7 @@
 using Assets.Scripts.Game;
 using Assets.Scripts.Input;
 using Assets.Scripts.Input.UI;
+using Cysharp.Threading.Tasks;
 using Data;
 using Player;
 using System;
@@ -215,6 +216,7 @@ namespace Game
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 _pauseMenuUI.SetActive(true);
+                YG2.GameplayStop();
             }
             else
             {
@@ -230,6 +232,7 @@ namespace Game
                 }
 
                 _pauseMenuUI.SetActive(false);
+                GameReadyAPI.SafeGameplayStart().Forget();
             }
         }
 
@@ -253,6 +256,7 @@ namespace Game
             _enemyCountText.gameObject.SetActive(false);
 
             Invoke(nameof(DelayedDeath), _deathDelay);
+            YG2.GameplayStop();
         }
 
         private void DelayedDeath()
@@ -369,6 +373,7 @@ namespace Game
 
             var chkpntTransform = Checkpoints[CurrCheckPointIndex].transform;
             _playerFacade.Teleport(chkpntTransform.position, chkpntTransform.rotation);
+            GameReadyAPI.SafeGameplayStart().Forget();
 
             foreach (var checkpoints in Checkpoints)
                 checkpoints.initialized = true;
