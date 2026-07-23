@@ -9709,7 +9709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0d9619f6c6d8149b939c0566e1ca2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  sceneName: Bootstrap
+  sceneName: StartCutscene
   _invokeFromStart: 0
   _startInvokeDelay: 0
 --- !u!4 &1283927575

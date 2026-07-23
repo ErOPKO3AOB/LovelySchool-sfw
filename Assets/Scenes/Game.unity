@@ -135029,7 +135029,7 @@ MonoBehaviour:
   _restartButton: {fileID: 437565240}
   _looseText: {fileID: 384344304}
   _sceneLoader: {fileID: 1003872889}
-  _deathDelay: 6
+  _deathDelay: 2
   _pauseMenuUI: {fileID: 997010244}
   _disableMusicToggle: {fileID: 623373468}
   _sensitivitySlider: {fileID: 1392321776}

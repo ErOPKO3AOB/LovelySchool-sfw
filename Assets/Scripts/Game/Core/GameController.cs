@@ -2,7 +2,6 @@
 using Assets.Scripts.Game;
 using Assets.Scripts.Input;
 using Assets.Scripts.Input.UI;
-using Cysharp.Threading.Tasks;
 using Data;
 using Player;
 using System;
@@ -78,7 +77,7 @@ namespace Game
         [SerializeField] private Button _restartButton;
         [SerializeField] private TMP_Text _looseText;
         [SerializeField] private SceneLoader _sceneLoader;
-        [SerializeField] private float _deathDelay = 6f;
+        [SerializeField] private float _deathDelay = 2f;
 
         [Header("Pause")]
         [SerializeField] private GameObject _pauseMenuUI;
@@ -131,6 +130,8 @@ namespace Game
             _sensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity", _gameSettings.mouseSensitivity);
             _disableMusicToggle.isOn = PlayerPrefs.GetInt("MusicOff", 0) == 1;
             _disableHintsToggle.isOn = PlayerPrefs.GetInt("HintsOff", 0) == 1;
+
+            _gameSettings.mouseSensitivity = _sensitivitySlider.value;
 
             // Checkpoints
             if (_checkPointPositions != null && _checkPointPositions.Length > 0)
@@ -232,7 +233,8 @@ namespace Game
                 }
 
                 _pauseMenuUI.SetActive(false);
-                GameReadyAPI.SafeGameplayStart().Forget();
+                YG2.GameplayStart();
+                //GameReadyAPI.SafeGameplayStart().Forget();
             }
         }
 
@@ -262,19 +264,37 @@ namespace Game
         private void DelayedDeath()
         {
             _restartButton.gameObject.SetActive(true);
-            _restartButton.onClick.AddListener(() =>
-            {
-                _advService.ShowInterstitial();
-                _restartButton.enabled = false;
-                _sceneLoader.LoadScene();
-                _looseText.text = "Загрузка";
-            });
+            _restartButton.onClick.AddListener(RestartGame);
 
             _looseText.gameObject.SetActive(true);
             _looseText.text = _looseMessages[Random.Range(0, _looseMessages.Length)];
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+        }
+
+        private void RestartGame()
+        {
+            _restartButton.enabled = false;
+
+
+            void LoadScene()
+            {
+                YG2.onCloseAnyAdv -= LoadScene;
+                YG2.onErrorAnyAdv -= LoadScene;
+
+                _sceneLoader.LoadScene();
+                _looseText.text = "Загрузка";
+            }
+
+            if (!YG2.isTimerAdvCompleted) LoadScene();
+            else
+            {
+                YG2.onCloseAnyAdv += LoadScene;
+                YG2.onErrorAnyAdv += LoadScene;
+
+                _advService.ShowInterstitial();
+            }
         }
 
         public Enemy SpawnRequest(EnemySpawnPoint enemySpawnPoint)
@@ -290,8 +310,7 @@ namespace Game
 
         private void OnEnemyDead(GameObject obj)
         {
-            Enemy enemy = obj.GetComponent<Enemy>();
-            if (enemy != null)
+            if (obj.TryGetComponent<Enemy>(out var enemy))
             {
                 _enemies.Remove(enemy);
                 UpdateEnemyCounter();
@@ -373,7 +392,9 @@ namespace Game
 
             var chkpntTransform = Checkpoints[CurrCheckPointIndex].transform;
             _playerFacade.Teleport(chkpntTransform.position, chkpntTransform.rotation);
-            GameReadyAPI.SafeGameplayStart().Forget();
+            //GameReadyAPI.SafeGameplayStart().Forget();
+            YG2.GameplayStart();
+            Debug.Log("Loaded checkpoint");
 
             foreach (var checkpoints in Checkpoints)
                 checkpoints.initialized = true;
