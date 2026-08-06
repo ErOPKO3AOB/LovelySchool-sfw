@@ -177,7 +177,7 @@ MonoBehaviour:
     buildNumber: 79
   Simulation:
     device: 0
-    language: ru
+    language: en
     enableInterAdv: 1
     advIntervalSimulation: 22
     durationAdv: 3
@@ -185,7 +185,7 @@ MonoBehaviour:
     testFailAds: 0
     pauseOnFocusGame: 0
   Templates:
-    logoImageFormat: 1
+    logoImageFormat: 3
     backgroundImgFormat: 0
     gradientBackgroundByLoadGame:
       radial: 0

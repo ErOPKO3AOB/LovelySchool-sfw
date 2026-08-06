@@ -23,9 +23,10 @@ namespace Assets.Scripts.Game.Core
             new LanguageOption { code = "ru", displayName = "Русский" },
             new LanguageOption { code = "en", displayName = "English" },
             new LanguageOption { code = "tr", displayName = "Türkçe" },
+            new LanguageOption { code = "be", displayName = "Беларускі"},
             new LanguageOption { code = "kk", displayName = "Қазақша" },
             new LanguageOption { code = "uk", displayName = "Українська" },
-            new LanguageOption { code = "uz", displayName = "Oʻzbekcha" }
+            new LanguageOption { code = "uz", displayName = "Oʻzbekcha" },
         };
 
         private TMP_Dropdown _dropdown;

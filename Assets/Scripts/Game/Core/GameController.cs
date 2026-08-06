@@ -324,7 +324,7 @@ namespace Game
         private void UpdateEnemyCounter()
         {
             if (_enemies.Count <= 0)
-                _enemyCountText.text = "ЗАЧИЩЕНО!";
+                _enemyCountText.text = "0";
             else
                 _enemyCountText.text = _enemies.Count.ToString();
         }
