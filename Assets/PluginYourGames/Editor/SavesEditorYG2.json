@@ -1,0 +1,34 @@
+{
+  "stringKeys": [
+    "Language"
+  ],
+  "stringValues": [
+    "ru"
+  ],
+  "floatKeys": [
+    "Sensitivity"
+  ],
+  "floatValues": [
+    35.4844437
+  ],
+  "intKeys": [
+    "HintsOff",
+    "MusicOff"
+  ],
+  "intValues": [
+    0,
+    1
+  ],
+  "intExample": 5,
+  "strExample": "Hello!",
+  "boolExample": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "idSave": 16,
+  "currentCheckPoint": 2,
+  "weaponDatas": [],
+  "gameCompletedTimes": 0
+}

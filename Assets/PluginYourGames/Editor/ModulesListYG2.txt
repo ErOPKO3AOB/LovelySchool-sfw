@@ -1,6 +1,10 @@
 Authorization v1.023
+AutoTranslateLangs v1.003
 EnvirData v1.0031
+Flags v1.001
+Fullscreen v1.0
 InterstitialAdv v1.02
+Localization v1.02
 Metrica v1.02
 PlayerStats v1.01
 QuitGameEvent v1.001

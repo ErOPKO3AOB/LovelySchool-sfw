@@ -68,12 +68,11 @@ namespace Game
         [Header("Rooms")]
         [SerializeField] private EnemySpawnZone[] _rooms;
         [SerializeField] private float _messageHoldTime = 6;
-        [SerializeField] private TMP_Text _messageText;
+        [SerializeField] private List<TMP_Text> _messageTexts;
         [SerializeField] private GameObject _startEnemies;
         public SceneLoader _winningSceneLoader;
 
         [Header("Death")]
-        [SerializeField] private string[] _looseMessages;
         [SerializeField] private Button _restartButton;
         [SerializeField] private TMP_Text _looseText;
         [SerializeField] private SceneLoader _sceneLoader;
@@ -87,8 +86,6 @@ namespace Game
 
         [Header("CheckPoints")]
         [SerializeField] private Transform[] _checkPointPositions;
-
-        private const string _monkeysText = "Осталось врагов:";
 
         public UnityAction<bool> OnPauseStateChanged;
 
@@ -130,8 +127,11 @@ namespace Game
             _sensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity", _gameSettings.mouseSensitivity);
             _disableMusicToggle.isOn = PlayerPrefs.GetInt("MusicOff", 0) == 1;
             _disableHintsToggle.isOn = PlayerPrefs.GetInt("HintsOff", 0) == 1;
+            _buttonsCanvasController.SetHints(!_disableHintsToggle.isOn);
 
             _gameSettings.mouseSensitivity = _sensitivitySlider.value;
+
+            YG2.SwitchLanguage(PlayerPrefs.GetString("Language", string.Empty));
 
             // Checkpoints
             if (_checkPointPositions != null && _checkPointPositions.Length > 0)
@@ -166,9 +166,9 @@ namespace Game
 
             for (int i = 0; i < _rooms.Length; i++)
             {
-                _rooms[i].OnCleaned += (message, roomName) =>
+                _rooms[i].OnCleaned += (index, roomName) =>
                 {
-                    StartCoroutine(MessageRoutine(message));
+                    StartCoroutine(MessageRoutine(index));
                     _сounterService.SetLastCompletedRoom(roomName);
                 };
             }
@@ -267,7 +267,6 @@ namespace Game
             _restartButton.onClick.AddListener(RestartGame);
 
             _looseText.gameObject.SetActive(true);
-            _looseText.text = _looseMessages[Random.Range(0, _looseMessages.Length)];
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -284,7 +283,6 @@ namespace Game
                 YG2.onErrorAnyAdv -= LoadScene;
 
                 _sceneLoader.LoadScene();
-                _looseText.text = "Загрузка";
             }
 
             if (!YG2.isTimerAdvCompleted) LoadScene();
@@ -303,7 +301,7 @@ namespace Game
             spawnedEnemy.Health.OnDead += OnEnemyDead;
 
             _enemies.Add(spawnedEnemy);
-            _enemyCountText.text = $"{_monkeysText} {_enemies.Count}";
+            _enemyCountText.text = _enemies.Count.ToString();
 
             return spawnedEnemy;
         }
@@ -328,15 +326,15 @@ namespace Game
             if (_enemies.Count <= 0)
                 _enemyCountText.text = "ЗАЧИЩЕНО!";
             else
-                _enemyCountText.text = $"{_monkeysText} {_enemies.Count}";
+                _enemyCountText.text = _enemies.Count.ToString();
         }
 
-        public IEnumerator MessageRoutine(string message)
+        public IEnumerator MessageRoutine(int index)
         {
-            _messageText.text = message;
+            _messageTexts[index].gameObject.SetActive(true);
 
             // Сохраняем исходный цвет (без альфы)
-            Color baseColor = _messageText.color;
+            Color baseColor = _messageTexts[index].color;
             float duration = 0.5f;
             float timer = 0f;
 
@@ -346,10 +344,10 @@ namespace Game
                 timer += Time.deltaTime;
                 float progress = timer / duration;          // от 0 до 1
                 float alpha = Mathf.Lerp(0f, 1f, progress); // плавно от 0 к 1
-                _messageText.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
+                _messageTexts[index].color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
                 yield return null;
             }
-            _messageText.color = new Color(baseColor.r, baseColor.g, baseColor.b, 1f); // фиксируем 1
+            _messageTexts[index].color = new Color(baseColor.r, baseColor.g, baseColor.b, 1f); // фиксируем 1
 
             // --- Пауза ---
             yield return new WaitForSeconds(_messageHoldTime);
@@ -361,10 +359,12 @@ namespace Game
                 timer += Time.deltaTime;
                 float progress = timer / duration;
                 float alpha = Mathf.Lerp(1f, 0f, progress); // плавно от 1 к 0
-                _messageText.color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
+                _messageTexts[index].color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
                 yield return null;
             }
-            _messageText.color = new Color(baseColor.r, baseColor.g, baseColor.b, 0f); // гарантируем 0
+            _messageTexts[index].color = new Color(baseColor.r, baseColor.g, baseColor.b, 0f); // гарантируем 0
+            
+            _messageTexts[index].gameObject.SetActive(false);
         }
 
         public IEnumerator SetAllEnemiesOutlined()

@@ -16,6 +16,8 @@ namespace Game
 
         private void Start()
         {
+            YG2.SwitchLanguage(PlayerPrefs.GetString("Language", string.Empty));
+
             YG2.GameplayStop();
 
             _canSkip = PlayerPrefs.GetInt(_animation.name, 0) == 1;

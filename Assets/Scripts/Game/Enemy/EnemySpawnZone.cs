@@ -2,13 +2,13 @@ using Assets.Scripts.Game;
 using Game;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider))]
 public class EnemySpawnZone : MonoBehaviour
 {
-    [SerializeField] private string _cleanedMessage;
     [SerializeField] private List<Enemy> _enemiesToKill = new();
     [SerializeField] private List<Door> _doorsToOpen = new();
     [SerializeField] private List<GameObject> _miscObjectsToActivate;
@@ -19,7 +19,7 @@ public class EnemySpawnZone : MonoBehaviour
     private Collider _trigger;
     public Collider Trigger => _trigger;
 
-    public UnityAction<string, string> OnCleaned;
+    public UnityAction<int, string> OnCleaned;
 
 #if UNITY_EDITOR
     [ContextMenu(nameof(KillAllEnemies))]
@@ -117,7 +117,7 @@ public class EnemySpawnZone : MonoBehaviour
         if (_miscObjectsToActivate.Count > 0)
             _miscObjectsToActivate.ForEach(obj => { obj.SetActive(true); });
 
-        OnCleaned?.Invoke(_cleanedMessage, gameObject.name);
+        OnCleaned?.Invoke(_roomIndex, gameObject.name);
 
         CancelInvoke(nameof(DisbaleTrigger));
         DisbaleTrigger();

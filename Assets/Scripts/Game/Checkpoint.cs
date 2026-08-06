@@ -23,8 +23,10 @@ namespace Assets.Scripts.Game
 
         [Header("Visual")]
         [SerializeField] private GameObject _light;
-        [SerializeField] private LookAtConstraint _lookAt;
-        public TMP_Text _text;
+        [SerializeField] private LookAtConstraint _lookAt1;
+        [SerializeField] private LookAtConstraint _lookAt2;
+        public TMP_Text checkpointText;
+        public TMP_Text checkpointReachedText;
 
         [Header("Other")]
         [SerializeField] private LayerMask _obstacleLayerMask;
@@ -42,7 +44,8 @@ namespace Assets.Scripts.Game
         {
             if (firstCheckpoint)
             {
-                _text.text = "";
+                checkpointReachedText.gameObject.SetActive(false);
+                checkpointText.gameObject.SetActive(false);
                 _light.SetActive(false);
             }
 
@@ -51,8 +54,10 @@ namespace Assets.Scripts.Game
                 weight = 1,
                 sourceTransform = _playerFacade.transform,
             };
-            _lookAt.AddSource(source);
-            _lookAt.constraintActive = true;
+            _lookAt1.AddSource(source);
+            _lookAt1.constraintActive = true;
+            _lookAt2.AddSource(source);
+            _lookAt2.constraintActive = true;
         }
 
         public void Tick()
@@ -110,8 +115,8 @@ namespace Assets.Scripts.Game
 
             if (!firstCheckpoint)
             {
-                _text.SetText("ЧЕКПОИНТ ДОСТИГНУТ!");
-                _text.color = Color.green;
+                checkpointReachedText.gameObject.SetActive(true);
+                checkpointText.gameObject.SetActive(false);
             }
         }
     }
