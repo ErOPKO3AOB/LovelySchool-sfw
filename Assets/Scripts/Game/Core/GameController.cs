@@ -131,7 +131,7 @@ namespace Game
 
             _gameSettings.mouseSensitivity = _sensitivitySlider.value;
 
-            YG2.SwitchLanguage(PlayerPrefs.GetString("Language", string.Empty));
+            YG2.SwitchLanguage(PlayerPrefs.GetString("Language", YG2.lang));
 
             // Checkpoints
             if (_checkPointPositions != null && _checkPointPositions.Length > 0)

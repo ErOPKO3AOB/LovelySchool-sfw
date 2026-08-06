@@ -40,7 +40,7 @@ namespace Assets.Scripts.Game.Core
         {
             BuildDropdown();
 
-            string savedLang = PlayerPrefs.GetString("Language", string.Empty);
+            string savedLang = PlayerPrefs.GetString("Language", YG2.lang);
 
             if (!string.IsNullOrEmpty(savedLang) && languages.Exists(l => l.code == savedLang))
             {

@@ -16,7 +16,7 @@ namespace Game
 
         private void Start()
         {
-            YG2.SwitchLanguage(PlayerPrefs.GetString("Language", string.Empty));
+            YG2.SwitchLanguage(PlayerPrefs.GetString("Language", YG2.lang));
 
             YG2.GameplayStop();
 
