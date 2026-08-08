@@ -65,57 +65,76 @@ namespace Player
         {
             if (_input == null) return;
 
-            // Управление целью наклона при ударе
+            // 1. УПРАВЛЕНИЕ НАКЛОНОМ ОТ УДАРА (Kick Tilt)
             if (_player.LegController.IsKicking)
             {
-                // Можно менять знак в зависимости от ноги (_player.LegController.WhichLeg?)
-                _kickTiltTarget = kickTiltAmount; // или -kickTiltAmount
+                _kickTiltTarget = kickTiltAmount;
             }
             else
             {
                 _kickTiltTarget = 0f;
             }
 
-            // Плавный наклон удара
-            _kickTiltCurrent = Mathf.SmoothDamp(_kickTiltCurrent, _kickTiltTarget,
-                ref _kickTiltVelocity, kickTiltSmoothTime);
+            // Важно: SmoothDamp чувствителен к deltaTime внутри себя. 
+            // Если lag большой, smoothTime должен быть больше, иначе камера дернется резко.
+            // Мы используем raw deltaTime здесь, это правильно для интерполяции состояний.
+            _kickTiltCurrent = Mathf.SmoothDamp(_kickTiltCurrent, _kickTiltTarget, ref _kickTiltVelocity, kickTiltSmoothTime);
 
             if (_player.Health.IsDead)
             {
                 transform.parent = null;
-                transform.LookAt(_player.RagdollRb.position);
+                // Защита от null, если Ragdoll еще не создан
+                if (_player.RagdollRb != null)
+                    transform.LookAt(_player.RagdollRb.position);
                 return;
             }
 
-            // Ввод мыши (теперь обрабатывается всегда)
-            Vector2 lookDelta = YG2.envir.isDesktop ?
-            _input.Look * _gameSettingsSO.mouseSensitivity * Time.deltaTime :
-            _input.Look * _gameSettingsSO.mouseSensitivity * 0.005f;
+            // 2. ИСПРАВЛЕНИЕ ВВОДА (ГЛАВНАЯ ПРОБЛЕМА)
+            // Убираем умножение на deltaTime из чувствительности мыши!
+            // Чувствительность должна быть "градусов в секунду" или просто коэффициентом, 
+            // но не умножаться на время здесь, если ввод уже нормализован.
+
+            float sensitivityMultiplier = YG2.envir.isDesktop
+                ? _gameSettingsSO.mouseSensitivity
+                : _gameSettingsSO.mouseSensitivity * 0.5f; // Подбери коэффициент для мобилок отдельно, без deltaTime
+
+            Vector2 lookDelta = _input.Look * sensitivityMultiplier;
 
             // Вертикальный поворот
             xRotation -= lookDelta.y;
             xRotation = Mathf.Clamp(xRotation, -verticalClamp, verticalClamp);
 
             // Наклон от скорости горизонтального поворота
+            // Теперь lookDelta.x - это просто величина поворота за этот кадр.
             float targetTilt = -lookDelta.x * tiltAmount;
-            currentTilt = Mathf.SmoothDamp(currentTilt, targetTilt, ref tiltVelocity, tiltSmoothTime);
 
-            // Итоговый поворот: добавляем наклон от удара к уже имеющемуся
+            // Оптимизация SmoothDamp для стабильности при лагах
+            // При очень низком FPS (большом deltaTime) smoothTime нужно увеличивать, 
+            // чтобы камера не пыталась догнать цель за один кадр.
+            float effectiveTiltSmooth = tiltSmoothTime + Time.deltaTime;
+            currentTilt = Mathf.SmoothDamp(currentTilt, targetTilt, ref tiltVelocity, effectiveTiltSmooth);
+
+            // Итоговый поворот
             transform.rotation = _playerTransform.rotation *
                                  Quaternion.Euler(xRotation, 0f, currentTilt + _kickTiltCurrent);
 
             // Горизонтальный поворот игрока
+            // Здесь тоже лучше не использовать deltaTime, если RotateHorizontally ожидает угол поворота
             if (lookDelta.x != 0)
                 _player.RotateHorizontally(lookDelta.x);
 
-            // Позиция камеры (сглаженное смещение при приседании)
+            // Позиция камеры
             float targetY = offset.y;
             targetOffset = new Vector3(offset.x, targetY, offset.z);
-            Vector3 currentOffset = Vector3.SmoothDamp(transform.localPosition, targetOffset,
-                ref currentOffsetVelocity, verticalSmoothTime);
+
+            // Аналогично для позиции: добавляем deltaTime к времени сглаживания, 
+            // чтобы при лаге камера двигалась плавнее, а не телепортировалась
+            float effectivePosSmooth = verticalSmoothTime + Time.deltaTime;
+            Vector3 currentOffset = Vector3.SmoothDamp(transform.localPosition, targetOffset, ref currentOffsetVelocity, effectivePosSmooth);
 
             Vector3 worldOffset = _playerTransform.rotation * currentOffset;
             transform.position = _playerTransform.position + worldOffset;
         }
+
     }
 }
