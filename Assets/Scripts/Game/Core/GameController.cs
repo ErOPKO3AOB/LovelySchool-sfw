@@ -15,7 +15,6 @@ using UnityEngine.UI;
 using VContainer;
 using YG;
 using PlayerPrefs = RedefineYG.PlayerPrefs;
-using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -74,6 +73,9 @@ namespace Game
 
         [Header("Death")]
         [SerializeField] private Button _restartButton;
+        [SerializeField] private Button _skipCheckpointButton;
+        [SerializeField] private TMP_Text _skipText;
+        [SerializeField] private TMP_Text _errorSkipText;
         [SerializeField] private TMP_Text _looseText;
         [SerializeField] private SceneLoader _sceneLoader;
         [SerializeField] private float _deathDelay = 2f;
@@ -253,6 +255,8 @@ namespace Game
 
         private void OnPlayerDead(GameObject obj)
         {
+            Destroy(_buttonsCanvasController.gameObject);
+
             _playerDead = true;
 
             _enemyCountText.gameObject.SetActive(false);
@@ -265,6 +269,36 @@ namespace Game
         {
             _restartButton.gameObject.SetActive(true);
             _restartButton.onClick.AddListener(RestartGame);
+
+            if (CurrCheckPointIndex < Checkpoints.Length - 1)
+            {
+                _skipCheckpointButton.gameObject.SetActive(true);
+                _skipCheckpointButton.onClick.AddListener(() =>
+                {
+                    _skipCheckpointButton.interactable = false;
+
+                    YG2.onErrorRewardedAdv += AdError;
+                    YG2.onCloseRewardedAdv += AdClose;
+
+                    void AdError()
+                    {
+                        _skipText.gameObject.SetActive(false);
+                        _errorSkipText.gameObject.SetActive(true);
+                        _skipCheckpointButton.interactable = true;
+                        YG2.onRewardAdv -= SkipCheckpointReward;
+                        YG2.onErrorRewardedAdv -= AdError;
+                    }
+
+                    void AdClose()
+                    {
+                        _skipCheckpointButton.gameObject.SetActive(false);
+                        YG2.onCloseRewardedAdv -= AdClose;
+                    }
+
+                    YG2.onRewardAdv += SkipCheckpointReward;
+                    YG2.RewardedAdvShow("skip-checkpoint");
+                });
+            }
 
             _looseText.gameObject.SetActive(true);
 
@@ -292,6 +326,19 @@ namespace Game
                 YG2.onErrorAnyAdv += LoadScene;
 
                 _advService.ShowInterstitial();
+            }
+        }
+
+        private void SkipCheckpointReward(string id)
+        {
+            if (id == "skip-checkpoint")
+            {
+                _skipCheckpointButton.gameObject.SetActive(false);
+
+                YG2.saves.currentCheckPoint++;
+                YG2.onRewardAdv -= SkipCheckpointReward;
+
+                RestartGame();
             }
         }
 
@@ -363,7 +410,7 @@ namespace Game
                 yield return null;
             }
             _messageTexts[index].color = new Color(baseColor.r, baseColor.g, baseColor.b, 0f); // гарантируем 0
-            
+
             _messageTexts[index].gameObject.SetActive(false);
         }
 
@@ -425,6 +472,9 @@ namespace Game
             _disableMusicToggle.onValueChanged.RemoveAllListeners();
             _sensitivitySlider.onValueChanged.RemoveAllListeners();
             _disableHintsToggle.onValueChanged.RemoveAllListeners();
+
+            _skipCheckpointButton.onClick.RemoveAllListeners();
+            YG2.onRewardAdv -= SkipCheckpointReward;
         }
     }
 }
