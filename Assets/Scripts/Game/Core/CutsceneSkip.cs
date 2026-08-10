@@ -32,6 +32,7 @@ namespace Game
             if (YG2.envir.device == YG2.Device.Desktop)
             {
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
 
             // Собираем Image кнопки + все Graphic (Text/TextMeshPro и т.д.) в детях

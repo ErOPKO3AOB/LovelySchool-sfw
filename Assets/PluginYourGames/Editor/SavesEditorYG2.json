@@ -1,0 +1,20 @@
+{
+  "stringKeys": [],
+  "stringValues": [],
+  "floatKeys": [],
+  "floatValues": [],
+  "intKeys": [],
+  "intValues": [],
+  "intExample": 5,
+  "strExample": "Hello!",
+  "boolExample": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "idSave": 1,
+  "currentCheckPoint": 0,
+  "weaponDatas": [],
+  "gameCompletedTimes": 0
+}
