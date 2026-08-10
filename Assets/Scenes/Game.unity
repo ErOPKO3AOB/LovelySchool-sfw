@@ -66377,6 +66377,8 @@ MonoBehaviour:
     displayName: English
   - code: tr
     displayName: "T\xFCrk\xE7e"
+  - code: be
+    displayName: "\u0411\u0435\u043B\u0430\u0440\u0443\u0441\u043A\u0456"
   - code: kk
     displayName: "\u049A\u0430\u0437\u0430\u049B\u0448\u0430"
   - code: uk

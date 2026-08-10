@@ -126,7 +126,12 @@ namespace Game
 
         private void Start()
         {
-            _sensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity", _gameSettings.mouseSensitivity);
+            _sensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity",
+                YG2.envir.device == YG2.Device.Desktop ?
+                _sensitivitySlider.maxValue / 5 :
+                _sensitivitySlider.maxValue / 2
+            );
+
             _disableMusicToggle.isOn = PlayerPrefs.GetInt("MusicOff", 0) == 1;
             _disableHintsToggle.isOn = PlayerPrefs.GetInt("HintsOff", 0) == 1;
             _buttonsCanvasController.SetHints(!_disableHintsToggle.isOn);
@@ -226,6 +231,7 @@ namespace Game
                 PlayerPrefs.SetInt("HintsOff", _disableHintsToggle.isOn ? 1 : 0);
                 PlayerPrefs.SetInt("MusicOff", _disableMusicToggle.isOn ? 1 : 0);
                 PlayerPrefs.SetFloat("Sensitivity", _sensitivitySlider.value);
+                PlayerPrefs.Save();
 
                 Time.timeScale = 1f;
                 if (YG2.envir.device == YG2.Device.Desktop)
@@ -270,7 +276,8 @@ namespace Game
             _restartButton.gameObject.SetActive(true);
             _restartButton.onClick.AddListener(RestartGame);
 
-            if (CurrCheckPointIndex < Checkpoints.Length - 1)
+            if (CurrCheckPointIndex != 0 &&
+                CurrCheckPointIndex < Checkpoints.Length - 1)
             {
                 _skipCheckpointButton.gameObject.SetActive(true);
                 _skipCheckpointButton.onClick.AddListener(() =>
