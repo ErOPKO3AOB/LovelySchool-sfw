@@ -5409,7 +5409,10 @@ PrefabInstance:
     - {fileID: 7413152101695422691, guid: 9fe983ca92df6a246a08e5cc747b1cfe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4832950290581205643, guid: 9fe983ca92df6a246a08e5cc747b1cfe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9fe983ca92df6a246a08e5cc747b1cfe, type: 3}
 --- !u!4 &654274901 stripped
 Transform:
@@ -10368,6 +10371,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7400000, guid: f9208d330216c454dadac5fc435389c5, type: 2}
     - target: {fileID: 2860747237594966714, guid: a518cfcd82ce7bd44ba5cead88425d09, type: 3}
+      propertyPath: _endCutscene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860747237594966714, guid: a518cfcd82ce7bd44ba5cead88425d09, type: 3}
       propertyPath: _sceneLoader
       value: 
       objectReference: {fileID: 1283927574}
@@ -14864,7 +14871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83d2f7ae04ab6f4f99b0d85377be998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.ProbeVolumePerSceneData
-  serializedBakingSet: {fileID: 11400000, guid: b394111472b80a546b03114178580489, type: 2}
+  serializedBakingSet: {fileID: 0}
   sceneGUID: 7edfade5cb3179a469793e62369d5c27
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}

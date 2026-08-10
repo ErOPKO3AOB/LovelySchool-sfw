@@ -2,7 +2,6 @@ using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using YG;
 using PlayerPrefs = RedefineYG.PlayerPrefs;
@@ -15,6 +14,7 @@ namespace Game
         [SerializeField] private Button _skipButton;
         [SerializeField] private AnimationClip _animation;
         [SerializeField] private SceneLoader _sceneLoader;
+        [SerializeField] private bool _endCutscene;
 
         [SerializeField] private float _fadeOutDuration = 0.4f;
 
@@ -51,7 +51,11 @@ namespace Game
 
             Invoke(nameof(AnimationEnd), _animation.length);
 
-            Invoke(nameof(ShowSkip), SceneManager.GetActiveScene().name == "EndCutscene" ? 3 : 0);
+            Invoke(nameof(ShowSkip), _endCutscene ? 2.5f : 0.2f);
+
+            _skipButton.gameObject.SetActive(false);
+            if (_endCutscene)
+                _skipRequestButton.gameObject.SetActive(false);
         }
 
         private void CollectGraphics(Transform root)
@@ -67,6 +71,9 @@ namespace Game
 
         private void ShowSkip()
         {
+            if (_endCutscene)
+                _skipRequestButton.gameObject.SetActive(true);
+
             if (_fadeCoroutine != null)
             {
                 StopCoroutine(_fadeCoroutine);
