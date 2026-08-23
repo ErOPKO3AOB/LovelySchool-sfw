@@ -299671,7 +299671,7 @@ MonoBehaviour:
       de: 
       hi: 
   text: 
-  ru: "\u041F\u041E\u0415\u0425\u0410\u0415\u041C \u0412 \u0422\u0423\u0420\u041D\u0418\u0426\u0423!"
+  ru: "\u041F\u041E\u0413\u041D\u0410\u041B\u0418 \u041D\u0410 \u0422\u0423\u0420\u041D\u0418\u0427\u041A\u0418!"
   en: LET'S GO TO WORKOUT ZONE!
   tr: "TURN\u0130KA'YA G\u0130DEL\u0130M!"
   az: 
@@ -299703,9 +299703,9 @@ MonoBehaviour:
   uniqueFont: {fileID: 0}
   additionalText: {fileID: 0}
   textHeight: 20
-  processTranslateLabel: 7/7 completed
+  processTranslateLabel: 0/7 completed
   componentTextField: 1
-  countLang: 7
+  countLang: 0
 --- !u!114 &1491511579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299726,7 +299726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041B\u0415\u0422\u0421 \u0413\u041E\u0423 \u041D\u0410 \u0422\u0423\u0420\u041D\u0418\u0427\u041A\u0418!"
+  m_text: "\u041F\u041E\u0413\u041D\u0410\u041B\u0418 \u041D\u0410 \u0422\u0423\u0420\u041D\u0418\u0427\u041A\u0418!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
