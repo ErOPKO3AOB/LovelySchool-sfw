@@ -275,7 +275,7 @@ namespace Game
         {
             _restartButton.gameObject.SetActive(true);
             _restartButton.onClick.AddListener(RestartGame);
-            _restartButton.interactable = false;
+            _restartButton.interactable = true;
 
             if (CurrCheckPointIndex != 0 &&
                 CurrCheckPointIndex < Checkpoints.Length - 1)
@@ -283,6 +283,7 @@ namespace Game
                 _skipCheckpointButton.gameObject.SetActive(true);
                 _skipCheckpointButton.onClick.AddListener(() =>
                 {
+                    _restartButton.interactable = false;
                     _skipCheckpointButton.interactable = false;
 
                     YG2.onErrorRewardedAdv += AdError;
@@ -295,7 +296,7 @@ namespace Game
                         _skipCheckpointButton.interactable = true;
                         YG2.onRewardAdv -= SkipCheckpointReward;
                         YG2.onErrorRewardedAdv -= AdError;
-            
+
                         _restartButton.interactable = true;
                     }
 
