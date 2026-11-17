@@ -3,6 +3,7 @@ using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
+using UniWebKit;
 using VContainer;
 using VContainer.Unity;
 using YG;
@@ -97,9 +98,9 @@ namespace Assets.Scripts.Game
                     {
                         _gameController.CurrCheckPointIndex = i;
                         _playerFacade.Inventory.SaveWeaponsState();
-                        YG2.saves.currentCheckPoint = i;
+                        UniWebBridge.Player.Set("currentCheckPoint", i);
 
-                        YG2.SaveProgress();
+                        UniWebBridge.Player.Save();
                     }
 
                     DisableCheckpoint();

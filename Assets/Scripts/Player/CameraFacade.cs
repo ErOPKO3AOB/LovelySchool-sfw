@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Input;
 using Data;
 using UnityEngine;
+using UniWebKit;
 using YG;
 
 namespace Player
@@ -48,7 +49,7 @@ namespace Player
             tiltAmount = settings.tiltAmount;
             tiltSmoothTime = settings.tiltSmoothTime;
 
-            if (YG2.envir.device == YG2.Device.Mobile || YG2.envir.device == YG2.Device.Tablet)
+            if (UniWebBridge.Envir.IsMobile)
             {
                 Cursor.lockState = CursorLockMode.None;
             }
@@ -94,7 +95,7 @@ namespace Player
             // Чувствительность должна быть "градусов в секунду" или просто коэффициентом, 
             // но не умножаться на время здесь, если ввод уже нормализован.
 
-            float sensitivityMultiplier = YG2.envir.isDesktop
+            float sensitivityMultiplier = UniWebBridge.Envir.IsDesktop
                 ? _gameSettingsSO.mouseSensitivity
                 : _gameSettingsSO.mouseSensitivity * 0.5f; // Подбери коэффициент для мобилок отдельно, без deltaTime
 

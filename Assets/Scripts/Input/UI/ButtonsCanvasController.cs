@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UniWebKit;
 using VContainer;
 using YG;
 using Button = UnityEngine.UI.Button;
@@ -62,7 +63,7 @@ namespace Assets.Scripts.Input.UI
 
         private void Start()
         {
-            bool isDesktop = YG2.envir.isDesktop;
+            bool isDesktop = UniWebBridge.Envir.IsDesktop;
             if (!isDesktop)
             {
                 dashButton.gameObject.SetActive(false);
@@ -117,7 +118,7 @@ namespace Assets.Scripts.Input.UI
                 if (child.gameObject.CompareTag(HintTag))
                 {
                     hintText = child;
-                    hintText.gameObject.SetActive(YG2.envir.isDesktop);
+                    hintText.gameObject.SetActive(UniWebBridge.Envir.IsDesktop);
                 }
             // Костыль кончлся
 
@@ -154,7 +155,7 @@ namespace Assets.Scripts.Input.UI
 
         public void SetHints(bool value)
         {
-            if (!YG2.envir.isDesktop) return;
+            if (!UniWebBridge.Envir.IsDesktop) return;
 
             _hintsActive = value;
 

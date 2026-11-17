@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using YG;
-using PlayerPrefs = RedefineYG.PlayerPrefs;
+using UniWebKit;
 
 namespace Assets.Scripts.Game.Core
 {
@@ -41,11 +40,11 @@ namespace Assets.Scripts.Game.Core
         {
             BuildDropdown();
 
-            string savedLang = PlayerPrefs.GetString("Language", YG2.lang);
+            string savedLang = UniWebBridge.Player.Get("Language", "en");
 
             if (!string.IsNullOrEmpty(savedLang) && languages.Exists(l => l.code == savedLang))
             {
-                YG2.SwitchLanguage(savedLang);
+                UniWebBridge.Localization.SetLanguage(savedLang);
             }
 
             SelectCurrentLanguage();
@@ -76,7 +75,7 @@ namespace Assets.Scripts.Game.Core
         {
             _isInitializing = true;
 
-            int index = languages.FindIndex(l => l.code == YG2.lang);
+            int index = languages.FindIndex(l => l.code == UniWebBridge.Localization.Language);
             if (index < 0) index = 0;
 
             _dropdown.SetValueWithoutNotify(index);
@@ -92,9 +91,9 @@ namespace Assets.Scripts.Game.Core
 
             string langCode = languages[index].code;
 
-            YG2.SwitchLanguage(langCode);
-            PlayerPrefs.SetString("Language", langCode);
-            YG2.SaveProgress();
+            UniWebBridge.Localization.SetLanguage(langCode);
+            UniWebBridge.Player.Set("Language", langCode);
+            UniWebBridge.Player.Save();
         }
     }
 }

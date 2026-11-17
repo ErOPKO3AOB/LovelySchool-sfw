@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UniWebKit;
 using YG;
-//using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 namespace Game
 {
@@ -29,7 +28,6 @@ namespace Game
             //YG2.GameplayStop();
             UniWebBridge.Game.GameplayStop();
 
-            //YG2.SwitchLanguage(PlayerPrefs.GetString("Language", YG2.lang));
             UniWebBridge.Localization.SetLanguage("en");
 
             //if (YG2.envir.device == YG2.Device.Desktop)

@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UniWebKit;
 using VContainer;
 using YG;
 using Random = UnityEngine.Random;
@@ -64,7 +65,7 @@ namespace Game
         {
             _isGamePaused = paused;
 
-            YG2.PauseGame(paused);
+            UniWebBridge.Pause.SetPaused(paused);
 
             if (paused)
                 _audioSource.Pause();

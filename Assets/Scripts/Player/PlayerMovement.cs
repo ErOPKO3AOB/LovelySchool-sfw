@@ -1,5 +1,6 @@
 using Data;
 using UnityEngine;
+using UniWebKit;
 using YG;
 
 namespace Player
@@ -25,7 +26,7 @@ namespace Player
 
             moveDir = _playerTransform.forward * input.y + _playerTransform.right * input.x;
             moveDir.y = 0;
-            if (YG2.envir.isDesktop)
+            if (UniWebBridge.Envir.IsDesktop)
                 moveDir.Normalize();
 
             float currentSpeed = _settings.walkSpeed;

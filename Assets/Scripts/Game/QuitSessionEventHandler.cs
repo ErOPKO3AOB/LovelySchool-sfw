@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UniWebKit;
 using YG;
 
 // Скрипт находится на сцене уровня, его метод вызывает Plugin YG
@@ -19,7 +20,7 @@ public class QuitSessionEventHandler : MonoBehaviour
 
     public void OnQuitGame()
     {
-        YG2.SaveProgress();
+        UniWebBridge.Player.Save();
 
         OnQuit?.Invoke();
         OnQuit = null;

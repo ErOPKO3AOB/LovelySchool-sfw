@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UniWebKit;
 using YG;
 
 namespace Player
@@ -263,12 +264,12 @@ namespace Player
                 weaponDatas.Add(data);
             }
 
-            YG2.saves.weaponDatas = weaponDatas;
+            UniWebBridge.Player.Set("weaponDatas", JsonUtility.ToJson(weaponDatas));
         }
 
         public void LoadWeaponsState()
         {
-            var weaponDatas = YG2.saves.weaponDatas;
+            var weaponDatas = JsonUtility.FromJson<List<WeaponData>>(UniWebBridge.Player.Get("weaponDatas", ""));
 
             //Debug.Log("Weapon Datas count: " + weaponDatas.Count);
             //Debug.Log("item spawner weapons count: " + _itemsSpawner.Weapons.Count);

@@ -13,7 +13,6 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 using UniWebKit;
 using VContainer;
-//using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 namespace Assets.Scripts.Game.Core
 {
@@ -128,20 +127,18 @@ namespace Assets.Scripts.Game.Core
 
         private void Start()
         {
-            _sensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity",
-                //YG2.envir.device == YG2.Device.Desktop ?
+            _sensitivitySlider.value = UniWebBridge.Player.Get("Sensitivity",
                 UniWebBridge.Envir.IsDesktop ?
                 _sensitivitySlider.maxValue / 5 :
                 _sensitivitySlider.maxValue / 2
             );
 
-            _disableMusicToggle.isOn = PlayerPrefs.GetInt("MusicOff", 0) == 1;
-            _disableHintsToggle.isOn = PlayerPrefs.GetInt("HintsOff", 0) == 1;
+            _disableMusicToggle.isOn = UniWebBridge.Player.Get("MusicOff", 0) == 1;
+            _disableHintsToggle.isOn = UniWebBridge.Player.Get("HintsOff", 0) == 1;
             _buttonsCanvasController.SetHints(!_disableHintsToggle.isOn);
 
             _gameSettings.mouseSensitivity = _sensitivitySlider.value;
 
-            //YG2.SwitchLanguage(PlayerPrefs.GetString("Language", YG2.lang));
             UniWebBridge.Localization.SetLanguage(UniWebBridge.Player.Get("Language", "en"));
 
             // Checkpoints
@@ -235,10 +232,10 @@ namespace Assets.Scripts.Game.Core
             }
             else
             {
-                PlayerPrefs.SetInt("HintsOff", _disableHintsToggle.isOn ? 1 : 0);
-                PlayerPrefs.SetInt("MusicOff", _disableMusicToggle.isOn ? 1 : 0);
-                PlayerPrefs.SetFloat("Sensitivity", _sensitivitySlider.value);
-                PlayerPrefs.Save();
+                UniWebBridge.Player.Set("HintsOff", _disableHintsToggle.isOn ? 1 : 0);
+                UniWebBridge.Player.Set("MusicOff", _disableMusicToggle.isOn ? 1 : 0);
+                UniWebBridge.Player.Set("Sensitivity", _sensitivitySlider.value);
+                UniWebBridge.Player.Save();
 
                 Time.timeScale = 1f;
                 if (UniWebBridge.Envir.IsDesktop)
@@ -293,30 +290,24 @@ namespace Assets.Scripts.Game.Core
                     _restartButton.interactable = false;
                     _skipCheckpointButton.interactable = false;
 
-                    YG2.onErrorRewardedAdv += AdError;
-                    YG2.onCloseRewardedAdv += AdClose;
 
-                    void AdError()
+                    void AdError(string error)
                     {
                         _skipText.gameObject.SetActive(false);
                         _errorSkipText.gameObject.SetActive(true);
                         _skipCheckpointButton.interactable = true;
-                        YG2.onRewardAdv -= SkipCheckpointReward;
-                        YG2.onErrorRewardedAdv -= AdError;
 
                         _restartButton.interactable = true;
                     }
 
-                    void AdClose()
+                    void AdClose(bool closed)
                     {
                         _skipCheckpointButton.gameObject.SetActive(false);
-                        YG2.onCloseRewardedAdv -= AdClose;
 
                         _restartButton.interactable = true;
                     }
 
-                    YG2.onRewardAdv += SkipCheckpointReward;
-                    YG2.RewardedAdvShow("skip-checkpoint");
+                    UniWebBridge.Ads.ShowRewarded(onReward: SkipCheckpointReward, onClosed: AdClose, onError: AdError, placementId: "skip-checkpoint");
                 });
             }
 
@@ -333,33 +324,25 @@ namespace Assets.Scripts.Game.Core
 
             void LoadScene()
             {
-                YG2.onCloseAnyAdv -= LoadScene;
-                YG2.onErrorAnyAdv -= LoadScene;
-
                 _sceneLoader.LoadScene();
             }
 
-            if (!YG2.isTimerAdvCompleted) LoadScene();
+            if (!UniWebBridge.Ads.IsInterstitialReady) LoadScene();
             else
             {
-                YG2.onCloseAnyAdv += LoadScene;
-                YG2.onErrorAnyAdv += LoadScene;
-
                 _advService.ShowInterstitial();
             }
         }
 
-        private void SkipCheckpointReward(string id)
+        private void SkipCheckpointReward()
         {
-            if (id == "skip-checkpoint")
-            {
-                _skipCheckpointButton.gameObject.SetActive(false);
+            //if (id == "skip-checkpoint")
+            //{
+            _skipCheckpointButton.gameObject.SetActive(false);
 
-                YG2.saves.currentCheckPoint++;
-                YG2.onRewardAdv -= SkipCheckpointReward;
-
-                RestartGame();
-            }
+            UniWebBridge.Player.Set("currentCheckPoint", CurrCheckPointIndex + 1);
+            RestartGame();
+            //}
         }
 
         public Enemy SpawnRequest(EnemySpawnPoint enemySpawnPoint)
@@ -494,7 +477,6 @@ namespace Assets.Scripts.Game.Core
             _disableHintsToggle.onValueChanged.RemoveAllListeners();
 
             _skipCheckpointButton.onClick.RemoveAllListeners();
-            YG2.onRewardAdv -= SkipCheckpointReward;
         }
     }
 }

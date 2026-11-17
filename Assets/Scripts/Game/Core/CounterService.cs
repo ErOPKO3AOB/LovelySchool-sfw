@@ -82,10 +82,10 @@ namespace Assets.Scripts.Game
 
             string sessionsJson = JsonConvert.SerializeObject(_sessionDatas);
 
-            YG2.MetricaSend("last_session", new Dictionary<string, object>
-            {
-                { "sessions", sessionsJson }
-            });
+            //YG2.MetricaSend("last_session", new Dictionary<string, object>
+            //{
+            //    { "sessions", sessionsJson }
+            //});
 
 
             //Debug.Log($"{sessionsJson}");

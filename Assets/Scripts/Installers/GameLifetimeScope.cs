@@ -7,6 +7,7 @@ using Data;
 using Game;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UniWebKit;
 using VContainer;
 using VContainer.Unity;
 using YG;
@@ -62,7 +63,7 @@ namespace Installers
 
             // INPUT
             builder.RegisterComponent(Instantiate(_gameSettings.buttonsCanvasPrefab));
-            if (YG2.envir.isMobile || YG2.envir.isTablet)
+            if (UniWebBridge.Envir.IsMobile)
             {
                 builder.RegisterEntryPoint<MobileLookService>().AsSelf();
                 builder.Register<MobileInputReader>(Lifetime.Singleton)

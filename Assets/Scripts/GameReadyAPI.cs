@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using UnityEngine;
+using UniWebKit;
 using YG;
 
 namespace Assets.Scripts
@@ -13,7 +14,7 @@ namespace Assets.Scripts
         {
             if (_usedGameReadyAPI) return;
 
-            YG2.GameReadyAPI();
+            UniWebBridge.Game.GameReady();
             _usedGameReadyAPI = true;
         }
 

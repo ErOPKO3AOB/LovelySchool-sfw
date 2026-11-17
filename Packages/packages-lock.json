@@ -1,11 +1,10 @@
 {
   "dependencies": {
     "com.erop-k.uniwebkit": {
-      "version": "https://github.com/ErOPKO3AOB/UniWebKit.git",
+      "version": "file:C:/UnityPackages/UniWebKit",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "f6a422016fc4806a6e70a4ea20c5cf142e31019b"
+      "source": "local",
+      "dependencies": {}
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

@@ -1,22 +1,30 @@
-using System;
+using UniWebKit;
 using VContainer.Unity;
-using YG;
 
 namespace Assets.Scripts
 {
     public class AdvService : IInitializable
     {
-        private bool _advDisabled = false;
+        //private bool _advDisabled = false;
 
         public void Initialize()
         {
-            YG2.StickyAdActivity(!_advDisabled);
+            //if (_advDisabled)
+            //{
+                //UniWebBridge.Ads.HideStickyBanner();
+            //}
+
+            //else
+            //{
+                UniWebBridge.Ads.ShowStickyBanner();
+            //}
         }
 
         public void ShowInterstitial()
         {
-            if (_advDisabled) return;
-            YG2.InterstitialAdvShow();
+            //if (_advDisabled) return;
+
+            UniWebBridge.Ads.ShowInterstitial();
         }
     }
 }

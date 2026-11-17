@@ -1,5 +1,7 @@
+using Game;
 using UnityEngine;
 using UnityEngine.Events;
+using UniWebKit;
 using YG;
 
 public class BusLoader : MonoBehaviour
@@ -9,11 +11,10 @@ public class BusLoader : MonoBehaviour
 
     public void GetInBus()
     {
-        YG2.saves.currentCheckPoint = 0;
-        YG2.saves.weaponDatas = new();
-        YG2.saves.gameCompletedTimes++;
+        UniWebBridge.Player.Set("currentCheckPoint", 0);
+        UniWebBridge.Player.Set("weaponDatas", "");
 
-        YG2.SaveProgress();
+        UniWebBridge.Player.Save();
 
         OnBusGet?.Invoke();
     }
