@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8336fdde7ddb3a649864207b2be75562, type: 3}
   m_Name: UniWebSettings
   m_EditorClassIdentifier: UniWebKit::UniWebKit.UniWebSettings
-  CurrentPlatform: 0
+  CurrentPlatform: 3
   PlayerStorage:
     CloudKey: UniWebKitSave
     LocalCachePrefix: UniWebKit.Player.
