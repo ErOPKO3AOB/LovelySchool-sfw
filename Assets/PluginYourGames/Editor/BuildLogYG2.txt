@@ -1,3 +1,0 @@
-﻿Build path: W:/WorkStuff/Unity/Projects/YandexGames/LovelySchool-sfw/Build/Web
-Build number: 93
-PluginYG version: 2.0092

@@ -1,8 +1,7 @@
-﻿using Assets.Scripts;
-using Assets.Scripts.Game;
-using Assets.Scripts.Input;
+﻿using Assets.Scripts.Input;
 using Assets.Scripts.Input.UI;
 using Data;
+using Game;
 using Player;
 using System;
 using System.Collections;
@@ -12,11 +11,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UniWebKit;
 using VContainer;
-using YG;
-using PlayerPrefs = RedefineYG.PlayerPrefs;
+//using PlayerPrefs = RedefineYG.PlayerPrefs;
 
-namespace Game
+namespace Assets.Scripts.Game.Core
 {
     public class GameController : MonoBehaviour
     {
@@ -108,7 +107,10 @@ namespace Game
 
         private void Awake()
         {
-            CurrCheckPointIndex = YG2.saves.currentCheckPoint;
+            UniWebBridge.Player.Load();
+            //CurrCheckPointIndex = YG2.saves.currentCheckPoint;
+            UniWebBridge.Player.TryGet("currentCheckPoint", out int currentCheckPoint);
+            CurrCheckPointIndex = currentCheckPoint;
             CurrCheckPointIndex = Mathf.Clamp(CurrCheckPointIndex, 0, _rooms.Length - 1);
             Debug.Log("Checkpoint index: " + CurrCheckPointIndex);
 
@@ -127,7 +129,8 @@ namespace Game
         private void Start()
         {
             _sensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity",
-                YG2.envir.device == YG2.Device.Desktop ?
+                //YG2.envir.device == YG2.Device.Desktop ?
+                UniWebBridge.Envir.IsDesktop ?
                 _sensitivitySlider.maxValue / 5 :
                 _sensitivitySlider.maxValue / 2
             );
@@ -138,7 +141,8 @@ namespace Game
 
             _gameSettings.mouseSensitivity = _sensitivitySlider.value;
 
-            YG2.SwitchLanguage(PlayerPrefs.GetString("Language", YG2.lang));
+            //YG2.SwitchLanguage(PlayerPrefs.GetString("Language", YG2.lang));
+            UniWebBridge.Localization.SetLanguage(UniWebBridge.Player.Get("Language", "en"));
 
             // Checkpoints
             if (_checkPointPositions != null && _checkPointPositions.Length > 0)
@@ -162,7 +166,8 @@ namespace Game
             TryLoadCheckpoint();
 
             // Other
-            if (!YG2.envir.isDesktop) _disableHintsToggle.gameObject.SetActive(false);
+            //if (!YG2.envir.isDesktop) _disableHintsToggle.gameObject.SetActive(false);
+            if (!UniWebBridge.Envir.IsDesktop) _disableHintsToggle.gameObject.SetActive(false);
             else
             {
                 _disableHintsToggle.onValueChanged.AddListener((value) =>
@@ -214,7 +219,8 @@ namespace Game
             if (_playerDead) return;
 
             _isPaused = paused;
-            YG2.PauseGame(paused);
+            //YG2.PauseGame(paused);
+            UniWebBridge.Pause.SetPaused(paused);
 
             OnPauseStateChanged?.Invoke(paused);
 
@@ -224,7 +230,8 @@ namespace Game
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 _pauseMenuUI.SetActive(true);
-                YG2.GameplayStop();
+                //YG2.GameplayStop();
+                UniWebBridge.Game.GameplayStop();
             }
             else
             {
@@ -234,21 +241,21 @@ namespace Game
                 PlayerPrefs.Save();
 
                 Time.timeScale = 1f;
-                if (YG2.envir.device == YG2.Device.Desktop)
+                if (UniWebBridge.Envir.IsDesktop)
                 {
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
                 }
 
                 _pauseMenuUI.SetActive(false);
-                YG2.GameplayStart();
+                UniWebBridge.Game.GameplayStart();
                 //GameReadyAPI.SafeGameplayStart().Forget();
             }
         }
 
         private void ActivateHintTexts(bool value)
         {
-            if (!YG2.envir.isDesktop) return;
+            if (!UniWebBridge.Envir.IsDesktop) return;
 
             _buttonsCanvasController.SetHints(value);
         }
@@ -268,7 +275,7 @@ namespace Game
             _enemyCountText.gameObject.SetActive(false);
 
             Invoke(nameof(DelayedDeath), _deathDelay);
-            YG2.GameplayStop();
+            UniWebBridge.Game.GameplayStop();
         }
 
         private void DelayedDeath()
@@ -453,7 +460,7 @@ namespace Game
             var chkpntTransform = Checkpoints[CurrCheckPointIndex].transform;
             _playerFacade.Teleport(chkpntTransform.position, chkpntTransform.rotation);
             //GameReadyAPI.SafeGameplayStart().Forget();
-            YG2.GameplayStart();
+            UniWebBridge.Game.GameplayStart();
             Debug.Log("Loaded checkpoint");
 
             foreach (var checkpoints in Checkpoints)

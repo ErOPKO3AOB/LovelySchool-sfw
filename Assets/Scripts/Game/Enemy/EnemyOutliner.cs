@@ -1,3 +1,4 @@
+using Assets.Scripts.Game.Core;
 using UnityEngine;
 using VContainer;
 

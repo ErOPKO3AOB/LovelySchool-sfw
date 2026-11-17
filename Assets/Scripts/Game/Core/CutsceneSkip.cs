@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UniWebKit;
 using YG;
-using PlayerPrefs = RedefineYG.PlayerPrefs;
+//using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 namespace Game
 {
@@ -25,11 +26,14 @@ namespace Game
         private void Start()
         {
             GameReadyAPI.SafeStartGame();
-            YG2.GameplayStop();
+            //YG2.GameplayStop();
+            UniWebBridge.Game.GameplayStop();
 
-            YG2.SwitchLanguage(PlayerPrefs.GetString("Language", YG2.lang));
+            //YG2.SwitchLanguage(PlayerPrefs.GetString("Language", YG2.lang));
+            UniWebBridge.Localization.SetLanguage("en");
 
-            if (YG2.envir.device == YG2.Device.Desktop)
+            //if (YG2.envir.device == YG2.Device.Desktop)
+            if (UniWebBridge.Envir.IsDesktop)
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
@@ -147,7 +151,8 @@ namespace Game
 
         private void AnimationEnd()
         {
-            YG2.SaveProgress();
+            //YG2.SaveProgress();
+            UniWebBridge.Player.Save();
             _sceneLoader.LoadScene();
         }
 

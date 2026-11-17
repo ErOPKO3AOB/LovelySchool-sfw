@@ -1,4 +1,4 @@
-using Game;
+using Assets.Scripts.Game.Core;
 using Player;
 using TMPro;
 using UnityEngine;
