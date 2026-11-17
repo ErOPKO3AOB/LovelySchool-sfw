@@ -101,6 +101,7 @@ namespace Assets.Scripts.Game.Core
         public Checkpoint[] Checkpoints { get; private set; }
 
         public PlayerFacade PlayerFacade => _playerFacade;
+        [SerializeField] private SahurSoundPlayer _sahurSoundPlayer;
 
         // GameController.cs
 
@@ -179,6 +180,7 @@ namespace Assets.Scripts.Game.Core
                 {
                     StartCoroutine(MessageRoutine(index));
                     _сounterService.SetLastCompletedRoom(roomName);
+                    _sahurSoundPlayer.TryPlaySahur();
                 };
             }
 

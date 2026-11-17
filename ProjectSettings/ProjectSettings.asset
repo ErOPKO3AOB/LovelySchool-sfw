@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: ErOP-k
-  productName: Lovely School-sfw
+  companyName: EROP-K
+  productName: Sahur vs Bandits
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -561,7 +561,12 @@ PlayerSettings:
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
   m_TemplateCustomTags:
+    BACKGROUND_IMAGE_FILE: 
+    OVERLAY_BACKGROUND_COLOR: 
     PRODUCT_DESCRIPTION: 
+    PROGRESS_BAR_BACKGROUND_COLOR: 
+    PROGRESS_BAR_BORDER_COLOR: 
+    PROGRESS_BAR_FILL_COLOR: 
   mobileMTRendering:
     Android: 1
     iPhone: 1
@@ -834,10 +839,10 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: PROJECT:YandexGames
+  webGLTemplate: PROJECT:GamePush
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 0
+  webGLCompressionFormat: 2
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
@@ -868,7 +873,7 @@ PlayerSettings:
     QNX: UNITY_POST_PROCESSING_STACK_V2
     Standalone: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg;UNITY_POST_PROCESSING_STACK_V2
     VisionOS: UNITY_POST_PROCESSING_STACK_V2
-    WebGL: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;UNIWEB_VK_GAMES;UNIWEB_ARCHITECTURE_STATIC;YandexGamesPlatform_yg;UNITY_POST_PROCESSING_STACK_V2
+    WebGL: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg;UNITY_POST_PROCESSING_STACK_V2;UNIWEB_VK_GAMES;UNIWEB_ARCHITECTURE_STATIC
     Windows Store Apps: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg
     XboxOne: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg;UNITY_POST_PROCESSING_STACK_V2
     iPhone: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg
