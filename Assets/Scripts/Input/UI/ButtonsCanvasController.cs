@@ -61,7 +61,7 @@ namespace Assets.Scripts.Input.UI
             }
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
             bool isDesktop = UniWebBridge.Envir.IsDesktop;
             if (!isDesktop)
@@ -72,12 +72,18 @@ namespace Assets.Scripts.Input.UI
 
             joystick.gameObject.SetActive(!isDesktop);
             foreach (var hint in _hintTexts)
-                hint.SetActive(isDesktop);
+                hint.SetActive(isDesktop && _hintsActive);
 
-            _itemsSpawner.OnWeaponsSpawned += () => DelayedStart();
             reloadButton.gameObject.SetActive(false);
-
             StartCoroutine(CheckForCanGrabRoutine());
+            // The spawner and player can start in either order. Bind and catch up with existing weapons.
+            while (_inventory == null || !_inventory.IsInitialized || !_itemsSpawner.IsReady)
+            {
+                var player = FindAnyObjectByType<PlayerFacade>();
+                if (player != null) _inventory = player.Inventory;
+                yield return null;
+            }
+            DelayedStart();
         }
 
         private void DelayedStart()
@@ -85,7 +91,9 @@ namespace Assets.Scripts.Input.UI
             _inventory = FindAnyObjectByType<PlayerFacade>().Inventory;
             _inventory.OnWeaponPickUp += OnWeaponPickUp;
             _inventory.OnWeaponSwap += OnWeaponSwap;
-            reloadButton.gameObject.SetActive(false);
+            foreach (var weapon in _inventory.Weapons) OnWeaponPickUp(weapon);
+            if (_inventory.Weapons.Count > 0) OnWeaponSwap(_inventory.Weapons[_inventory.CurrentWeaponIndex]);
+            else reloadButton.gameObject.SetActive(false);
         }
 
         private IEnumerator CheckForCanGrabRoutine()
@@ -126,7 +134,7 @@ namespace Assets.Scripts.Input.UI
                 instance
             );
             int currIndex = _inventorySlots.Count - 1;
-            hintText.text = (currIndex + 1).ToString();
+            if (hintText != null) hintText.text = (currIndex + 1).ToString();
             Sprite weaponSprite = null;
             for (int i = 0; i < _weaponSettings.weaponSprites.Length; i++)
             {

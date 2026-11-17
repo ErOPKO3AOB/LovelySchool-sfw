@@ -20,7 +20,7 @@ public class QuitSessionEventHandler : MonoBehaviour
 
     public void OnQuitGame()
     {
-        UniWebBridge.Player.Save();
+        GameSaveSession.Save();
 
         OnQuit?.Invoke();
         OnQuit = null;

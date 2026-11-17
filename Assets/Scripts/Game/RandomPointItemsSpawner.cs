@@ -20,6 +20,7 @@ namespace Game
         private WeaponSettingsSO _weaponSettings;
 
         public List<Weapon> Weapons;
+        public bool IsReady { get; private set; }
 
         public UnityAction OnWeaponsSpawned;
 
@@ -45,6 +46,7 @@ namespace Game
                 );
 
             }
+            IsReady = true;
             OnWeaponsSpawned?.Invoke();
         }
 

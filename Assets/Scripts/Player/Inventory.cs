@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UniWebKit;
-using YG;
+
 
 namespace Player
 {
@@ -21,6 +21,9 @@ namespace Player
         private readonly List<Weapon> _weapons = new();
         private int _currentWeaponIndex = 0;
         private Camera _camera;
+        private bool _restored;
+        public bool IsInitialized => _inputReader != null && _camera != null && _itemsSpawner != null;
+        public bool IsRestored => _restored;
 
         public List<Weapon> Weapons => _weapons;
         public int CurrentWeaponIndex => _currentWeaponIndex;
@@ -54,15 +57,19 @@ namespace Player
             _camera = camera;
             _hand.SetParent(_camera.transform);
 
-            _itemsSpawner.OnWeaponsSpawned += () =>
-            {
-                LoadWeaponsState();
-            };
+            StartCoroutine(RestoreWhenReady());
+        }
+
+        private System.Collections.IEnumerator RestoreWhenReady()
+        {
+            yield return GameSaveSession.Instance.EnsureLoaded();
+            while (!_itemsSpawner.IsReady) yield return null;
+            LoadWeaponsState();
         }
 
         private void HandleScroll(float delta)
         {
-            if (_weapons.Count == 0) return;
+            if (!_restored || _weapons.Count == 0) return;
             int direction = delta > 0 ? -1 : 1;
             SwapWeapon(direction);
         }
@@ -78,12 +85,12 @@ namespace Player
             if (slotIndex == _currentWeaponIndex)
                 return;
 
-            // Остановить текущее оружие и спрятать
+            // РћСЃС‚Р°РЅРѕРІРёС‚СЊ С‚РµРєСѓС‰РµРµ РѕСЂСѓР¶РёРµ Рё СЃРїСЂСЏС‚Р°С‚СЊ
             _weapons[_currentWeaponIndex].StopShoot();
             _weapons[_currentWeaponIndex].AbortReload();
             _weapons[_currentWeaponIndex].gameObject.SetActive(false);
 
-            // Переключить
+            // РџРµСЂРµРєР»СЋС‡РёС‚СЊ
             _currentWeaponIndex = slotIndex;
             _weapons[_currentWeaponIndex].gameObject.SetActive(true);
             RefreshAmmoDisplay();
@@ -95,7 +102,7 @@ namespace Player
         {
             if (_weapons.Count < 2) return;
 
-            // Прерываем перезарядку и стрельбу у текущего оружия
+            // РџСЂРµСЂС‹РІР°РµРј РїРµСЂРµР·Р°СЂСЏРґРєСѓ Рё СЃС‚СЂРµР»СЊР±Сѓ Сѓ С‚РµРєСѓС‰РµРіРѕ РѕСЂСѓР¶РёСЏ
             _weapons[_currentWeaponIndex].StopShoot();
             _weapons[_currentWeaponIndex].AbortReload();
             _weapons[_currentWeaponIndex].gameObject.SetActive(false);
@@ -113,6 +120,7 @@ namespace Player
 
         private void HandleUseStarted()
         {
+            if (!_restored) return;
             Ray ray = new(_camera.transform.position, _camera.transform.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, 5f) && hit.collider != null)
             {
@@ -163,9 +171,10 @@ namespace Player
 
         private void PickupWeapon(Weapon weapon)
         {
+            if (weapon == null || _weapons.Contains(weapon)) return;
             if (_weapons.Count > 0)
             {
-                // Прерываем перезарядку и стрельбу у текущего оружия
+                // РџСЂРµСЂС‹РІР°РµРј РїРµСЂРµР·Р°СЂСЏРґРєСѓ Рё СЃС‚СЂРµР»СЊР±Сѓ Сѓ С‚РµРєСѓС‰РµРіРѕ РѕСЂСѓР¶РёСЏ
                 _weapons[_currentWeaponIndex].StopShoot();
                 _weapons[_currentWeaponIndex].AbortReload();
                 _weapons[_currentWeaponIndex].gameObject.SetActive(false);
@@ -201,7 +210,7 @@ namespace Player
             }
 
             weapon.Animator.enabled = true;
-            weapon.PlayPickupAnimation(); // проигрываем анимацию подбора
+            weapon.PlayPickupAnimation(); // РїСЂРѕРёРіСЂС‹РІР°РµРј Р°РЅРёРјР°С†РёСЋ РїРѕРґР±РѕСЂР°
 
             weapon.AmmoChanged += (_, _, _) => RefreshAmmoDisplay();
 
@@ -215,7 +224,7 @@ namespace Player
 
         private void PickupAmmo(GameObject ammoPickup)
         {
-            if (_weapons.Count == 0) return;
+            if (!_restored || _weapons.Count == 0) return;
 
             Weapon current = _weapons[_currentWeaponIndex];
             if (current.IsMelee) return;
@@ -232,7 +241,7 @@ namespace Player
 
         private void HandleReload()
         {
-            if (_weapons.Count > 0)
+            if (_restored && _weapons.Count > 0)
                 _weapons[_currentWeaponIndex].Reload();
         }
 
@@ -248,48 +257,45 @@ namespace Player
             _ammoText.text = $"{w.CurrentAmmo}/{w.Reserve}";
         }
 
-        public void SaveWeaponsState()
+        public bool SaveWeaponsState()
         {
-            var weaponDatas = new List<WeaponData>();
-
-            for (int i = 0; i < Weapons.Count; i++)
+            if (!_restored || !UniWebBridge.Player.IsReady) return false;
+            var snapshot = new InventorySaveData();
+            foreach (var weapon in Weapons)
             {
-                var data = new WeaponData
-                {
-                    weaponName = Weapons[i].weaponName,
-                    ammo = Weapons[i].CurrentAmmo,
-                    reserve = Weapons[i].Reserve
-                };
-
-                weaponDatas.Add(data);
+                if (weapon == null) continue;
+                snapshot.weapons.Add(new WeaponData {
+                    weaponName = weapon.weaponName,
+                    ammo = weapon.CurrentAmmo,
+                    reserve = weapon.Reserve
+                });
             }
-
-            UniWebBridge.Player.Set("weaponDatas", JsonUtility.ToJson(weaponDatas));
+            if (_weapons.Count > 0) snapshot.selectedWeaponName = _weapons[_currentWeaponIndex].weaponName;
+            return GameSaveSession.Set(InventorySaveData.Key, snapshot);
         }
 
         public void LoadWeaponsState()
         {
-            var weaponDatas = JsonUtility.FromJson<List<WeaponData>>(UniWebBridge.Player.Get("weaponDatas", ""));
-
-            //Debug.Log("Weapon Datas count: " + weaponDatas.Count);
-            //Debug.Log("item spawner weapons count: " + _itemsSpawner.Weapons.Count);
-
-
-            if (weaponDatas == null || weaponDatas.Count <= 0) return;
-
-            for (int i = 0; i < weaponDatas.Count; i++)
+            if (_restored || !IsInitialized || !_itemsSpawner.IsReady || !UniWebBridge.Player.IsReady) return;
+            var snapshot = InventorySaveData.Read(UniWebBridge.Player);
+            foreach (var data in snapshot.weapons)
             {
-                for (int j = 0; j < _itemsSpawner.Weapons.Count; j++)
-                {
-                    if (_itemsSpawner.Weapons[j].weaponName == weaponDatas[i].weaponName)
-                    {
-                        Weapon weapon = _itemsSpawner.Weapons[j];
-                        PickupWeapon(weapon);
-                        weapon.CurrentAmmo = weaponDatas[i].ammo;
-                        weapon.Reserve = weaponDatas[i].reserve;
-                    }
+                if (data == null || string.IsNullOrWhiteSpace(data.weaponName)) continue;
+                if (_weapons.Any(item => item.weaponName == data.weaponName)) continue;
+                var weapon = _itemsSpawner.Weapons.Find(item => item != null && item.weaponName == data.weaponName);
+                if (weapon == null) {
+                    Debug.LogWarning("[Saves] Weapon not found in this level: " + data.weaponName);
+                    continue;
                 }
+                // Apply ammo before pickup/UI events. Never restore impossible negative counts.
+                weapon.CurrentAmmo = Mathf.Clamp(data.ammo, 0, weapon.MaxAmmo);
+                weapon.Reserve = Mathf.Max(0, data.reserve);
+                PickupWeapon(weapon);
             }
+            _restored = true;
+            int selected = _weapons.FindIndex(item => item.weaponName == snapshot.selectedWeaponName);
+            if (selected >= 0 && selected != _currentWeaponIndex) HandleSelectSlot(selected);
+            RefreshAmmoDisplay();
         }
 
         private void OnDestroy()

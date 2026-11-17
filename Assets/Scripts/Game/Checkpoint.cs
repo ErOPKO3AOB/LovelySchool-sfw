@@ -88,7 +88,7 @@ namespace Assets.Scripts.Game
 
         public void ActivateCheckPoint()
         {
-            if (reached) return;
+            if (reached || !UniWebBridge.Player.IsReady || !_playerFacade.Inventory.IsRestored) return;
 
             for (int i = 0; i < _gameController.Checkpoints.Length; i++)
             {
@@ -96,11 +96,9 @@ namespace Assets.Scripts.Game
                 {
                     if (!firstCheckpoint)
                     {
+                        if (!_playerFacade.Inventory.SaveWeaponsState() || !GameSaveSession.Set("currentCheckPoint", i)) return;
                         _gameController.CurrCheckPointIndex = i;
-                        _playerFacade.Inventory.SaveWeaponsState();
-                        UniWebBridge.Player.Set("currentCheckPoint", i);
-
-                        UniWebBridge.Player.Save();
+                        GameSaveSession.Save();
                     }
 
                     DisableCheckpoint();

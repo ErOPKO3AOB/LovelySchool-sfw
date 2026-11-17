@@ -150,7 +150,7 @@ namespace Game
         private void AnimationEnd()
         {
             //YG2.SaveProgress();
-            UniWebBridge.Player.Save();
+            GameSaveSession.Save();
             _sceneLoader.LoadScene();
         }
 

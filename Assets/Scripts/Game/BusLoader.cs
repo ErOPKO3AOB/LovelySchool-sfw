@@ -11,10 +11,10 @@ public class BusLoader : MonoBehaviour
 
     public void GetInBus()
     {
-        UniWebBridge.Player.Set("currentCheckPoint", 0);
-        UniWebBridge.Player.Set("weaponDatas", "");
-
-        UniWebBridge.Player.Save();
+        if (!GameSaveSession.Set("currentCheckPoint", 0)) return;
+        if (!GameSaveSession.Set(InventorySaveData.Key, new InventorySaveData())) return;
+        UniWebBridge.Player.DeleteKey(InventorySaveData.LegacyKey);
+        GameSaveSession.Save();
 
         OnBusGet?.Invoke();
     }

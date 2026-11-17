@@ -251,14 +251,14 @@ namespace Player
 
         public void Teleport(Vector3 position, Quaternion rotation)
         {
-            PlayerRigidbody.isKinematic = true;
+            var body = PlayerRigidbody;
+            // Move the physics body itself: interpolation can restore the old Transform position during startup.
+            body.position = position;
+            body.rotation = rotation;
+            body.linearVelocity = Vector3.zero;
+            body.angularVelocity = Vector3.zero;
             transform.SetPositionAndRotation(position, rotation);
-            Invoke(nameof(TeleportEnd), 0.2f);
-        }
-
-        private void TeleportEnd()
-        {
-            _rigidbody.isKinematic = false;
+            Physics.SyncTransforms();
         }
 
         private void OnDestroy()

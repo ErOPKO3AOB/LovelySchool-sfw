@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Input;
+using Assets.Scripts.Input;
 using Assets.Scripts.Input.UI;
 using Data;
 using Game;
@@ -105,10 +105,23 @@ namespace Assets.Scripts.Game.Core
 
         // GameController.cs
 
+        private bool _initialized;
+        private bool _startupPause;
+        private float _startupTimeScale;
+
         private void Awake()
         {
-            UniWebBridge.Player.Load();
-            //CurrCheckPointIndex = YG2.saves.currentCheckPoint;
+            _startupTimeScale = Time.timeScale;
+            _startupPause = true;
+            _isPaused = true;
+            Time.timeScale = 0f;
+        }
+
+        private IEnumerator Start()
+        {
+            yield return GameSaveSession.Instance.EnsureLoaded();
+            // Player and spawner Start methods can run in either order, even during a synchronous local load.
+            while (!_playerFacade.Inventory.IsRestored) yield return null;
             UniWebBridge.Player.TryGet("currentCheckPoint", out int currentCheckPoint);
             CurrCheckPointIndex = currentCheckPoint;
             CurrCheckPointIndex = Mathf.Clamp(CurrCheckPointIndex, 0, _rooms.Length - 1);
@@ -124,10 +137,7 @@ namespace Assets.Scripts.Game.Core
             }
 
             _winningSceneLoader.OnSceneStartedLoading += () => _сounterService.SendMetrics();
-        }
 
-        private void Start()
-        {
             _sensitivitySlider.value = UniWebBridge.Player.Get("Sensitivity",
                 UniWebBridge.Envir.IsDesktop ?
                 _sensitivitySlider.maxValue / 5 :
@@ -140,7 +150,9 @@ namespace Assets.Scripts.Game.Core
 
             _gameSettings.mouseSensitivity = _sensitivitySlider.value;
 
-            UniWebBridge.Localization.SetLanguage(UniWebBridge.Player.Get("Language", "en"));
+            var language = PlayerPrefs.GetString("Language", "");
+            if (string.IsNullOrWhiteSpace(language)) language = UniWebBridge.Player.Get("Language", UniWebBridge.Localization.Language);
+            UniWebBridge.Localization.SetLanguage(language);
 
             // Checkpoints
             if (_checkPointPositions != null && _checkPointPositions.Length > 0)
@@ -202,10 +214,15 @@ namespace Assets.Scripts.Game.Core
             });
 
             _pauseMenuUI.SetActive(false);
+            _initialized = true;
+            _isPaused = false;
+            _startupPause = false;
+            Time.timeScale = _startupTimeScale;
         }
 
         private void Update()
         {
+            if (!_initialized || Checkpoints == null) return;
             foreach (var checkPoints in Checkpoints)
             {
                 if (checkPoints.gameObject.activeSelf)
@@ -215,7 +232,7 @@ namespace Assets.Scripts.Game.Core
 
         public void SetPaused(bool paused)
         {
-            if (_playerDead) return;
+            if (!_initialized || _playerDead) return;
 
             _isPaused = paused;
             //YG2.PauseGame(paused);
@@ -234,10 +251,11 @@ namespace Assets.Scripts.Game.Core
             }
             else
             {
-                UniWebBridge.Player.Set("HintsOff", _disableHintsToggle.isOn ? 1 : 0);
-                UniWebBridge.Player.Set("MusicOff", _disableMusicToggle.isOn ? 1 : 0);
-                UniWebBridge.Player.Set("Sensitivity", _sensitivitySlider.value);
-                UniWebBridge.Player.Save();
+                GameSaveSession.Set("HintsOff", _disableHintsToggle.isOn ? 1 : 0);
+                GameSaveSession.Set("MusicOff", _disableMusicToggle.isOn ? 1 : 0);
+                GameSaveSession.Set("Sensitivity", _sensitivitySlider.value);
+                GameSaveSession.Set("Language", TranslationDropdownController.CurrentLanguage);
+                GameSaveSession.Save();
 
                 Time.timeScale = 1f;
                 if (UniWebBridge.Envir.IsDesktop)
@@ -329,11 +347,9 @@ namespace Assets.Scripts.Game.Core
                 _sceneLoader.LoadScene();
             }
 
+            GameSaveSession.Save();
             if (!UniWebBridge.Ads.IsInterstitialReady) LoadScene();
-            else
-            {
-                _advService.ShowInterstitial();
-            }
+            else UniWebBridge.Ads.ShowInterstitial(onClosed: _ => LoadScene());
         }
 
         private void SkipCheckpointReward()
@@ -342,7 +358,8 @@ namespace Assets.Scripts.Game.Core
             //{
             _skipCheckpointButton.gameObject.SetActive(false);
 
-            UniWebBridge.Player.Set("currentCheckPoint", CurrCheckPointIndex + 1);
+            if (!GameSaveSession.Set("currentCheckPoint", Mathf.Min(CurrCheckPointIndex + 1, Checkpoints.Length - 1))) return;
+            GameSaveSession.Save();
             RestartGame();
             //}
         }
@@ -470,6 +487,8 @@ namespace Assets.Scripts.Game.Core
 
         private void OnDestroy()
         {
+            if (_startupPause) Time.timeScale = _startupTimeScale;
+            if (!_initialized) return;
             _playerFacade.Health.OnDead -= OnPlayerDead;
             _restartButton.onClick.RemoveAllListeners();
             _inputReader.OnPausePerformed -= OnPausePerformed;
