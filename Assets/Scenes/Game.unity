@@ -2775,166 +2775,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 27071190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 27071192}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0412\u044B\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u043C\u0443\u0437\u044B\u043A\u0443"
-  en: Turn off the music
-  tr: "M\xFCzi\u011Fi kapat"
-  az: 
-  be: "\u0412\u044B\u043A\u043B\u044E\u0447\u044B\u0446\u044C \u043C\u0443\u0437\u044B\u043A\u0443"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u041C\u0443\u0437\u044B\u043A\u0430\u043D\u044B \u04E9\u0448\u0456\u0440\u0456\u04A3\u0456\u0437"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0412\u0438\u043C\u043A\u043D\u0443\u0442\u0438 \u043C\u0443\u0437\u0438\u043A\u0443"
-  uz: Musiqani o'chiring
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 0/7 completed
-  componentTextField: 1
-  countLang: 0
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0412\u044B\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u043C\u0443\u0437\u044B\u043A\u0443"
+  _en: Turn off the music
 --- !u!1001 &27489561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3039,10 +2884,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 27489564}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -3052,6 +2901,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 27489561}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &27489563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 27489561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &27489564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27489563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
+  _en: Toilet
 --- !u!1001 &28131595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3642,10 +3510,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 31768384}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -3655,6 +3527,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 31768381}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &31768383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 31768381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &31768384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31768383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
+  _en: Toilet
 --- !u!4 &32055059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 315829013487122428, guid: db766ed4352289e4185333962f9ca0b4, type: 3}
@@ -11188,10 +11079,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 109853725}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -11201,6 +11096,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 109853722}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &109853724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 109853722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &109853725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109853724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
+  _en: Toilet
 --- !u!1001 &111381930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12696,10 +12610,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 130879152}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -12709,6 +12627,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 130879149}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &130879151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 130879149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &130879152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130879151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
+  _en: Toilet
 --- !u!1 &131605958
 GameObject:
   m_ObjectHideFlags: 0
@@ -18216,7 +18153,7 @@ GameObject:
   - component: {fileID: 188053900}
   - component: {fileID: 188053903}
   - component: {fileID: 188053902}
-  - component: {fileID: 188053901}
+  - component: {fileID: 188053904}
   m_Layer: 5
   m_Name: MessageText (5)
   m_TagString: Untagged
@@ -18243,182 +18180,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &188053901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188053899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 188053902}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0418\u0429\u0418 \u0421\u041D\u0410\u0419\u041F\u0415\u0420\u041A\u0423
-    \u041D\u0410 \u0421\u041A\u041B\u0410\u0414\u0415 \u0423 \u0410\u041A\u0422\u041E\u0412\u041E\u0413\u041E
-    \u0417\u0410\u041B\u0410"
-  en: LOOK FOR THE SNIPER RIFLE IN THE WAREHOUSE IN THE ASSEMBLY HALL
-  tr: "TOPLANTI SALONUNDAK\u0130 DEPODA KESK\u0130N N\u0130\u015EANCIYI ARAYIN"
-  az: 
-  be: "\u0428\u0423\u041A\u0410\u0419\u0426\u0415 \u0421\u041D\u0410\u0419\u041F\u0415\u0420\u0410
-    \u041D\u0410 \u0421\u041A\u041B\u0410\u0414\u0417\u0415 \u040E \u0410\u041A\u0422\u0410\u0412\u0410\u0419
-    \u0417\u0410\u041B\u0415"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u041C\u0415\u0420\u0413\u0415\u041D\u0414\u0406 \u0410\u049A\u0422 \u0417\u0410\u041B\u042B\u041D\u0414\u0410\u0492\u042B
-    \u049A\u041E\u0419\u041C\u0410\u0414\u0410\u041D \u0406\u0417\u0414\u0415\u04A2\u0406\u0417."
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0418\u0429\u0418 \u0421\u041D\u0410\u0419\u041F\u0415\u0420\u041A\u0423
-    \u041D\u0410 \u0421\u041A\u041B\u0410\u0414\u0415 \u0423 \u0410\u041A\u0422\u041E\u0412\u041E\u0413\u041E
-    \u0417\u0410\u041B\u0410"
-  uz: Snayperni MONTAJ ZALIDAGI Ombordan Izlang
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &188053902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18521,6 +18282,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188053899}
   m_CullTransparentMesh: 1
+--- !u!114 &188053904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188053899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0418\u0429\u0418 \u0421\u041D\u0410\u0419\u041F\u0415\u0420\u041A\u0423
+    \u041D\u0410 \u0421\u041A\u041B\u0410\u0414\u0415 \u0423 \u0410\u041A\u0422\u041E\u0412\u041E\u0413\u041E
+    \u0417\u0410\u041B\u0410"
+  _en: LOOK FOR THE SNIPER RIFLE IN THE WAREHOUSE IN THE ASSEMBLY HALL
 --- !u!1 &189151993
 GameObject:
   m_ObjectHideFlags: 0
@@ -28553,7 +28330,7 @@ GameObject:
   - component: {fileID: 269931596}
   - component: {fileID: 269931599}
   - component: {fileID: 269931598}
-  - component: {fileID: 269931597}
+  - component: {fileID: 269931600}
   m_Layer: 5
   m_Name: MessageText (3)
   m_TagString: Untagged
@@ -28580,183 +28357,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &269931597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269931595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 269931598}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0418\u0429\u0418 \u041F\u0423\u041B\u0415\u041C\u0415\u0422 \u0412 \u0422\u0423\u0410\u041B\u0415\u0422\u0410\u0425
-    \u0422\u0420\u0415\u0422\u042C\u0415\u0413\u041E \u042D\u0422\u0410\u0416\u0410!!"
-  en: LOOK FOR THE MACHINE GUN IN THE THIRD FLOOR TOILETS!!
-  tr: "\xDC\xC7\xDCNC\xDC KAT TUVALETLER\u0130NDE MAK\u0130NEL\u0130 T\xFCfe\u011Fi
-    ARAYIN!!"
-  az: 
-  be: "\u0428\u0443\u043A\u0430\u0439 \u043A\u0443\u043B\u044F\u043C\u0451\u0442
-    \u0443 \u0442\u0443\u0430\u043B\u0435\u0442\u0430\u0445 \u0442\u0440\u044D\u0446\u044F\u0433\u0430
-    \u043F\u0430\u0432\u0435\u0440\u0445\u0443!!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u041F\u0423\u041B\u0415\u041C\u0415\u0422\u0422\u042B \u04AE\u0428\u0406\u041D\u0428\u0406
-    \u049A\u0410\u0422\u0422\u0410\u0492\u042B \u0414\u04D8\u0420\u0415\u041A\u0422\u0415\u041D\u0414\u0415\u0420\u0414\u0415\u041D
-    \u0406\u0417\u0414\u0415\u04A2\u0406\u0417!!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0428\u0443\u043A\u0430\u0439 \u043A\u0443\u043B\u0435\u043C\u0435\u0442
-    \u0443 \u0442\u0443\u0430\u043B\u0435\u0442\u0430\u0445 \u0442\u0440\u0435\u0442\u044C\u043E\u0433\u043E
-    \u043F\u043E\u0432\u0435\u0440\u0445\u0443!!"
-  uz: UCHINCHI QAT HOJJATHALARIDAN AVTOMATNI Izlang!!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &269931598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28778,7 +28378,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u0418\u0429\u0418 \u041F\u0423\u041B\u0415\u041C\u0415\u0422 \u0412 \u0422\u0423\u0410\u041B\u0415\u0422\u0410\u0425
-    \u0422\u0420\u0415\u0422\u042C\u0415\u0413\u041E \u042D\u0422\u0410\u0416\u0410!! "
+    \u0422\u0420\u0415\u0422\u042C\u0415\u0413\u041E \u042D\u0422\u0410\u0416\u0410!!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28858,6 +28458,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269931595}
   m_CullTransparentMesh: 1
+--- !u!114 &269931600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269931595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0418\u0429\u0418 \u041F\u0423\u041B\u0415\u041C\u0415\u0422 \u0412 \u0422\u0423\u0410\u041B\u0415\u0422\u0410\u0425
+    \u0422\u0420\u0415\u0422\u042C\u0415\u0413\u041E \u042D\u0422\u0410\u0416\u0410!!"
+  _en: LOOK FOR THE MACHINE GUN IN THE THIRD FLOOR TOILETS!!
 --- !u!1 &270076248
 GameObject:
   m_ObjectHideFlags: 0
@@ -30221,7 +29836,7 @@ GameObject:
   - component: {fileID: 288744939}
   - component: {fileID: 288744942}
   - component: {fileID: 288744941}
-  - component: {fileID: 288744940}
+  - component: {fileID: 288744943}
   m_Layer: 5
   m_Name: MessageText (11)
   m_TagString: Untagged
@@ -30248,177 +29863,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &288744940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 288744938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 288744941}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0412\u0440\u0435\u043C\u044F \u0443\u0435\u0445\u0430\u0442\u044C \u043D\u0430
-    \u0430\u0432\u0442\u043E\u0431\u0443\u0441\u0435!!!"
-  en: Time to leave by bus!!!
-  tr: "Otob\xFCsle yola \xE7\u0131kma zaman\u0131!!!"
-  az: 
-  be: "\u0427\u0430\u0441 \u0437'\u0435\u0445\u0430\u0446\u044C \u043D\u0430 \u0430\u045E\u0442\u043E\u0431\u0443\u0441\u0435!!!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0410\u0432\u0442\u043E\u0431\u0443\u0441\u043F\u0435\u043D \u043A\u0435\u0442\u0435\u0442\u0456\u043D
-    \u0443\u0430\u049B\u044B\u0442!!!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0427\u0430\u0441 \u043F\u043E\u0457\u0445\u0430\u0442\u0438 \u0430\u0432\u0442\u043E\u0431\u0443\u0441\u043E\u043C!!!"
-  uz: Avtobusda ketish vaqti!!!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &288744941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30520,6 +29964,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288744938}
   m_CullTransparentMesh: 1
+--- !u!114 &288744943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288744938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0412\u0440\u0435\u043C\u044F \u0443\u0435\u0445\u0430\u0442\u044C \u043D\u0430
+    \u0430\u0432\u0442\u043E\u0431\u0443\u0441\u0435!!!"
+  _en: Time to leave by bus!!!
 --- !u!1 &290644983
 GameObject:
   m_ObjectHideFlags: 0
@@ -40480,10 +39939,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (17)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 352521060}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -40493,6 +39956,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 352521057}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &352521059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 352521057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &352521060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352521059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u043E\u0440\u0447\u0438\u0442 \u043A\u043E\u0441\u0430\u0440\u044C"
+  _en: The mower is sticking out
 --- !u!1001 &352926958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41080,8 +40562,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0447\u0435\u043A\u043F\u043E\u0438\u043D\u0442?
-    (\u0420\u0415\u041A\u041B\u0410\u041C\u0410)"
+  m_text: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0440\u0435\u043A\u043B\u0430\u043C\u0443,
+    \u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C
+    \u0447\u0435\u043A\u043F\u043E\u0438\u043D\u0442!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -41170,176 +40653,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 362107472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 362107474}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0440\u0435\u043A\u043B\u0430\u043C\u0443,
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0440\u0435\u043A\u043B\u0430\u043C\u0443,
     \u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C
     \u0447\u0435\u043A\u043F\u043E\u0438\u043D\u0442!"
-  en: Watch the ad to skip the checkpoint!
-  tr: "Kontrol noktas\u0131n\u0131 atlamak i\xE7in reklam\u0131 izleyin!"
-  az: 
-  be: "\u0413\u043B\u044F\u0434\u0437\u0456\u0446\u0435 \u0440\u044D\u043A\u043B\u0430\u043C\u0443,
-    \u043A\u0430\u0431 \u043F\u0440\u0430\u043F\u0443\u0441\u0446\u0456\u0446\u044C
-    \u043A\u0430\u043D\u0442\u0440\u043E\u043B\u044C\u043D\u0430-\u043F\u0440\u0430\u043F\u0443\u0441\u043A\u043D\u044B
-    \u043F\u0443\u043D\u043A\u0442!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0411\u0430\u049B\u044B\u043B\u0430\u0443 \u043F\u0443\u043D\u043A\u0442\u0456\u043D
-    \u04E9\u0442\u043A\u0456\u0437\u0456\u043F \u0436\u0456\u0431\u0435\u0440\u0443
-    \u04AF\u0448\u0456\u043D \u0436\u0430\u0440\u043D\u0430\u043C\u0430\u043D\u044B
-    \u049B\u0430\u0440\u0430\u04A3\u044B\u0437!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u041F\u0435\u0440\u0435\u0433\u043B\u044F\u043D\u044C\u0442\u0435 \u0440\u0435\u043A\u043B\u0430\u043C\u0443,
-    \u0449\u043E\u0431 \u043F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u0438
-    \u041A\u041F\u041F!"
-  uz: Tekshirish punktini o'tkazib yuborish uchun reklamani tomosha qiling!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
+  _en: Watch the ad to skip the checkpoint!
 --- !u!1 &364018156
 GameObject:
   m_ObjectHideFlags: 0
@@ -43684,166 +43004,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 384344302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 384344304}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u041F\u041E\u0420\u0410\u0416\u0415\u041D\u0418\u0415!"
-  en: DEFEAT!
-  tr: YENMEK!
-  az: 
-  be: "\u041F\u0410\u0420\u0410\u0416\u0410\u041D\u041D\u0415!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0416\u0415\u04A2\u0406\u041B\u0406\u04A2\u0406\u0417!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0423\u0420\u0410\u0416\u0415\u041D\u041D\u042F!"
-  uz: MAG'LUB!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041F\u041E\u0420\u0410\u0416\u0415\u041D\u0418\u0415!"
+  _en: DEFEAT!
 --- !u!43 &385411660
 Mesh:
   m_ObjectHideFlags: 0
@@ -44807,10 +43972,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (11)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 396093691}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -44820,6 +43989,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 396093688}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &396093690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 396093688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &396093691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396093690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
+  _en: Toilet
 --- !u!1001 &396236224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71310,166 +70498,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 488791777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 488791779}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
-  en: SETTINGS
-  tr: AYARLAR
-  az: 
-  be: "\u041D\u0410\u041B\u0410\u0414\u041A\u0406"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u041F\u0410\u0420\u0410\u041C\u0415\u0422\u0420\u041B\u0415\u0420"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u041D\u0410\u041B\u0410\u0428\u0422\u0423\u0412\u0410\u041D\u041D\u042F"
-  uz: SOZLAMALAR
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+  _en: SETTINGS
 --- !u!1 &488920493
 GameObject:
   m_ObjectHideFlags: 0
@@ -76912,10 +75945,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (15)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 539003932}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -76925,6 +75962,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 539003929}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &539003931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 539003929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &539003932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539003931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0421\u0442\u043E\u043B\u043E\u0432\u0430\u044F"
+  _en: Dining room
 --- !u!1001 &539971392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77979,7 +77035,7 @@ GameObject:
   - component: {fileID: 553682413}
   - component: {fileID: 553682416}
   - component: {fileID: 553682415}
-  - component: {fileID: 553682414}
+  - component: {fileID: 553682417}
   m_Layer: 5
   m_Name: MessageText (9)
   m_TagString: Untagged
@@ -78006,176 +77062,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &553682414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553682412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 553682415}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u041F\u043E\u0440\u0430 \u0432 \u043B\u0435\u0441!"
-  en: It's time to go to the forest!
-  tr: "Ormana gitme zaman\u0131 geldi!"
-  az: 
-  be: "\u0427\u0430\u0441 \u0443 \u043B\u0435\u0441!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u041E\u0440\u043C\u0430\u043D\u0493\u0430 \u0431\u0430\u0440\u0430\u0442\u044B\u043D
-    \u0443\u0430\u049B\u044B\u0442 \u043A\u0435\u043B\u0434\u0456!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0427\u0430\u0441 \u0443 \u043B\u0456\u0441!"
-  uz: O'rmonga borish vaqti keldi!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &553682415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78276,6 +77162,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553682412}
   m_CullTransparentMesh: 1
+--- !u!114 &553682417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553682412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041F\u043E\u0440\u0430 \u0432 \u043B\u0435\u0441!"
+  _en: It's time to go to the forest!
 --- !u!1 &554285633
 GameObject:
   m_ObjectHideFlags: 0
@@ -78901,10 +77801,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 559598290}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -78914,6 +77818,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 559598287}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &559598289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 559598287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &559598290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559598289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
+  _en: Toilet
 --- !u!1001 &560963358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79792,10 +78715,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (21)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 573152545}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -79805,6 +78732,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 573152542}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &573152544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 573152542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &573152545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573152544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0420\u0430\u0437\u0434\u0435\u0432\u0430\u043B\u043A\u0430 1"
+  _en: Locker room 1
 --- !u!1001 &573785396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83134,10 +82080,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (24)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 620288695}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -83147,6 +82097,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 620288692}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &620288694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 620288692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &620288695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620288694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0410\u043A\u0442\u043E\u0432\u044B\u0439 \u0437\u0430\u043B"
+  _en: Assembly hall
 --- !u!1001 &620763857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84156,10 +83125,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (16)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626101198}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -84169,6 +83142,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 626101195}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &626101197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 626101195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &626101198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626101197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u043E\u0440\u0447\u0438\u0442 \u0433\u043E\u0440\u0441\u0442\u044C
+    \u0441\u0435\u043C\u0435\u0447\u0435\u043A"
+  _en: A handful of seeds sticks out
 --- !u!1001 &627219997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98250,10 +97243,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (26)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 649438136}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -98263,6 +97260,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 649438133}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &649438135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 649438133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &649438136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649438135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0420\u0430\u0437\u0434\u0435\u0432\u0430\u043B\u043A\u0430 2"
+  _en: Locker room 2
 --- !u!1001 &649560694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107628,170 +106644,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 739825577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 739825579}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0412\u044B\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u043F\u043E\u0434\u0441\u043A\u0430\u0437\u043A\u0438
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0412\u044B\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u043F\u043E\u0434\u0441\u043A\u0430\u0437\u043A\u0438
     \u0438\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441\u0430"
-  en: Turn off interface prompts
-  tr: "Aray\xFCz istemlerini kapat"
-  az: 
-  be: "\u0412\u044B\u043A\u043B\u044E\u0447\u044B\u0446\u044C \u043F\u0430\u0434\u043A\u0430\u0437\u043A\u0456
-    \u0456\u043D\u0442\u044D\u0440\u0444\u0435\u0439\u0441\u0443"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0448\u0430\u049B\u044B\u0440\u0443\u043B\u0430\u0440\u044B\u043D
-    \u04E9\u0448\u0456\u0440\u0456\u04A3\u0456\u0437"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0412\u0438\u043C\u043A\u043D\u0443\u0442\u0438 \u043F\u0456\u0434\u043A\u0430\u0437\u043A\u0438
-    \u0456\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441\u0443"
-  uz: Interfeys ko'rsatmalarini o'chiring
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
+  _en: Turn off interface prompts
 --- !u!1001 &740505326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115844,7 +114702,7 @@ GameObject:
   - component: {fileID: 784315990}
   - component: {fileID: 784315993}
   - component: {fileID: 784315992}
-  - component: {fileID: 784315991}
+  - component: {fileID: 784315994}
   m_Layer: 5
   m_Name: MessageText (6)
   m_TagString: Untagged
@@ -115871,179 +114729,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &784315991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784315989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 784315992}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0423\u041B\u0418\u0426\u0410 \u041E\u0422\u041A\u0420\u042B\u0422\u0410,
-    \u041F\u041E\u0413\u041D\u0410\u041B \u041D\u0410 \u041A\u0420\u042B\u0428\u0423!"
-  en: THE STREET IS OPEN, GO TO THE ROOF!
-  tr: "SOKAK A\xC7IK, \xC7ATIYA \xC7IKIN!"
-  az: 
-  be: "\u0412\u0423\u041B\u0406\u0426\u0410 \u0410\u0414\u041A\u0420\u042B\u0422\u0410\u042F,
-    \u041F\u0410\u0413\u041D\u0410\u040E \u041D\u0410 \u0414\u0410\u0425!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u041A\u04E8\u0428\u0415 \u0410\u0448\u044B\u049B, \u0422\u04E9\u0431\u0435\u0433\u0435
-    \u0428\u042B\u0492\u042B\u04A2\u042B\u0417!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0412\u0423\u041B\u0418\u0426\u042F \u0412\u0406\u0414\u041A\u0420\u0418\u0422\u0410,
-    \u041F\u041E\u0413\u041D\u0410\u0412 \u041D\u0410 \u0414\u0410\u0425!"
-  uz: KO'CHA Ochiq, tomga chiq!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &784315992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116145,6 +114830,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784315989}
   m_CullTransparentMesh: 1
+--- !u!114 &784315994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784315989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0423\u041B\u0418\u0426\u0410 \u041E\u0422\u041A\u0420\u042B\u0422\u0410,
+    \u041F\u041E\u0413\u041D\u0410\u041B \u041D\u0410 \u041A\u0420\u042B\u0428\u0423!"
+  _en: THE STREET IS OPEN, GO TO THE ROOF!
 --- !u!1 &785345024
 GameObject:
   m_ObjectHideFlags: 0
@@ -122779,170 +121479,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 833196986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 833196988}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u041D\u0430\u0436\u043C\u0438 \u0441\u044E\u0434\u0430 \u0434\u043B\u044F
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041D\u0430\u0436\u043C\u0438 \u0441\u044E\u0434\u0430 \u0434\u043B\u044F
     \u0440\u0435\u0441\u0442\u0430\u0440\u0442\u0430"
-  en: Click here to restart
-  tr: "Yeniden ba\u015Flatmak i\xE7in buray\u0131 t\u0131klay\u0131n"
-  az: 
-  be: "\u041D\u0430\u0446\u0456\u0441\u043D\u0456\u0446\u0435 \u0441\u044E\u0434\u044B
-    \u0434\u043B\u044F \u0440\u044D\u0441\u0442\u0430\u0440\u0442\u0443"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u049A\u0430\u0439\u0442\u0430 \u0431\u0430\u0441\u0442\u0430\u0443 \u04AF\u0448\u0456\u043D
-    \u043E\u0441\u044B \u0436\u0435\u0440\u0434\u0456 \u0431\u0430\u0441\u044B\u04A3\u044B\u0437"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u041D\u0430\u0442\u0438\u0441\u043D\u0456\u0442\u044C \u0441\u044E\u0434\u0438
-    \u0434\u043B\u044F \u0440\u0435\u0441\u0442\u0430\u0440\u0442\u0443"
-  uz: Qayta boshlash uchun shu yerni bosing
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
+  _en: Click here to restart
 --- !u!1001 &833398939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124964,10 +123506,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (18)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 854713194}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -124977,6 +123523,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 854713191}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &854713193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 854713191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &854713194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854713193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041A\u0443\u0445\u043D\u044F"
+  _en: Kitchen
 --- !u!1001 &854941725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129766,10 +128331,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (20)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 907968133}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -129779,6 +128348,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 907968130}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &907968132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 907968130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &907968133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907968132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0421\u043F\u043E\u0440\u0442\u0437\u0430\u043B"
+  _en: Gym
 --- !u!1001 &908925134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156455,7 +155043,7 @@ GameObject:
   - component: {fileID: 1137235203}
   - component: {fileID: 1137235206}
   - component: {fileID: 1137235205}
-  - component: {fileID: 1137235204}
+  - component: {fileID: 1137235207}
   m_Layer: 5
   m_Name: MessageText (2)
   m_TagString: Untagged
@@ -156482,179 +155070,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1137235204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137235202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1137235205}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u041A\u041E\u0420\u0418\u0414\u041E\u0420 \u041F\u0415\u0420\u0412\u041E\u0413\u041E
-    \u042D\u0422\u0410\u0416\u0410 \u0417\u0410\u0427\u0418\u0429\u0415\u041D!"
-  en: GROUND FLOOR CORRIDOR IS CLEARED!
-  tr: "ZEM\u0130N KAT KOR\u0130DORU TEM\u0130ZLEND\u0130!"
-  az: 
-  be: "\u041A\u0410\u041B\u0406\u0414\u0410\u0420 \u041F\u0415\u0420\u0428\u0410\u0413\u0410
-    \u041F\u0430\u0432\u0435\u0440\u0445\u0443 \u0417\u0410\u0427\u042B\u0428\u0427\u0410\u041D\u042B!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0411\u0410\u0421\u0422\u042B \u049A\u0410\u0422 \u0414\u04D8\u041B\u0406\u0417\u0406
-    \u0422\u0410\u0417\u0410\u041B\u0410\u0414\u042B!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u041A\u041E\u0420\u0418\u0414\u041E\u0420 \u041F\u0415\u0420\u0428\u041E\u0413\u041E
-    \u041F\u041E\u0412\u0415\u0420\u0425\u0423 \u0417\u0410\u0427\u0418\u0429\u0415\u041D\u041E!"
-  uz: YERINCHI QAT KORIDRORI TOZALADI!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &1137235205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156756,6 +155171,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137235202}
   m_CullTransparentMesh: 1
+--- !u!114 &1137235207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137235202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041A\u041E\u0420\u0418\u0414\u041E\u0420 \u041F\u0415\u0420\u0412\u041E\u0413\u041E
+    \u042D\u0422\u0410\u0416\u0410 \u0417\u0410\u0427\u0418\u0429\u0415\u041D!"
+  _en: GROUND FLOOR CORRIDOR IS CLEARED!
 --- !u!1001 &1137274710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -271233,166 +269663,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1193811126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1193811128}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 1
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "1 \u042D\u0422\u0410\u0416"
-  en: 1st FLOOR
-  tr: 1. KAT
-  az: 
-  be: "1 \u041F\u044D\u0442\u0430\u0436"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "1-\u049B\u0430\u0431\u0430\u0442"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "1 \u041F\u041E\u0412\u0415\u0420\u0425"
-  uz: 1-QAT
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: "\u092A\u0939\u0932\u0940 \u092E\u0902\u091C\u093F\u0932"
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 8/8 completed
-  componentTextField: 1
-  countLang: 8
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "1 \u042D\u0422\u0410\u0416"
+  _en: 1st FLOOR
 --- !u!1001 &1194198119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -281248,10 +279523,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1310245132}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -281261,6 +279540,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1310245129}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1310245131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1310245129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310245132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310245131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
+  _en: Toilet
 --- !u!1 &1310466398
 GameObject:
   m_ObjectHideFlags: 0
@@ -282843,10 +281141,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (28)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1335706059}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -282856,6 +281158,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1335706056}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1335706058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1335706056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1335706059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335706058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041A\u0440\u044B\u0448\u0430"
+  _en: Roof
 --- !u!1 &1336741115
 GameObject:
   m_ObjectHideFlags: 0
@@ -289931,166 +288252,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1408926559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1408926561}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u041E\u0441\u0442\u0430\u043B\u043E\u0441\u044C \u0432\u0440\u0430\u0433\u043E\u0432:"
-  en: 'Enemies left:'
-  tr: "Kalan d\xFC\u015Fmanlar:"
-  az: 
-  be: "\u0417\u0430\u0441\u0442\u0430\u043B\u043E\u0441\u044F \u0432\u043E\u0440\u0430\u0433\u0430\u045E:"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0416\u0430\u0443\u043B\u0430\u0440 \u049B\u0430\u043B\u0434\u044B:"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0417\u0430\u043B\u0438\u0448\u0438\u043B\u043E\u0441\u044C \u0432\u043E\u0440\u043E\u0433\u0456\u0432:"
-  uz: 'Dushmanlar qoldi:'
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041E\u0441\u0442\u0430\u043B\u043E\u0441\u044C \u0432\u0440\u0430\u0433\u043E\u0432:"
+  _en: 'Enemies left:'
 --- !u!1001 &1409856818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291605,7 +289771,7 @@ GameObject:
   - component: {fileID: 1433693035}
   - component: {fileID: 1433693038}
   - component: {fileID: 1433693037}
-  - component: {fileID: 1433693036}
+  - component: {fileID: 1433693039}
   m_Layer: 5
   m_Name: MessageText (10)
   m_TagString: Untagged
@@ -291632,175 +289798,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1433693036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433693034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1433693037}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0422\u044B \u043F\u0440\u043E\u0441\u0442\u043E \u0437\u0432\u0435\u0440\u044C.."
-  en: You're just a beast...
-  tr: "Sen sadece bir canavars\u0131n..."
-  az: 
-  be: "\u0422\u044B \u043F\u0440\u043E\u0441\u0442\u0430 \u0437\u0432\u0435\u0440.."
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0421\u0435\u043D \u0436\u04D9\u0439 \u0445\u0430\u0439\u0443\u0430\u043D\u0441\u044B\u04A3..."
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0422\u0438 \u043F\u0440\u043E\u0441\u0442\u043E \u0437\u0432\u0456\u0440.."
-  uz: Sen shunchaki hayvonsan...
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &1433693037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291901,6 +289898,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433693034}
   m_CullTransparentMesh: 1
+--- !u!114 &1433693039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433693034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u044B \u043F\u0440\u043E\u0441\u0442\u043E \u0437\u0432\u0435\u0440\u044C.."
+  _en: You're just a beast...
 --- !u!1001 &1433995312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292862,10 +290873,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (25)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1442225488}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -292875,6 +290890,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1442225485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1442225487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1442225485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1442225488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442225487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0420\u0430\u0437\u0434\u0435\u0432\u0430\u043B\u043A\u0430 1"
+  _en: Locker room 1
 --- !u!1001 &1442930817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292983,13 +291017,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (12)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1193811127}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1442930820}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -292999,6 +291037,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1442930817}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1442930819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1442930817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1442930820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442930819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "1 \u042D\u0422\u0410\u0416"
+  _en: 1st FLOOR
 --- !u!1001 &1443041444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -297857,13 +295914,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (14)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1860241455}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1483284729}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -297873,6 +295934,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1483284726}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1483284728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1483284726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1483284729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483284728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "3 \u042D\u0422\u0410\u0416"
+  _en: 3rd FLOOR
 --- !u!43 &1483664996
 Mesh:
   m_ObjectHideFlags: 0
@@ -298751,7 +296831,7 @@ GameObject:
   - component: {fileID: 1491511577}
   - component: {fileID: 1491511580}
   - component: {fileID: 1491511579}
-  - component: {fileID: 1491511578}
+  - component: {fileID: 1491511581}
   m_Layer: 5
   m_Name: MessageText (7)
   m_TagString: Untagged
@@ -298778,175 +296858,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1491511578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491511576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1491511579}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u041F\u041E\u0413\u041D\u0410\u041B\u0418 \u041D\u0410 \u0422\u0423\u0420\u041D\u0418\u0427\u041A\u0418!"
-  en: LET'S GO TO WORKOUT ZONE!
-  tr: "TURN\u0130KA'YA G\u0130DEL\u0130M!"
-  az: 
-  be: "\u0415\u0414\u0417\u0415\u041C \u041D\u0410 \u0422\u0423\u0420\u041D\u0406\u0426\u0423!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0422\u0423\u0420\u041D\u0418\u041A\u0410\u0492\u0410 \u0411\u0410\u0420\u0410\u0419\u042B\u049A!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0419\u0414\u0415\u041C\u041E \u041D\u0410 \u0422\u0423\u0420\u041D\u0406\u041A\u0423!"
-  uz: KELING, TUNIKAGA KETISH!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 0/7 completed
-  componentTextField: 1
-  countLang: 0
 --- !u!114 &1491511579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299047,6 +296958,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491511576}
   m_CullTransparentMesh: 1
+--- !u!114 &1491511581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491511576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041F\u041E\u0413\u041D\u0410\u041B\u0418 \u041D\u0410 \u0422\u0423\u0420\u041D\u0418\u0427\u041A\u0418!"
+  _en: LET'S GO TO WORKOUT ZONE!
 --- !u!1 &1492569827
 GameObject:
   m_ObjectHideFlags: 0
@@ -299349,168 +297274,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1494855568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1494855570}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0427\u0443\u0432\u0441\u0442\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0427\u0443\u0432\u0441\u0442\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
     \u043A\u0430\u043C\u0435\u0440\u044B"
-  en: Camera sensitivity
-  tr: Kamera hassasiyeti
-  az: 
-  be: "\u0410\u0434\u0447\u0443\u0432\u0430\u043B\u044C\u043D\u0430\u0441\u0446\u044C
-    \u043A\u0430\u043C\u0435\u0440\u044B"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u041A\u0430\u043C\u0435\u0440\u0430 \u0441\u0435\u0437\u0456\u043C\u0442\u0430\u043B\u0434\u044B\u0493\u044B"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0427\u0443\u0442\u043B\u0438\u0432\u0456\u0441\u0442\u044C \u043A\u0430\u043C\u0435\u0440\u0438"
-  uz: Kamera sezgirligi
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
+  _en: Camera sensitivity
 --- !u!4 &1495230996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 315829013487122428, guid: db766ed4352289e4185333962f9ca0b4, type: 3}
@@ -301553,10 +299322,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1516264667}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -301566,6 +299339,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1516264664}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1516264666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1516264664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1516264667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516264666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
+  _en: Toilet
 --- !u!1 &1516532601
 GameObject:
   m_ObjectHideFlags: 0
@@ -304654,166 +302446,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1551116023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1551116025}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 1
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "2 \u042D\u0422\u0410\u0416"
-  en: 2nd FLOOR
-  tr: 2. KAT
-  az: 
-  be: "2 \u041F\u044D\u0442\u0430\u0436"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "2- \u049A\u0410\u0422"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "2 \u041F\u041E\u0412\u0415\u0420\u0425"
-  uz: 2-QAT
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: "\u0926\u094D\u0935\u0924\u0940\u092F \u092E\u0902\u091C\u093C\u093F\u0932"
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 8/8 completed
-  componentTextField: 1
-  countLang: 8
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "2 \u042D\u0422\u0410\u0416"
+  _en: 2nd FLOOR
 --- !u!1001 &1551507071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -310608,7 +308245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4567012791087534701, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       propertyPath: m_text
-      value: "\u0421\u043A\u043B\u0430\u0434"
+      value: "\u0421\u043E\u0441\u0442\u0430\u0432"
       objectReference: {fileID: 0}
     - target: {fileID: 4567012791087534701, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       propertyPath: m_fontSize
@@ -310662,10 +308299,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (23)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1592957954}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -310675,6 +308316,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1592957951}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1592957953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1592957951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1592957954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592957953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0421\u043E\u0441\u0442\u0430\u0432"
+  _en: Composition
 --- !u!1001 &1593025180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -319189,10 +316849,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (22)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1653471295}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -319202,6 +316866,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1653471292}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1653471294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1653471292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1653471295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653471294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0420\u0430\u0437\u0434\u0435\u0432\u0430\u043B\u043A\u0430 2"
+  _en: Locker room 2
 --- !u!4 &1654599584
 Transform:
   m_ObjectHideFlags: 0
@@ -319819,7 +317502,7 @@ GameObject:
   - component: {fileID: 1662059986}
   - component: {fileID: 1662059989}
   - component: {fileID: 1662059988}
-  - component: {fileID: 1662059987}
+  - component: {fileID: 1662059990}
   m_Layer: 5
   m_Name: MessageText (1)
   m_TagString: Untagged
@@ -319846,175 +317529,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1662059987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662059985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1662059988}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u041F\u0415\u0420\u0415\u041C\u0415\u041D\u0410!"
-  en: CHANGE!
-  tr: "DE\u011E\u0130\u015ET\u0130RMEK!"
-  az: 
-  be: "\u0417\u041C\u0415\u041D\u0410!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u04E8\u0417\u0413\u0415\u0420\u0422\u0423!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0417\u041C\u0406\u041D\u0410!"
-  uz: O'ZGARISH!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &1662059988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320115,6 +317629,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662059985}
   m_CullTransparentMesh: 1
+--- !u!114 &1662059990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662059985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041F\u0415\u0420\u0415\u041C\u0415\u041D\u0410!"
+  _en: CHANGE!
 --- !u!1 &1664165570
 GameObject:
   m_ObjectHideFlags: 0
@@ -325386,7 +322914,7 @@ GameObject:
   - component: {fileID: 1723992736}
   - component: {fileID: 1723992739}
   - component: {fileID: 1723992738}
-  - component: {fileID: 1723992737}
+  - component: {fileID: 1723992740}
   m_Layer: 5
   m_Name: MessageText (8)
   m_TagString: Untagged
@@ -325413,176 +322941,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1723992737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723992735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1723992738}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0422\u0443\u0440\u043D\u0438\u043A\u0438 \u0437\u0430\u0447\u0438\u0449\u0435\u043D\u044B"
-  en: The horizontal bars have been cleared
-  tr: "Yatay \xE7ubuklar temizlendi"
-  az: 
-  be: "\u0422\u0443\u0440\u043D\u0456\u043A\u0456 \u0437\u0430\u0447\u044B\u0448\u0447\u0430\u043D\u044B"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u041A\u04E9\u043B\u0434\u0435\u043D\u0435\u04A3 \u0436\u043E\u043B\u0430\u049B\u0442\u0430\u0440
-    \u0442\u0430\u0437\u0430\u0440\u0442\u044B\u043B\u0434\u044B"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0422\u0443\u0440\u043D\u0456\u043A\u0438 \u0437\u0430\u0447\u0438\u0449\u0435\u043D\u0456"
-  uz: Gorizontal chiziqlar tozalandi
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &1723992738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325683,6 +323041,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723992735}
   m_CullTransparentMesh: 1
+--- !u!114 &1723992740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723992735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0440\u043D\u0438\u043A\u0438 \u0437\u0430\u0447\u0438\u0449\u0435\u043D\u044B"
+  _en: The horizontal bars have been cleared
 --- !u!1 &1724371446
 GameObject:
   m_ObjectHideFlags: 0
@@ -332136,7 +329508,7 @@ GameObject:
   - component: {fileID: 1747954570}
   - component: {fileID: 1747954573}
   - component: {fileID: 1747954572}
-  - component: {fileID: 1747954571}
+  - component: {fileID: 1747954574}
   m_Layer: 5
   m_Name: MessageText (0)
   m_TagString: Untagged
@@ -332163,179 +329535,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1747954571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747954569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1747954572}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u041A\u041E\u0420\u0418\u0414\u041E\u0420 \u041E\u0422\u041A\u0420\u042B\u0422!
-    \u0418\u0429\u0418 \u041F\u0418\u0421\u0422\u041E\u041B\u0415\u0422!"
-  en: THE CORRIDOR IS OPEN! LOOK FOR THE GUN!
-  tr: "KOR\u0130DOR A\xC7IK! S\u0130LAHI ARAYIN!"
-  az: 
-  be: "\u041A\u0410\u041B\u0406\u0414\u0410\u0420 \u0410\u0414\u041A\u0420\u042B\u0422\u042B!
-    \u0428\u0443\u043A\u0430\u0439 \u043F\u0456\u0441\u0442\u0430\u043B\u0435\u0442!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0414\u04D8\u041B\u0406\u0417 \u0410\u0428\u042B\u049A! \u041C\u044B\u043B\u0442\u044B\u049B\u0442\u044B
-    \u0406\u0437\u0434\u0435\u04A3\u0456\u0437!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u041A\u041E\u0420\u0418\u0414\u041E\u0420 \u0412\u0406\u0414\u041A\u0420\u0418\u0422\u0418\u0419!
-    \u0428\u0443\u043A\u0430\u0439 \u043F\u0456\u0441\u0442\u043E\u043B\u0435\u0442!"
-  uz: YO'LOZ Ochiq! Qurolni izlang!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &1747954572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332437,6 +329636,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747954569}
   m_CullTransparentMesh: 1
+--- !u!114 &1747954574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747954569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041A\u041E\u0420\u0418\u0414\u041E\u0420 \u041E\u0422\u041A\u0420\u042B\u0422!
+    \u0418\u0429\u0418 \u041F\u0418\u0421\u0422\u041E\u041B\u0415\u0422!"
+  _en: THE CORRIDOR IS OPEN! LOOK FOR THE GUN!
 --- !u!1 &1749930107
 GameObject:
   m_ObjectHideFlags: 0
@@ -341103,10 +338317,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1788938953}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -341116,6 +338334,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1788938950}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1788938952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1788938950}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1788938953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788938952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
+  _en: Toilet
 --- !u!1001 &1789181116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341515,10 +338752,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (10)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1794558150}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -341528,6 +338769,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1794558147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1794558149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1794558147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1794558150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794558149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
+  _en: Toilet
 --- !u!1001 &1795036438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -343711,166 +340971,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1815780107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1815780109}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u042F\u0417\u042B\u041A:"
-  en: 'LANGUAGE:'
-  tr: "D\u0130L:"
-  az: 
-  be: "\u041C\u041E\u0412\u0410:"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0422\u0406\u041B:"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u041C\u041E\u0412\u0410:"
-  uz: 'TILI:'
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u042F\u0417\u042B\u041A:"
+  _en: 'LANGUAGE:'
 --- !u!1 &1815826699
 GameObject:
   m_ObjectHideFlags: 0
@@ -347483,166 +344588,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1860241454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1860241456}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 1
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "3 \u042D\u0422\u0410\u0416"
-  en: 3rd FLOOR
-  tr: 3. KAT
-  az: 
-  be: "3 \u041F\u044D\u0442\u0430\u0436"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "3-\u0448\u0456 \u049B\u0430\u0431\u0430\u0442"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "3 \u041F\u041E\u0412\u0415\u0420\u0425"
-  uz: 3-QAT
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: "\u0924\u0940\u0938\u0930\u0940 \u092E\u0902\u091C\u093F\u0932"
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 8/8 completed
-  componentTextField: 1
-  countLang: 8
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "3 \u042D\u0422\u0410\u0416"
+  _en: 3rd FLOOR
 --- !u!1001 &1861018856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355652,13 +352602,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (13)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1551116024}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1941421882}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -355668,6 +352622,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1941421879}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1941421881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1941421879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1941421882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941421881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "2 \u042D\u0422\u0410\u0416"
+  _en: 2nd FLOOR
 --- !u!1001 &1941881721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -359136,10 +356109,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (19)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1961161290}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -359149,6 +356126,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1961161287}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1961161289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 1961161287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1961161290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961161289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "2 \u042D\u0442\u0430\u0436"
+  _en: 2nd Floor
 --- !u!1001 &1961560765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -362335,7 +359331,7 @@ GameObject:
   - component: {fileID: 1993899466}
   - component: {fileID: 1993899469}
   - component: {fileID: 1993899468}
-  - component: {fileID: 1993899467}
+  - component: {fileID: 1993899470}
   m_Layer: 5
   m_Name: ErrorText (TMP)
   m_TagString: Untagged
@@ -362362,182 +359358,6 @@ RectTransform:
   m_AnchoredPosition: {x: 23.375, y: 0}
   m_SizeDelta: {x: -46.75, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1993899467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993899465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 1993899468}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0427\u0442\u043E-\u0442\u043E \u043F\u043E\u0448\u043B\u043E \u043D\u0435
-    \u0442\u0430\u043A, \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435
-    \u043F\u043E\u0437\u0436\u0435..."
-  en: Something went wrong, try again later...
-  tr: "Bir \u015Feyler ters gitti, daha sonra tekrar deneyin..."
-  az: 
-  be: "\u041D\u0435\u0448\u0442\u0430 \u043F\u0430\u0439\u0448\u043B\u043E \u043D\u0435
-    \u0442\u0430\u043A, \u043F\u0430\u0441\u043F\u0440\u0430\u0431\u0443\u0439\u0446\u0435
-    \u043F\u0430\u0437\u043D\u0435\u0439..."
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0411\u0456\u0440\u0434\u0435\u04A3\u0435 \u0434\u04B1\u0440\u044B\u0441
-    \u0431\u043E\u043B\u043C\u0430\u0434\u044B, \u043A\u0435\u0439\u0456\u043D\u0456\u0440\u0435\u043A
-    \u049B\u0430\u0439\u0442\u0430\u043B\u0430\u043F \u043A\u04E9\u0440\u0456\u04A3\u0456\u0437..."
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0429\u043E\u0441\u044C \u043F\u0456\u0448\u043B\u043E \u043D\u0435 \u0442\u0430\u043A,
-    \u0441\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u043F\u0456\u0437\u043D\u0456\u0448\u0435..."
-  uz: Nimadir xato ketdi, keyinroq qayta urining...
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &1993899468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362640,6 +359460,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993899465}
   m_CullTransparentMesh: 1
+--- !u!114 &1993899470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993899465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0427\u0442\u043E-\u0442\u043E \u043F\u043E\u0448\u043B\u043E \u043D\u0435
+    \u0442\u0430\u043A, \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435
+    \u043F\u043E\u0437\u0436\u0435..."
+  _en: Something went wrong, try again later...
 --- !u!1001 &1994999768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -366381,10 +363217,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (27)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2031501618}
     - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -366394,6 +363234,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 2031501615}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2031501617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+  m_PrefabInstance: {fileID: 2031501615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2031501618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031501617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u041F\u043E\u0434\u0441\u043E\u0431\u043A\u0430"
+  _en: Utility room
 --- !u!1001 &2032687444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -394285,7 +391144,7 @@ GameObject:
   - component: {fileID: 2111114369}
   - component: {fileID: 2111114372}
   - component: {fileID: 2111114371}
-  - component: {fileID: 2111114370}
+  - component: {fileID: 2111114373}
   m_Layer: 5
   m_Name: MessageText (4)
   m_TagString: Untagged
@@ -394312,175 +391171,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2111114370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111114368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::YG.LanguageLegacy.LanguageYG
-  textMPComponent: {fileID: 2111114371}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  info:
-    domainAutoLocalization: com
-    languages:
-      ru: 1
-      en: 1
-      tr: 1
-      az: 0
-      be: 1
-      he: 0
-      hy: 0
-      ka: 0
-      et: 0
-      fr: 0
-      kk: 1
-      ky: 0
-      lt: 0
-      lv: 0
-      ro: 0
-      tg: 0
-      tk: 0
-      uk: 1
-      uz: 1
-      es: 0
-      pt: 0
-      ar: 0
-      id: 0
-      ja: 0
-      it: 0
-      de: 0
-      hi: 0
-    fonts:
-      defaultFont:
-      - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsTMP:
-      defaultFont:
-      - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      ru: []
-      en: []
-      tr: []
-      az: []
-      be: []
-      he: []
-      hy: []
-      ka: []
-      et: []
-      fr: []
-      kk: []
-      ky: []
-      lt: []
-      lv: []
-      ro: []
-      tg: []
-      tk: []
-      uk: []
-      uz: []
-      es: []
-      pt: []
-      ar: []
-      id: []
-      ja: []
-      it: []
-      de: []
-      hi: []
-    fontsSizeCorrect:
-      ru: 
-      en: 
-      tr: 
-      az: 
-      be: 
-      he: 
-      hy: 
-      ka: 
-      et: 
-      fr: 
-      kk: 
-      ky: 
-      lt: 
-      lv: 
-      ro: 
-      tg: 
-      tk: 
-      uk: 
-      uz: 
-      es: 
-      pt: 
-      ar: 
-      id: 
-      ja: 
-      it: 
-      de: 
-      hi: 
-  text: 
-  ru: "\u0421\u041F\u041E\u0420\u0422\u0417\u0410\u041B \u041E\u0422\u041A\u0420\u042B\u0422!!"
-  en: GYM IS OPEN!!
-  tr: "SPOR SALONU A\xC7IK!!"
-  az: 
-  be: "\u0421\u041F\u041E\u0420\u0422\u0417\u0410\u041B\u0410 \u0410\u0414\u041A\u0420\u042B\u0422\u042B!!"
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: "\u0416\u0430\u0442\u0442\u044B\u0493\u0443 \u0437\u0430\u043B\u044B \u0410\u0428\u042B\u049A!!"
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: "\u0421\u041F\u041E\u0420\u0422\u0417\u0410\u041B \u0412\u0406\u0414\u041A\u0420\u0418\u0422\u0418\u0419!!"
-  uz: Sport zali ochiq!!
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 20
-  processTranslateLabel: 7/7 completed
-  componentTextField: 1
-  countLang: 7
 --- !u!114 &2111114371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394581,6 +391271,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111114368}
   m_CullTransparentMesh: 1
+--- !u!114 &2111114373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111114368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
+  _ru: "\u0421\u041F\u041E\u0420\u0422\u0417\u0410\u041B \u041E\u0422\u041A\u0420\u042B\u0422!!"
+  _en: GYM IS OPEN!!
 --- !u!4 &2111487441
 Transform:
   m_ObjectHideFlags: 0
