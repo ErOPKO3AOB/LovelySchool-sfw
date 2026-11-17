@@ -14,6 +14,7 @@
     "com.unity.toolchain.win-x86_64-linux": "1.1.0",
     "com.unity.ugui": "2.0.0",
     "jp.hadashikick.vcontainer": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.17.0",
+    "com.erop-k.uniwebkit": "https://github.com/ErOPKO3AOB/UniWebKit.git",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.adaptiveperformance": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
