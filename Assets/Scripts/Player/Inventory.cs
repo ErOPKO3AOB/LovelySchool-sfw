@@ -1,14 +1,16 @@
 using Assets.Scripts.Input;
 using Game;
+using Player;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using UniWebKit;
 
 
-namespace Player
+namespace Assets.Scripts.Player
 {
     public class Inventory : MonoBehaviour
     {
@@ -16,6 +18,7 @@ namespace Player
         [SerializeField] private TMP_Text _ammoText;
         [SerializeField] private PlayerFacade _playerFacade;
         [SerializeField] private float _armLength = 4f;
+        [SerializeField] private Image _hitImage;
 
         private IInputReader _inputReader;
         private RandomPointItemsSpawner _itemsSpawner;
@@ -265,7 +268,8 @@ namespace Player
             foreach (var weapon in Weapons)
             {
                 if (weapon == null) continue;
-                snapshot.weapons.Add(new WeaponData {
+                snapshot.weapons.Add(new WeaponData
+                {
                     weaponName = weapon.weaponName,
                     ammo = weapon.CurrentAmmo,
                     reserve = weapon.Reserve
@@ -284,7 +288,8 @@ namespace Player
                 if (data == null || string.IsNullOrWhiteSpace(data.weaponName)) continue;
                 if (_weapons.Any(item => item.weaponName == data.weaponName)) continue;
                 var weapon = _itemsSpawner.Weapons.Find(item => item != null && item.weaponName == data.weaponName);
-                if (weapon == null) {
+                if (weapon == null)
+                {
                     Debug.LogWarning("[Saves] Weapon not found in this level: " + data.weaponName);
                     continue;
                 }

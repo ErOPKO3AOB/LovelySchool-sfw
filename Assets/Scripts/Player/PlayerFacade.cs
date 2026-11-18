@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Game.Core;
 using Assets.Scripts.Input;
+using Assets.Scripts.Player;
 using Data;
 using Game;
 using TMPro;

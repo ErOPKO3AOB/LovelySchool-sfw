@@ -1,3 +1,4 @@
+using Assets.Scripts.Player;
 using Data;
 using Game;
 using Player;

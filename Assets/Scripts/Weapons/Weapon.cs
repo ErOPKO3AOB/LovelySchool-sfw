@@ -90,6 +90,8 @@ namespace Game
 
         public Light Light => _light;
 
+        public event Action OnWeaponHit;
+        public event Action OnWeaponKill;
 
         private void OnValidate()
         {

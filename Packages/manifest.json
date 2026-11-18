@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.erop-k.uniwebkit": "https://github.com/ErOPKO3AOB/UniWebKit.git",
+    "com.kyrylokuzyk.primetween": "file:../Packages/com.kyrylokuzyk.primetween.tgz",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.13",
     "com.unity.ide.visualstudio": "2.0.27",
