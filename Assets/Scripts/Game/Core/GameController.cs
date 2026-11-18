@@ -66,6 +66,7 @@ namespace Assets.Scripts.Game.Core
         [SerializeField] private EnemySpawnZone[] _rooms;
         [SerializeField] private float _messageHoldTime = 6;
         [SerializeField] private List<TMP_Text> _messageTexts;
+        [SerializeField] private Image _messageBackground;
         [SerializeField] private GameObject _startEnemies;
         public SceneLoader _winningSceneLoader;
 
@@ -415,43 +416,74 @@ namespace Assets.Scripts.Game.Core
                 _enemyCountText.text = _enemies.Count.ToString();
         }
 
+
         public IEnumerator MessageRoutine(int index)
         {
             _messageTexts[index].gameObject.SetActive(true);
 
-            // Сохраняем исходный цвет (без альфы)
-            Color baseColor = _messageTexts[index].color;
+            Color textColor = _messageTexts[index].color;
+            Color bgColor = _messageBackground.color;
+
             float duration = 0.5f;
             float timer = 0f;
 
-            // --- Появление (0 → 1) ---
+            // Начальная прозрачность
+            textColor.a = 0f;
+            bgColor.a = 0f;
+            const float backgroundAlpha = 0.6f;
+
+            _messageTexts[index].color = textColor;
+            _messageBackground.color = bgColor;
+
+            // --- Появление ---
             while (timer < duration)
             {
                 timer += Time.deltaTime;
-                float progress = timer / duration;          // от 0 до 1
-                float alpha = Mathf.Lerp(0f, 1f, progress); // плавно от 0 к 1
-                _messageTexts[index].color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
+                float alpha = Mathf.Clamp01(timer / duration);
+
+                textColor.a = alpha;
+                bgColor.a = alpha * backgroundAlpha;
+
+                _messageTexts[index].color = textColor;
+                _messageBackground.color = bgColor;
+
                 yield return null;
             }
-            _messageTexts[index].color = new Color(baseColor.r, baseColor.g, baseColor.b, 1f); // фиксируем 1
+
+            textColor.a = 1f;
+            bgColor.a = backgroundAlpha;
+
+            _messageTexts[index].color = textColor;
+            _messageBackground.color = bgColor;
 
             // --- Пауза ---
             yield return new WaitForSeconds(_messageHoldTime);
 
-            // --- Исчезновение (1 → 0) ---
+            // --- Исчезновение ---
             timer = 0f;
             while (timer < duration)
             {
                 timer += Time.deltaTime;
-                float progress = timer / duration;
-                float alpha = Mathf.Lerp(1f, 0f, progress); // плавно от 1 к 0
-                _messageTexts[index].color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
+                float alpha = 1f - Mathf.Clamp01(timer / duration);
+
+                textColor.a = alpha;
+                bgColor.a = alpha * backgroundAlpha;
+
+                _messageTexts[index].color = textColor;
+                _messageBackground.color = bgColor;
+
                 yield return null;
             }
-            _messageTexts[index].color = new Color(baseColor.r, baseColor.g, baseColor.b, 0f); // гарантируем 0
+
+            textColor.a = 0f;
+            bgColor.a = 0f;
+
+            _messageTexts[index].color = textColor;
+            _messageBackground.color = bgColor;
 
             _messageTexts[index].gameObject.SetActive(false);
         }
+
 
         public IEnumerator SetAllEnemiesOutlined()
         {
