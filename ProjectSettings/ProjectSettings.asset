@@ -839,7 +839,7 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: PROJECT:GamePush
+  webGLTemplate: PROJECT:VKGames
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 2
@@ -873,7 +873,7 @@ PlayerSettings:
     QNX: UNITY_POST_PROCESSING_STACK_V2
     Standalone: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg;UNITY_POST_PROCESSING_STACK_V2
     VisionOS: UNITY_POST_PROCESSING_STACK_V2
-    WebGL: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg;UNITY_POST_PROCESSING_STACK_V2;UNIWEB_GAMEPUSH;UNIWEB_ARCHITECTURE_STATIC
+    WebGL: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg;UNITY_POST_PROCESSING_STACK_V2;UNIWEB_VK_GAMES;UNIWEB_ARCHITECTURE_STATIC
     Windows Store Apps: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg
     XboxOne: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg;UNITY_POST_PROCESSING_STACK_V2
     iPhone: PLUGIN_YG_2;TMP_YG2;RU_YG2;EnvirData_yg;NJSON_YG2;NJSON_STORAGE_YG2;Metrica_yg;Authorization_yg;Storage_yg;RedefinePlayerPrefs_yg;PlayerStats_yg;QuitGameEvent_yg;InterstitialAdv_yg;StickyAdv_yg;Localization_yg;AutoTranslateLangs_yg;Fullscreen_yg;Flags_yg;RewardedAdv_yg;YandexGamesPlatform_yg
