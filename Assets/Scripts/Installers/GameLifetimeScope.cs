@@ -58,6 +58,7 @@ namespace Installers
             .AsSelf();
 
             builder.RegisterEntryPoint<CounterService>(Lifetime.Singleton).AsSelf();
+            builder.RegisterEntryPoint<EnemyUpdateService>().AsSelf();
 
             builder.Register<SoundEmitterService>(Lifetime.Singleton).AsSelf();
 

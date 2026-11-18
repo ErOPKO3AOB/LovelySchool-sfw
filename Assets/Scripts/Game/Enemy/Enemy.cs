@@ -2,10 +2,9 @@
 using Game;
 using Player;
 using System.Collections;
-using Unity.Burst;
-using Unity.Collections;
-using Unity.Jobs;
-using Unity.Mathematics;
+#if UNITY_EDITOR
+using Unity.Profiling;
+#endif
 using UnityEngine;
 using UnityEngine.AI;
 using VContainer;
@@ -14,6 +13,15 @@ namespace Assets.Scripts.Game
 {
     public class Enemy : MonoBehaviour
     {
+#if UNITY_EDITOR
+        private static readonly ProfilerMarker UpdateMarker = new("Game.Enemy.Update");
+        private static readonly ProfilerMarker VisionMarker = new("Game.Enemy.Vision");
+        private static readonly ProfilerMarker VisionRaycastMarker = new("Game.Enemy.Vision.Raycast");
+        private static readonly ProfilerMarker AttackMarker = new("Game.Enemy.Attack");
+        private static readonly ProfilerMarker SetDestinationMarker = new("Game.Enemy.NavMesh.SetDestination");
+        private static readonly ProfilerMarker AnimatorToggleMarker = new("Game.Enemy.Animator.SetEnabled");
+#endif
+
         #region Inject
 
         [Inject]
@@ -21,12 +29,14 @@ namespace Assets.Scripts.Game
             WeaponSettingsSO weaponSettings,
             PlayerFacade playerFacade,
             PooledSpawnService pooledSpawnService,
-            SoundEmitterService soundEmitterService)
+            SoundEmitterService soundEmitterService,
+            EnemyUpdateService updateService)
         {
             _weaponSettings = weaponSettings;
             _playerFacade = playerFacade;
             _pooledSpawnService = pooledSpawnService;
             _soundEmitterService = soundEmitterService;
+            _updateService = updateService;
         }
 
         #endregion
@@ -38,6 +48,7 @@ namespace Assets.Scripts.Game
         public PlayerFacade PlayerFacade => _playerFacade;
         private PooledSpawnService _pooledSpawnService;
         private SoundEmitterService _soundEmitterService;
+        private EnemyUpdateService _updateService;
 
         #endregion
 
@@ -149,6 +160,8 @@ namespace Assets.Scripts.Game
         private State _state;
 
         private bool _dead;
+        private bool _started;
+        private bool _sleeping;
 
         private float _forgetTimer;
         private float _visionTimer;
@@ -176,65 +189,6 @@ namespace Assets.Scripts.Game
         private float _aiDistanceSqr;
         private float _animDistanceSqr;
         private float _rearDetectionRangeSqr;
-
-        #endregion
-
-        #region Burst Job
-
-        [BurstCompile]
-        private struct VisionJob : IJob
-        {
-            public float3 EnemyPosition;
-            public float3 EnemyForward;
-            public float3 PlayerPosition;
-
-            public float DetectionRangeSqr;
-            public float RearDetectionRangeSqr;
-            public float MinDot;
-
-            public NativeArray<byte> Result;
-
-            public void Execute()
-            {
-                float3 toPlayer =
-                    PlayerPosition - EnemyPosition;
-
-                float sqrDist =
-                    math.lengthsq(toPlayer);
-
-                // Слишком далеко
-                if (sqrDist > DetectionRangeSqr)
-                {
-                    Result[0] = 0;
-                    return;
-                }
-
-                // Игрок очень близко —
-                // враг чувствует его даже со спины
-                if (sqrDist <= RearDetectionRangeSqr)
-                {
-                    Result[0] = 1;
-                    return;
-                }
-
-                float3 dir =
-                    math.normalize(toPlayer);
-
-                float dot =
-                    math.dot(
-                        EnemyForward,
-                        dir);
-
-                // Проверка угла обзора
-                if (dot < MinDot)
-                {
-                    Result[0] = 0;
-                    return;
-                }
-
-                Result[0] = 1;
-            }
-        }
 
         #endregion
 
@@ -293,18 +247,40 @@ namespace Assets.Scripts.Game
                 UnityEngine.Random.Range(
                     _roarMin,
                     _roarMax);
+
+            _started = true;
+            if (isActiveAndEnabled && !_dead)
+                _updateService?.Register(this);
         }
 
-        private void Update()
+        private void OnEnable()
         {
-            if (_dead)
-                return;
+            if (_started && !_dead)
+            {
+                _sleeping = false;
+                _updateService?.Register(this);
+            }
+        }
 
-            if (_playerFacade == null)
-                return;
+        private void OnDisable()
+        {
+            if (!_dead)
+                _updateService?.Unregister(this);
+        }
 
-            Vector3 playerPos =
-                _playerFacade.transform.position;
+        private void OnDestroy()
+        {
+            if (_health != null)
+                _health.OnDead -= OnDead;
+        }
+
+        internal void Tick(Vector3 playerPos, float dt, bool runPeriodicChecks)
+        {
+#if UNITY_EDITOR
+            using var updateSample = UpdateMarker.Auto();
+#endif
+            if (_dead || (_sleeping && !runPeriodicChecks))
+                return;
 
             Vector3 toPlayer =
                 playerPos - transform.position;
@@ -316,12 +292,15 @@ namespace Assets.Scripts.Game
             if (sqrDistance > _aiDistanceSqr)
             {
                 DisableHeavySystems();
+                _sleeping = true;
                 return;
             }
 
-            EnableHeavySystems();
-
-            float dt = Time.deltaTime;
+            _sleeping = false;
+            if (!_agent.enabled)
+            {
+                _agent.enabled = true;
+            }
 
             _forgetTimer -= dt;
             _visionTimer -= dt;
@@ -337,19 +316,15 @@ namespace Assets.Scripts.Game
             bool shouldAnimate =
                 sqrDistance <= _animDistanceSqr;
 
-            if (_animator.enabled != shouldAnimate)
-            {
-                _animator.enabled =
-                    shouldAnimate;
-            }
+            SetAnimatorEnabled(shouldAnimate);
 
             // Vision
-            if (_visionTimer <= 0f)
+            if (_visionTimer <= 0f && runPeriodicChecks)
             {
                 _visionTimer =
                     _visionCheckInterval;
 
-                CheckVisionBurst(playerPos);
+                CheckVision(playerPos);
             }
 
             // State
@@ -361,12 +336,13 @@ namespace Assets.Scripts.Game
             switch (_state)
             {
                 case State.Patrol:
-                    RotateTowardsMovement();
-                    UpdatePatrol();
+                    RotateTowardsMovement(dt);
+                    if (runPeriodicChecks)
+                        UpdatePatrol();
                     break;
 
                 case State.Chase:
-                    UpdateChase(playerPos);
+                    UpdateChase(playerPos, dt, runPeriodicChecks);
                     TryAttack(playerPos, sqrDistance);
                     break;
             }
@@ -411,62 +387,41 @@ namespace Assets.Scripts.Game
         #endregion
 
         #region Vision
-        private void CheckVisionBurst(Vector3 playerPos)
+        private void CheckVision(Vector3 playerPos)
         {
-            NativeArray<byte> result =
-                new NativeArray<byte>(
-                    1,
-                    Allocator.TempJob);
+#if UNITY_EDITOR
+            using var visionSample = VisionMarker.Auto();
+#endif
 
-            VisionJob job = new VisionJob
+            Vector3 enemyPosition = transform.position;
+            Vector3 toPlayer = playerPos - enemyPosition;
+            float sqrDistance = toPlayer.sqrMagnitude;
+
+            if (sqrDistance > _detectionRangeSqr)
+                return;
+
+            Vector3 direction = toPlayer.normalized;
+            if (sqrDistance > _rearDetectionRangeSqr)
             {
-                EnemyPosition = transform.position,
-                EnemyForward = transform.forward,
-                PlayerPosition = playerPos,
-
-                DetectionRangeSqr =
-                    _detectionRangeSqr,
-
-                RearDetectionRangeSqr =
-                    _rearDetectionRangeSqr,
-
-                MinDot =
-                    Mathf.Cos(
-                        (_fieldOfView * 0.5f)
-                        * Mathf.Deg2Rad),
-
-                Result = result
-            };
-
-            JobHandle handle =
-                job.Schedule();
-
-            handle.Complete();
-
-            if (result[0] == 1)
-            {
-                Vector3 dir =
-                    (playerPos - transform.position)
-                    .normalized;
-
-                if (Physics.Raycast(
-                    transform.position + Vector3.up,
-                    dir,
-                    out RaycastHit hit,
-                    _detectionRange,
-                    _visionMask,
-                    QueryTriggerInteraction.Ignore))
-                {
-                    if (hit.collider.gameObject.layer ==
-                        _playerLayer)
-                    {
-                        _forgetTimer =
-                            _memoryTime;
-                    }
-                }
+                float minDot = Mathf.Cos(_fieldOfView * 0.5f * Mathf.Deg2Rad);
+                if (Vector3.Dot(transform.forward, direction) < minDot)
+                    return;
             }
 
-            result.Dispose();
+#if UNITY_EDITOR
+            using var raycastSample = VisionRaycastMarker.Auto();
+#endif
+            if (Physics.Raycast(
+                enemyPosition + Vector3.up,
+                direction,
+                out RaycastHit hit,
+                _detectionRange,
+                _visionMask,
+                QueryTriggerInteraction.Ignore)
+                && hit.collider.gameObject.layer == _playerLayer)
+            {
+                _forgetTimer = _memoryTime;
+            }
         }
 
         #endregion
@@ -512,8 +467,7 @@ namespace Assets.Scripts.Game
             if (patrolPoints != null &&
                 patrolPoints.Length > 0)
             {
-                _agent.SetDestination(
-                    patrolPoints[0]);
+                SetDestination(patrolPoints[0]);
             }
         }
 
@@ -534,8 +488,7 @@ namespace Assets.Scripts.Game
             if (patrolPoints == null)
                 return;
 
-            _agent.SetDestination(
-                patrolPoints[_patrolIndex]);
+            SetDestination(patrolPoints[_patrolIndex]);
 
             _patrolIndex++;
 
@@ -550,7 +503,7 @@ namespace Assets.Scripts.Game
 
         #region Chase
 
-        private void RotateTowardsMovement()
+        private void RotateTowardsMovement(float dt)
         {
             Vector3 velocity =
                 _agent.velocity;
@@ -568,10 +521,10 @@ namespace Assets.Scripts.Game
                 Quaternion.Slerp(
                     transform.rotation,
                     targetRotation,
-                    _rotationSpeed * Time.deltaTime);
+                    _rotationSpeed * dt);
         }
 
-        private void UpdateChase(Vector3 playerPos)
+        private void UpdateChase(Vector3 playerPos, float dt, bool runPeriodicChecks)
         {
             Vector3 toPlayer =
                 playerPos - transform.position;
@@ -595,16 +548,16 @@ namespace Assets.Scripts.Game
                         Quaternion.Slerp(
                             transform.rotation,
                             targetRotation,
-                            _rotationSpeed * Time.deltaTime);
+                            _rotationSpeed * dt);
                 }
             }
             // Иначе смотрим по направлению движения
             else
             {
-                RotateTowardsMovement();
+                RotateTowardsMovement(dt);
             }
 
-            if (_destinationTimer > 0f)
+            if (_destinationTimer > 0f || !runPeriodicChecks)
                 return;
 
             _destinationTimer =
@@ -619,7 +572,15 @@ namespace Assets.Scripts.Game
             _lastPlayerPosition =
                 playerPos;
 
-            _agent.SetDestination(playerPos);
+            SetDestination(playerPos);
+        }
+
+        private void SetDestination(Vector3 position)
+        {
+#if UNITY_EDITOR
+            using var destinationSample = SetDestinationMarker.Auto();
+#endif
+            _agent.SetDestination(position);
         }
 
         #endregion
@@ -638,6 +599,10 @@ namespace Assets.Scripts.Game
             {
                 return;
             }
+
+#if UNITY_EDITOR
+            using var attackSample = AttackMarker.Auto();
+#endif
 
             Vector3 toPlayer =
                 playerPos - transform.position;
@@ -709,10 +674,7 @@ namespace Assets.Scripts.Game
 
         private void DisableHeavySystems()
         {
-            if (_animator.enabled)
-            {
-                _animator.enabled = false;
-            }
+            SetAnimatorEnabled(false);
 
             if (_agent.enabled)
             {
@@ -720,17 +682,15 @@ namespace Assets.Scripts.Game
             }
         }
 
-        private void EnableHeavySystems()
+        private void SetAnimatorEnabled(bool enabled)
         {
-            if (!_animator.enabled)
-            {
-                _animator.enabled = true;
-            }
+            if (_animator.enabled == enabled)
+                return;
 
-            if (!_agent.enabled)
-            {
-                _agent.enabled = true;
-            }
+#if UNITY_EDITOR
+            using var animatorSample = AnimatorToggleMarker.Auto();
+#endif
+            _animator.enabled = enabled;
         }
 
         #endregion
@@ -787,6 +747,7 @@ namespace Assets.Scripts.Game
                 return;
 
             _dead = true;
+            _updateService?.Unregister(this);
 
             if (_agent != null)
             {
