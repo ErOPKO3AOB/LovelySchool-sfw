@@ -109,8 +109,21 @@ namespace Assets.Scripts.Game.Core
         private bool _startupPause;
         private float _startupTimeScale;
 
+        private const int DeathsRequiredForSkip = 3;
+        // Session-only state survives scene reloads, but is never written to player saves.
+        private static int _deathsSinceLastSkip;
+
+        private bool CanSkipCheckpoint =>
+            _deathsSinceLastSkip >= DeathsRequiredForSkip &&
+            Checkpoints != null &&
+            CurrCheckPointIndex >= 0 && CurrCheckPointIndex < Checkpoints.Length - 1;
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetSkipSession() => _deathsSinceLastSkip = 0;
+
         private void Awake()
         {
+            _skipCheckpointButton.gameObject.SetActive(false);
             _startupTimeScale = Time.timeScale;
             _startupPause = true;
             _isPaused = true;
@@ -285,9 +298,12 @@ namespace Assets.Scripts.Game.Core
 
         private void OnPlayerDead(GameObject obj)
         {
+            if (_playerDead) return;
+
             Destroy(_buttonsCanvasController.gameObject);
 
             _playerDead = true;
+            _deathsSinceLastSkip = Mathf.Min(_deathsSinceLastSkip + 1, DeathsRequiredForSkip);
 
             _enemyCountText.gameObject.SetActive(false);
 
@@ -301,12 +317,13 @@ namespace Assets.Scripts.Game.Core
             _restartButton.onClick.AddListener(RestartGame);
             _restartButton.interactable = true;
 
-            if (CurrCheckPointIndex != 0 &&
-                CurrCheckPointIndex < Checkpoints.Length - 1)
+            _skipCheckpointButton.gameObject.SetActive(CanSkipCheckpoint);
+            if (CanSkipCheckpoint)
             {
-                _skipCheckpointButton.gameObject.SetActive(true);
                 _skipCheckpointButton.onClick.AddListener(() =>
                 {
+                    if (!CanSkipCheckpoint) return;
+
                     _restartButton.interactable = false;
                     _skipCheckpointButton.interactable = false;
 
@@ -322,7 +339,8 @@ namespace Assets.Scripts.Game.Core
 
                     void AdClose(bool closed)
                     {
-                        _skipCheckpointButton.gameObject.SetActive(false);
+                        _skipCheckpointButton.gameObject.SetActive(CanSkipCheckpoint);
+                        _skipCheckpointButton.interactable = true;
 
                         _restartButton.interactable = true;
                     }
@@ -354,14 +372,13 @@ namespace Assets.Scripts.Game.Core
 
         private void SkipCheckpointReward()
         {
-            //if (id == "skip-checkpoint")
-            //{
-            _skipCheckpointButton.gameObject.SetActive(false);
+            if (!CanSkipCheckpoint) return;
 
-            if (!GameSaveSession.Set("currentCheckPoint", Mathf.Min(CurrCheckPointIndex + 1, Checkpoints.Length - 1))) return;
+            if (!GameSaveSession.Set("currentCheckPoint", CurrCheckPointIndex + 1)) return;
+            _deathsSinceLastSkip = 0;
+            _skipCheckpointButton.gameObject.SetActive(false);
             GameSaveSession.Save();
             RestartGame();
-            //}
         }
 
         public Enemy SpawnRequest(EnemySpawnPoint enemySpawnPoint)
