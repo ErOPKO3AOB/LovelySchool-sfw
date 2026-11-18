@@ -25,7 +25,7 @@ namespace Installers
 
         private void OnValidate()
         {
-            //_enemySpawnPoints = FindObjectsByType<EnemySpawnPoint>(FindObjectsSortMode.None);
+            _enemySpawnPoints = FindObjectsByType<EnemySpawnPoint>(FindObjectsSortMode.InstanceID);
         }
 
         protected override void Configure(IContainerBuilder builder)
