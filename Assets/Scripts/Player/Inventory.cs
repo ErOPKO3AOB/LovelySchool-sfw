@@ -1,6 +1,7 @@
 using Assets.Scripts.Input;
 using Game;
 using Player;
+using PrimeTween;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -26,6 +27,7 @@ namespace Assets.Scripts.Player
         private int _currentWeaponIndex = 0;
         private Camera _camera;
         private bool _restored;
+        private Sequence _hitAnimation;
         public bool IsInitialized => _inputReader != null && _camera != null && _itemsSpawner != null;
         public bool IsRestored => _restored;
 
@@ -60,6 +62,8 @@ namespace Assets.Scripts.Player
 
             _camera = camera;
             _hand.SetParent(_camera.transform);
+
+            _hitImage.color = new Color(_hitImage.color.r, _hitImage.color.g, _hitImage.color.b, 0.0f);
 
             StartCoroutine(RestoreWhenReady());
         }
@@ -217,6 +221,8 @@ namespace Assets.Scripts.Player
             weapon.PlayPickupAnimation(); // проигрываем анимацию подбора
 
             weapon.AmmoChanged += (_, _, _) => RefreshAmmoDisplay();
+            weapon.OnWeaponHit += HandleWeaponHit;
+            weapon.OnWeaponKill += HandleWeaponKill;
 
             _weapons.Add(weapon);
             _currentWeaponIndex = _weapons.Count - 1;
@@ -259,6 +265,24 @@ namespace Assets.Scripts.Player
 
             Weapon w = _weapons[_currentWeaponIndex];
             _ammoText.text = $"{w.CurrentAmmo}/{w.Reserve}";
+        }
+
+        private void HandleWeaponHit() => ShowHitMarker(Color.white);
+
+        private void HandleWeaponKill() => ShowHitMarker(Color.red);
+
+        private void ShowHitMarker(Color color)
+        {
+            if (!isActiveAndEnabled || _hitImage == null || !_hitImage.isActiveAndEnabled) return;
+
+            _hitAnimation.Stop();
+            color.a = _hitImage.color.a;
+            _hitImage.color = color;
+
+            _hitAnimation = Sequence.Create(useUnscaledTime: true)
+                .Chain(Tween.Alpha(_hitImage, endValue: 1f, duration: 0.05f, ease: Ease.OutQuad))
+                //.ChainDelay(0.03f)
+                .Chain(Tween.Alpha(_hitImage, startValue: 1f, endValue: 0f, duration: 0.17f, ease: Ease.InQuad));
         }
 
         public bool SaveWeaponsState()
@@ -304,8 +328,22 @@ namespace Assets.Scripts.Player
             RefreshAmmoDisplay();
         }
 
+        private void OnDisable()
+        {
+            _hitAnimation.Stop();
+            if (_hitImage != null)
+                _hitImage.color = Color.clear;
+        }
+
         private void OnDestroy()
         {
+            foreach (var weapon in _weapons)
+            {
+                if (weapon == null) continue;
+                weapon.OnWeaponHit -= HandleWeaponHit;
+                weapon.OnWeaponKill -= HandleWeaponKill;
+            }
+
             if (_inputReader != null)
             {
                 _inputReader.OnUseStarted -= HandleUseStarted;

@@ -321,6 +321,8 @@ namespace Game
 
         public void PhysicCast()
         {
+            bool hitTarget = false;
+            bool killedTarget = false;
             if (weaponName != "SniperRifle" && Physics.SphereCast(Camera.transform.position, 0.25f, Camera.transform.forward, out RaycastHit hit, range, targetLayers))
             {
                 int finalDamage = Mathf.RoundToInt(damage);
@@ -332,7 +334,7 @@ namespace Game
 
                 if (hit.collider.TryGetComponent<Health>(out var health))
                 {
-                    health.TakeDamage(finalDamage);
+                    hitTarget = TryDamageTarget(health, finalDamage, out killedTarget);
                 }
             }
 
@@ -343,20 +345,37 @@ namespace Game
                 Physics.SphereCastNonAlloc(Camera.transform.position, 0.25f, Camera.transform.forward, hits, range, targetLayers);
 
                 int currentHits = 0;
-                float finalDamage = damage;
-                if (!_playerFacade.Jump.IsGrounded)
-                    finalDamage = damage * 4;
+                int finalDamage = Mathf.RoundToInt(_playerFacade.Jump.IsGrounded ? damage : damage * 4);
                 foreach (var enemiesHit in hits)
                 {
                     if (currentHits >= maxHits) break;
 
                     if (enemiesHit.collider != null && enemiesHit.collider.TryGetComponent<Health>(out var health))
                     {
-                        health.TakeDamage(Mathf.RoundToInt(finalDamage));
+                        if (TryDamageTarget(health, finalDamage, out bool killed))
+                        {
+                            hitTarget = true;
+                            killedTarget |= killed;
+                        }
                         currentHits++;
                     }
                 }
             }
+
+            if (killedTarget)
+                OnWeaponKill?.Invoke();
+            else if (hitTarget)
+                OnWeaponHit?.Invoke();
+        }
+
+        private static bool TryDamageTarget(Health health, int damage, out bool killed)
+        {
+            bool wasAlive = !health.IsDead;
+            health.TakeDamage(damage);
+
+            bool didDamage = wasAlive && damage > 0;
+            killed = didDamage && health.IsDead;
+            return didDamage;
         }
     }
 
