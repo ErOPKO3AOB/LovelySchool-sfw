@@ -2853,17 +2853,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u0443\u0430\u043B\u0435\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Toilet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 27489564}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &27489562 stripped
 Transform:
@@ -2875,20 +2877,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 27489561}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &27489564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27489563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
-  _en: Toilet
 --- !u!1001 &28131595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3448,17 +3436,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u0443\u0430\u043B\u0435\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Toilet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 31768384}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &31768382 stripped
 Transform:
@@ -3470,20 +3460,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 31768381}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &31768384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31768383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
-  _en: Toilet
 --- !u!4 &32055059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 315829013487122428, guid: db766ed4352289e4185333962f9ca0b4, type: 3}
@@ -11094,17 +11070,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u0443\u0430\u043B\u0435\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Toilet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 109853725}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &109853723 stripped
 Transform:
@@ -11116,20 +11094,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 109853722}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &109853725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109853724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
-  _en: Toilet
 --- !u!1001 &111381930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12687,17 +12651,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u0443\u0430\u043B\u0435\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Toilet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 130879152}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &130879150 stripped
 Transform:
@@ -12709,20 +12675,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 130879149}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &130879152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130879151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
-  _en: Toilet
 --- !u!1 &131605958
 GameObject:
   m_ObjectHideFlags: 0
@@ -41221,17 +41173,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u043E\u0440\u0447\u0438\u0442 \u043A\u043E\u0441\u0430\u0440\u044C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: The mower is sticking out
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 352521060}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &352521058 stripped
 Transform:
@@ -41243,20 +41197,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 352521057}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &352521060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 352521059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u043E\u0440\u0447\u0438\u0442 \u043A\u043E\u0441\u0430\u0440\u044C"
-  _en: The mower is sticking out
 --- !u!1001 &352926958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45409,17 +45349,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u0443\u0430\u043B\u0435\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Toilet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 396093691}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &396093689 stripped
 Transform:
@@ -45431,20 +45373,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 396093688}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &396093691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396093690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
-  _en: Toilet
 --- !u!1001 &396236224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78159,17 +78087,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0421\u0442\u043E\u043B\u043E\u0432\u0430\u044F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Dining room
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 539003932}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &539003930 stripped
 Transform:
@@ -78181,20 +78111,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 539003929}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &539003932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 539003931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0421\u0442\u043E\u043B\u043E\u0432\u0430\u044F"
-  _en: Dining room
 --- !u!1001 &539971392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80167,17 +80083,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u0443\u0430\u043B\u0435\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Toilet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 559598290}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &559598288 stripped
 Transform:
@@ -80189,20 +80107,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 559598287}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &559598290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559598289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
-  _en: Toilet
 --- !u!1001 &559961629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81147,17 +81051,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u041F\u043E\u0434\u0441\u043E\u0431\u043A\u0430 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Utility 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 573152545}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &573152543 stripped
 Transform:
@@ -81169,20 +81075,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 573152542}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &573152545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573152544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u041F\u043E\u0434\u0441\u043E\u0431\u043A\u0430 1"
-  _en: Utility 1
 --- !u!1001 &573785396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85764,17 +85656,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u043E\u0440\u0447\u0438\u0442 \u0433\u043E\u0440\u0441\u0442\u044C
+        \u0441\u0435\u043C\u0435\u0447\u0435\u043A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: A handful of seeds sticks out
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 626101198}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &626101196 stripped
 Transform:
@@ -85786,21 +85681,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 626101195}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &626101198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626101197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u043E\u0440\u0447\u0438\u0442 \u0433\u043E\u0440\u0441\u0442\u044C
-    \u0441\u0435\u043C\u0435\u0447\u0435\u043A"
-  _en: A handful of seeds sticks out
 --- !u!1001 &627219997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100157,17 +100037,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u041F\u043E\u0434\u0441\u043E\u0431\u043A\u0430 2"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Utility 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 649438136}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &649438134 stripped
 Transform:
@@ -100179,20 +100061,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 649438133}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &649438136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649438135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u041F\u043E\u0434\u0441\u043E\u0431\u043A\u0430 2"
-  _en: Utility 2
 --- !u!1001 &649560694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127875,17 +127743,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u041A\u0443\u0445\u043D\u044F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Kitchen
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 854713194}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &854713192 stripped
 Transform:
@@ -127897,20 +127767,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 854713191}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &854713194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854713193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u041A\u0443\u0445\u043D\u044F"
-  _en: Kitchen
 --- !u!1001 &854941725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132919,17 +132775,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0421\u043F\u043E\u0440\u0442\u0437\u0430\u043B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Gym
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 907968133}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &907968131 stripped
 Transform:
@@ -132941,20 +132799,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 907968130}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &907968133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907968132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0421\u043F\u043E\u0440\u0442\u0437\u0430\u043B"
-  _en: Gym
 --- !u!1001 &908925134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285699,17 +285543,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u0443\u0430\u043B\u0435\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Toilet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1310245132}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1310245130 stripped
 Transform:
@@ -285721,20 +285567,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1310245129}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1310245132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310245131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
-  _en: Toilet
 --- !u!1 &1310466398
 GameObject:
   m_ObjectHideFlags: 0
@@ -287557,17 +287389,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u041A\u0440\u044B\u0448\u0430"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Roof
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1335706059}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1335706057 stripped
 Transform:
@@ -287579,20 +287413,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1335706056}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1335706059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335706058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u041A\u0440\u044B\u0448\u0430"
-  _en: Roof
 --- !u!1 &1336741115
 GameObject:
   m_ObjectHideFlags: 0
@@ -297786,17 +297606,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u041F\u043E\u0434\u0441\u043E\u0431\u043A\u0430 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Utility 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1442225488}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1442225486 stripped
 Transform:
@@ -297808,20 +297630,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1442225485}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1442225488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442225487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u041F\u043E\u0434\u0441\u043E\u0431\u043A\u0430 1"
-  _en: Utility 1
 --- !u!1001 &1442930817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -297930,6 +297738,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "1 \u042D\u0422\u0410\u0416"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: 1st FLOOR
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
@@ -297937,13 +297753,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1193811127}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1442930820}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1442930818 stripped
 Transform:
@@ -297955,20 +297765,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1442930817}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1442930820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442930819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "1 \u042D\u0422\u0410\u0416"
-  _en: 1st FLOOR
 --- !u!1001 &1443041444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -303203,6 +302999,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "3 \u042D\u0422\u0410\u0416"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: 3rd FLOOR
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
@@ -303210,13 +303014,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1860241455}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1483284729}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1483284727 stripped
 Transform:
@@ -303228,20 +303026,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1483284726}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1483284729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483284728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "3 \u042D\u0422\u0410\u0416"
-  _en: 3rd FLOOR
 --- !u!43 &1483664996
 Mesh:
   m_ObjectHideFlags: 0
@@ -306778,17 +306562,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u0443\u0430\u043B\u0435\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Toilet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1516264667}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1516264665 stripped
 Transform:
@@ -306800,20 +306586,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1516264664}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1516264667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516264666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
-  _en: Toilet
 --- !u!1 &1516532601
 GameObject:
   m_ObjectHideFlags: 0
@@ -324767,17 +324539,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u041F\u043E\u0434\u0441\u043E\u0431\u043A\u0430 2"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Utility 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1653471295}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1653471293 stripped
 Transform:
@@ -324789,20 +324563,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1653471292}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1653471295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653471294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u041F\u043E\u0434\u0441\u043E\u0431\u043A\u0430 2"
-  _en: Utility 2
 --- !u!4 &1654599584
 Transform:
   m_ObjectHideFlags: 0
@@ -341940,17 +341700,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u0443\u0430\u043B\u0435\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Toilet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1788938953}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1788938951 stripped
 Transform:
@@ -341962,20 +341724,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1788938950}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1788938953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788938952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
-  _en: Toilet
 --- !u!1001 &1789181116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -342375,17 +342123,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0422\u0443\u0430\u043B\u0435\u0442"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Toilet
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1794558150}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1794558148 stripped
 Transform:
@@ -342397,20 +342147,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1794558147}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1794558150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794558149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0422\u0443\u0430\u043B\u0435\u0442"
-  _en: Toilet
 --- !u!1001 &1795036438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -356812,6 +356548,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "2 \u042D\u0422\u0410\u0416"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: 2nd FLOOR
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
@@ -356819,13 +356563,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4862430605359139049, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1551116024}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1941421882}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1941421880 stripped
 Transform:
@@ -356837,20 +356575,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1941421879}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1941421882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941421881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "2 \u042D\u0422\u0410\u0416"
-  _en: 2nd FLOOR
 --- !u!1001 &1941881721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360598,17 +360322,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "2 \u042D\u0442\u0430\u0436"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: 2nd Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1961161290}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &1961161288 stripped
 Transform:
@@ -360620,20 +360346,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 1961161287}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1961161290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1961161289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "2 \u042D\u0442\u0430\u0436"
-  _en: 2nd Floor
 --- !u!1001 &1961560765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -367873,17 +367585,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _ru
+      value: "\u0420\u0430\u0441\u0441\u043E\u0441"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500814538160957340, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
+      propertyPath: _en
+      value: Relax
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 316037777000009261, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2031501618}
-    - targetCorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
 --- !u!4 &2031501616 stripped
 Transform:
@@ -367895,20 +367609,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6310690770628584605, guid: 1d1ad614a066c624085ba1a7d93f489a, type: 3}
   m_PrefabInstance: {fileID: 2031501615}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2031501618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031501617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0420\u0430\u0441\u0441\u043E\u0441"
-  _en: Relax
 --- !u!1001 &2032687444
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 using Assets.Scripts.Game.Core;
 
 [RequireComponent(typeof(TMP_Text))]
+[DisallowMultipleComponent]
 public class LocalizedText : MonoBehaviour
 {
     [TextArea(1, 3)]

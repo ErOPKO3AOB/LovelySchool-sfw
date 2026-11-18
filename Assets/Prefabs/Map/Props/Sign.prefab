@@ -111,12 +111,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 3315905592503259064}
     - renderer: {fileID: 464843098087697354}
-  - screenRelativeHeight: 0.10114562
-    fadeTransitionWidth: 0
-    renderers: []
-  - screenRelativeHeight: 0.10114562
-    fadeTransitionWidth: 0
-    renderers: []
   m_Enabled: 1
 --- !u!1 &6310690770628584605
 GameObject:
@@ -135,7 +129,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!224 &3460688390491403061
 RectTransform:
