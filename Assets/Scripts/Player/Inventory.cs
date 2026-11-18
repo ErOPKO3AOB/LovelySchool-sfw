@@ -122,7 +122,7 @@ namespace Player
         {
             if (!_restored) return;
             Ray ray = new(_camera.transform.position, _camera.transform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, 5f) && hit.collider != null)
+            if (Physics.Raycast(ray, out RaycastHit hit, 2.5f) && hit.collider != null)
             {
                 GameObject hitObject = hit.collider.gameObject;
 
@@ -162,7 +162,7 @@ namespace Player
         public bool CheckForHitTarget()
         {
             Ray ray = new(_camera.transform.position, _camera.transform.forward);
-            return Physics.Raycast(ray, out RaycastHit hit, 5f) && hit.collider != null &&
+            return Physics.Raycast(ray, out RaycastHit hit, 2.5f) && hit.collider != null &&
                 (_weapons.Count != 0 && hit.collider.gameObject.layer == LayerMask.NameToLayer("AmmoOutline")
                 || hit.collider.gameObject.TryGetComponent<EnemyOutliner>(out _)
                 || hit.collider.gameObject.TryGetComponent<Weapon>(out _)
