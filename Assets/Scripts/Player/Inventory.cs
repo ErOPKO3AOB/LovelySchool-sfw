@@ -15,6 +15,7 @@ namespace Player
         [SerializeField] private Transform _hand;
         [SerializeField] private TMP_Text _ammoText;
         [SerializeField] private PlayerFacade _playerFacade;
+        [SerializeField] private float _armLength = 4f;
 
         private IInputReader _inputReader;
         private RandomPointItemsSpawner _itemsSpawner;
@@ -122,7 +123,7 @@ namespace Player
         {
             if (!_restored) return;
             Ray ray = new(_camera.transform.position, _camera.transform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, 2.5f) && hit.collider != null)
+            if (Physics.Raycast(ray, out RaycastHit hit, _armLength) && hit.collider != null)
             {
                 GameObject hitObject = hit.collider.gameObject;
 
@@ -162,7 +163,7 @@ namespace Player
         public bool CheckForHitTarget()
         {
             Ray ray = new(_camera.transform.position, _camera.transform.forward);
-            return Physics.Raycast(ray, out RaycastHit hit, 2.5f) && hit.collider != null &&
+            return Physics.Raycast(ray, out RaycastHit hit, _armLength) && hit.collider != null &&
                 (_weapons.Count != 0 && hit.collider.gameObject.layer == LayerMask.NameToLayer("AmmoOutline")
                 || hit.collider.gameObject.TryGetComponent<EnemyOutliner>(out _)
                 || hit.collider.gameObject.TryGetComponent<Weapon>(out _)
