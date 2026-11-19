@@ -419,6 +419,25 @@ namespace Assets.Scripts.Game.Core
 
         public IEnumerator MessageRoutine(int index)
         {
+            // Funny feature: if the player has already found the machine gun, the message will be different.
+            if (index == 2)
+            {
+                if (PlayerFacade.Inventory.Weapons.Find(w => w.weaponName == "MachineGun") != null)
+                {
+                    if (UniWebBridge.Localization.Language == "ru")
+                        _messageTexts[index].text = "А ты уже нашел пулемет, паркурист..";
+                    else
+                        _messageTexts[index].text = "So, have you found the machine gun yet, parkourist...";
+                }
+                else
+                {
+                    if (UniWebBridge.Localization.Language == "ru")
+                        _messageTexts[index].text = "ИЩИ ПУЛЕМЕТ НА ВЫСТУПЕ!";
+                    else
+                        _messageTexts[index].text = "Find the machine gun on the ledge!";
+                }
+            }
+
             _messageTexts[index].gameObject.SetActive(true);
 
             Color textColor = _messageTexts[index].color;

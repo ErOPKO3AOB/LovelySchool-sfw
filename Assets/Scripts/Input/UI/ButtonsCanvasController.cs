@@ -26,6 +26,8 @@ namespace Assets.Scripts.Input.UI
             _itemsSpawner = itemsSpawner;
         }
 
+        private readonly WaitForSeconds _checkForCanGrabDelay = new(0.2f);
+
         private GameSettingsSO _gameSettings;
         private WeaponSettingsSO _weaponSettings;
         private RandomPointItemsSpawner _itemsSpawner;
@@ -44,6 +46,8 @@ namespace Assets.Scripts.Input.UI
         [SerializeField] private Sprite _handSprite;
         [SerializeField] private Sprite _shootSprite;
         [SerializeField] private List<GameObject> _hintTexts = new();
+        [SerializeField] private GameObject _armHint;
+
 
         private readonly List<Button> _inventorySlots = new();
         public UnityAction<int> OnSlotChoose;
@@ -64,6 +68,8 @@ namespace Assets.Scripts.Input.UI
 
         private IEnumerator Start()
         {
+            _armHint.SetActive(false);
+
             bool isDesktop = UniWebBridge.Envir.IsDesktop;
             if (!isDesktop)
             {
@@ -99,8 +105,8 @@ namespace Assets.Scripts.Input.UI
 
         private IEnumerator CheckForCanGrabRoutine()
         {
-            var seconds = new WaitForSeconds(0.2f);
-            while (_hintsActive)
+            var seconds = _checkForCanGrabDelay;
+            while (gameObject.activeSelf)
             {
                 if (_inventory == null)
                 {
@@ -109,8 +115,10 @@ namespace Assets.Scripts.Input.UI
                 }
 
                 yield return seconds;
-                _attackButtonImageTarget.sprite = _inventory.CheckForHitTarget()
+                bool hitTarget = _inventory.CheckForHitTarget();
+                _attackButtonImageTarget.sprite = hitTarget
                 ? _handSprite : _shootSprite;
+                _armHint.SetActive(hitTarget);
             }
         }
 
