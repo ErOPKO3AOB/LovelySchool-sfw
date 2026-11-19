@@ -1,31 +1,34 @@
 using System;
 using UniWebKit;
+using UnityEngine;
 using VContainer.Unity;
 
 namespace Assets.Scripts
 {
     public class AdvService : IInitializable
     {
-        //private bool _advDisabled = false;
+        private const double InterstitialIntervalSeconds = 120;
+        private static double _nextInterstitialAt;
 
-        public void Initialize()
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetSession() => DeferInterstitial();
+
+        private static void DeferInterstitial() =>
+            _nextInterstitialAt = Time.realtimeSinceStartupAsDouble + InterstitialIntervalSeconds;
+
+        public void Initialize() => UniWebBridge.Ads.ShowStickyBanner();
+
+        public void BeforeManualRestart(Action restart)
         {
-            //if (_advDisabled)
-            //{
-                //UniWebBridge.Ads.HideStickyBanner();
-            //}
+            var ads = UniWebBridge.Ads;
+            if (Time.realtimeSinceStartupAsDouble < _nextInterstitialAt || !ads.IsInterstitialReady)
+            {
+                restart();
+                return;
+            }
 
-            //else
-            //{
-                UniWebBridge.Ads.ShowStickyBanner();
-            //}
-        }
-
-        public void ShowInterstitial()
-        {
-            //if (_advDisabled) return;
-
-            UniWebBridge.Ads.ShowInterstitial();
+            DeferInterstitial();
+            RunFullscreenAd((opened, closed) => ads.ShowInterstitial(opened, closed, LogAdError), _ => restart());
         }
 
         public void ShowRewarded(Action onReward, Action<bool> onClosed, Action<string> onError, string placementId)
@@ -45,7 +48,47 @@ namespace Assets.Scripts
                 return;
             }
 #endif
-            ads.ShowRewarded(onReward, onClosed: onClosed, onError: onError, placementId: placementId);
+            RunFullscreenAd(
+                (opened, closed) => ads.ShowRewarded(onReward, opened, closed, onError, placementId),
+                onClosed);
         }
+
+        private static void RunFullscreenAd(Action<Action, Action<bool>> show, Action<bool> onClosed)
+        {
+            bool opened = false;
+            bool completed = false;
+            float previousTimeScale = Time.timeScale;
+            bool previousAudioPause = AudioListener.pause;
+
+            void OnOpened()
+            {
+                if (completed || opened) return;
+                opened = true;
+                Time.timeScale = 0f;
+                AudioListener.pause = true;
+            }
+
+            void OnClosed(bool success)
+            {
+                if (completed) return;
+                completed = true;
+                if (opened)
+                {
+                    Time.timeScale = previousTimeScale;
+                    AudioListener.pause = previousAudioPause;
+                    DeferInterstitial();
+                }
+                onClosed?.Invoke(success);
+            }
+
+            try { show(OnOpened, OnClosed); }
+            catch (Exception error) when (!completed)
+            {
+                Debug.LogException(error);
+                OnClosed(false);
+            }
+        }
+
+        private static void LogAdError(string error) => Debug.LogWarning("[Ads] " + error);
     }
 }

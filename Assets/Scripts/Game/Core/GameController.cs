@@ -320,7 +320,7 @@ namespace Assets.Scripts.Game.Core
         private void DelayedDeath()
         {
             _restartButton.gameObject.SetActive(true);
-            _restartButton.onClick.AddListener(RestartGame);
+            _restartButton.onClick.AddListener(RestartFromDeathScreen);
             _restartButton.interactable = true;
 
             _skipCheckpointButton.gameObject.SetActive(CanSkipCheckpoint);
@@ -330,28 +330,28 @@ namespace Assets.Scripts.Game.Core
                 {
                     if (!CanSkipCheckpoint) return;
 
+                    _errorSkipText.gameObject.SetActive(false);
+                    _skipText.gameObject.SetActive(true);
                     _restartButton.interactable = false;
                     _skipCheckpointButton.interactable = false;
+                    bool rewarded = false;
 
-
-                    void AdError(string error)
+                    void AdClose(bool _)
                     {
+                        if (rewarded && SkipCheckpointReward()) return;
+
                         _skipText.gameObject.SetActive(false);
                         _errorSkipText.gameObject.SetActive(true);
-                        _skipCheckpointButton.interactable = true;
-
-                        _restartButton.interactable = true;
-                    }
-
-                    void AdClose(bool closed)
-                    {
                         _skipCheckpointButton.gameObject.SetActive(CanSkipCheckpoint);
                         _skipCheckpointButton.interactable = true;
-
                         _restartButton.interactable = true;
                     }
 
-                    _advService.ShowRewarded(onReward: SkipCheckpointReward, onClosed: AdClose, onError: AdError, placementId: "skip-checkpoint");
+                    _advService.ShowRewarded(
+                        onReward: () => rewarded = true,
+                        onClosed: AdClose,
+                        onError: error => Debug.LogWarning("[Ads] Checkpoint skip: " + error),
+                        placementId: "skip-checkpoint");
                 });
             }
 
@@ -361,30 +361,24 @@ namespace Assets.Scripts.Game.Core
             Cursor.visible = true;
         }
 
-        private void RestartGame()
+        private void RestartFromDeathScreen()
         {
-            _restartButton.enabled = false;
-
-
-            void LoadScene()
-            {
-                _sceneLoader.LoadScene();
-            }
-
+            _restartButton.interactable = false;
+            _skipCheckpointButton.interactable = false;
             GameSaveSession.Save();
-            if (!UniWebBridge.Ads.IsInterstitialReady) LoadScene();
-            else UniWebBridge.Ads.ShowInterstitial(onClosed: _ => LoadScene());
+            _advService.BeforeManualRestart(() => _sceneLoader.LoadScene());
         }
 
-        private void SkipCheckpointReward()
+        private bool SkipCheckpointReward()
         {
-            if (!CanSkipCheckpoint) return;
+            if (!CanSkipCheckpoint) return false;
 
-            if (!GameSaveSession.Set("currentCheckPoint", CurrCheckPointIndex + 1)) return;
+            if (!GameSaveSession.Set("currentCheckPoint", CurrCheckPointIndex + 1)) return false;
             _deathsSinceLastSkip = 0;
             _skipCheckpointButton.gameObject.SetActive(false);
             GameSaveSession.Save();
-            RestartGame();
+            _sceneLoader.LoadScene();
+            return true;
         }
 
         public Enemy SpawnRequest(EnemySpawnPoint enemySpawnPoint)

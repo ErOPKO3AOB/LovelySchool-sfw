@@ -27,6 +27,8 @@ namespace Game
             GameReadyAPI.SafeStartGame();
             //YG2.GameplayStop();
             UniWebBridge.Game.GameplayStop();
+            if (!_endCutscene)
+                StartCoroutine(GameSaveSession.Instance.EnsureLoaded());
 
             UniWebBridge.Localization.SetLanguage("en");
 
@@ -150,7 +152,7 @@ namespace Game
         private void AnimationEnd()
         {
             //YG2.SaveProgress();
-            GameSaveSession.Save();
+            if (_endCutscene) GameSaveSession.Save();
             _sceneLoader.LoadScene();
         }
 

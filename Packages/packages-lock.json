@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.erop-k.uniwebkit": {
-      "version": "https://github.com/ErOPKO3AOB/UniWebKit.git",
+      "version": "https://github.com/ErOPKO3AOB/UniWebKit.git#cb3a5aaf5b746082c4509ab81d47c9c2988ede09",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "f6a422016fc4806a6e70a4ea20c5cf142e31019b"
+      "hash": "cb3a5aaf5b746082c4509ab81d47c9c2988ede09"
     },
     "com.kyrylokuzyk.primetween": {
       "version": "file:../Packages/com.kyrylokuzyk.primetween.tgz",

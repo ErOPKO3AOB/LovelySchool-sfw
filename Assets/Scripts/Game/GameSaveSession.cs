@@ -11,6 +11,7 @@ public sealed class GameSaveSession : MonoBehaviour
 #else
     private const PlayerStorageMode StorageMode = PlayerStorageMode.Preferred;
 #endif
+    private const double StartupLoadTimeoutSeconds = 8;
     private static GameSaveSession _instance;
     private bool _loading, _saveRequested, _saving, _quitting;
     private string _loadError;
@@ -36,21 +37,37 @@ public sealed class GameSaveSession : MonoBehaviour
             if (!_loading && _loadError == null && !UniWebBridge.Player.IsBusy)
             {
                 _loading = true;
-                UniWebBridge.Player.Load(result =>
-                {
-                    _loading = false;
-                    if (this == null) return;
-                    if (!result.IsSuccess && !UniWebBridge.Player.IsReady)
-                    {
-                        _loadError = result.Error?.ToString() ?? "Unknown storage error";
-                        Debug.LogError("[Saves] " + _loadError);
-                    }
-                    else if (!result.IsSuccess || result.IsFallback)
-                        Debug.LogWarning("[Saves] Using local progress: " + (result.Error ?? result.CloudError));
-                }, StorageMode);
+                StartCoroutine(LoadProgress(UniWebBridge.Player));
             }
             if (!UniWebBridge.Player.IsReady) yield return null;
         }
+    }
+
+    private IEnumerator LoadProgress(IPlayerProvider player)
+    {
+        double deadline = Time.realtimeSinceStartupAsDouble + StartupLoadTimeoutSeconds;
+        var operation = player.Load(mode: StorageMode);
+        while (!operation.IsCompleted && Time.realtimeSinceStartupAsDouble < deadline)
+            yield return null;
+
+        if (!operation.IsCompleted)
+        {
+            // A late cloud reply must not replace progress once gameplay has started.
+            operation.Cancel();
+            Debug.LogWarning("[Saves] Cloud load timed out at startup. Loading local progress for this session.");
+            operation = player.Load(mode: PlayerStorageMode.LocalOnly);
+        }
+
+        while (!operation.IsCompleted) yield return null;
+        _loading = false;
+        var result = operation.Result;
+        if (!result.IsSuccess && !player.IsReady)
+        {
+            _loadError = result.Error?.ToString() ?? "Unknown storage error";
+            Debug.LogError("[Saves] " + _loadError);
+        }
+        else if (!result.IsSuccess || result.IsFallback)
+            Debug.LogWarning("[Saves] Using local progress: " + (result.Error ?? result.CloudError));
     }
 
     public static bool Set<T>(string key, T value)
