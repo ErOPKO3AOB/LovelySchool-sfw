@@ -33,6 +33,7 @@ namespace Assets.Scripts.Player
 
         public List<Weapon> Weapons => _weapons;
         public int CurrentWeaponIndex => _currentWeaponIndex;
+        internal bool IsWeaponAttacking => _weapons.Count > 0 && _weapons[_currentWeaponIndex].IsAttacking;
 
         public bool HasNotMelee { get; private set; }
 

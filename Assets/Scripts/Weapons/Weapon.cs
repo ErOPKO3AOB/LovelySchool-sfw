@@ -76,6 +76,7 @@ namespace Game
         public int Reserve { get { return reserve; } set { reserve = value; } }
         public bool IsMelee => isMelee;
         public bool IsReloading => isReloading;
+        internal bool IsAttacking => isActionHeld || (isMelee ? meleeCooldownTimer : shootCooldownTimer) > 0f;
         public Camera Camera { get; set; }
 
         private Rigidbody _rigidbody;
@@ -137,29 +138,25 @@ namespace Game
 
         public void StartShoot()
         {
-            if (_gameController.IsPaused || _playerFacade.LegController.IsKicking) return;
+            if (_gameController.IsPaused) return;
 
-            if (isMelee)
+            if (isMelee ? meleeCanHold : canHold)
             {
-                if (meleeCanHold)
-                {
-                    isActionHeld = true;
-                }
-                else
-                {
-                    if (meleeCooldownTimer <= 0f)
-                    {
-                        meleeCooldownTimer = meleeCooldown;
-                        PerformMelee();
-                    }
-                }
+                isActionHeld = true;
                 return;
             }
 
-            if (canHold)
-                isActionHeld = true;
-            else
+            if (_playerFacade.LegController.BlocksWeaponAttacks) return;
+
+            if (!isMelee)
+            {
                 Shoot();
+                return;
+            }
+
+            if (meleeCooldownTimer > 0f) return;
+            meleeCooldownTimer = meleeCooldown;
+            PerformMelee();
         }
 
         public void StopShoot()
@@ -233,7 +230,7 @@ namespace Game
 
         public void Reload()
         {
-            if (isReloading || ammo >= maxAmmo || isMelee || reserve <= 0 || _playerFacade.LegController.IsKicking) return;
+            if (isReloading || ammo >= maxAmmo || isMelee || reserve <= 0 || _playerFacade.LegController.BlocksWeaponAttacks) return;
 
             isReloading = true;
             reloadTimer = 0f;
@@ -295,7 +292,7 @@ namespace Game
                 return;
             }
 
-            if (isActionHeld && !_playerFacade.LegController.IsKicking)
+            if (isActionHeld && !_playerFacade.LegController.BlocksWeaponAttacks)
             {
                 if (isMelee && meleeCanHold)
                 {

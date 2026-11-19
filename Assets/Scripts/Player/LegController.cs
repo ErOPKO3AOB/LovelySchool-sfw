@@ -15,12 +15,17 @@ public class LegController : MonoBehaviour
     [SerializeField] private Vector3 _kickBoxSize = new Vector3(0.6f, 0.6f, 0.1f); // толщина бокаста
 
     private float _cooldownTimer = 0f;
+    private bool _blockWeaponDuringKick;
 
     public bool IsKicking { get; private set; }
+    internal bool BlocksWeaponAttacks => IsKicking && _blockWeaponDuringKick;
 
     public void StartKick()
     {
-        if (_cooldownTimer > 0 || _playerFacade.Health.IsDead || IsKicking) return;
+        if (_cooldownTimer > 0 || _playerFacade.Health.IsDead || IsKicking || !_animator.isActiveAndEnabled) return;
+
+        _blockWeaponDuringKick = _playerFacade.Inventory.IsWeaponAttacking;
+        IsKicking = true;
 
         _animator.SetTrigger("KickPerform");
         _v1BodyAnimator.SetTrigger("KickPerform");
@@ -28,7 +33,6 @@ public class LegController : MonoBehaviour
 
     public void KickPerform()
     {
-        IsKicking = true;
         Transform player = _playerFacade.transform;
         Vector3 kickOrigin = player.position - player.up * 0.25f;
         kickOrigin = new Vector3(kickOrigin.x + 0.25f, kickOrigin.y, kickOrigin.z);
@@ -66,6 +70,11 @@ public class LegController : MonoBehaviour
     {
         IsKicking = false;
         _v1BodyAnimator.ResetTrigger("KickPerform");
+    }
+
+    private void OnDisable()
+    {
+        IsKicking = false;
     }
 
     private void Update()
