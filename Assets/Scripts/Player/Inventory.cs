@@ -2,6 +2,7 @@ using Assets.Scripts.Input;
 using Game;
 using Player;
 using PrimeTween;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -36,6 +37,7 @@ namespace Assets.Scripts.Player
         internal bool IsWeaponAttacking => _weapons.Count > 0 && _weapons[_currentWeaponIndex].IsAttacking;
 
         public bool HasNotMelee { get; private set; }
+        public bool HasExitKey { get; private set; }
 
         public UnityAction<Weapon> OnWeaponPickUp;
         public UnityAction<Weapon> OnWeaponSwap;
@@ -135,6 +137,13 @@ namespace Assets.Scripts.Player
             {
                 GameObject hitObject = hit.collider.gameObject;
 
+                if (hitObject.TryGetComponent<ExitKeyPickup>(out var exitKey))
+                {
+                    HasExitKey = true;
+                    Destroy(exitKey.gameObject);
+                    return;
+                }
+
                 if (_weapons.Count != 0 && hitObject.layer == LayerMask.NameToLayer("AmmoOutline"))
                 {
                     PickupAmmo(hitObject);
@@ -158,6 +167,7 @@ namespace Assets.Scripts.Player
                 else if (hitObject.TryGetComponent<BusLoader>(out var busLoader))
                 {
                     busLoader.GetInBus();
+                    return;
                 }
             }
 
@@ -168,14 +178,22 @@ namespace Assets.Scripts.Player
         }
 
         // Bullshit method bro
-        public bool CheckForHitTarget()
+        public Tuple<bool, ItemGameName> CheckForHitTarget()
         {
             Ray ray = new(_camera.transform.position, _camera.transform.forward);
-            return Physics.Raycast(ray, out RaycastHit hit, _armLength) && hit.collider != null &&
+            bool itemHit = Physics.Raycast(ray, out RaycastHit hit, _armLength) && hit.collider != null &&
                 (_weapons.Count != 0 && hit.collider.gameObject.layer == LayerMask.NameToLayer("AmmoOutline")
                 || hit.collider.gameObject.TryGetComponent<EnemyOutliner>(out _)
                 || hit.collider.gameObject.TryGetComponent<Weapon>(out _)
+                || hit.collider.gameObject.TryGetComponent<ExitKeyPickup>(out _)
                 || hit.collider.gameObject.TryGetComponent<BusLoader>(out _));
+            
+            ItemGameName itemGameName = null;
+            if (itemHit)
+            {
+                hit.collider.gameObject.TryGetComponent<ItemGameName>(out itemGameName);
+            }
+            return new Tuple<bool, ItemGameName>(itemHit, itemGameName);
         }
 
         private void PickupWeapon(Weapon weapon)

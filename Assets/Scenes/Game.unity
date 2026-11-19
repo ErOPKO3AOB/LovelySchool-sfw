@@ -140892,6 +140892,7 @@ MonoBehaviour:
   _messageBackground: {fileID: 1485633139}
   _startEnemies: {fileID: 1163194301}
   _winningSceneLoader: {fileID: 1912890893}
+  _exitKeyPrefab: {fileID: 6202248377633566001, guid: 609cad5eb478dd849beaf2705286bdf7, type: 3}
   _restartButton: {fileID: 437565240}
   _skipCheckpointButton: {fileID: 1095537729}
   _skipText: {fileID: 362107474}
@@ -353992,10 +353993,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5d122bba4074964c8e9bf064893ef40, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OnEnteredTrigger
+  m_EditorClassIdentifier: Assembly-CSharp::BusLoader
   _playerLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  _gameController: {fileID: 1003872888}
   OnBusGet:
     m_PersistentCalls:
       m_Calls:

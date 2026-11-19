@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 4492303450099837183}
   - component: {fileID: 7263677153749522748}
   - component: {fileID: 70467418731772110}
+  - component: {fileID: 8626835762445431704}
   m_Layer: 0
   m_Name: SniperRifle
   m_TagString: Untagged
@@ -539,6 +540,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8626835762445431704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270044744565128922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3cff0915210d147b2b5ba3227eefe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemGameName
+  ru: "\u0421\u043D\u0430\u0439\u043F\u0435\u0440\u0441\u043A\u0430\u044F \u0432\u0438\u043D\u0442\u043E\u0432\u043A\u0430"
+  en: Sniper rifle
 --- !u!1 &9216334342594350136
 GameObject:
   m_ObjectHideFlags: 0

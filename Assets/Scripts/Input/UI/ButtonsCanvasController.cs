@@ -47,6 +47,7 @@ namespace Assets.Scripts.Input.UI
         [SerializeField] private Sprite _shootSprite;
         [SerializeField] private List<GameObject> _hintTexts = new();
         [SerializeField] private GameObject _armHint;
+        [SerializeField] private TMP_Text _armHintText;
 
 
         private readonly List<Button> _inventorySlots = new();
@@ -115,10 +116,25 @@ namespace Assets.Scripts.Input.UI
                 }
 
                 yield return seconds;
-                bool hitTarget = _inventory.CheckForHitTarget();
-                _attackButtonImageTarget.sprite = hitTarget
+                var hitTuple = _inventory.CheckForHitTarget();
+                _attackButtonImageTarget.sprite = hitTuple.Item1
                 ? _handSprite : _shootSprite;
-                _armHint.SetActive(hitTarget);
+                _armHint.SetActive(hitTuple.Item1);
+                
+                if (hitTuple.Item1)
+                {
+                    if (hitTuple.Item2 != null)
+                    {
+                        _armHintText.text = UniWebBridge.Localization.Language == "ru" ?
+                            $"Подобрать {hitTuple.Item2.ru}" : $"Pick up {hitTuple.Item2.en}";
+                    }
+
+                    else
+                    {
+                        _armHintText.text = UniWebBridge.Localization.Language == "ru" ?
+                            $"Использовать" : $"Use";
+                    }
+                }
             }
         }
 

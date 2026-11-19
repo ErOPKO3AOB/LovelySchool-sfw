@@ -498,6 +498,7 @@ GameObject:
   - component: {fileID: 9187298491246716343}
   - component: {fileID: -8928647096878735369}
   - component: {fileID: -5102266593014168017}
+  - component: {fileID: -6759004746733860728}
   m_Layer: 0
   m_Name: MachineGun
   m_TagString: Untagged
@@ -633,6 +634,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.16931614, y: 0.22792268, z: 0.81356}
   m_Center: {x: -0.015288696, y: 0.0012740493, z: -0.09321998}
+--- !u!114 &-6759004746733860728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8877399273502581776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3cff0915210d147b2b5ba3227eefe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemGameName
+  ru: "\u041F\u0443\u043B\u0435\u043C\u0451\u0442"
+  en: Machine gun
 --- !u!1001 &1193400850419449930
 PrefabInstance:
   m_ObjectHideFlags: 0

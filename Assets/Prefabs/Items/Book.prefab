@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2202197373559406922}
   - component: {fileID: 7413152101695422691}
   - component: {fileID: 2856153816586375641}
+  - component: {fileID: -2365758503644653270}
   m_Layer: 0
   m_Name: Book
   m_TagString: Untagged
@@ -153,6 +154,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.29, y: 0.059347965, z: 0.23719095}
   m_Center: {x: 0, y: 0.029607885, z: -0.017986739}
+--- !u!114 &-2365758503644653270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555103015471596168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3cff0915210d147b2b5ba3227eefe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemGameName
+  ru: "\u041C\u0443\u0434\u0440\u043E\u0441\u0442\u044C \u0421\u0435\u043D\u0435\u043A\u0438"
+  en: Wise of Seneca
 --- !u!1 &4832950290581205643
 GameObject:
   m_ObjectHideFlags: 0

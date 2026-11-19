@@ -142,6 +142,7 @@ MonoBehaviour:
   - {fileID: 3773626372834247926}
   - {fileID: 1766927645440016206}
   _armHint: {fileID: 8927407988861566474}
+  _armHintText: {fileID: 4701250583655763555}
 --- !u!1 &1766927645440016206
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +291,6 @@ GameObject:
   - component: {fileID: 2145773902056125320}
   - component: {fileID: 5720541317068605434}
   - component: {fileID: 4701250583655763555}
-  - component: {fileID: 739123504901200972}
   m_Layer: 5
   m_Name: MessageText
   m_TagString: Untagged
@@ -417,20 +417,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &739123504901200972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054317258643476405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0c9e3451cb55343bad1309493d7f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LocalizedText
-  _ru: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C"
-  _en: Use
 --- !u!1 &2271144552302314135
 GameObject:
   m_ObjectHideFlags: 0

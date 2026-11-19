@@ -69,6 +69,8 @@ namespace Assets.Scripts.Game.Core
         [SerializeField] private Image _messageBackground;
         [SerializeField] private GameObject _startEnemies;
         public SceneLoader _winningSceneLoader;
+        [SerializeField] private ExitKeyPickup _exitKeyPrefab;
+        private bool _exitKeyDropped;
 
         [Header("Death")]
         [SerializeField] private Button _restartButton;
@@ -395,11 +397,24 @@ namespace Assets.Scripts.Game.Core
 
         private void OnEnemyDead(GameObject obj)
         {
-            if (obj.TryGetComponent<Enemy>(out var enemy))
-            {
-                _enemies.Remove(enemy);
-                UpdateEnemyCounter();
-            }
+            if (!obj.TryGetComponent<Enemy>(out var enemy) || !_enemies.Remove(enemy)) return;
+
+            UpdateEnemyCounter();
+            if (_enemies.Count == 0 && !_exitKeyDropped)
+                StartCoroutine(DropExitKeyAfterRoomClear(obj.transform.position));
+        }
+
+        private IEnumerator DropExitKeyAfterRoomClear(Vector3 enemyPosition)
+        {
+            // Последний враг комнаты открывает выход в своём обработчике смерти.
+            yield return null;
+
+            if (_exitKeyDropped || _enemies.Count != 0 || !_winningSceneLoader.isActiveAndEnabled ||
+                FindAnyObjectByType<EnemySpawnPoint>() != null)
+                yield break;
+
+            Instantiate(_exitKeyPrefab, enemyPosition + Vector3.up * 0.5f, _exitKeyPrefab.transform.rotation);
+            _exitKeyDropped = true;
         }
 
         public void RemoveEnemyFromList(Enemy enemy)
