@@ -1,5 +1,0 @@
-<linker>
-  <assembly fullname="UnityEngine.WebGLModule">
-    <type fullname="UnityEngine.WebGLInput" preserve="all" />
-  </assembly>
-</linker>

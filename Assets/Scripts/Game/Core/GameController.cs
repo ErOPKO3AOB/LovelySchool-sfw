@@ -346,7 +346,7 @@ namespace Assets.Scripts.Game.Core
                         _restartButton.interactable = true;
                     }
 
-                    UniWebBridge.Ads.ShowRewarded(onReward: SkipCheckpointReward, onClosed: AdClose, onError: AdError, placementId: "skip-checkpoint");
+                    _advService.ShowRewarded(onReward: SkipCheckpointReward, onClosed: AdClose, onError: AdError, placementId: "skip-checkpoint");
                 });
             }
 
