@@ -164,7 +164,7 @@ namespace Assets.Scripts.Player
                     return;
                 }
 
-                else if (hitObject.TryGetComponent<BusLoader>(out var busLoader))
+                else if (HasExitKey && hitObject.TryGetComponent<BusLoader>(out var busLoader))
                 {
                     busLoader.GetInBus();
                     return;
@@ -186,7 +186,7 @@ namespace Assets.Scripts.Player
                 || hit.collider.gameObject.TryGetComponent<EnemyOutliner>(out _)
                 || hit.collider.gameObject.TryGetComponent<Weapon>(out _)
                 || hit.collider.gameObject.TryGetComponent<ExitKeyPickup>(out _)
-                || hit.collider.gameObject.TryGetComponent<BusLoader>(out _));
+                || (HasExitKey && hit.collider.gameObject.TryGetComponent<BusLoader>(out _)));
             
             ItemGameName itemGameName = null;
             if (itemHit)
