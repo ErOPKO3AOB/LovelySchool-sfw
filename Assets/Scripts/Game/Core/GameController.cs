@@ -86,6 +86,8 @@ namespace Assets.Scripts.Game.Core
         [SerializeField] private Toggle _disableMusicToggle;
         [SerializeField] private Slider _sensitivitySlider;
         [SerializeField] private Toggle _disableHintsToggle;
+        [SerializeField] private TMP_Dropdown _graphicsQualityDropdown;
+        private GraphicsQualitySettings _graphicsQualitySettings;
 
         [Header("CheckPoints")]
         [SerializeField] private Transform[] _checkPointPositions;
@@ -169,6 +171,7 @@ namespace Assets.Scripts.Game.Core
             var language = PlayerPrefs.GetString("Language", "");
             if (string.IsNullOrWhiteSpace(language)) language = UniWebBridge.Player.Get("Language", UniWebBridge.Localization.Language);
             UniWebBridge.Localization.SetLanguage(language);
+            _graphicsQualitySettings = new GraphicsQualitySettings(_graphicsQualityDropdown, globalVolume);
 
             // Checkpoints
             if (_checkPointPositions != null && _checkPointPositions.Length > 0)
@@ -570,6 +573,7 @@ namespace Assets.Scripts.Game.Core
 
         private void OnDestroy()
         {
+            _graphicsQualitySettings?.Dispose();
             if (_startupPause) Time.timeScale = _startupTimeScale;
             if (!_initialized) return;
             _playerFacade.Health.OnDead -= OnPlayerDead;
