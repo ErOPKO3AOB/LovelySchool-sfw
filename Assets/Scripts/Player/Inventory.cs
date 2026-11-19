@@ -132,49 +132,57 @@ namespace Assets.Scripts.Player
         private void HandleUseStarted()
         {
             if (!_restored) return;
-            Ray ray = new(_camera.transform.position, _camera.transform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, _armLength) && hit.collider != null)
-            {
-                GameObject hitObject = hit.collider.gameObject;
-
-                if (hitObject.TryGetComponent<ExitKeyPickup>(out var exitKey))
-                {
-                    HasExitKey = true;
-                    Destroy(exitKey.gameObject);
-                    return;
-                }
-
-                if (_weapons.Count != 0 && hitObject.layer == LayerMask.NameToLayer("AmmoOutline"))
-                {
-                    PickupAmmo(hitObject);
-                    return;
-                }
-
-                else if (hitObject.TryGetComponent<EnemyOutliner>(out var enemyOutliner))
-                {
-                    enemyOutliner.SetOutlined();
-                    return;
-                }
-
-                else if (_weapons.Count != 0 && _weapons[_currentWeaponIndex].IsReloading) return;
-
-                else if (hitObject.TryGetComponent<Weapon>(out var weapon))
-                {
-                    PickupWeapon(weapon);
-                    return;
-                }
-
-                else if (HasExitKey && hitObject.TryGetComponent<BusLoader>(out var busLoader))
-                {
-                    busLoader.GetInBus();
-                    return;
-                }
-            }
+            if (TryUseFocusedItem()) return;
 
             if (_weapons.Count > 0)
-            {
                 _weapons[_currentWeaponIndex].StartShoot();
+        }
+
+        internal void UseFocusedItem()
+        {
+            if (_restored) TryUseFocusedItem();
+        }
+
+        private bool TryUseFocusedItem()
+        {
+            Ray ray = new(_camera.transform.position, _camera.transform.forward);
+            if (!Physics.Raycast(ray, out RaycastHit hit, _armLength) || hit.collider == null) return false;
+            GameObject hitObject = hit.collider.gameObject;
+
+            if (hitObject.TryGetComponent<ExitKeyPickup>(out var exitKey))
+            {
+                HasExitKey = true;
+                Destroy(exitKey.gameObject);
+                return true;
             }
+
+            if (_weapons.Count != 0 && hitObject.layer == LayerMask.NameToLayer("AmmoOutline"))
+            {
+                PickupAmmo(hitObject);
+                return true;
+            }
+
+            if (hitObject.TryGetComponent<EnemyOutliner>(out var enemyOutliner))
+            {
+                enemyOutliner.SetOutlined();
+                return true;
+            }
+
+            if (_weapons.Count != 0 && _weapons[_currentWeaponIndex].IsReloading) return true;
+
+            if (hitObject.TryGetComponent<Weapon>(out var weapon))
+            {
+                PickupWeapon(weapon);
+                return true;
+            }
+
+            if (HasExitKey && hitObject.TryGetComponent<BusLoader>(out var busLoader))
+            {
+                busLoader.GetInBus();
+                return true;
+            }
+
+            return false;
         }
 
         // Bullshit method bro

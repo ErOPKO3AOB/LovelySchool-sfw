@@ -42,6 +42,7 @@ namespace Assets.Scripts.Input.UI
         public Button kickButton;
         public Button dashButton;
         public Button pauseButton;
+        public Button mobileSecondUseButton;
         [SerializeField] private Image _attackButtonImageTarget;
         [SerializeField] private Sprite _handSprite;
         [SerializeField] private Sprite _shootSprite;
@@ -99,6 +100,8 @@ namespace Assets.Scripts.Input.UI
             _inventory = FindAnyObjectByType<PlayerFacade>().Inventory;
             _inventory.OnWeaponPickUp += OnWeaponPickUp;
             _inventory.OnWeaponSwap += OnWeaponSwap;
+            if (mobileSecondUseButton != null)
+                mobileSecondUseButton.onClick.AddListener(_inventory.UseFocusedItem);
             foreach (var weapon in _inventory.Weapons) OnWeaponPickUp(weapon);
             if (_inventory.Weapons.Count > 0) OnWeaponSwap(_inventory.Weapons[_inventory.CurrentWeaponIndex]);
             else reloadButton.gameObject.SetActive(false);
@@ -120,6 +123,9 @@ namespace Assets.Scripts.Input.UI
                 _attackButtonImageTarget.sprite = hitTuple.Item1
                 ? _handSprite : _shootSprite;
                 _armHint.SetActive(hitTuple.Item1);
+
+                if (mobileSecondUseButton != null)
+                    mobileSecondUseButton.gameObject.SetActive(UniWebBridge.Envir.IsMobile && hitTuple.Item1);
                 
                 if (hitTuple.Item1)
                 {
@@ -223,6 +229,8 @@ namespace Assets.Scripts.Input.UI
             {
                 _inventory.OnWeaponPickUp -= OnWeaponPickUp;
                 _inventory.OnWeaponSwap -= OnWeaponSwap;
+                if (mobileSecondUseButton != null)
+                    mobileSecondUseButton.onClick.RemoveListener(_inventory.UseFocusedItem);
             }
             OnSlotChoose = null;
             joystick.OnDash.RemoveAllListeners();
